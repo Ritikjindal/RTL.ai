@@ -1,0 +1,52 @@
+OpenSTA 3.1.0 a89c2acc4e Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: _48_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _55_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+            0.000    0.000    0.000 ^ _48_/CK (DFF_X1)
+   6.895    0.019    0.096    0.096 ^ _48_/Q (DFF_X1)
+            0.019    0.000    0.096 ^ _30_/A4 (AND4_X1)
+   7.665    0.025    0.078    0.174 ^ _30_/ZN (AND4_X1)
+            0.025    0.000    0.174 ^ _31_/A3 (AND3_X1)
+   7.615    0.023    0.064    0.238 ^ _31_/ZN (AND3_X1)
+            0.023    0.000    0.238 ^ _46_/B2 (AOI21_X1)
+   1.553    0.009    0.017    0.255 v _46_/ZN (AOI21_X1)
+            0.009    0.000    0.255 v _47_/A3 (NOR3_X1)
+   1.140    0.023    0.044    0.299 ^ _47_/ZN (NOR3_X1)
+            0.023    0.000    0.299 ^ _55_/D (DFF_X1)
+                              0.299   data arrival time
+
+            0.000   10.000   10.000   clock clk (rise edge)
+                     0.000   10.000   clock network delay (ideal)
+                    -0.100    9.900   clock uncertainty
+                     0.000    9.900   clock reconvergence pessimism
+                              9.900 ^ _55_/CK (DFF_X1)
+                    -0.035    9.865   library setup time
+                              9.865   data required time
+---------------------------------------------------------------------------
+                              9.865   data required time
+                             -0.299   data arrival time
+---------------------------------------------------------------------------
+                              9.566   slack (MET)
+
+
+wns max 0.00
+tns max 0.00
+Clock clk
+   0.00 source latency _48_/CK ^
+   0.00 target latency _48_/CK ^
+   0.10 clock uncertainty
+   0.00 CRPR
+--------------
+   0.10 setup skew
+

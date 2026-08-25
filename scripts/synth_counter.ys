@@ -1,0 +1,21 @@
+read_verilog ../designs/counter.v
+
+hierarchy -top counter
+
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+
+dfflibmap -liberty ../lib/NangateOpenCellLibrary_typical.lib
+abc -liberty ../lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+write_verilog ../netlist/counter_synth.v
+
+tee -o ../reports/area.rpt stat -liberty ../lib/NangateOpenCellLibrary_typical.lib
