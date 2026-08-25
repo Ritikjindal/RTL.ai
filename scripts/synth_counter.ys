@@ -4,18 +4,18 @@ hierarchy -top counter
 
 proc
 opt
-fsm
-opt
+
 memory
 opt
+
 techmap
 opt
 
 dfflibmap -liberty ../lib/NangateOpenCellLibrary_typical.lib
+stat
+
 abc -liberty ../lib/NangateOpenCellLibrary_typical.lib
 
 clean
 
-write_verilog ../netlist/counter_synth.v
-
-tee -o ../reports/area.rpt stat -liberty ../lib/NangateOpenCellLibrary_typical.lib
+write_verilog -noattr ../netlist/counter_netlist.v

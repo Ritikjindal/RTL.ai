@@ -1,339 +1,271 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
+import subprocess
+import sys
 import re
 
 
 # ============================================================
-# RTL.ai - PPA Report Analyzer
+# RTL.ai - Automated RTL Analysis Flow
 # ============================================================
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-REPORTS_DIR = PROJECT_ROOT / "reports"
 
-AREA_REPORT = REPORTS_DIR / "area.rpt"
-TIMING_REPORT = REPORTS_DIR / "timing.rpt"
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+DESIGN_DIR = PROJECT_ROOT / "designs"
+NETLIST_DIR = PROJECT_ROOT / "netlist"
+REPORT_DIR = PROJECT_ROOT / "reports"
+
+SYNTH_SCRIPT = SCRIPTS_DIR / "synth_counter.ys"
+STA_SCRIPT = SCRIPTS_DIR / "sta_counter.tcl"
+
+NETLIST_FILE = NETLIST_DIR / "counter_netlist.v"
+TIMING_REPORT = REPORT_DIR / "timing_auto.rpt"
+
+LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
 
 
 # ============================================================
-# File utilities
+# Utility functions
 # ============================================================
 
-def read_report(path):
+def run_command(command, cwd=None):
+    print("\nCommand:")
+    print(" ".join(str(x) for x in command))
+    print()
+
+    result = subprocess.run(
+        command,
+        cwd=cwd,
+        text=True
+    )
+
+    if result.returncode != 0:
+        print("\n==============================================")
+        print("RTL.ai FLOW FAILED")
+        print("==============================================")
+        print(f"Command failed with return code {result.returncode}")
+        sys.exit(result.returncode)
+
+
+def check_file(path, name):
     if not path.exists():
-        raise FileNotFoundError(f"Report not found: {path}")
-
-    return path.read_text()
-
-
-def extract_number(pattern, text, default=None):
-    match = re.search(pattern, text)
-
-    if match:
-        return float(match.group(1))
-
-    return default
+        print(f"\nERROR: {name} not found:")
+        print(path)
+        sys.exit(1)
 
 
 # ============================================================
-# AREA ANALYSIS
+# Create directories
 # ============================================================
 
-def analyze_area():
+NETLIST_DIR.mkdir(exist_ok=True)
+REPORT_DIR.mkdir(exist_ok=True)
 
-    text = read_report(AREA_REPORT)
 
-    total_area = extract_number(
-        r"Chip area for module.*?:\s*([0-9.]+)",
-        text
-    )
+print("=" * 70)
+print("RTL.ai - Automated RTL Analysis Flow")
+print("=" * 70)
 
-    sequential_area = extract_number(
-        r"used for sequential elements:\s*([0-9.]+)",
-        text
-    )
-
-    sequential_percent = extract_number(
-        r"\(([0-9.]+)%\)",
-        text
-    )
-
-    # Flip-flops from the cell table
-    flip_flops = extract_number(
-        r"\n\s*(\d+)\s+DFF_X1",
-        text
-    )
-
-    if total_area is not None and sequential_area is not None:
-        combinational_area = total_area - sequential_area
-    else:
-        combinational_area = None
-
-    return {
-        "total_area": total_area,
-        "sequential_area": sequential_area,
-        "combinational_area": combinational_area,
-        "sequential_percent": sequential_percent,
-        "flip_flops": flip_flops,
-    }
+print(f"Project root: {PROJECT_ROOT}")
 
 
 # ============================================================
-# TIMING ANALYSIS
+# STEP 1 - Yosys synthesis
 # ============================================================
 
-def analyze_timing():
+print("\n" + "=" * 70)
+print("STEP 1/3 - Yosys Synthesis")
+print("=" * 70)
 
-    text = read_report(TIMING_REPORT)
+check_file(SYNTH_SCRIPT, "Yosys synthesis script")
+check_file(DESIGN_DIR / "counter.v", "RTL design")
+check_file(LIB_FILE, "Standard-cell library")
 
-    wns = extract_number(
-        r"wns max\s+([-0-9.]+)",
-        text
-    )
+run_command(
+    [
+        "yosys",
+        "-s",
+        str(SYNTH_SCRIPT)
+    ],
+    cwd=SCRIPTS_DIR
+)
 
-    tns = extract_number(
-        r"tns max\s+([-0-9.]+)",
-        text
-    )
+check_file(NETLIST_FILE, "Generated netlist")
 
-    slack = extract_number(
-        r"([-0-9.]+)\s+slack\s+\(MET\)",
-        text
-    )
-
-    # Use worst path slack to determine timing status.
-    if slack is not None:
-        timing_pass = slack >= 0
-    else:
-        timing_pass = False
-
-    return {
-        "wns": wns,
-        "tns": tns,
-        "slack": slack,
-        "timing_pass": timing_pass,
-    }
+print("\nYosys synthesis completed successfully.")
+print(f"Generated netlist: {NETLIST_FILE}")
 
 
 # ============================================================
-# RECOMMENDATION ENGINE
+# STEP 2 - OpenSTA
 # ============================================================
 
-def generate_recommendation(area, timing):
+print("\n" + "=" * 70)
+print("STEP 2/3 - OpenSTA Timing Analysis")
+print("=" * 70)
 
-    slack = timing["slack"]
+check_file(STA_SCRIPT, "OpenSTA script")
 
-    area_value = area["total_area"]
+# Remove old report so that we don't accidentally
+# interpret an old report as a new successful run.
+if TIMING_REPORT.exists():
+    TIMING_REPORT.unlink()
 
-    print()
-    print("RECOMMENDATION")
-    print("-" * 60)
+run_command(
+    [
+        "sta",
+        "-exit",
+        str(STA_SCRIPT)
+    ],
+    cwd=SCRIPTS_DIR
+)
 
-    if slack is None:
-        print("Unable to determine timing status.")
-        return
+# IMPORTANT:
+# Do not claim success unless the report was actually created.
+if not TIMING_REPORT.exists():
+    print("\n==============================================")
+    print("RTL.ai FLOW FAILED")
+    print("==============================================")
+    print("OpenSTA finished without creating the timing report.")
+    print(f"Expected report: {TIMING_REPORT}")
+    sys.exit(1)
 
-    if slack < 0:
-        print("Timing violation detected.")
-        print("Priority: PERFORMANCE / TIMING OPTIMIZATION")
-
-    elif slack < 1.0:
-        print("Timing is met, but the timing margin is small.")
-        print("Priority: TIMING OPTIMIZATION")
-
-    else:
-        print("Timing is comfortably met.")
-
-        if area_value is not None:
-            print("Priority: AREA OPTIMIZATION")
-        else:
-            print("Area data unavailable.")
-
-    print()
+print("\nOpenSTA timing analysis completed successfully.")
+print(f"Generated timing report: {TIMING_REPORT}")
 
 
 # ============================================================
-# REPORT
+# STEP 3 - Analyze timing and generate recommendation
 # ============================================================
 
-def print_report(area, timing):
+print("\n" + "=" * 70)
+print("STEP 3/3 - Timing Analysis & Recommendation")
+print("=" * 70)
 
-    print()
-    print("=" * 60)
-    print("                     RTL.ai")
-    print("                  PPA ANALYSIS")
-    print("=" * 60)
 
-    # --------------------------------------------------------
-    # DESIGN
-    # --------------------------------------------------------
+report_text = TIMING_REPORT.read_text(errors="ignore")
 
-    print()
-    print("DESIGN")
-    print("-" * 60)
 
-    print("Design                  : counter")
+# ------------------------------------------------------------
+# Extract worst slack
+# ------------------------------------------------------------
 
-    # --------------------------------------------------------
-    # AREA
-    # --------------------------------------------------------
+slack_match = re.search(
+    r"([-+]?\d+\.\d+)\s+slack\s+\(MET\)",
+    report_text
+)
 
-    print()
-    print("AREA")
-    print("-" * 60)
+if slack_match:
+    slack = float(slack_match.group(1))
+else:
+    slack = None
 
-    if area["total_area"] is not None:
-        print(f"Total Area             : {area['total_area']:.3f}")
-    else:
-        print("Total Area             : N/A")
 
-    if area["sequential_area"] is not None:
+# ------------------------------------------------------------
+# Extract data arrival time
+# ------------------------------------------------------------
+
+arrival_match = re.search(
+    r"([-+]?\d+\.\d+)\s+data arrival time",
+    report_text
+)
+
+arrival_time = float(arrival_match.group(1)) if arrival_match else None
+
+
+# ------------------------------------------------------------
+# Extract data required time
+# ------------------------------------------------------------
+
+required_match = re.search(
+    r"([-+]?\d+\.\d+)\s+data required time",
+    report_text
+)
+
+required_time = (
+    float(required_match.group(1))
+    if required_match
+    else None
+)
+
+
+# ============================================================
+# Display results
+# ============================================================
+
+print("\nTiming Summary")
+print("-" * 40)
+
+if slack is not None:
+    print(f"Worst Slack        : {slack:.3f} ns")
+else:
+    print("Worst Slack        : Not found")
+
+if arrival_time is not None:
+    print(f"Data Arrival Time  : {arrival_time:.3f} ns")
+else:
+    print("Data Arrival Time  : Not found")
+
+if required_time is not None:
+    print(f"Data Required Time : {required_time:.3f} ns")
+else:
+    print("Data Required Time : Not found")
+
+
+# ============================================================
+# Recommendation
+# ============================================================
+
+print("\nRecommendation")
+print("-" * 40)
+
+if slack is None:
+
+    print("Unable to determine timing status from the report.")
+
+elif slack < 0:
+
+    print("TIMING VIOLATION detected.")
+    print("Recommendation: optimize the critical timing path.")
+
+    if arrival_time is not None:
         print(
-            f"Sequential Area        : "
-            f"{area['sequential_area']:.3f}"
+            f"The critical path requires approximately "
+            f"{arrival_time:.3f} ns of propagation delay."
+        )
+
+    print("Possible optimizations:")
+    print("- Reduce combinational logic depth.")
+    print("- Optimize high-fanout nets.")
+    print("- Use faster standard cells where appropriate.")
+    print("- Consider restructuring the RTL.")
+
+else:
+
+    print("TIMING PASSED.")
+    print("No setup timing violation was detected.")
+
+    if slack > 1.0:
+        print(
+            "There is substantial positive timing margin. "
+            "The design may have room for area or power optimization."
         )
     else:
-        print("Sequential Area        : N/A")
-
-    if area["combinational_area"] is not None:
         print(
-            f"Combinational Area     : "
-            f"{area['combinational_area']:.3f}"
+            "Timing margin is relatively small. "
+            "Further RTL changes should be made carefully."
         )
-    else:
-        print("Combinational Area     : N/A")
 
-    if area["sequential_percent"] is not None:
-        print(
-            f"Sequential Area %      : "
-            f"{area['sequential_percent']:.2f}%"
-        )
-    else:
-        print("Sequential Area %      : N/A")
-
-    if area["flip_flops"] is not None:
-        print(
-            f"Flip-Flops             : "
-            f"{int(area['flip_flops'])}"
-        )
-    else:
-        print("Flip-Flops             : N/A")
-
-    # --------------------------------------------------------
-    # TIMING
-    # --------------------------------------------------------
-
-    print()
-    print("TIMING")
-    print("-" * 60)
-
-    if timing["wns"] is not None:
-        print(f"WNS                    : {timing['wns']:.3f} ns")
-    else:
-        print("WNS                    : N/A")
-
-    if timing["tns"] is not None:
-        print(f"TNS                    : {timing['tns']:.3f} ns")
-    else:
-        print("TNS                    : N/A")
-
-    if timing["slack"] is not None:
-        print(
-            f"Worst Slack            : "
-            f"{timing['slack']:.3f} ns"
-        )
-    else:
-        print("Worst Slack            : N/A")
-
-    # --------------------------------------------------------
-    # STATUS
-    # --------------------------------------------------------
-
-    print()
-    print("STATUS")
-    print("-" * 60)
-
-    if timing["timing_pass"]:
-        print("Timing                 : PASS")
-    else:
-        print("Timing                 : FAIL")
-
-    # --------------------------------------------------------
-    # Recommendation
-    # --------------------------------------------------------
-
-    generate_recommendation(area, timing)
-
-    # --------------------------------------------------------
-    # PPA SCORE
-    # --------------------------------------------------------
-
-    ppa_score = calculate_ppa_score(
-        area["total_area"],
-        timing["slack"]
-    )
-
-    print()
-    print("PPA SCORE")
-    print("-" * 60)
-
-    if ppa_score is not None:
-        print(f"PPA Score              : {ppa_score:.3f}")
-    else:
-        print("PPA Score              : N/A")
-
-    print()
-    print("=" * 60)
-    print()
-
-def calculate_ppa_score(area, slack):
-    """
-    Calculate a simple PPA score.
-
-    Lower area is better.
-    Higher timing slack is better.
-    """
-
-    if area <= 0:
-        return None
-
-    timing_factor = 1.0
-
-    if slack < 0:
-        timing_factor += abs(slack) * 10
-    else:
-        timing_factor = 1.0 / (1.0 + slack)
-
-    score = area * timing_factor
-
-    return score
 
 # ============================================================
-# MAIN
+# Final result
 # ============================================================
 
-def main():
+print("\n" + "=" * 70)
+print("RTL.ai FLOW COMPLETED SUCCESSFULLY")
+print("=" * 70)
 
-    try:
-
-        area = analyze_area()
-        timing = analyze_timing()
-        print_report(area, timing)
-
-    except FileNotFoundError as error:
-
-        print()
-        print(f"ERROR: {error}")
-        print()
-        print("Run the RTL synthesis/STA flow first.")
-        print()
-
-    except Exception as error:
-
-        print()
-        print(f"ERROR: {error}")
-        print()
-
-
-if __name__ == "__main__":
-    main()
+print(f"\nNetlist : {NETLIST_FILE}")
+print(f"Report  : {TIMING_REPORT}")
