@@ -26,9 +26,9 @@ TIMING_REPORT = REPORT_DIR / "timing_auto.rpt"
 LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
 
 
-# ============================================================
+# ===========================================================
 # Utility functions
-# ============================================================
+# ===========================================================
 
 def run_command(command, cwd=None):
     print("\nCommand:")
