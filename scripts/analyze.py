@@ -23,6 +23,7 @@ STA_SCRIPT = SCRIPTS_DIR / "sta_counter.tcl"
 NETLIST_FILE = NETLIST_DIR / "counter_netlist.v"
 JSON_NETLIST_FILE = NETLIST_DIR / "counter_netlist.json"
 TIMING_REPORT = REPORT_DIR / "timing_auto.rpt"
+POWER_REPORT = REPORT_DIR / "power_auto.rpt"
 
 LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
 
@@ -186,6 +187,9 @@ check_file(STA_SCRIPT, "OpenSTA script")
 if TIMING_REPORT.exists():
     TIMING_REPORT.unlink()
 
+if POWER_REPORT.exists():
+    POWER_REPORT.unlink()
+
 run_command(
     [
         "sta",
@@ -205,9 +209,17 @@ if not TIMING_REPORT.exists() or TIMING_REPORT.stat().st_size == 0:
     print(f"Expected report: {TIMING_REPORT}")
     sys.exit(1)
 
+if not POWER_REPORT.exists() or POWER_REPORT.stat().st_size == 0:
+    print("\n==============================================")
+    print("RTL.ai FLOW FAILED")
+    print("==============================================")
+    print("OpenSTA did not generate a valid power report.")
+    print(f"Expected report: {POWER_REPORT}")
+    sys.exit(1)
+
 print("\nOpenSTA timing analysis completed successfully.")
 print(f"Generated timing report: {TIMING_REPORT}")
-
+print(f"Generated power report: {POWER_REPORT}")
 
 # ============================================================
 # STEP 3 - Analyze timing and generate recommendation
@@ -219,6 +231,37 @@ print("=" * 70)
 
 
 report_text = TIMING_REPORT.read_text(errors="ignore")
+power_report_text = POWER_REPORT.read_text(errors="ignore")
+
+# ============================================================
+# Extract power
+# ============================================================
+
+internal_power = None
+switching_power = None
+leakage_power = None
+total_power = None
+
+# OpenSTA reports power in Watts.
+#
+# Example:
+#
+# Total  1.23e-06  4.56e-07  7.89e-09  1.80e-06
+
+power_match = re.search(
+    r"Total\s+"
+    r"([0-9.eE+-]+)\s+"
+    r"([0-9.eE+-]+)\s+"
+    r"([0-9.eE+-]+)\s+"
+    r"([0-9.eE+-]+)",
+    power_report_text
+)
+
+if power_match:
+    internal_power = float(power_match.group(1))
+    switching_power = float(power_match.group(2))
+    leakage_power = float(power_match.group(3))
+    total_power = float(power_match.group(4))
 
 
 # ------------------------------------------------------------
@@ -264,65 +307,72 @@ required_time = (
 )
 
 # ============================================================
-# PPA-ORIENTED SCORE
+# PPA SCORE
 # ============================================================
 
-# These are target values for the current RTL.ai benchmark.
-# They can later be changed or automatically learned from
-# previous design runs.
-
 TARGET_AREA = 60.0       # µm²
+TARGET_POWER = 10.0      # µW
 TARGET_SLACK = 1.0       # ns
-TARGET_FF = 8             # reference FF count
 
 
 def clamp(value, minimum=0.0, maximum=100.0):
     return max(minimum, min(maximum, value))
 
 
-ppa_score = None
 area_score = None
 timing_score = None
-ff_score = None
+power_score = None
+ppa_score = None
 
+
+# ------------------------------------------------------------
+# Area score
+# ------------------------------------------------------------
 
 if cell_area is not None:
-    # Smaller area is better.
     area_score = clamp(
         (TARGET_AREA / cell_area) * 100.0
     )
 
 
+# ------------------------------------------------------------
+# Timing / performance score
+# ------------------------------------------------------------
+
 if slack is not None:
-    # Positive slack is good.
-    #
-    # 1 ns or more = 100 timing points.
-    # Negative slack = 0 timing points.
+
     timing_score = clamp(
         (slack / TARGET_SLACK) * 100.0
     )
 
 
-if flip_flops is not None:
-    # Fewer FFs are preferred.
-    ff_score = clamp(
-        (TARGET_FF / flip_flops) * 100.0
+# ------------------------------------------------------------
+# Power score
+# ------------------------------------------------------------
+
+if total_power is not None:
+
+    power_uW = total_power * 1e6
+
+    power_score = clamp(
+        (TARGET_POWER / power_uW) * 100.0
     )
 
 
 # ------------------------------------------------------------
-# Combine available metrics
+# Overall PPA score
 # ------------------------------------------------------------
 
-if area_score is not None and timing_score is not None:
-
-    # Area and timing are currently weighted equally.
-    # Power will be added when actual power estimation
-    # is implemented.
+if (
+    area_score is not None
+    and timing_score is not None
+    and power_score is not None
+):
 
     ppa_score = (
-        0.50 * area_score +
-        0.50 * timing_score
+        0.40 * area_score +
+        0.30 * timing_score +
+        0.30 * power_score
     )
 
 # ============================================================
@@ -365,11 +415,35 @@ if required_time is not None:
 else:
     print("Data Required Time : Not found")
 
+print("\nPower Summary")
+print("-" * 40)
+
+if internal_power is not None:
+    print(f"Internal Power     : {internal_power * 1e6:.3f} µW")
+else:
+    print("Internal Power     : Not found")
+
+if switching_power is not None:
+    print(f"Switching Power    : {switching_power * 1e6:.3f} µW")
+else:
+    print("Switching Power    : Not found")
+
+if leakage_power is not None:
+    print(f"Leakage Power      : {leakage_power * 1e6:.3f} µW")
+else:
+    print("Leakage Power      : Not found")
+
+if total_power is not None:
+    print(f"Total Power        : {total_power * 1e6:.3f} µW")
+else:
+    print("Total Power        : Not found")
+
+
 # ============================================================
 # PPA SCORE
 # ============================================================
 
-print("\nPPA-Oriented Score")
+print("\nPPA Score")
 print("-" * 40)
 
 if area_score is not None:
@@ -378,21 +452,19 @@ else:
     print("Area Score         : Not available")
 
 if timing_score is not None:
-    print(f"Timing Score       : {timing_score:.1f} / 100")
+    print(f"Performance Score  : {timing_score:.1f} / 100")
 else:
-    print("Timing Score       : Not available")
+    print("Performance Score  : Not available")
 
-if ff_score is not None:
-    print(f"FF Efficiency      : {ff_score:.1f} / 100")
+if power_score is not None:
+    print(f"Power Score        : {power_score:.1f} / 100")
 else:
-    print("FF Efficiency      : Not available")
+    print("Power Score        : Not available")
 
 if ppa_score is not None:
-    print(f"PPA Score          : {ppa_score:.1f} / 100")
-    print("Note               : Power is not yet measured.")
-    print("                     Score currently uses area + timing.")
+    print(f"Overall PPA Score  : {ppa_score:.1f} / 100")
 else:
-    print("PPA Score          : Not available")
+    print("Overall PPA Score  : Not available")
 
 # ============================================================
 # Recommendation
@@ -427,34 +499,63 @@ else:
     print("TIMING PASSED.")
     print("No setup timing violation was detected.")
 
+    if total_power is not None:
+
+        power_uW = total_power * 1e6
+
+        print(f"Estimated Total Power: {power_uW:.3f} µW")
+
+        if power_uW > TARGET_POWER:
+            print("Power is above the target.")
+            print(
+                "Recommendation: investigate switching activity "
+                "and unnecessary logic."
+            )
+        else:
+            print("Power is within the target range.")
+
     if slack > 1.0:
-        print(
-            "There is substantial positive timing margin."
-        )
+
+        print("There is substantial positive timing margin.")
 
         if ppa_score is not None and ppa_score < 70:
+
             print(
                 "PPA score indicates that area optimization "
                 "may be beneficial."
             )
+
             print("Recommended direction:")
             print("- Reduce unnecessary combinational logic.")
             print("- Reduce cell count where possible.")
             print("- Investigate opportunities for smaller cells.")
 
         else:
+
             print(
                 "The design has a good area/timing balance."
             )
 
     else:
-        print(
-            "Timing margin is relatively small."
-        )
+
+        print("Timing margin is relatively small.")
+
         print(
             "Prioritize timing preservation during RTL optimization."
         )
+if ppa_score is not None:
 
+    print("\nPPA Assessment")
+    print("-" * 40)
+
+    if ppa_score >= 90:
+        print("Excellent PPA characteristics.")
+    elif ppa_score >= 75:
+        print("Good PPA characteristics.")
+    elif ppa_score >= 60:
+        print("Moderate PPA characteristics.")
+    else:
+        print("PPA optimization recommended.")
 # ============================================================
 # Final result
 # ============================================================

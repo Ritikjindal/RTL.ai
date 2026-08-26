@@ -1,73 +1,84 @@
 # ============================================================
-# RTL.ai - OpenSTA Timing Analysis
+# RTL.ai - OpenSTA Timing + Power Analysis
 # ============================================================
 
-# Get the directory containing this TCL script
-set SCRIPT_DIR [file dirname [file normalize [info script]]]
+set project_root ".."
 
-# Project root = parent of scripts/
-set PROJECT_ROOT [file normalize [file join $SCRIPT_DIR ".."]]
+set netlist "../netlist/counter_netlist.v"
+set sdc "../constraints/counter.sdc"
+set lib "../lib/NangateOpenCellLibrary_typical.lib"
 
-# Project paths
-set NETLIST [file join $PROJECT_ROOT "netlist" "counter_netlist.v"]
-set SDC     [file join $PROJECT_ROOT "constraints" "counter.sdc"]
-set LIB     [file join $PROJECT_ROOT "lib" "NangateOpenCellLibrary_typical.lib"]
-set REPORT  [file join $PROJECT_ROOT "reports" "timing_auto.rpt"]
+set timing_report "../reports/timing_auto.rpt"
+set power_report "../reports/power_auto.rpt"
 
 puts "=============================================="
 puts "RTL.ai - OpenSTA Timing Analysis"
 puts "=============================================="
 
-puts "Project root : $PROJECT_ROOT"
-puts "Netlist      : $NETLIST"
-puts "SDC          : $SDC"
-puts "Library      : $LIB"
-puts "Report       : $REPORT"
-puts ""
+puts "Project root : $project_root"
+puts "Netlist      : $netlist"
+puts "SDC          : $sdc"
+puts "Library      : $lib"
+puts "Report       : $timing_report"
 
-# ------------------------------------------------------------
+# ============================================================
 # Read library
-# ------------------------------------------------------------
+# ============================================================
 
-puts "Reading Liberty library..."
+puts "\nReading Liberty library..."
+read_liberty $lib
 
-read_liberty $LIB
-
-# ------------------------------------------------------------
+# ============================================================
 # Read synthesized netlist
-# ------------------------------------------------------------
+# ============================================================
 
 puts "Reading netlist..."
-
-read_verilog $NETLIST
+read_verilog $netlist
 
 link_design counter
 
-# ------------------------------------------------------------
-# Read timing constraints
-# ------------------------------------------------------------
+# ============================================================
+# Read constraints
+# ============================================================
 
 puts "Reading SDC..."
+read_sdc $sdc
 
-read_sdc $SDC
-
-# ------------------------------------------------------------
+# ============================================================
 # Timing analysis
-# ------------------------------------------------------------
+# ============================================================
 
-puts ""
-puts "Running timing analysis..."
-puts ""
+puts "\nRunning timing analysis..."
 
-report_checks -path_delay max -fields {slew cap input_pins nets fanout} > $REPORT
+report_checks \
+    -path_delay max \
+    -format full_clock_expanded \
+    > $timing_report
 
-# Also print timing summary to terminal
-report_checks -path_delay max
+# ============================================================
+# Power analysis
+# ============================================================
 
-puts ""
+puts "Running power analysis..."
+
+# Set default switching activity for primary inputs
+set_power_activity -input -activity 0.1
+
+# Clock toggles every cycle
+set_power_activity -input_ports clk -activity 1.0
+
+# Reset is assumed inactive
+set_power_activity -input_ports rst -activity 0.0
+
+# Generate power report
+report_power > $power_report
+
+puts "\n=============================================="
+puts "OpenSTA analysis completed successfully."
 puts "=============================================="
-puts "OpenSTA timing analysis completed successfully."
-puts "=============================================="
-puts ""
+
 puts "Generated timing report:"
-puts $REPORT
+puts $timing_report
+
+puts "Generated power report:"
+puts $power_report
