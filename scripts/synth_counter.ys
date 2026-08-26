@@ -12,10 +12,13 @@ techmap
 opt
 
 dfflibmap -liberty ../lib/NangateOpenCellLibrary_typical.lib
-stat
 
 abc -liberty ../lib/NangateOpenCellLibrary_typical.lib
 
 clean
 
+stat -liberty ../lib/NangateOpenCellLibrary_typical.lib
+
 write_verilog -noattr ../netlist/counter_netlist.v
+
+write_json ../netlist/counter_netlist.json
