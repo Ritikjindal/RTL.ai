@@ -1,0 +1,14 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/counter.v
+rename counter gold
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/counter_broken.v
+rename counter gate
+
+
+hierarchy -check
+
+miter -equiv -flatten -make_assert gold gate miter
+hierarchy -top miter
+flatten
+
+write_rtlil /Users/ritikjindal/rtl-ai-project/runs/formal_smoke_test/broken_check/miter.il
