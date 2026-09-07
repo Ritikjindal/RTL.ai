@@ -59,6 +59,9 @@ class RunResult:
     ppa: PPAResult = field(default_factory=PPAResult)
     timing_passed: Optional[bool] = None   # slack >= 0
     notes: list[str] = field(default_factory=list)  # free-text warnings, e.g. "area not found"
+    formal_checked: bool = False
+    formal_passed: Optional[bool] = None
+    formal_summary: Optional[str] = None
 
     def to_json(self, path: str) -> None:
         with open(path, "w") as f:

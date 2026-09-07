@@ -127,6 +127,14 @@ def print_summary(result: RunResult) -> None:
     print(f"RTL.ai — {result.design_name}")
     print("=" * 60)
 
+    print("\nFormal Equivalence")
+    if result.formal_checked:
+        print(f"  Passed  : {result.formal_passed}")
+        print(f"  Summary : {result.formal_summary}")
+    else:
+        print("  (not checked)")
+
+
     a, t, p = result.area, result.timing, result.power
 
     print("\nArea")
