@@ -12,6 +12,7 @@ from rtlai.parse_power import parse_power_report
 from rtlai.parse_netlist import build_area_result
 from rtlai.ppa import score_ppa, assess_ppa
 from rtlai.schema import RunResult
+from rtlai.formal import verify_equivalence, FormalError
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "runs"
@@ -41,7 +42,26 @@ def run_baseline() -> RunResult:
         timestamp=timestamp,
     )
 
-    print(f"[1/3] Running Yosys synthesis for '{DESIGN_NAME}'...")
+    formal_dir = run_dir / "formal"
+    print(f"[1/4] Running formal equivalence check for '{DESIGN_NAME}'...")
+    try:
+        eq_result = verify_equivalence(
+            original_rtl=RTL_FILE,
+            candidate_rtl=RTL_FILE,
+            top_module=TOP_MODULE,
+            run_dir=formal_dir,
+        )
+        result.formal_checked = True
+        result.formal_passed = eq_result.passed
+        result.formal_summary = eq_result.summary
+    except FormalError as e:
+        result.formal_checked = True
+        result.formal_passed = False
+        result.formal_summary = str(e)
+        result.notes.append(f"Formal equivalence check error: {e}")
+
+    print(f"[2/4] Running Yosys synthesis for '{DESIGN_NAME}'...")
+
     try:
         yosys_stdout = run_yosys(
             rtl_path=RTL_FILE,
@@ -62,7 +82,7 @@ def run_baseline() -> RunResult:
     else:
         result.area = build_area_result(str(netlist_json), TOP_MODULE, yosys_stdout)
 
-    print("[2/3] Running OpenSTA timing + power analysis...")
+    print("[3/4] Running OpenSTA timing + power analysis...")
     try:
         run_sta(
             netlist_v=netlist_v,
@@ -93,7 +113,7 @@ def run_baseline() -> RunResult:
 
     result.ppa = score_ppa(result.area, result.timing, result.power)
 
-    print("[3/3] Writing result.json...")
+    print("[4/4] Writing result.json...")
     result_path = run_dir / "result.json"
     result.to_json(str(result_path))
     print(f"\nResult written to: {result_path}")
