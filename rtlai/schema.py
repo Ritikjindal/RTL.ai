@@ -82,4 +82,8 @@ class RunResult:
             ppa=PPAResult(**data.get("ppa", {})),
             timing_passed=data.get("timing_passed"),
             notes=data.get("notes", []),
+            formal_checked=data.get("formal_checked", False),
+            formal_passed=data.get("formal_passed"),
+            formal_summary=data.get("formal_summary"),
+        
         )
