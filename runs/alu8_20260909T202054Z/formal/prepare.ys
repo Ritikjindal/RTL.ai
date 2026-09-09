@@ -1,0 +1,11 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/alu8_baseline.v
+rename alu8 gold
+
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/alu8_ripple_candidate.v
+rename alu8 gate
+
+hierarchy -check
+proc
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/alu8_20260909T202054Z/formal/gold_gate.v
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/alu8_20260909T202054Z/formal/ports.json

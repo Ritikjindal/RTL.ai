@@ -1,0 +1,40 @@
+{
+  "design_name": "alu8",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/designs/alu8_baseline.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/constraints/alu8.sdc",
+  "timestamp": "20260909T202054Z",
+  "timing": {
+    "worst_slack_ns": 9.38,
+    "data_arrival_time_ns": 0.49,
+    "data_required_time_ns": 9.87,
+    "startpoint": "b[1]",
+    "endpoint": "_332_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 12,
+    "max_frequency_mhz": 1612.9032258064537
+  },
+  "power": {
+    "internal_uw": 11.0,
+    "switching_uw": 3.8800000000000003,
+    "leakage_uw": 4.68,
+    "total_uw": 19.599999999999998
+  },
+  "area": {
+    "cell_area_um2": 211.47,
+    "total_cells": 167,
+    "flip_flops": 10
+  },
+  "ppa": {
+    "area_score": 28.372818839551712,
+    "timing_score": 100.0,
+    "power_score": 51.02040816326531,
+    "overall_score": 56.65524998480028
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

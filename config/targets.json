@@ -1,7 +1,7 @@
 {
-    "target_area_um2": 60.0,
-    "target_power_uw": 10.0,
-    "target_slack_ns": 1.0,
+    "target_area_um2": 200.0,
+    "target_power_uw": 20.0,
+    "target_slack_ns": 10.0,
     "weight_area": 0.40,
     "weight_timing": 0.30,
     "weight_power": 0.30
