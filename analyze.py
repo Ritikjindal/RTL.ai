@@ -21,7 +21,7 @@ RUNS_DIR = PROJECT_ROOT / "runs"
 DESIGN_NAME = "counter"
 TOP_MODULE = "counter"
 RTL_FILE = PROJECT_ROOT / "designs" / "counter.v"
-CANDIDATE_RTL = None 
+CANDIDATE_RTL = PROJECT_ROOT / "designs" / "counter_broken.v"
 SDC_FILE = PROJECT_ROOT / "constraints" / "counter.sdc"
 LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
 
@@ -109,9 +109,9 @@ def run_baseline():
         timestamp=timestamp,
     )
     print(f"      Done: {run_dir / 'baseline' / 'result.json'}")
-    
+    candidate_result = None
 
-    CANDIDATE_RTL = PROJECT_ROOT / "designs" / "counter.v"
+    
 
     if CANDIDATE_RTL is not None:
         formal_dir = run_dir / "formal"
@@ -144,7 +144,7 @@ def run_baseline():
             candidate_result.to_json(str(run_dir / "candidate" / "result.json"))
             print(f"      Done: {run_dir / 'candidate' / 'result.json'}")
         else:
-            print(f"      FAIL — {formal_summary}")
+            print(f"     {formal_summary}")
             print("[3/4] Skipping candidate synthesis — not formally equivalent to baseline.")
     else:
         print("[2/4] No candidate set — skipping equivalence check.")

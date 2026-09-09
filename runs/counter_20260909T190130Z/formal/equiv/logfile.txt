@@ -1,0 +1,51 @@
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] Removing directory '/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv'.
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] Copy '/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/gold_gate.v' to '/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv/src/gold_gate.v'.
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] Copy '/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/eqcheck_wrapper.v' to '/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv/src/eqcheck_wrapper.v'.
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0: smtbmc
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] base: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] base: finished (returncode=0)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] prep: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv/model; yosys -ql design_prep.log design_prep.ys"
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] prep: finished (returncode=0)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] smt2: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] smt2: finished (returncode=0)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Solver: yices
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 17..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Assert failed in __eqcheck_top: eqcheck_wrapper.v:27.13-27.46 (_witness_.check_assert_eqcheck_wrapper_v_27_10)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 16..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 15..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 14..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 13..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: ##   0:00:00  Status: failed
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: finished (returncode=1)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] engine_0.induction: terminating process
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] summary: engine_0 (smtbmc) returned FAIL for basecase
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] summary: counterexample trace [basecase]: /Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv/engine_0/trace.vcd
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] summary:   failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_27_10 at eqcheck_wrapper.v:27.13-27.46 step 2
+SBY  0:31:30 [/Users/ritikjindal/rtl-ai-project/runs/counter_20260909T190130Z/formal/equiv] DONE (FAIL, rc=2)
