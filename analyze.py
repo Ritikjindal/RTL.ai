@@ -21,50 +21,31 @@ RUNS_DIR = PROJECT_ROOT / "runs"
 DESIGN_NAME = "counter"
 TOP_MODULE = "counter"
 RTL_FILE = PROJECT_ROOT / "designs" / "counter.v"
+CANDIDATE_RTL = None 
 SDC_FILE = PROJECT_ROOT / "constraints" / "counter.sdc"
 LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
 
-
-def run_baseline() -> RunResult:
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_dir = RUNS_DIR / f"{DESIGN_NAME}_{timestamp}"
+def analyze_design(rtl_path: Path, design_name: str, run_dir: Path, timestamp: str) -> RunResult:
+    """Synthesizes one RTL file and runs STA on it, returning its RunResult.
+    Formal equivalence is handled separately by the caller, since it's an
+    RTL-level check that doesn't need a netlist at all."""
     run_dir.mkdir(parents=True, exist_ok=True)
 
-    netlist_v = run_dir / "netlist" / f"{DESIGN_NAME}_netlist.v"
-    netlist_json = run_dir / "netlist" / f"{DESIGN_NAME}_netlist.json"
+    netlist_v = run_dir / "netlist" / f"{design_name}_netlist.v"
+    netlist_json = run_dir / "netlist" / f"{design_name}_netlist.json"
     timing_report = run_dir / "reports" / "timing.rpt"
     power_report = run_dir / "reports" / "power.rpt"
 
     result = RunResult(
-        design_name=DESIGN_NAME,
-        rtl_path=str(RTL_FILE),
+        design_name=design_name,
+        rtl_path=str(rtl_path),
         sdc_path=str(SDC_FILE),
         timestamp=timestamp,
     )
 
-    formal_dir = run_dir / "formal"
-    print(f"[1/4] Running formal equivalence check for '{DESIGN_NAME}'...")
-    try:
-        eq_result = verify_equivalence(
-            original_rtl=RTL_FILE,
-            candidate_rtl=RTL_FILE,
-            top_module=TOP_MODULE,
-            run_dir=formal_dir,
-        )
-        result.formal_checked = True
-        result.formal_passed = eq_result.passed
-        result.formal_summary = eq_result.summary
-    except FormalError as e:
-        result.formal_checked = True
-        result.formal_passed = False
-        result.formal_summary = str(e)
-        result.notes.append(f"Formal equivalence check error: {e}")
-
-    print(f"[2/4] Running Yosys synthesis for '{DESIGN_NAME}'...")
-
     try:
         yosys_stdout = run_yosys(
-            rtl_path=RTL_FILE,
+            rtl_path=rtl_path,
             top_module=TOP_MODULE,
             lib_path=LIB_FILE,
             netlist_v=netlist_v,
@@ -82,7 +63,6 @@ def run_baseline() -> RunResult:
     else:
         result.area = build_area_result(str(netlist_json), TOP_MODULE, yosys_stdout)
 
-    print("[3/4] Running OpenSTA timing + power analysis...")
     try:
         run_sta(
             netlist_v=netlist_v,
@@ -113,13 +93,65 @@ def run_baseline() -> RunResult:
 
     result.ppa = score_ppa(result.area, result.timing, result.power)
 
-    print("[4/4] Writing result.json...")
-    result_path = run_dir / "result.json"
-    result.to_json(str(result_path))
-    print(f"\nResult written to: {result_path}")
-    print(f"All run artifacts: {run_dir}")
-
+    result.to_json(str(run_dir / "result.json"))
     return result
+
+
+def run_baseline():
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_dir = RUNS_DIR / f"{DESIGN_NAME}_{timestamp}"
+
+    print(f"[1/4] Running Yosys synthesis + OpenSTA on baseline '{DESIGN_NAME}'...")
+    baseline_result = analyze_design(
+        rtl_path=RTL_FILE,
+        design_name=DESIGN_NAME,
+        run_dir=run_dir / "baseline",
+        timestamp=timestamp,
+    )
+    print(f"      Done: {run_dir / 'baseline' / 'result.json'}")
+    
+
+    CANDIDATE_RTL = PROJECT_ROOT / "designs" / "counter.v"
+
+    if CANDIDATE_RTL is not None:
+        formal_dir = run_dir / "formal"
+        print("[2/4] Checking formal equivalence: baseline vs candidate...")
+        try:
+            eq_result = verify_equivalence(
+                original_rtl=RTL_FILE,
+                candidate_rtl=CANDIDATE_RTL,
+                top_module=TOP_MODULE,
+                run_dir=formal_dir,
+            )
+            formal_passed = eq_result.passed
+            formal_summary = eq_result.summary
+        except FormalError as e:
+            formal_passed = False
+            formal_summary = str(e)
+
+        if formal_passed:
+            print(f"      {formal_summary}")
+            print("[3/4] Running Yosys synthesis + OpenSTA on candidate...")
+            candidate_result = analyze_design(
+                rtl_path=CANDIDATE_RTL,
+                design_name=f"{DESIGN_NAME}_candidate",
+                run_dir=run_dir / "candidate",
+                timestamp=timestamp,
+            )
+            candidate_result.formal_checked = True
+            candidate_result.formal_passed = True
+            candidate_result.formal_summary = formal_summary
+            candidate_result.to_json(str(run_dir / "candidate" / "result.json"))
+            print(f"      Done: {run_dir / 'candidate' / 'result.json'}")
+        else:
+            print(f"      FAIL — {formal_summary}")
+            print("[3/4] Skipping candidate synthesis — not formally equivalent to baseline.")
+    else:
+        print("[2/4] No candidate set — skipping equivalence check.")
+
+
+    print(f"[4/4] All run artifacts under: {run_dir}")
+    return baseline_result, candidate_result
 
 
 def print_summary(result: RunResult) -> None:
@@ -127,12 +159,10 @@ def print_summary(result: RunResult) -> None:
     print(f"RTL.ai — {result.design_name}")
     print("=" * 60)
 
-    print("\nFormal Equivalence")
     if result.formal_checked:
+        print("\nFormal Equivalence")
         print(f"  Passed  : {result.formal_passed}")
         print(f"  Summary : {result.formal_summary}")
-    else:
-        print("  (not checked)")
 
 
     a, t, p = result.area, result.timing, result.power
@@ -173,5 +203,7 @@ def print_summary(result: RunResult) -> None:
 
 
 if __name__ == "__main__":
-    result = run_baseline()
-    print_summary(result)
+    baseline_result, candidate_result = run_baseline()
+    print_summary(baseline_result)
+    if candidate_result is not None:
+        print_summary(candidate_result)
