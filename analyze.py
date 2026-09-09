@@ -18,12 +18,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "runs"
 
 # Stage 0 bring-up config. Becomes CLI args once there's more than one design.
-DESIGN_NAME = "counter"
-TOP_MODULE = "counter"
-RTL_FILE = PROJECT_ROOT / "designs" / "counter.v"
-CANDIDATE_RTL = PROJECT_ROOT / "designs" / "counter_broken.v"
-SDC_FILE = PROJECT_ROOT / "constraints" / "counter.sdc"
+DESIGN_NAME = "traffic_light"
+TOP_MODULE = "traffic_light"
+RTL_FILE = PROJECT_ROOT / "designs" / "traffic_light_binary.v"
+SDC_FILE = PROJECT_ROOT / "constraints" / "traffic_light.sdc"
 LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
+CANDIDATE_RTL = PROJECT_ROOT / "designs" / "traffic_light_onehot.v"
 
 def analyze_design(rtl_path: Path, design_name: str, run_dir: Path, timestamp: str) -> RunResult:
     """Synthesizes one RTL file and runs STA on it, returning its RunResult.

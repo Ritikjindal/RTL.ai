@@ -1,0 +1,24 @@
+read_verilog /Users/ritikjindal/rtl-ai-project/designs/traffic_light_binary.v
+
+hierarchy -top traffic_light
+
+proc
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/traffic_light_20260909T191323Z/baseline/netlist/traffic_light_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/traffic_light_20260909T191323Z/baseline/netlist/traffic_light_netlist.json
