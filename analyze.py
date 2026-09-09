@@ -13,6 +13,7 @@ from rtlai.parse_netlist import build_area_result
 from rtlai.ppa import score_ppa, assess_ppa
 from rtlai.schema import RunResult
 from rtlai.formal import verify_equivalence, FormalError
+from rtlai.compare import compare_results
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "runs"
@@ -143,6 +144,8 @@ def run_baseline():
             candidate_result.formal_summary = formal_summary
             candidate_result.to_json(str(run_dir / "candidate" / "result.json"))
             print(f"      Done: {run_dir / 'candidate' / 'result.json'}")
+            compare_results(baseline_result, candidate_result)
+            
         else:
             print(f"     {formal_summary}")
             print("[3/4] Skipping candidate synthesis — not formally equivalent to baseline.")

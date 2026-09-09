@@ -1,0 +1,11 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v
+rename traffic_light gold
+
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v
+rename traffic_light gate
+
+hierarchy -check
+proc
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/traffic_light_20260909T193739Z/formal/gold_gate.v
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/traffic_light_20260909T193739Z/formal/ports.json

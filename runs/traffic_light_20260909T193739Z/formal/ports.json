@@ -1,0 +1,567 @@
+{
+  "creator": "Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "gate": {
+      "attributes": {
+        "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:1.1-33.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "red": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "green": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "yellow": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+        "$procdff$23": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:16.5-27.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 7, 8, 9 ],
+            "Q": [ 4, 5, 6 ]
+          }
+        },
+        "$procmux$10_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:21.44-21.44|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:20.13-25.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6 ],
+            "B": [ "0", "1", "0" ],
+            "Y": [ 10 ]
+          }
+        },
+        "$procmux$11_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:20.25-20.25|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:20.13-25.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 11 ]
+          }
+        },
+        "$procmux$13": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:17.13-17.16|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:17.9-26.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13, 14 ],
+            "B": [ "1", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 7, 8, 9 ]
+          }
+        },
+        "$procmux$9": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000010",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:21.44-21.44|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:20.13-25.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0" ],
+            "B": [ "0", "0", "1", "0", "1", "0" ],
+            "S": [ 10, 11 ],
+            "Y": [ 12, 13, 14 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\state[2:0]": {
+          "hide_name": 1,
+          "bits": [ 7, 8, 9 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:16.5-27.8"
+          }
+        },
+        "$procmux$10_CMP": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "$procmux$11_CMP": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$procmux$13_Y": {
+          "hide_name": 1,
+          "bits": [ 7, 8, 9 ],
+          "attributes": {
+          }
+        },
+        "$procmux$14_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$procmux$9_Y": {
+          "hide_name": 1,
+          "bits": [ 12, 13, 14 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:2.17-2.20"
+          }
+        },
+        "green": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:5.17-5.22"
+          }
+        },
+        "red": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:4.17-4.20"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:3.17-3.20"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:14.15-14.20"
+          }
+        },
+        "yellow": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_onehot.v:6.17-6.23"
+          }
+        }
+      }
+    },
+    "gold": {
+      "attributes": {
+        "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:1.1-35.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "red": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "green": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "yellow": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+        "$eq$/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:30$3": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:30.19-30.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8 ],
+            "Y": [ 4 ]
+          }
+        },
+        "$eq$/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:31$4": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:31.19-31.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8 ],
+            "B": [ "1", "0" ],
+            "Y": [ 5 ]
+          }
+        },
+        "$eq$/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:32$5": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:32.19-32.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8 ],
+            "B": [ "0", "1" ],
+            "Y": [ 6 ]
+          }
+        },
+        "$procdff$24": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:16.5-27.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 9, 10 ],
+            "Q": [ 7, 8 ]
+          }
+        },
+        "$procmux$17": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000010",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:21.44-21.44|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:20.13-25.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0" ],
+            "B": [ "0", "1", "1", "0" ],
+            "S": [ 11, 12 ],
+            "Y": [ 13, 14 ]
+          }
+        },
+        "$procmux$18_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:21.44-21.44|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:20.13-25.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8 ],
+            "B": [ "1", "0" ],
+            "Y": [ 11 ]
+          }
+        },
+        "$procmux$19_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:20.25-20.25|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:20.13-25.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7, 8 ],
+            "Y": [ 12 ]
+          }
+        },
+        "$procmux$21": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:17.13-17.16|/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:17.9-26.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14 ],
+            "B": [ "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 9, 10 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\green[0:0]": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:29.5-33.8"
+          }
+        },
+        "$0\\red[0:0]": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:29.5-33.8"
+          }
+        },
+        "$0\\state[1:0]": {
+          "hide_name": 1,
+          "bits": [ 9, 10 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:16.5-27.8"
+          }
+        },
+        "$0\\yellow[0:0]": {
+          "hide_name": 1,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:29.5-33.8"
+          }
+        },
+        "$eq$/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:30$3_Y": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:30.19-30.33"
+          }
+        },
+        "$eq$/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:31$4_Y": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:31.19-31.35"
+          }
+        },
+        "$eq$/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:32$5_Y": {
+          "hide_name": 1,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:32.19-32.36"
+          }
+        },
+        "$procmux$17_Y": {
+          "hide_name": 1,
+          "bits": [ 13, 14 ],
+          "attributes": {
+          }
+        },
+        "$procmux$18_CMP": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$procmux$19_CMP": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$procmux$21_Y": {
+          "hide_name": 1,
+          "bits": [ 9, 10 ],
+          "attributes": {
+          }
+        },
+        "$procmux$22_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:2.17-2.20"
+          }
+        },
+        "green": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:5.17-5.22"
+          }
+        },
+        "red": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:4.17-4.20"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:3.17-3.20"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 7, 8 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:14.15-14.20"
+          }
+        },
+        "yellow": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/mnt/d/tushar/Downloads/RTL.ai/designs/traffic_light_binary.v:6.17-6.23"
+          }
+        }
+      }
+    }
+  }
+}
