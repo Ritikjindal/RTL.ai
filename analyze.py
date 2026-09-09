@@ -142,6 +142,7 @@ def run_baseline():
             candidate_result.formal_checked = True
             candidate_result.formal_passed = True
             candidate_result.formal_summary = formal_summary
+            candidate_result.formal_baseline_rtl_path = str(RTL_FILE)
             candidate_result.to_json(str(run_dir / "candidate" / "result.json"))
             print(f"      Done: {run_dir / 'candidate' / 'result.json'}")
             compare_results(baseline_result, candidate_result)

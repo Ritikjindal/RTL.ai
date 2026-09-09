@@ -62,6 +62,7 @@ class RunResult:
     formal_checked: bool = False
     formal_passed: Optional[bool] = None
     formal_summary: Optional[str] = None
+    formal_baseline_rtl_path: Optional[str] = None
 
     def to_json(self, path: str) -> None:
         with open(path, "w") as f:
@@ -85,5 +86,6 @@ class RunResult:
             formal_checked=data.get("formal_checked", False),
             formal_passed=data.get("formal_passed"),
             formal_summary=data.get("formal_summary"),
+            formal_baseline_rtl_path=data.get("formal_baseline_rtl_path"),
         
         )

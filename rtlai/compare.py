@@ -31,6 +31,11 @@ def compare_results(baseline: RunResult, candidate: RunResult) -> None:
         print("Cannot compare: candidate FAILED formal equivalence against the baseline.")
         print(f"  {candidate.formal_summary}")
         return
+    if candidate.formal_baseline_rtl_path != baseline.rtl_path:
+        print("Cannot compare: candidate was formally checked against a different baseline.")
+        print(f"  Candidate was checked against: {candidate.formal_baseline_rtl_path}")
+        print(f"  Baseline provided here is:     {baseline.rtl_path}")
+        return
 
     print("\n" + "=" * 70)
     print(f"Comparison: {baseline.design_name}  vs.  {candidate.design_name}")
