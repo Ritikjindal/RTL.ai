@@ -1,8 +1,0 @@
-# running in /mnt/d/tushar/Downloads/RTL.ai/runs/traffic_light_20260909T193739Z/formal/equiv/model/
-read_rtlil design_prep.il
-hierarchy -smtcheck
-delete */t:$print
-formalff -assume
-dffunmap
-stat
-write_smt2 -wires design_smt2.smt2
