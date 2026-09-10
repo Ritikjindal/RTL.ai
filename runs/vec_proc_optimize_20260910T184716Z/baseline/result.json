@@ -1,0 +1,40 @@
+{
+  "design_name": "vec_proc",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/vec_proc.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/vec_proc.sdc",
+  "timestamp": "20260910T184716Z",
+  "timing": {
+    "worst_slack_ns": 5.13,
+    "data_arrival_time_ns": 4.73,
+    "data_required_time_ns": 9.85,
+    "startpoint": "_9283_",
+    "endpoint": "_9313_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 14,
+    "max_frequency_mhz": 205.3388090349076
+  },
+  "power": {
+    "internal_uw": 325.0,
+    "switching_uw": 42.1,
+    "leakage_uw": 138.0,
+    "total_uw": 505.0
+  },
+  "area": {
+    "cell_area_um2": 6750.016,
+    "total_cells": 4770,
+    "flip_flops": 400
+  },
+  "ppa": {
+    "area_score": 2.962955939659995,
+    "timing_score": 51.300000000000004,
+    "power_score": 3.9603960396039604,
+    "overall_score": 17.76330118774519
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

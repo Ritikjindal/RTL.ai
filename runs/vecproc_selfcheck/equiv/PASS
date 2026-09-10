@@ -1,0 +1,6 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:01:12 (72)
+Elapsed process time [H:MM:SS (secs)]: 0:01:19 (79)
+engine_0 (smtbmc) returned pass for basecase
+engine_0 (smtbmc) returned pass for induction
+engine_0 did not produce any traces
+successful proof by k-induction.

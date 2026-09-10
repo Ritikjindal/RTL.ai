@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 40
+multiclock on
+
+[engines]
+smtbmc
+
+[script]
+read_verilog -sv gold_gate.v
+read_verilog -sv eqcheck_wrapper.v
+prep -top __eqcheck_top
+
+[files]
+/Users/ritikjindal/rtl-ai-project/runs/cdc_brokencheck/gold_gate.v
+/Users/ritikjindal/rtl-ai-project/runs/cdc_brokencheck/eqcheck_wrapper.v

@@ -1,0 +1,111 @@
+// Single-clock 8-lane vector processing unit.
+//
+// Cell count comes from 8 parallel 16-bit lanes.
+// The control FSM is deliberately one-hot across 12 states, which is where
+// the real optimization headroom lives.
+
+module vec_proc (
+    input  wire         clk,
+    input  wire         rst,
+    input  wire         start,
+    input  wire [2:0]   op,
+    input  wire [127:0] a_vec,
+    input  wire [127:0] b_vec,
+    output reg  [127:0] result_vec,
+    output reg          done
+);
+
+    localparam [2:0] OP_ADD = 3'd0,
+                     OP_SUB = 3'd1,
+                     OP_MIN = 3'd2,
+                     OP_MAX = 3'd3,
+                     OP_SHL = 3'd4,
+                     OP_SHR = 3'd5,
+                     OP_AND = 3'd6,
+                     OP_XOR = 3'd7;
+
+    localparam [11:0] S_IDLE  = 12'b000000000001;
+    localparam [11:0] S_LOAD  = 12'b000000000010;
+    localparam [11:0] S_D1    = 12'b000000000100;
+    localparam [11:0] S_D2    = 12'b000000001000;
+    localparam [11:0] S_D3    = 12'b000000010000;
+    localparam [11:0] S_CALC  = 12'b000000100000;
+    localparam [11:0] S_D4    = 12'b000001000000;
+    localparam [11:0] S_D5    = 12'b000010000000;
+    localparam [11:0] S_D6    = 12'b000100000000;
+    localparam [11:0] S_STORE = 12'b001000000000;
+    localparam [11:0] S_D7    = 12'b010000000000;
+    localparam [11:0] S_DONE  = 12'b100000000000;
+
+    reg [11:0]  state;
+    reg [127:0] a_reg, b_reg;
+    reg [2:0]   op_reg;
+    wire [127:0] lane_result;
+
+    genvar i;
+    generate
+        for (i = 0; i < 8; i = i + 1) begin : lanes
+            wire [15:0] a_i = a_reg[i*16 +: 16];
+            wire [15:0] b_i = b_reg[i*16 +: 16];
+            reg  [15:0] r_i;
+
+            always @(*) begin
+                case (op_reg)
+                    OP_ADD:  r_i = a_i + b_i;
+                    OP_SUB:  r_i = a_i - b_i;
+                    OP_MIN:  r_i = (a_i < b_i) ? a_i : b_i;
+                    OP_MAX:  r_i = (a_i > b_i) ? a_i : b_i;
+                    OP_SHL:  r_i = a_i << b_i[2:0];
+                    OP_SHR:  r_i = a_i >> b_i[3:0];
+                    OP_AND:  r_i = a_i & b_i;
+                    OP_XOR:  r_i = a_i ^ b_i;
+                    default: r_i = 16'd0;
+                endcase
+            end
+
+            assign lane_result[i*16 +: 16] = r_i;
+        end
+    endgenerate
+
+    always @(posedge clk) begin
+        if (rst) begin
+            state      <= S_IDLE;
+            a_reg      <= 128'd0;
+            b_reg      <= 128'd0;
+            op_reg     <= 3'd0;
+            result_vec <= 128'd0;
+            done       <= 1'b0;
+        end else begin
+            case (state)
+                S_IDLE: begin
+                    done <= 1'b0;
+                    if (start) state <= S_LOAD;
+                end
+                S_LOAD: begin
+                    a_reg  <= a_vec;
+                    b_reg  <= b_vec;
+                    op_reg <= op;
+                    state  <= S_D1;
+                end
+                S_D1:    state <= S_D2;
+                S_D2:    state <= S_D3;
+                S_D3:    state <= S_CALC;
+                S_CALC:  state <= S_D4;
+                S_D4:    state <= S_D5;
+                S_D5:    state <= S_D6;
+                S_D6:    state <= S_STORE;
+                S_STORE: begin
+                    result_vec <= lane_result;
+                    state      <= S_D7;
+                end
+                S_D7:    state <= S_DONE;
+                S_DONE: begin
+                    done  <= 1'b1;
+                    state <= S_IDLE;
+                end
+                default: state <= S_IDLE;
+            endcase
+        end
+    end
+
+endmodule

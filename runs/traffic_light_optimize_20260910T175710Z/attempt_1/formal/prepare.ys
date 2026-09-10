@@ -1,0 +1,11 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v
+rename traffic_light gold
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/traffic_light_optimize_20260910T175710Z/attempt_1/traffic_light_candidate.v
+rename traffic_light gate
+
+hierarchy -check
+proc
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/traffic_light_optimize_20260910T175710Z/attempt_1/formal/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/traffic_light_optimize_20260910T175710Z/attempt_1/formal/ports.json

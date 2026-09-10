@@ -1,0 +1,23 @@
+{
+  "format": "Yosys Witness Trace",
+  "generator": "smtbmc",
+  "clocks": [],
+  "signals": [
+    {"path": ["\\clk_a"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\clk_b"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\enable"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\rst"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\gate_inst", "\\count_a"], "width": 8, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\count_b"], "width": 8, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\count_a"], "width": 8, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\count_b"], "width": 8, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\sync_stage1"], "width": 8, "offset": 0, "init_only": true}
+  ],
+  "steps": [
+    {"bits": "00000000000000000000000100000000000000001010"},
+    {"bits": "1001"},
+    {"bits": "0110"},
+    {"bits": "0001"},
+    {"bits": "0010"}
+  ]
+}

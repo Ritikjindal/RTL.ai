@@ -1,0 +1,203 @@
+{
+  "creator": "Yosys 0.68+130 (git sha1 dd83bbad2-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+  "modules": {
+    "traffic_light": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:1.1-33.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "red": {
+          "direction": "output",
+          "bits": [ 4 ]
+        },
+        "green": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "yellow": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+        "$abc$164$auto$blifparse.cc:397:parse_blif$165": {
+          "hide_name": 1,
+          "type": "NOR4_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A1": [ 7 ],
+            "A2": [ 5 ],
+            "A3": [ 6 ],
+            "A4": [ 3 ],
+            "ZN": [ 8 ]
+          }
+        },
+        "$abc$164$auto$blifparse.cc:397:parse_blif$166": {
+          "hide_name": 1,
+          "type": "NOR4_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A1": [ 4 ],
+            "A2": [ 9 ],
+            "A3": [ 6 ],
+            "A4": [ 3 ],
+            "ZN": [ 10 ]
+          }
+        },
+        "$abc$164$auto$blifparse.cc:397:parse_blif$167": {
+          "hide_name": 1,
+          "type": "NOR2_X1",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "connections": {
+            "A1": [ 8 ],
+            "A2": [ 10 ],
+            "ZN": [ 11 ]
+          }
+        },
+        "$auto$ff.cc:337:slice$139": {
+          "hide_name": 1,
+          "type": "DFF_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:16.5-27.8"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 10 ],
+            "Q": [ 6 ],
+            "QN": [ 12 ]
+          }
+        },
+        "$auto$ff.cc:337:slice$146": {
+          "hide_name": 1,
+          "type": "DFF_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:16.5-27.8"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 8 ],
+            "Q": [ 5 ],
+            "QN": [ 9 ]
+          }
+        },
+        "$auto$ff.cc:337:slice$83": {
+          "hide_name": 1,
+          "type": "DFF_X1",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:16.5-27.8"
+          },
+          "connections": {
+            "CK": [ 2 ],
+            "D": [ 11 ],
+            "Q": [ 4 ],
+            "QN": [ 7 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$164$auto$dfflibmap.cc:468:dfflibmap$160": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "$abc$164$auto$dfflibmap.cc:468:dfflibmap$162": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$abc$164$auto$rtlil.cc:3513:MuxGate$154": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "$abc$164$auto$rtlil.cc:3513:MuxGate$156": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$abc$164$auto$rtlil.cc:3513:MuxGate$158": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "$auto$dfflibmap.cc:468:dfflibmap$159": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:2.17-2.20"
+          }
+        },
+        "green": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:5.17-5.22"
+          }
+        },
+        "red": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:4.17-4.20"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:3.17-3.20"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:14.15-14.20"
+          }
+        },
+        "yellow": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/traffic_light_onehot.v:6.17-6.23"
+          }
+        }
+      }
+    }
+  }
+}

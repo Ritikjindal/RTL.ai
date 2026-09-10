@@ -1,0 +1,11 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/cdc_counter.v
+rename cdc_counter gold
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/cdc_counter_broken.v
+rename cdc_counter gate
+
+hierarchy -check
+proc
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/cdc_brokencheck/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/cdc_brokencheck/ports.json

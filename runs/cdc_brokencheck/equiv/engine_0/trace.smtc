@@ -1,0 +1,51 @@
+initial
+assume (= [$auto$clk2fflogic.cc:101:sample_data$$0/seen_rst_clk_a[0:0]#sampled$56] false)
+assume (= [$auto$clk2fflogic.cc:101:sample_data$$0/seen_rst_clk_b[0:0]#sampled$46] false)
+assume (= [$auto$clk2fflogic.cc:101:sample_data$/seen_rst_clk_a#sampled$54] false)
+assume (= [$auto$clk2fflogic.cc:101:sample_data$/seen_rst_clk_b#sampled$44] false)
+assume (= [$auto$clk2fflogic.cc:87:sample_control_edge$/clk_a#sampled$58] true)
+assume (= [$auto$clk2fflogic.cc:87:sample_control_edge$/clk_b#sampled$48] true)
+assume (= [gate_inst.$auto$clk2fflogic.cc:101:sample_data$/_00_#sampled$66] #b00000000)
+assume (= [gate_inst.$auto$clk2fflogic.cc:101:sample_data$/_01_#sampled$76] #b00000000)
+assume (= [gate_inst.$auto$clk2fflogic.cc:101:sample_data$/count_a#sampled$64] #b00000000)
+assume (= [gate_inst.$auto$clk2fflogic.cc:101:sample_data$/count_b#sampled$74] #b00000000)
+assume (= [gate_inst.$auto$clk2fflogic.cc:87:sample_control_edge$/clk_a#sampled$68] true)
+assume (= [gate_inst.$auto$clk2fflogic.cc:87:sample_control_edge$/clk_b#sampled$78] true)
+assume (= [gold_inst.$auto$clk2fflogic.cc:101:sample_data$/_00_#sampled$86] #b00000000)
+assume (= [gold_inst.$auto$clk2fflogic.cc:101:sample_data$/_01_#sampled$106] #b00000000)
+assume (= [gold_inst.$auto$clk2fflogic.cc:101:sample_data$/_02_#sampled$96] #b00000000)
+assume (= [gold_inst.$auto$clk2fflogic.cc:101:sample_data$/count_a#sampled$84] #b00000001)
+assume (= [gold_inst.$auto$clk2fflogic.cc:101:sample_data$/count_b#sampled$104] #b00000000)
+assume (= [gold_inst.$auto$clk2fflogic.cc:101:sample_data$/sync_stage1#sampled$94] #b00000000)
+assume (= [gold_inst.$auto$clk2fflogic.cc:87:sample_control_edge$/clk_a#sampled$88] true)
+assume (= [gold_inst.$auto$clk2fflogic.cc:87:sample_control_edge$/clk_b#sampled$108] true)
+
+state 0
+assume (= [clk_a] false)
+assume (= [clk_b] true)
+assume (= [enable] false)
+assume (= [rst] true)
+
+state 1
+assume (= [clk_a] true)
+assume (= [clk_b] false)
+assume (= [enable] false)
+assume (= [rst] true)
+
+state 2
+assume (= [clk_a] false)
+assume (= [clk_b] true)
+assume (= [enable] true)
+assume (= [rst] false)
+
+state 3
+assume (= [clk_a] true)
+assume (= [clk_b] false)
+assume (= [enable] false)
+assume (= [rst] false)
+
+state 4
+assume (= [clk_a] false)
+assume (= [clk_b] true)
+assume (= [enable] false)
+assume (= [rst] false)

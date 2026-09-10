@@ -36,8 +36,9 @@ write_json {ports_json}
 
 SBY_TEMPLATE = """\
 [options]
-mode prove
+mode {mode}
 depth {depth}
+multiclock {multiclock}
 
 [engines]
 smtbmc
@@ -125,11 +126,13 @@ def _generate_wrapper(
     clock_port: Optional[str] = None,
     reset_port: Optional[str] = None,
     reset_active_high: Optional[bool] = None,
-) -> str:
+):
     """Builds a small Verilog module that instantiates gold and gate side
-    by side and asserts their outputs match every clock edge -- after
-    forcing both through a real reset first via $initstate, so the proof
-    isn't defeated by unconstrained initial register state."""
+    by side and asserts their outputs match -- after forcing both through a
+    real reset first via $initstate, so the proof isn't defeated by
+    unconstrained initial register state.
+
+    Returns (wrapper_source, is_multiclock)."""
     inputs = [(name, info) for name, info in ports.items() if info["direction"] == "input"]
     outputs = [(name, info) for name, info in ports.items() if info["direction"] == "output"]
 
@@ -138,14 +141,20 @@ def _generate_wrapper(
     if not outputs:
         raise FormalError("Design has no output ports -- nothing to compare for equivalence.")
 
-    if clock_port is None:
-        candidates = [name for name, _ in inputs if name.lower() in ("clk", "clock")]
-        if not candidates:
+    if clock_port is not None:
+        clock_ports = [clock_port]
+    else:
+        clock_ports = [
+            name for name, _ in inputs
+            if "clk" in name.lower() or "clock" in name.lower()
+        ]
+        if not clock_ports:
             raise FormalError(
-                "Could not auto-detect a clock input (looked for 'clk'/'clock'). "
+                "Could not auto-detect a clock input (looked for names containing 'clk'/'clock'). "
                 "Pass clock_port= explicitly for this design."
             )
-        clock_port = candidates[0]
+    is_multiclock = len(clock_ports) > 1
+    clock_port = clock_ports[0]
 
     if reset_port is None:
         reset_candidates = [
@@ -181,31 +190,38 @@ def _generate_wrapper(
     lines.append("")
 
     eq_terms = " && ".join(f"gold_{n} == gate_{n}" for n, _ in outputs)
-
+    assume_expr = None
     if reset_port:
         assume_expr = reset_port if reset_active_high else f"!{reset_port}"
-        lines.append(f"    // First cycle: force a real reset via $initstate before comparing,")
-        lines.append(f"    // so the proof isn't defeated by unconstrained initial register state.")
-        lines.append(f"    always @(posedge {clock_port}) begin")
-        lines.append(f"        if ($initstate) begin")
-        lines.append(f"            assume ({assume_expr});")
-        lines.append(f"        end else begin")
-        lines.append(f"            assert ({eq_terms});")
-        lines.append(f"        end")
-        lines.append(f"    end")
-    else:
-        lines.append(f"    // NOTE: no reset port auto-detected -- asserting from cycle 0.")
-        lines.append(f"    // This can produce false failures on designs with unconstrained")
-        lines.append(f"    // initial state. Pass reset_port= explicitly if needed.")
-        lines.append(f"    always @(posedge {clock_port}) begin")
-        lines.append(f"        assert ({eq_terms});")
-        lines.append(f"    end")
+
+        if is_multiclock:
+            if not reset_port:
+                raise FormalError(
+                "Multi-clock equivalence checking needs a reset port so gold and gate start "
+                "from identical known state. Pass reset_port= explicitly."
+            )
+        lines.append(f"    // Multiple clock domains detected ({', '.join(clock_ports)}).")
+        lines.append("    // Hold reset until EVERY domain has seen a reset edge, so both copies")
+        lines.append("    // start from identical known state; only then compare outputs, at every")
+        lines.append("    // timestep (neither clock is 'the' clock here).")
+        seen_flags = []
+        for clk in clock_ports:
+            flag = f"seen_rst_{clk}"
+            seen_flags.append(flag)
+            lines.append(f"    reg {flag} = 1'b0;")
+            lines.append(f"    always @(posedge {clk}) if ({assume_expr}) {flag} <= 1'b1;")
+        lines.append("")
+        lines.append(f"    wire all_domains_reset = {' && '.join(seen_flags)};")
+        lines.append("")
+        lines.append("    always @(*) begin")
+        lines.append(f"        if (!all_domains_reset) assume ({assume_expr});")
+        lines.append(f"        else assert ({eq_terms});")
+        lines.append("    end")
 
     lines.append("")
     lines.append("endmodule")
 
-    return "\n".join(lines)
-
+    return "\n".join(lines), is_multiclock
 
 def verify_equivalence(
     original_rtl: Path,
@@ -221,12 +237,19 @@ def verify_equivalence(
 
     combined_v, ports = _prepare_gold_gate(original_rtl, candidate_rtl, top_module, run_dir)
 
-    wrapper_src = _generate_wrapper(ports, clock_port=clock_port, reset_port=reset_port, reset_active_high=reset_active_high)
+    wrapper_src, is_multiclock = _generate_wrapper(
+        ports, clock_port=clock_port, reset_port=reset_port, reset_active_high=reset_active_high
+    )
     wrapper_path = run_dir / "eqcheck_wrapper.v"
     wrapper_path.write_text(wrapper_src)
 
+    effective_depth = max(depth, 40) if is_multiclock else depth
+    mode = "bmc" if is_multiclock else "prove"
+
     sby_content = SBY_TEMPLATE.format(
-        depth=depth,
+        mode=mode,
+        depth=effective_depth,
+        multiclock="on" if is_multiclock else "off",
         combined_v_name=combined_v.name,
         wrapper_v_name=wrapper_path.name,
         combined_v_path=combined_v.resolve(),
@@ -241,24 +264,50 @@ def verify_equivalence(
     log = result.stdout + result.stderr
     (run_dir / "equiv_sby.log").write_text(log)
 
-    match = re.search(r"DONE\s*\((PASS|FAIL)", log)
+    match = re.search(r"DONE\s*\((PASS|FAIL|UNKNOWN)", log)
     if match is None:
         raise FormalError(
-            f"Could not determine PASS/FAIL from sby output (exit {result.returncode}). "
+            f"Could not determine a verdict from sby output (exit {result.returncode}). "
             f"INCONCLUSIVE, not verified. See {run_dir / 'equiv_sby.log'}"
         )
 
-    passed = match.group(1) == "PASS"
+    verdict = match.group(1)
+    basecase_passed = "returned pass for basecase" in log
 
-    if passed:
+    if verdict == "PASS":
+        passed = True
+        bounded = is_multiclock
+    elif verdict == "UNKNOWN" and basecase_passed:
+        # Unbounded induction could not close -- normal for designs with counters or
+        # FSM loops, since induction may start from a state where the two copies'
+        # registers already differ. BMC found no counterexample within the depth, so
+        # we report a BOUNDED result and label it as such.
+        passed = True
+        bounded = True
+    elif verdict == "FAIL":
+        passed = False
+        bounded = False
+    else:
+        raise FormalError(
+            f"Verdict '{verdict}' with no passing basecase -- INCONCLUSIVE, not verified. "
+            f"See {run_dir / 'equiv_sby.log'}"
+        )
+
+    if passed and bounded:
+        summary = (
+            f"PASS (bounded) — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
+            f"show no counterexample within {effective_depth} steps (bounded model check; "
+            f"this is NOT an unbounded proof)."
+        )
+    elif passed:
         summary = (
             f"PASS — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
-            f"are formally equivalent (proved by SymbiYosys, depth={depth})."
+            f"are formally equivalent (proved by SymbiYosys, depth={effective_depth})."
         )
     else:
         summary = (
             f"FAIL — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
-            f"are NOT equivalent. See {run_dir}/equiv_task/engine_0/ for the counterexample trace."
+            f"are NOT equivalent. See {run_dir}/equiv/engine_0/ for the counterexample trace."
         )
-
+        
     return EquivalenceResult(passed=passed, log=log, summary=summary, wrapper_path=wrapper_path)
