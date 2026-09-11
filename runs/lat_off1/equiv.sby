@@ -1,0 +1,16 @@
+[options]
+mode prove
+depth 20
+multiclock off
+
+[engines]
+smtbmc
+
+[script]
+read_verilog -sv gold_gate.v
+read_verilog -sv eqcheck_wrapper.v
+prep -top __eqcheck_top
+
+[files]
+/Users/ritikjindal/rtl-ai-project/runs/lat_off1/gold_gate.v
+/Users/ritikjindal/rtl-ai-project/runs/lat_off1/eqcheck_wrapper.v

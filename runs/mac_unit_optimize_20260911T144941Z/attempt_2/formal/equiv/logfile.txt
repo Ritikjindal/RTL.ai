@@ -1,0 +1,55 @@
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] Removing directory '/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv'.
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] Copy '/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/gold_gate.v' to '/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv/src/gold_gate.v'.
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] Copy '/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/eqcheck_wrapper.v' to '/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv/src/eqcheck_wrapper.v'.
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0: smtbmc
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] base: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] base: Warning: Wire gate.\sum_s [17] is used but has no driver.
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] base: finished (returncode=0)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] prep: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] prep: Warning: Wire gate.\sum_s [17] is used but has no driver.
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] prep: finished (returncode=0)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] smt2: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] smt2: finished (returncode=0)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: starting process "cd /Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 17..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Assert failed in __eqcheck_top: eqcheck_wrapper.v:40.13-40.78 (_witness_.check_assert_eqcheck_wrapper_v_40_261)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 16..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 15..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 14..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 13..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: ##   0:00:00  Status: failed
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: finished (returncode=1)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] engine_0.induction: terminating process
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] summary: engine_0 (smtbmc) returned FAIL for basecase
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] summary: counterexample trace [basecase]: /Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv/engine_0/trace.vcd
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] summary:   failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_40_261 at eqcheck_wrapper.v:40.13-40.78 step 4
+SBY 20:21:01 [/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T144941Z/attempt_2/formal/equiv] DONE (FAIL, rc=2)

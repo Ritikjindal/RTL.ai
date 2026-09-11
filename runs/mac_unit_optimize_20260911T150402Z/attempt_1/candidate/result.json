@@ -1,0 +1,40 @@
+{
+  "design_name": "mac_unit_candidate",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/runs/mac_unit_optimize_20260911T150402Z/attempt_1/mac_unit_candidate.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/mac_unit.sdc",
+  "timestamp": "20260911T150402Z",
+  "timing": {
+    "worst_slack_ns": 0.11,
+    "data_arrival_time_ns": 1.31,
+    "data_required_time_ns": 1.41,
+    "startpoint": "_3487_",
+    "endpoint": "_3527_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 28,
+    "max_frequency_mhz": 719.4244604316548
+  },
+  "power": {
+    "internal_uw": 751.0,
+    "switching_uw": 285.0,
+    "leakage_uw": 52.0,
+    "total_uw": 1090.0
+  },
+  "area": {
+    "cell_area_um2": 2419.004,
+    "total_cells": 1777,
+    "flip_flops": 109
+  },
+  "ppa": {
+    "area_score": 8.267865617419401,
+    "timing_score": 1.0999999999999999,
+    "power_score": 1.834862385321101,
+    "overall_score": 4.187604962564091
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": true,
+  "formal_passed": true,
+  "formal_summary": "PASS \u2014 mac_unit.v and mac_unit_candidate.v are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.",
+  "formal_baseline_rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/mac_unit.v"
+}

@@ -17,6 +17,8 @@ Rules you must follow:
   `assign` statement BEFORE the always block, then just reference that wire's name inside the always block.
   Alternatively, compute the value inline as a plain expression inside the always block without declaring
   anything.
+- If the plan adds pipeline stages, add exactly the internal registers it describes. The port
+  list must still be identical - pipelining changes WHEN outputs appear, never the interface.
 - Output ONLY the Verilog code, inside a single ```verilog code block. Do not include any explanation before or
   after the code block.
 """

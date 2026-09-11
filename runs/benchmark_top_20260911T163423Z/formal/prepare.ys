@@ -1,0 +1,11 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark_flat.v
+rename benchmark_top gold
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark_flat.v
+rename benchmark_top gate
+
+hierarchy -check
+proc
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260911T163423Z/formal/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260911T163423Z/formal/ports.json

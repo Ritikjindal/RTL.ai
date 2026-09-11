@@ -1,0 +1,26 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$23] false)
+assume (= [$auto$async2sync.cc:116:execute$27] true)
+assume (= [gate_inst.dout] #b10000000)
+assume (= [gate_inst.stage1] #b00000000)
+assume (= [gold_inst.dout] #b00000000)
+
+state 0
+assume (= [clk] false)
+assume (= [din] #b00000000)
+assume (= [rst] true)
+
+state 1
+assume (= [clk] false)
+assume (= [din] #b00000000)
+assume (= [rst] false)
+
+state 2
+assume (= [clk] false)
+assume (= [din] #b00000000)
+assume (= [rst] false)
+
+state 3
+assume (= [clk] false)
+assume (= [din] #b00000000)
+assume (= [rst] false)

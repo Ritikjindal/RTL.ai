@@ -12,15 +12,15 @@ from rtlai.schema import RunResult
 
 
 def pct_delta(baseline: Optional[float], candidate: Optional[float]) -> str:
-    """Returns candidate's percentage change relative to baseline, as a
-    signed string like '+25.5%' or '-18.8%'. Returns 'n/a' if either
-    value is missing, and handles a zero baseline safely."""
     if baseline is None or candidate is None:
         return "n/a"
     if baseline == 0:
-        return "n/a" if candidate == 0 else "n/a (baseline is 0)"
-    delta = (candidate - baseline) / baseline * 100
-    return f"{delta:+.1f}%"
+        return "n/a"
+    # A percentage across a sign change is meaningless (e.g. slack -0.22 -> +0.11),
+    # so report the absolute movement instead.
+    if (baseline < 0) != (candidate < 0):
+        return f"{candidate - baseline:+.2f} abs"
+    return f"{(candidate - baseline) / baseline * 100:+.1f}%"
 
 
 def compare_results(baseline: RunResult, candidate: RunResult) -> None:

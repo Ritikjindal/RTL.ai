@@ -1,0 +1,25 @@
+read_verilog /Users/ritikjindal/rtl-ai-project/designs/benchmark_flat.v
+
+hierarchy -check -top benchmark_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260911T160326Z/baseline/netlist/benchmark_top_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260911T160326Z/baseline/netlist/benchmark_top_netlist.json

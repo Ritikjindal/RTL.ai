@@ -1,0 +1,11 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/lat_base.v
+rename lat_test gold
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/lat_pipe.v
+rename lat_test gate
+
+hierarchy -check
+proc
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/lat_off0/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/lat_off0/ports.json

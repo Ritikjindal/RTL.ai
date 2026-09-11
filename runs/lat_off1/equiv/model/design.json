@@ -1,0 +1,673 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.68+130 (git sha1 dd83bbad2-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "__eqcheck_top",
+        "cell_sorts": [
+          {
+            "type": "gold",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "din",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "dout",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "rst",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "gold_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:10.10-15.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_eqcheck_wrapper_v_46_17",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_eqcheck_wrapper_v_46_17",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:46.33-46.67"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_eqcheck_wrapper_v_44_15",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_eqcheck_wrapper_v_44_15",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:44.13-44.25"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$20",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:46.17-46.31|eqcheck_wrapper.v:46.13-46.68"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$23",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:43.13-43.23|eqcheck_wrapper.v:43.9-47.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$26",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:43.13-43.23|eqcheck_wrapper.v:43.9-47.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$28",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:37.18-37.31|eqcheck_wrapper.v:37.14-37.57"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$31",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:36.13-36.16|eqcheck_wrapper.v:36.9-37.57"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$eqcheck_wrapper.v:37$12",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:37.18-37.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$33",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:35.5-38.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$34",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:29.5-31.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$initstate",
+            "ports": [
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$initstate$9",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:43.13-43.23"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$eqcheck_wrapper.v:46$16",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:46.17-46.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$eqcheck_wrapper.v:46$18",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:46.41-46.66"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "gate",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "din",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "dout",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "rst",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "gate_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:17.10-22.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$eqcheck_wrapper.v:37$13",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:37.43-37.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "eqcheck_wrapper.v:1.1-50.10"
+        }
+      },
+      {
+        "name": "gate",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ternary$gold_gate.v:25$4",
+                  "attributes": {
+                    "src": "gold_gate.v:25.17-25.38"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:26$5",
+                  "attributes": {
+                    "src": "gold_gate.v:26.17-26.36"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$36",
+                  "attributes": {
+                    "src": "gold_gate.v:23.3-24.20"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$37",
+                  "attributes": {
+                    "src": "gold_gate.v:21.3-22.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$gold_gate.v:20$1",
+                  "attributes": {
+                    "src": "gold_gate.v:20.17-20.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "gold_gate.v:3.1-31.10"
+        }
+      },
+      {
+        "name": "gold",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ternary$gold_gate.v:49$8",
+                  "attributes": {
+                    "src": "gold_gate.v:49.16-49.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$35",
+                  "attributes": {
+                    "src": "gold_gate.v:47.3-48.17"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$gold_gate.v:46$6",
+                  "attributes": {
+                    "src": "gold_gate.v:46.16-46.27"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "gold_gate.v:33.1-52.10"
+        }
+      }
+  ]
+}

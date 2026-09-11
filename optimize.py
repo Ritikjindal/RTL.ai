@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from analyze import analyze_design, RTL_FILE, TOP_MODULE, DESIGN_NAME, RUNS_DIR
 from rtlai.formal import verify_equivalence, FormalError
 from rtlai.compare import compare_results
-from rtlai.optimizer.planner import generate_plan
+from rtlai.optimizer.planner import generate_plan, extract_latency_offset
 from rtlai.optimizer.coder import generate_code
 from rtlai.optimizer.config import MAX_ATTEMPTS
 from rtlai.optimizer.counterexample import extract_counterexample
@@ -31,7 +31,9 @@ def optimize():
         print(f"\n[attempt {attempt}/{MAX_ATTEMPTS}] Asking planner for a plan...")
         plan = generate_plan(rtl_code, baseline_result, previous_feedback=feedback)
         print(plan)
-
+        latency_offset = extract_latency_offset(plan)
+        if latency_offset:
+            print(f"[attempt {attempt}] Plan declares +{latency_offset} cycle(s) of added latency.")
         print(f"[attempt {attempt}] Asking coder to implement it...")
         candidate_code = generate_code(rtl_code, plan)
 
@@ -54,6 +56,7 @@ def optimize():
                 candidate_rtl=candidate_rtl_path,
                 top_module=TOP_MODULE,
                 run_dir=attempt_dir / "formal",
+                latency_offset=latency_offset,
             )
         except FormalError as e:
             print(f"[attempt {attempt}] FormalError: {e}")

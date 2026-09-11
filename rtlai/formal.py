@@ -22,13 +22,25 @@ class FormalError(RuntimeError):
 
 PREPARE_TEMPLATE = """\
 read_verilog -sv {gold_rtl}
+hierarchy -check -top {top_module}
+proc
+flatten
+opt_clean
 rename {top_module} gold
+design -stash gold_design
 
 read_verilog -sv {gate_rtl}
+hierarchy -check -top {top_module}
+proc
+flatten
+opt_clean
 rename {top_module} gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
 
 hierarchy -check
-proc
 
 write_verilog -noattr {combined_v}
 write_json {ports_json}
@@ -126,11 +138,15 @@ def _generate_wrapper(
     clock_port: Optional[str] = None,
     reset_port: Optional[str] = None,
     reset_active_high: Optional[bool] = None,
+    latency_offset: int = 0,
 ):
-    """Builds a small Verilog module that instantiates gold and gate side
-    by side and asserts their outputs match -- after forcing both through a
-    real reset first via $initstate, so the proof isn't defeated by
-    unconstrained initial register state.
+    """Builds a small Verilog module that instantiates gold and gate side by side
+    and asserts their outputs match.
+
+    latency_offset > 0 means the candidate produces its outputs that many cycles
+    LATER than the baseline (e.g. it added pipeline stages). The baseline's outputs
+    are delayed by that many cycles before comparison, and comparison is suppressed
+    until the delay pipeline has filled. Single-clock designs only.
 
     Returns (wrapper_source, is_multiclock)."""
     inputs = [(name, info) for name, info in ports.items() if info["direction"] == "input"]
@@ -165,6 +181,22 @@ def _generate_wrapper(
             lname = reset_port.lower()
             reset_active_high = not (lname.endswith("_n") or lname.endswith("b"))
 
+    assume_expr = None
+    if reset_port:
+        assume_expr = reset_port if reset_active_high else f"!{reset_port}"
+
+    if latency_offset > 0:
+        if is_multiclock:
+            raise FormalError(
+                f"latency_offset is only supported for single-clock designs; this one has "
+                f"multiple clocks ({', '.join(clock_ports)})."
+            )
+        if not assume_expr:
+            raise FormalError(
+                "latency_offset needs a reset port so comparison can be suppressed until the "
+                "delay pipeline fills. Pass reset_port= explicitly."
+            )
+
     lines = [f"module {top_wrapper_name} ("]
     lines.append(",\n".join(f"    input wire {_port_decl(name, info)}" for name, info in inputs))
     lines.append(");")
@@ -189,17 +221,35 @@ def _generate_wrapper(
     lines.append("    );")
     lines.append("")
 
-    eq_terms = " && ".join(f"gold_{n} == gate_{n}" for n, _ in outputs)
-    assume_expr = None
-    if reset_port:
-        assume_expr = reset_port if reset_active_high else f"!{reset_port}"
+    if latency_offset > 0:
+        lines.append(f"    // Latency offset of {latency_offset} cycle(s): the candidate produces its")
+        lines.append("    // outputs later than the baseline (added pipeline stages), so the baseline's")
+        lines.append("    // outputs are delayed by that many cycles before being compared.")
+        for name, info in outputs:
+            width = len(info["bits"])
+            width_str = f"[{width-1}:0] " if width > 1 else ""
+            decls = ", ".join(f"gold_{name}_d{i}" for i in range(1, latency_offset + 1))
+            lines.append(f"    reg {width_str}{decls};")
+        lines.append("")
+        lines.append(f"    always @(posedge {clock_port}) begin")
+        for name, _ in outputs:
+            for i in range(latency_offset, 1, -1):
+                lines.append(f"        gold_{name}_d{i} <= gold_{name}_d{i-1};")
+            lines.append(f"        gold_{name}_d1 <= gold_{name};")
+        lines.append("    end")
+        lines.append("")
+        lines.append("    // Comparison is suppressed until the delay pipeline has filled.")
+        lines.append("    reg [7:0] warmup = 8'd0;")
+        lines.append(f"    always @(posedge {clock_port}) begin")
+        lines.append(f"        if ({assume_expr}) warmup <= 8'd0;")
+        lines.append(f"        else if (warmup < 8'd{latency_offset}) warmup <= warmup + 8'd1;")
+        lines.append("    end")
+        lines.append("")
+        eq_terms = " && ".join(f"gold_{n}_d{latency_offset} == gate_{n}" for n, _ in outputs)
+    else:
+        eq_terms = " && ".join(f"gold_{n} == gate_{n}" for n, _ in outputs)
 
-        if is_multiclock:
-            if not reset_port:
-                raise FormalError(
-                "Multi-clock equivalence checking needs a reset port so gold and gate start "
-                "from identical known state. Pass reset_port= explicitly."
-            )
+    if is_multiclock:
         lines.append(f"    // Multiple clock domains detected ({', '.join(clock_ports)}).")
         lines.append("    // Hold reset until EVERY domain has seen a reset edge, so both copies")
         lines.append("    // start from identical known state; only then compare outputs, at every")
@@ -217,6 +267,24 @@ def _generate_wrapper(
         lines.append(f"        if (!all_domains_reset) assume ({assume_expr});")
         lines.append(f"        else assert ({eq_terms});")
         lines.append("    end")
+    elif assume_expr:
+        lines.append("    // First cycle: force a real reset via $initstate before comparing,")
+        lines.append("    // so the proof isn't defeated by unconstrained initial register state.")
+        lines.append(f"    always @(posedge {clock_port}) begin")
+        lines.append(f"        if ($initstate) begin")
+        lines.append(f"            assume ({assume_expr});")
+        lines.append(f"        end else begin")
+        if latency_offset > 0:
+            lines.append(f"            if (warmup >= 8'd{latency_offset}) assert ({eq_terms});")
+        else:
+            lines.append(f"            assert ({eq_terms});")
+        lines.append(f"        end")
+        lines.append(f"    end")
+    else:
+        lines.append("    // NOTE: no reset port auto-detected -- asserting from cycle 0.")
+        lines.append(f"    always @(posedge {clock_port}) begin")
+        lines.append(f"        assert ({eq_terms});")
+        lines.append(f"    end")
 
     lines.append("")
     lines.append("endmodule")
@@ -232,13 +300,15 @@ def verify_equivalence(
     clock_port: Optional[str] = None,
     reset_port: Optional[str] = None,
     reset_active_high: Optional[bool] = None,
+    latency_offset: int = 0,
 ) -> EquivalenceResult:
     run_dir.mkdir(parents=True, exist_ok=True)
 
     combined_v, ports = _prepare_gold_gate(original_rtl, candidate_rtl, top_module, run_dir)
 
     wrapper_src, is_multiclock = _generate_wrapper(
-        ports, clock_port=clock_port, reset_port=reset_port, reset_active_high=reset_active_high
+        ports, clock_port=clock_port, reset_port=reset_port,
+        reset_active_high=reset_active_high, latency_offset=latency_offset,
     )
     wrapper_path = run_dir / "eqcheck_wrapper.v"
     wrapper_path.write_text(wrapper_src)
@@ -309,5 +379,7 @@ def verify_equivalence(
             f"FAIL — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
             f"are NOT equivalent. See {run_dir}/equiv/engine_0/ for the counterexample trace."
         )
-        
+    if passed and latency_offset > 0:
+        summary += f" Candidate latency is +{latency_offset} cycle(s) versus the baseline."
+
     return EquivalenceResult(passed=passed, log=log, summary=summary, wrapper_path=wrapper_path)

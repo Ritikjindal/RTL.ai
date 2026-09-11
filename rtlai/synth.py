@@ -1,5 +1,5 @@
 # rtlai/synth.py
-
+import re
 import subprocess
 from pathlib import Path
 
@@ -8,12 +8,21 @@ class SynthesisError(RuntimeError):
     pass
 
 
+# `hierarchy -check` makes Yosys fail loudly when a module is missing, instead of
+# silently leaving it as a blackbox -- which is how a 50k-cell benchmark once
+# synthesized to 260 cells without any error.
+#
+# `flatten` collapses the whole hierarchy into the top module before mapping.
+# Without it, parameterized submodules survive as separate `$paramod$...` modules
+# that never reach abc, so they are neither mapped to standard cells nor counted
+# in the area report -- and OpenSTA cannot parse their mangled names at all.
 SYNTH_TEMPLATE = """\
 read_verilog {rtl_path}
 
-hierarchy -top {top_module}
+hierarchy -check -top {top_module}
 
 proc
+flatten
 opt
 
 memory
@@ -77,4 +86,13 @@ def run_yosys(
     )
     if result.returncode != 0:
         raise SynthesisError(f"Yosys failed (exit {result.returncode}):\n{result.stderr}")
+
+    # OpenSTA's Verilog netlist reader does not accept `signed` in wire or port
+    # declarations and fails with a syntax error. Signedness carries no meaning for
+    # static timing analysis -- only structure does -- so strip it from the netlist
+    # Yosys emitted. Designs with signed arithmetic (DSP, filters) hit this
+    # immediately.
+    netlist_text = netlist_v.read_text()
+    netlist_v.write_text(re.sub(r"\bsigned\s+", "", netlist_text))
+
     return result.stdout
