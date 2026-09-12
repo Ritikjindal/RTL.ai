@@ -18,7 +18,7 @@ def get_client() -> Anthropic:
     return _client
 
 
-def call_claude(model: str, system_prompt: str, user_prompt: str, max_tokens: int = 8192) -> str:
+def call_claude(model: str, system_prompt: str, user_prompt: str, max_tokens: int = 16384) -> str:
     client = get_client()
     response = client.messages.create(
         model=model,

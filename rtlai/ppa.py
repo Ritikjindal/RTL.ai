@@ -7,8 +7,17 @@ from typing import Optional
 
 from rtlai.schema import AreaResult, TimingResult, PowerResult, PPAResult
 
-DEFAULT_TARGETS_PATH = Path(__file__).resolve().parent.parent / "config" / "targets.json"
+import os  # add at the top with the other imports
 
+# Targets are design-scale dependent: 200 um2 is right for a counter and absurd for a
+# 50K-cell benchmark. Point RTLAI_TARGETS at a per-design file rather than editing the
+# shared default.
+DEFAULT_TARGETS_PATH = Path(
+    os.environ.get(
+        "RTLAI_TARGETS",
+        Path(__file__).resolve().parent.parent / "config" / "targets.json",
+    )
+)
 
 @dataclass
 class PPATargets:
@@ -71,7 +80,20 @@ def score_ppa(
         result.area_score = _clamp((targets.target_area_um2 / area.cell_area_um2) * 100.0)
 
     if timing.worst_slack_ns is not None:
-        result.timing_score = _clamp((timing.worst_slack_ns / targets.target_slack_ns) * 100.0)
+        # A target of 0 ns means "just meet the constraint", which is the honest
+        # target for timing — demanding surplus margin is a design-specific choice,
+        # not a general one. With no positive target to divide by, score the ratio of
+        # required to arrival time instead: 100 means the path exactly fits.
+        if targets.target_slack_ns > 0:
+            result.timing_score = _clamp((timing.worst_slack_ns / targets.target_slack_ns) * 100.0)
+        elif timing.worst_slack_ns is not None and timing.worst_slack_ns >= 0:
+            result.timing_score = 100.0
+        elif timing.data_arrival_time_ns and timing.data_required_time_ns:
+            result.timing_score = _clamp(
+                (timing.data_required_time_ns / timing.data_arrival_time_ns) * 100.0
+            )
+        else:
+            result.timing_score = 0.0
 
     if power.total_uw is not None and power.total_uw > 0:
         result.power_score = _clamp((targets.target_power_uw / power.total_uw) * 100.0)

@@ -19,7 +19,9 @@ read_verilog {netlist_v}
 link_design {top_module}
 read_sdc {sdc_path}
 
-report_checks -path_delay max -format full_clock_expanded > {timing_report}
+set clk_groups {{}}
+foreach c [all_clocks] {{ lappend clk_groups [get_name $c] }}
+report_checks -path_delay max -path_group $clk_groups -format full_clock_expanded > {timing_report}
 
 set_power_activity -input -activity 0.1
 set_power_activity -input_ports clk -activity 1.0

@@ -1,0 +1,5 @@
+create_clock -name clk -period 1.70 [get_ports clk]
+set_false_path -from [get_ports rst]
+set_input_delay  0.2 -clock clk [get_ports {in_valid a_vec b_vec}]
+set_output_delay 0.2 -clock clk [get_ports {out_valid acc}]
+set_clock_uncertainty 0.05 [all_clocks]

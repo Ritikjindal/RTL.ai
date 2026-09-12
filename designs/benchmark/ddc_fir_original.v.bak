@@ -64,39 +64,17 @@ module ddc_fir
       end
    endgenerate
 
-   // Split reduction: psumA covers prod[0..7] (8 taps), psumB covers prod[8..14] (7 taps)
-   
-   // First half reduction: prod[0] through prod[7]
-   wire signed [ACCW-1:0] psumA [0:8];
-   assign psumA[0] = {ACCW{1'b0}};
-   genvar gsA;
+   // Explicit running-sum reduction over the product array.
+   wire signed [ACCW-1:0] psum [0:NTAP];
+   assign psum[0] = {ACCW{1'b0}};
+   genvar gs;
    generate
-      for (gsA = 0; gsA < 8; gsA = gsA + 1) begin : g_sumA
-         assign psumA[gsA+1] = psumA[gsA] +
-                               {{(ACCW-PW){prod[gsA][PW-1]}}, prod[gsA]};
+      for (gs = 0; gs < NTAP; gs = gs + 1) begin : g_sum
+         assign psum[gs+1] = psum[gs] +
+                             {{(ACCW-PW){prod[gs][PW-1]}}, prod[gs]};
       end
    endgenerate
-   wire signed [ACCW-1:0] accA = psumA[8];
-
-   // Second half reduction: prod[8] through prod[14]
-   wire signed [ACCW-1:0] psumB [0:7];
-   assign psumB[0] = {ACCW{1'b0}};
-   genvar gsB;
-   generate
-      for (gsB = 0; gsB < 7; gsB = gsB + 1) begin : g_sumB
-         assign psumB[gsB+1] = psumB[gsB] +
-                               {{(ACCW-PW){prod[gsB+8][PW-1]}}, prod[gsB+8]};
-      end
-   endgenerate
-   wire signed [ACCW-1:0] accB = psumB[7];
-
-   // Pipeline register for partial sums
-   reg signed [ACCW-1:0] partial_sum_reg_A;
-   reg signed [ACCW-1:0] partial_sum_reg_B;
-   reg			   in_valid_1;  // Extended out_valid pipeline stage
-
-   // Combined accumulator on next cycle
-   wire signed [ACCW-1:0] acc = partial_sum_reg_A + partial_sum_reg_B;
+   wire signed [ACCW-1:0] acc = psum[NTAP];
 
    // round-half-up then drop SH fractional bits
    wire signed [ACCW-1:0] racc = acc + (1 <<< (SH-1));
@@ -112,26 +90,15 @@ module ddc_fir
       if (rst) begin
          for (j = 0; j < NTAP; j = j + 1)
            shift[j] <= {IQW{1'b0}};
-         partial_sum_reg_A <= {ACCW{1'b0}};
-         partial_sum_reg_B <= {ACCW{1'b0}};
-         in_valid_1 <= 1'b0;
          out_valid <= 1'b0;
          out_data  <= {OUTW{1'b0}};
       end
       else begin
-         // First stage: tap shift and partial sum capture
+         out_valid <= in_valid;
          if (in_valid) begin
             for (j = NTAP-1; j > 0; j = j - 1)
               shift[j] <= shift[j-1];
             shift[0] <= in_data;
-            partial_sum_reg_A <= accA;
-            partial_sum_reg_B <= accB;
-         end
-         in_valid_1 <= in_valid;
-
-         // Second stage: combine partial sums and output
-         out_valid <= in_valid_1;
-         if (in_valid_1) begin
             out_data <= sat;
          end
       end

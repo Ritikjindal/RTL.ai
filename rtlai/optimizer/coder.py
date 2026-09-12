@@ -20,7 +20,8 @@ Rules you must follow:
 - If the plan adds pipeline stages, add exactly the internal registers it describes. The port
   list must still be identical - pipelining changes WHEN outputs appear, never the interface.
 - Output ONLY the Verilog code, inside a single ```verilog code block. Do not include any explanation before or
-  after the code block.
+  after the code block. EXCEPTION: if you are returning INFEASIBLE (see below), output only that single line
+  and nothing else - no code block, no explanation.
 - Write Verilog-2001. Do NOT use SystemVerilog constructs that Yosys will reject:
   no '{...} assignment patterns, no multi-dimensional parameter/localparam arrays,
   no `logic`, no `always_ff`/`always_comb`, no packed struct types. Use plain
@@ -30,6 +31,12 @@ Rules you must follow:
   explicitly in the plan. If the plan asks for a table you would have to derive
   yourself, do not guess or emit placeholder values - implement the plan's intent
   using the design's existing computation instead.
+- If, after making a genuine attempt, you cannot correctly derive a required
+  value (e.g. a byte-parallel CRC matrix), do NOT fall back to a placeholder,
+  identity, or all-zero table. Instead output nothing but the single line:
+  INFEASIBLE: <one sentence reason>
+  This is a valid, preferred response when the alternative is an incorrect
+  implementation.
 """
 
 
@@ -68,6 +75,6 @@ def generate_code(rtl_code: str, plan: str) -> str:
         model=CODER_MODEL,
         system_prompt=CODER_SYSTEM_PROMPT,
         user_prompt=prompt,
-        max_tokens=4096,
+        max_tokens=16384,
     )
     return extract_verilog(reply)
