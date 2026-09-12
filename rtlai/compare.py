@@ -20,7 +20,10 @@ def pct_delta(baseline: Optional[float], candidate: Optional[float]) -> str:
     # so report the absolute movement instead.
     if (baseline < 0) != (candidate < 0):
         return f"{candidate - baseline:+.2f} abs"
-    return f"{(candidate - baseline) / baseline * 100:+.1f}%"
+    # Divide by the MAGNITUDE. With a negative baseline (worst slack), dividing by the
+    # signed value flips the sign of the reported change: slack -1.41 -> -1.32 is an
+    # improvement of +0.09 ns but reads as -6.4%.
+    return f"{(candidate - baseline) / abs(baseline) * 100:+.1f}%"
 
 
 def compare_results(baseline: RunResult, candidate: RunResult) -> None:

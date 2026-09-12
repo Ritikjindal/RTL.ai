@@ -238,6 +238,12 @@ def optimize(cfg: DesignConfig):
                 print(f"NOTE: '{target_module}' now produces its outputs +{latency_offset} "
                       "cycle(s) later. Substitution into the top level is only sound if the "
                       "surrounding logic tolerates that.")
+            
+            if "bounded" in (best["result"].formal_summary or "").lower():
+                print(f"NOTE: '{target_module}' was verified by BOUNDED model checking only "
+                      "— no counterexample exists within the checked depth, but this is not "
+                      "an unbounded proof. Report it as bounded, with the depth stated.")
+                
             return baseline_result, best["result"]
 
         with_cex = next((c for c in candidates if c["cex"]), None)

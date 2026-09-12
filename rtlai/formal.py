@@ -338,6 +338,7 @@ def verify_equivalence(
     reset_active_high: Optional[bool] = None,
     latency_offset: int = 0,
     timeout_s: int = 300,
+    bmc_fallback_depth: int = 64,
 ) -> EquivalenceResult:
     run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -353,38 +354,55 @@ def verify_equivalence(
     effective_depth = max(depth, 40) if is_multiclock else depth
     mode = "bmc" if is_multiclock else "prove"
 
-    sby_content = SBY_TEMPLATE.format(
-        mode=mode,
-        depth=effective_depth,
-        multiclock="on" if is_multiclock else "off",
-        timeout=timeout_s,
-        combined_v_name=combined_v.name,
-        wrapper_v_name=wrapper_path.name,
-        combined_v_path=combined_v.resolve(),
-        wrapper_v_path=wrapper_path.resolve(),
-    )
-    sby_path = run_dir / "equiv.sby"
-    sby_path.write_text(sby_content)
-
-    result = subprocess.run(
-        ["sby", "-f", str(sby_path)], cwd=run_dir, text=True, capture_output=True
-    )
-    log = result.stdout + result.stderr
-    (run_dir / "equiv_sby.log").write_text(log)
-
-    match = re.search(r"DONE\s*\((PASS|FAIL|UNKNOWN|TIMEOUT)", log)
-    if match is None:
-        raise FormalError(
-            f"Could not determine a verdict from sby output (exit {result.returncode}). "
-            f"INCONCLUSIVE, not verified. See {run_dir / 'equiv_sby.log'}"
+    def _run_sby(mode_name: str, depth_val: int):
+        """Run one sby invocation and return (verdict, log, basecase_passed)."""
+        sby_content = SBY_TEMPLATE.format(
+            mode=mode_name,
+            depth=depth_val,
+            multiclock="on" if is_multiclock else "off",
+            timeout=timeout_s,
+            combined_v_name=combined_v.name,
+            wrapper_v_name=wrapper_path.name,
+            combined_v_path=combined_v.resolve(),
+            wrapper_v_path=wrapper_path.resolve(),
         )
+        sby_path = run_dir / f"equiv_{mode_name}.sby"
+        sby_path.write_text(sby_content)
 
-    verdict = match.group(1)
-    basecase_passed = "returned pass for basecase" in log
+        proc = subprocess.run(
+            ["sby", "-f", str(sby_path)], cwd=run_dir, text=True, capture_output=True
+        )
+        out = proc.stdout + proc.stderr
+        (run_dir / f"equiv_sby_{mode_name}.log").write_text(out)
 
+        m = re.search(r"DONE\s*\((PASS|FAIL|UNKNOWN|TIMEOUT)", out)
+        if m is None:
+            raise FormalError(
+                f"Could not determine a verdict from sby output (exit {proc.returncode}). "
+                f"INCONCLUSIVE, not verified. See {run_dir / f'equiv_sby_{mode_name}.log'}"
+            )
+        return m.group(1), out, "returned pass for basecase" in out
+
+    verdict, log, basecase_passed = _run_sby(mode, effective_depth)
+
+    # An unbounded proof that times out is not a failure -- it is a proof we could not
+    # complete. Bounded model checking from reset is strictly weaker but usually
+    # tractable, and it also sidesteps induction's habit of starting from unreachable
+    # states (a one-hot FSM restructuring is correct in every reachable state and can
+    # still fail induction from a multi-hot one). The result is labelled BOUNDED.
+    fell_back = False
+    if verdict == "TIMEOUT" and mode == "prove":
+        fallback_depth = max(effective_depth, bmc_fallback_depth)
+        print(f"      Unbounded proof timed out after {timeout_s}s; "
+              f"retrying bounded (BMC, depth {fallback_depth})...")
+        mode = "bmc"
+        fell_back = True
+        effective_depth = fallback_depth
+        verdict, log, basecase_passed = _run_sby("bmc", fallback_depth)
+        
     if verdict == "PASS":
         passed = True
-        bounded = is_multiclock
+        bounded = is_multiclock or fell_back
     elif verdict == "UNKNOWN" and basecase_passed:
         # Unbounded induction could not close -- normal for designs with counters or
         # FSM loops, since induction may start from a state where the two copies'
@@ -397,17 +415,18 @@ def verify_equivalence(
         bounded = False
     elif verdict == "TIMEOUT":
         raise FormalError(
-            f"Equivalence check TIMED OUT after {timeout_s}s -- the candidate is neither "
-            f"proven equivalent nor proven different. This usually means the transformation "
-            f"restructures arithmetic in a way that is hard for a SAT solver to verify "
-            f"(e.g. reordering a long adder chain). See {run_dir / 'equiv_sby.log'}"
+            f"Equivalence check TIMED OUT after {timeout_s}s"
+            f"{' in both unbounded and bounded modes' if fell_back else ''} -- the "
+            f"candidate is neither proven equivalent nor proven different. This usually "
+            f"means the transformation restructures arithmetic in a way that is hard for "
+            f"a SAT solver (wide multipliers, or reordering a long adder chain). "
+            f"See {run_dir / f'equiv_sby_{mode}.log'}"
         )
     else:
         raise FormalError(
             f"Verdict '{verdict}' with no passing basecase -- INCONCLUSIVE, not verified. "
-            f"See {run_dir / 'equiv_sby.log'}"
+            f"See {run_dir / f'equiv_sby_{mode}.log'}"
         )
-
     gold_name = _display_name(original_rtl)
     gate_name = _display_name(candidate_rtl)
 

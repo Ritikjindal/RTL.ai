@@ -208,8 +208,11 @@ def print_summary(result: RunResult) -> None:
     print(f"  Timing score   : {result.ppa.timing_score}")
     print(f"  Power score    : {result.ppa.power_score}")
     print(f"  Overall score  : {result.ppa.overall_score}")
-    print(f"  Assessment     : {assess_ppa(result.ppa)}")
-
+    if result.timing_passed is False:
+        print(f"  Assessment     : TIMING VIOLATED — {assess_ppa(result.ppa)} "
+              f"(area/power only; the design does not meet its constraint)")
+    else:
+        print(f"  Assessment     : {assess_ppa(result.ppa)}")
     if result.notes:
         print("\nNotes")
         for n in result.notes:
