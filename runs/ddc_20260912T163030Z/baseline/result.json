@@ -1,0 +1,40 @@
+{
+  "design_name": "ddc",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc.v; /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_cic.v; /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_fir.v; /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_mixer.v; /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_nco.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/ddc.sdc",
+  "timestamp": "20260912T163030Z",
+  "timing": {
+    "worst_slack_ns": 2.15,
+    "data_arrival_time_ns": 2.8,
+    "data_required_time_ns": 4.95,
+    "startpoint": "_22242_",
+    "endpoint": "_21494_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 6,
+    "max_frequency_mhz": 350.8771929824561
+  },
+  "power": {
+    "internal_uw": 5480.0,
+    "switching_uw": 3160.0,
+    "leakage_uw": 345.0,
+    "total_uw": 8980.0
+  },
+  "area": {
+    "cell_area_um2": 15717.94,
+    "total_cells": 11253,
+    "flip_flops": 925
+  },
+  "ppa": {
+    "area_score": 1.2724313745948896,
+    "timing_score": 21.5,
+    "power_score": 0.22271714922048996,
+    "overall_score": 7.0257876946041025
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

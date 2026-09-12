@@ -1,0 +1,9 @@
+# running in /Users/ritikjindal/rtl-ai-project/runs/crc32_optimize_20260912T161235Z/attempt_1/candidate_1/formal/equiv/src/
+read_verilog -sv gold_gate.v
+read_verilog -sv eqcheck_wrapper.v
+prep -top __eqcheck_top
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

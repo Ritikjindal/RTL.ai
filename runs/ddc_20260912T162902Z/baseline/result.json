@@ -1,0 +1,42 @@
+{
+  "design_name": "ddc",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/ddc.sdc",
+  "timestamp": "20260912T162902Z",
+  "timing": {
+    "worst_slack_ns": null,
+    "data_arrival_time_ns": null,
+    "data_required_time_ns": null,
+    "startpoint": null,
+    "endpoint": null,
+    "clock": null,
+    "path_type": null,
+    "logic_depth": null,
+    "max_frequency_mhz": null
+  },
+  "power": {
+    "internal_uw": null,
+    "switching_uw": null,
+    "leakage_uw": null,
+    "total_uw": null
+  },
+  "area": {
+    "cell_area_um2": null,
+    "total_cells": null,
+    "flip_flops": null
+  },
+  "ppa": {
+    "area_score": null,
+    "timing_score": null,
+    "power_score": null,
+    "overall_score": null
+  },
+  "timing_passed": null,
+  "notes": [
+    "Synthesis failed: Yosys failed (exit 1):\nERROR: Module `\\ddc_fir' referenced in module `\\ddc' in cell `\\g_lane[1].u_fir' is not part of the design.\n"
+  ],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

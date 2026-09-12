@@ -1,0 +1,54 @@
+Startpoint: _3655_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _3725_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _3655_/CK (DFF_X1)
+   0.11    0.11 ^ _3655_/Q (DFF_X1)
+   0.04    0.15 v _2739_/ZN (NAND2_X1)
+   0.06    0.21 v _2767_/Z (XOR2_X1)
+   0.04    0.25 ^ _2768_/ZN (AOI21_X1)
+   0.06    0.31 ^ _2771_/Z (XOR2_X1)
+   0.05    0.36 ^ _2773_/ZN (XNOR2_X1)
+   0.02    0.39 v _2795_/ZN (XNOR2_X1)
+   0.06    0.45 v _2796_/Z (XOR2_X1)
+   0.08    0.53 v _2811_/ZN (OR3_X1)
+   0.04    0.56 v _2812_/ZN (AND2_X1)
+   0.06    0.62 v _2813_/Z (XOR2_X1)
+   0.06    0.68 ^ _2831_/ZN (AOI22_X1)
+   0.03    0.71 v _2833_/ZN (OAI21_X1)
+   0.02    0.73 ^ _2834_/ZN (NAND2_X1)
+   0.02    0.75 v _2835_/ZN (NAND2_X1)
+   0.02    0.77 ^ _2837_/ZN (NAND2_X1)
+   0.02    0.79 v _2838_/ZN (OAI21_X1)
+   0.03    0.82 v _2839_/ZN (AND2_X1)
+   0.05    0.87 v _2840_/ZN (OR2_X1)
+   0.03    0.90 v _2841_/ZN (AND2_X1)
+   0.05    0.96 v _2842_/ZN (OR2_X1)
+   0.02    0.98 ^ _2844_/ZN (NAND2_X1)
+   0.02    0.99 v _2847_/ZN (AOI21_X1)
+   0.05    1.04 v _2848_/ZN (OR2_X1)
+   0.03    1.08 v _2850_/ZN (AND2_X1)
+   0.07    1.15 v _2856_/ZN (OR3_X1)
+   0.04    1.18 v _2857_/ZN (AND3_X1)
+   0.00    1.18 v _3725_/D (DFF_X1)
+           1.18   data arrival time
+
+   1.50    1.50   clock clk (rise edge)
+   0.00    1.50   clock network delay (ideal)
+  -0.05    1.45   clock uncertainty
+   0.00    1.45   clock reconvergence pessimism
+           1.45 ^ _3725_/CK (DFF_X1)
+  -0.04    1.41   library setup time
+           1.41   data required time
+---------------------------------------------------------
+           1.41   data required time
+          -1.18   data arrival time
+---------------------------------------------------------
+           0.22   slack (MET)
+
+

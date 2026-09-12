@@ -1,0 +1,25 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_mac8.v
+
+hierarchy -check -top bm_mac8
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/bm_mac8_20260912T200703Z/baseline/netlist/bm_mac8_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/bm_mac8_20260912T200703Z/baseline/netlist/bm_mac8_netlist.json

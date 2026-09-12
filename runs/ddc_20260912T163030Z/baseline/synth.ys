@@ -1,0 +1,29 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_cic.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_fir.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_mixer.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_nco.v
+
+hierarchy -check -top ddc
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/ddc_20260912T163030Z/baseline/netlist/ddc_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/ddc_20260912T163030Z/baseline/netlist/ddc_netlist.json

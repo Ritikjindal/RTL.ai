@@ -1,0 +1,25 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v
+
+hierarchy -check -top bm_butterfly
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/bm_butterfly_20260912T200704Z/baseline/netlist/bm_butterfly_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/bm_butterfly_20260912T200704Z/baseline/netlist/bm_butterfly_netlist.json

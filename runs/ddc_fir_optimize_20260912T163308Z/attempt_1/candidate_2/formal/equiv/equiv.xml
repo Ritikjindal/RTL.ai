@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-12T22:05:45" hostname="Ritiks-MacBook-Air.local" package="equiv" id="0" name="default" tests="1" errors="0" failures="2" time="92" skipped="0">
+<properties>
+<property name="os" value="Darwin"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="UNKNOWN"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="UNKNOWN" message="Task returned status UNKNOWN." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:55.33-55.114" time="0" type="ASSERT" location="eqcheck_wrapper.v:55.33-55.114" id="_witness_.check_assert_eqcheck_wrapper_v_55_188" tracefile="engine_0/trace_induct.vcd">
+<failure type="ASSERT" message="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:55.33-55.114 failed. Trace file: engine_0/trace_induct.vcd" />
+</testcase>
+<system-out>SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] Removing directory '/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv'.
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] Copy '/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/gold_gate.v' to '/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv/src/gold_gate.v'.
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] Copy '/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/eqcheck_wrapper.v' to '/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv/src/eqcheck_wrapper.v'.
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0: smtbmc
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] base: starting process &quot;cd /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] base: finished (returncode=0)
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] prep: starting process &quot;cd /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] prep: finished (returncode=0)
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] smt2: starting process &quot;cd /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] smt2: finished (returncode=0)
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: starting process &quot;cd /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: starting process &quot;cd /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 17..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 16..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 15..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 14..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 13..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 12..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 12..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 2..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 0..
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Temporal induction failed!
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Assert failed in __eqcheck_top: eqcheck_wrapper.v:55.33-55.114 (_witness_.check_assert_eqcheck_wrapper_v_55_188)
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Writing trace to VCD file: engine_0/trace_induct.vcd
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_induct_tb.v
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Writing trace to constraints file: engine_0/trace_induct.smtc
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace_induct.yw
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: ##   0:00:00  Status: failed
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: finished (returncode=1)
+SBY 22:04:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.induction: Status returned by engine for induction: FAIL
+SBY 22:04:20 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:07  Checking assumptions in step 13..
+SBY 22:04:20 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:07  Checking assertions in step 13..
+SBY 22:04:31 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:19  Checking assumptions in step 14..
+SBY 22:04:31 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:19  Checking assertions in step 14..
+SBY 22:04:39 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:27  Checking assumptions in step 15..
+SBY 22:04:39 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:27  Checking assertions in step 15..
+SBY 22:04:53 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:41  Checking assumptions in step 16..
+SBY 22:04:53 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:41  Checking assertions in step 16..
+SBY 22:05:05 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:52  Checking assumptions in step 17..
+SBY 22:05:05 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:52  Checking assertions in step 17..
+SBY 22:05:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:59  Checking assumptions in step 18..
+SBY 22:05:12 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:00:59  Checking assertions in step 18..
+SBY 22:05:24 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:01:11  Checking assumptions in step 19..
+SBY 22:05:24 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:01:11  Checking assertions in step 19..
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: ##   0:01:32  Status: passed
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: finished (returncode=0)
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:32 (92)
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:32 (92)
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] summary: engine_0 (smtbmc) returned FAIL for induction
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] summary: counterexample trace [induction]: /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv/engine_0/trace_induct.vcd
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] summary:   failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_55_188 at eqcheck_wrapper.v:55.33-55.114
+SBY 22:05:45 [/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/formal/equiv] DONE (UNKNOWN, rc=4)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

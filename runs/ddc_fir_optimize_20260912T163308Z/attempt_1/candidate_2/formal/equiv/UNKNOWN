@@ -1,0 +1,7 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:01:32 (92)
+Elapsed process time [H:MM:SS (secs)]: 0:01:32 (92)
+engine_0 (smtbmc) returned pass for basecase
+engine_0 (smtbmc) returned FAIL for induction
+counterexample trace [induction]: engine_0/trace_induct.vcd
+counterexample trace [induction]: engine_0/trace_induct.yw
+  failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_55_188 at eqcheck_wrapper.v:55.33-55.114

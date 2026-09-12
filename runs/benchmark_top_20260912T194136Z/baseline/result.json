@@ -1,0 +1,40 @@
+{
+  "design_name": "benchmark_top",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/benchmark_top.v; /Users/ritikjindal/rtl-ai-project/designs/mac_unit.v; /Users/ritikjindal/rtl-ai-project/designs/bm_fir6.v; /Users/ritikjindal/rtl-ai-project/designs/bm_dot4.v; /Users/ritikjindal/rtl-ai-project/designs/bm_mac8.v; /Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v; /Users/ritikjindal/rtl-ai-project/designs/clk_divider.v; /Users/ritikjindal/rtl-ai-project/designs/cdc_sync.v; /Users/ritikjindal/rtl-ai-project/designs/cdc_handshake.v; /Users/ritikjindal/rtl-ai-project/designs/reset_sync.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/benchmark_top.sdc",
+  "timestamp": "20260912T194136Z",
+  "timing": {
+    "worst_slack_ns": -1.95,
+    "data_arrival_time_ns": 3.51,
+    "data_required_time_ns": 1.57,
+    "startpoint": "_97633_",
+    "endpoint": "_97529_",
+    "clock": "clk_e",
+    "path_type": "max",
+    "logic_depth": 41,
+    "max_frequency_mhz": 277.7777777777778
+  },
+  "power": {
+    "internal_uw": 134000.0,
+    "switching_uw": 94200.0,
+    "leakage_uw": 1440.0,
+    "total_uw": 229000.0
+  },
+  "area": {
+    "cell_area_um2": 63209.048,
+    "total_cells": 49721,
+    "flip_flops": 1647
+  },
+  "ppa": {
+    "area_score": 100.0,
+    "timing_score": 44.72934472934473,
+    "power_score": 87.33624454148472,
+    "overall_score": 79.61967678124884
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

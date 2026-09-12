@@ -1,0 +1,1393 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.68+130 (git sha1 dd83bbad2-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "__eqcheck_top",
+        "cell_sorts": [
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_eqcheck_wrapper_v_70_67",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_eqcheck_wrapper_v_70_67",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:70.33-70.127"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_eqcheck_wrapper_v_68_65",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_eqcheck_wrapper_v_68_65",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:68.13-68.25"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$74",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.17-70.31|eqcheck_wrapper.v:70.13-70.128"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$77",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:67.13-67.23|eqcheck_wrapper.v:67.9-71.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$80",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:67.13-67.23|eqcheck_wrapper.v:67.9-71.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$82",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:61.18-61.31|eqcheck_wrapper.v:61.14-61.57"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$85",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:60.13-60.16|eqcheck_wrapper.v:60.9-61.57"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$eqcheck_wrapper.v:61$62",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:61.18-61.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "gold",
+            "ports": [
+                {
+                  "name": "ai",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "ar",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "bi",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "br",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "ci",
+                  "direction": "",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "cr",
+                  "direction": "",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "in_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "out_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "gold_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:18.10-29.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$eqcheck_wrapper.v:70$70",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.41-70.101"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$eqcheck_wrapper.v:70$72",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.41-70.126"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$87",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:59.5-62.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$88",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:51.5-55.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$89",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:51.5-55.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$procdff$90",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:51.5-55.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$initstate",
+            "ports": [
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$initstate$59",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:67.13-67.23"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$eqcheck_wrapper.v:70$66",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.17-70.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$eqcheck_wrapper.v:70$68",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.41-70.76"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$eqcheck_wrapper.v:70$69",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.80-70.101"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$eqcheck_wrapper.v:70$71",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:70.105-70.126"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "gate",
+            "ports": [
+                {
+                  "name": "ai",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "ar",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "bi",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "br",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "ci",
+                  "direction": "",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "cr",
+                  "direction": "",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "in_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "out_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "gate_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:31.10-42.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$eqcheck_wrapper.v:61$63",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:61.43-61.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "eqcheck_wrapper.v:1.1-74.10"
+        }
+      },
+      {
+        "name": "gate",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ternary$gold_gate.v:83$20",
+                  "attributes": {
+                    "src": "gold_gate.v:83.17-83.34"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:84$21",
+                  "attributes": {
+                    "src": "gold_gate.v:84.17-84.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:85$22",
+                  "attributes": {
+                    "src": "gold_gate.v:85.17-85.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:86$23",
+                  "attributes": {
+                    "src": "gold_gate.v:86.17-86.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:87$24",
+                  "attributes": {
+                    "src": "gold_gate.v:87.17-87.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:88$25",
+                  "attributes": {
+                    "src": "gold_gate.v:88.17-88.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:89$26",
+                  "attributes": {
+                    "src": "gold_gate.v:89.17-89.44"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:90$27",
+                  "attributes": {
+                    "src": "gold_gate.v:90.17-90.44"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:91$28",
+                  "attributes": {
+                    "src": "gold_gate.v:91.17-91.38"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:92$29",
+                  "attributes": {
+                    "src": "gold_gate.v:92.17-92.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:93$30",
+                  "attributes": {
+                    "src": "gold_gate.v:93.17-93.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:94$31",
+                  "attributes": {
+                    "src": "gold_gate.v:94.17-94.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:95$32",
+                  "attributes": {
+                    "src": "gold_gate.v:95.17-95.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$100",
+                  "attributes": {
+                    "src": "gold_gate.v:79.3-80.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$101",
+                  "attributes": {
+                    "src": "gold_gate.v:77.3-78.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$102",
+                  "attributes": {
+                    "src": "gold_gate.v:75.3-76.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$103",
+                  "attributes": {
+                    "src": "gold_gate.v:73.3-74.17"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$104",
+                  "attributes": {
+                    "src": "gold_gate.v:71.3-72.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$procdff$105",
+                  "attributes": {
+                    "src": "gold_gate.v:69.3-70.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$procdff$106",
+                  "attributes": {
+                    "src": "gold_gate.v:67.3-68.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$107",
+                  "attributes": {
+                    "src": "gold_gate.v:65.3-66.16"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$procdff$108",
+                  "attributes": {
+                    "src": "gold_gate.v:63.3-64.16"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$procdff$109",
+                  "attributes": {
+                    "src": "gold_gate.v:61.3-62.23"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$99",
+                  "attributes": {
+                    "src": "gold_gate.v:81.3-82.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mul",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$mul$gold_gate.v:57$5",
+                  "attributes": {
+                    "src": "gold_gate.v:57.15-57.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:58$6",
+                  "attributes": {
+                    "src": "gold_gate.v:58.15-58.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:59$7",
+                  "attributes": {
+                    "src": "gold_gate.v:59.15-59.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:60$8",
+                  "attributes": {
+                    "src": "gold_gate.v:60.15-60.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [17, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$gold_gate.v:53$1",
+                  "attributes": {
+                    "src": "gold_gate.v:53.22-53.29"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:54$2",
+                  "attributes": {
+                    "src": "gold_gate.v:54.22-54.29"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:55$3",
+                  "attributes": {
+                    "src": "gold_gate.v:55.17-55.43"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:56$4",
+                  "attributes": {
+                    "src": "gold_gate.v:56.17-56.43"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "gold_gate.v:3.1-96.10"
+        }
+      },
+      {
+        "name": "gold",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ternary$gold_gate.v:166$49",
+                  "attributes": {
+                    "src": "gold_gate.v:166.17-166.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:167$50",
+                  "attributes": {
+                    "src": "gold_gate.v:167.17-167.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:168$51",
+                  "attributes": {
+                    "src": "gold_gate.v:168.17-168.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:169$52",
+                  "attributes": {
+                    "src": "gold_gate.v:169.17-169.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:170$53",
+                  "attributes": {
+                    "src": "gold_gate.v:170.17-170.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:171$54",
+                  "attributes": {
+                    "src": "gold_gate.v:171.17-171.38"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:172$55",
+                  "attributes": {
+                    "src": "gold_gate.v:172.17-172.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:173$56",
+                  "attributes": {
+                    "src": "gold_gate.v:173.17-173.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:174$57",
+                  "attributes": {
+                    "src": "gold_gate.v:174.17-174.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:175$58",
+                  "attributes": {
+                    "src": "gold_gate.v:175.17-175.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$91",
+                  "attributes": {
+                    "src": "gold_gate.v:164.3-165.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$92",
+                  "attributes": {
+                    "src": "gold_gate.v:162.3-163.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$93",
+                  "attributes": {
+                    "src": "gold_gate.v:160.3-161.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$94",
+                  "attributes": {
+                    "src": "gold_gate.v:158.3-159.18"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$95",
+                  "attributes": {
+                    "src": "gold_gate.v:156.3-157.17"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$96",
+                  "attributes": {
+                    "src": "gold_gate.v:154.3-155.16"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$procdff$97",
+                  "attributes": {
+                    "src": "gold_gate.v:152.3-153.16"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$procdff$98",
+                  "attributes": {
+                    "src": "gold_gate.v:150.3-151.23"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mul",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$mul$gold_gate.v:146$37",
+                  "attributes": {
+                    "src": "gold_gate.v:146.15-146.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:147$38",
+                  "attributes": {
+                    "src": "gold_gate.v:147.15-147.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:148$39",
+                  "attributes": {
+                    "src": "gold_gate.v:148.15-148.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:149$40",
+                  "attributes": {
+                    "src": "gold_gate.v:149.15-149.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [17, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$gold_gate.v:142$33",
+                  "attributes": {
+                    "src": "gold_gate.v:142.22-142.29"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:143$34",
+                  "attributes": {
+                    "src": "gold_gate.v:143.22-143.29"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:144$35",
+                  "attributes": {
+                    "src": "gold_gate.v:144.17-144.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:145$36",
+                  "attributes": {
+                    "src": "gold_gate.v:145.17-145.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "gold_gate.v:98.1-176.10"
+        }
+      }
+  ]
+}

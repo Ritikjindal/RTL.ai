@@ -1,0 +1,30 @@
+Startpoint: _22242_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _21494_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _22242_/CK (DFF_X1)
+   1.68    1.68 ^ _22242_/Q (DFF_X1)
+   0.98    2.66 v _19971_/ZN (NAND2_X1)
+   0.12    2.78 ^ _20024_/ZN (OAI21_X1)
+   0.01    2.80 v _20025_/ZN (AOI21_X1)
+   0.00    2.80 v _21494_/D (DFF_X1)
+           2.80   data arrival time
+
+   5.00    5.00   clock clk (rise edge)
+   0.00    5.00   clock network delay (ideal)
+   0.00    5.00   clock reconvergence pessimism
+           5.00 ^ _21494_/CK (DFF_X1)
+  -0.05    4.95   library setup time
+           4.95   data required time
+---------------------------------------------------------
+           4.95   data required time
+          -2.80   data arrival time
+---------------------------------------------------------
+           2.15   slack (MET)
+
+

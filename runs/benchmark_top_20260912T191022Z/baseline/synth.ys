@@ -1,0 +1,34 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark_top.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/mac_unit.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_fir6.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_dot4.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_mac8.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/clk_divider.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/cdc_sync.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/cdc_handshake.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/reset_sync.v
+
+hierarchy -check -top benchmark_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260912T191022Z/baseline/netlist/benchmark_top_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260912T191022Z/baseline/netlist/benchmark_top_netlist.json

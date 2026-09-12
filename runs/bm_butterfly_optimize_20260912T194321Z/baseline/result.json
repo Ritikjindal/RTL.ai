@@ -1,0 +1,40 @@
+{
+  "design_name": "bm_butterfly",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/bm_butterfly.sdc",
+  "timestamp": "20260912T194321Z",
+  "timing": {
+    "worst_slack_ns": -0.25,
+    "data_arrival_time_ns": 1.82,
+    "data_required_time_ns": 1.56,
+    "startpoint": "_6732_",
+    "endpoint": "_6816_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 37,
+    "max_frequency_mhz": 526.3157894736843
+  },
+  "power": {
+    "internal_uw": 1450.0,
+    "switching_uw": 875.0,
+    "leakage_uw": 93.39999999999999,
+    "total_uw": 2420.0
+  },
+  "area": {
+    "cell_area_um2": 4179.392,
+    "total_cells": 3409,
+    "flip_flops": 90
+  },
+  "ppa": {
+    "area_score": 4.785385051222762,
+    "timing_score": 0.0,
+    "power_score": 0.8264462809917356,
+    "overall_score": 2.1620879047866253
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

@@ -1,0 +1,177 @@
+Startpoint: _098939_ (rising edge-triggered flip-flop clocked by clk_a)
+Endpoint: _102254_ (rising edge-triggered flip-flop clocked by clk_a)
+Path Group: clk_a
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk_a (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _098939_/CK (DFF_X1)
+   0.08    0.08 v _098939_/Q (DFF_X1)
+   0.06    0.14 v _069659_/ZN (OR2_X1)
+   0.06    0.21 v _069664_/ZN (OR2_X1)
+   0.84    1.05 ^ _069673_/ZN (NOR4_X1)
+   3.27    4.32 v _069891_/ZN (AOI21_X1)
+   1.68    6.00 ^ _069914_/ZN (NOR2_X1)
+   0.03    6.04 v _071053_/ZN (AOI22_X1)
+   0.06    6.10 v _071054_/ZN (AND3_X1)
+   0.11    6.20 ^ _071055_/ZN (AOI211_X1)
+   0.02    6.22 v _076299_/ZN (AOI22_X1)
+   0.03    6.26 ^ _076300_/ZN (NAND2_X1)
+   0.02    6.27 v _076301_/ZN (AOI221_X1)
+   0.06    6.33 ^ _076305_/ZN (AOI22_X1)
+   0.00    6.33 ^ _102254_/D (DFF_X1)
+           6.33   data arrival time
+
+   2.20    2.20   clock clk_a (rise edge)
+   0.00    2.20   clock network delay (ideal)
+  -0.05    2.15   clock uncertainty
+   0.00    2.15   clock reconvergence pessimism
+           2.15 ^ _102254_/CK (DFF_X1)
+  -0.04    2.11   library setup time
+           2.11   data required time
+---------------------------------------------------------
+           2.11   data required time
+          -6.33   data arrival time
+---------------------------------------------------------
+          -4.22   slack (VIOLATED)
+
+
+Startpoint: _103047_ (rising edge-triggered flip-flop clocked by clk_b)
+Endpoint: _102446_ (rising edge-triggered flip-flop clocked by clk_b)
+Path Group: clk_b
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk_b (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _103047_/CK (DFFS_X1)
+   1.06    1.06 ^ _103047_/Q (DFFS_X1)
+   6.53    7.59 v _052309_/ZN (INV_X1)
+   0.63    8.22 v _097101_/ZN (AND2_X1)
+   0.00    8.22 v _102446_/D (DFF_X1)
+           8.22   data arrival time
+
+   1.70    1.70   clock clk_b (rise edge)
+   0.00    1.70   clock network delay (ideal)
+  -0.05    1.65   clock uncertainty
+   0.00    1.65   clock reconvergence pessimism
+           1.65 ^ _102446_/CK (DFF_X1)
+  -0.07    1.58   library setup time
+           1.58   data required time
+---------------------------------------------------------
+           1.58   data required time
+          -8.22   data arrival time
+---------------------------------------------------------
+          -6.64   slack (VIOLATED)
+
+
+Startpoint: _099764_ (rising edge-triggered flip-flop clocked by clk_c)
+Endpoint: _099021_ (rising edge-triggered flip-flop clocked by clk_c)
+Path Group: clk_c
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk_c (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _099764_/CK (DFFR_X1)
+   0.36    0.36 ^ _099764_/Q (DFFR_X1)
+   0.06    0.43 ^ _052512_/ZN (AND2_X1)
+   0.01    0.44 v _052513_/ZN (NOR2_X1)
+   0.04    0.48 ^ _052514_/ZN (NOR2_X1)
+   1.97    2.46 ^ _052515_/ZN (AND2_X1)
+  10.97   13.42 v _052520_/ZN (NOR2_X1)
+   1.43   14.85 ^ _056192_/ZN (AOI221_X1)
+  -0.04   14.81 v _056193_/ZN (INV_X1)
+   0.00   14.81 v _099021_/D (DFFR_X1)
+          14.81   data arrival time
+
+   1.90    1.90   clock clk_c (rise edge)
+   0.00    1.90   clock network delay (ideal)
+  -0.05    1.85   clock uncertainty
+   0.00    1.85   clock reconvergence pessimism
+           1.85 ^ _099021_/CK (DFFR_X1)
+  -0.06    1.79   library setup time
+           1.79   data required time
+---------------------------------------------------------
+           1.79   data required time
+         -14.81   data arrival time
+---------------------------------------------------------
+         -13.02   slack (VIOLATED)
+
+
+Startpoint: _102584_ (rising edge-triggered flip-flop clocked by clk_d)
+Endpoint: _101923_ (rising edge-triggered flip-flop clocked by clk_d)
+Path Group: clk_d
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk_d (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _102584_/CK (DFF_X1)
+   0.11    0.11 ^ _102584_/Q (DFF_X1)
+   0.07    0.18 v _077990_/Z (MUX2_X1)
+   0.06    0.24 v _077992_/Z (XOR2_X1)
+   0.02    0.26 ^ _077996_/ZN (NAND2_X1)
+   0.02    0.28 v _077997_/ZN (NAND2_X1)
+   0.02    0.30 ^ _077999_/ZN (NAND2_X1)
+   0.02    0.31 v _078000_/ZN (NAND2_X1)
+   0.03    0.34 v _078001_/ZN (AND2_X1)
+   0.05    0.39 v _078002_/ZN (OR2_X1)
+   0.03    0.43 v _078003_/ZN (AND2_X1)
+   0.05    0.48 v _078004_/ZN (OR2_X1)
+   0.03    0.51 v _078006_/ZN (AND2_X1)
+   0.05    0.56 ^ _078007_/ZN (AOI21_X1)
+   0.04    0.60 ^ _078012_/ZN (XNOR2_X1)
+   0.01    0.61 v _078013_/ZN (NOR2_X1)
+   0.00    0.61 v _101923_/D (DFF_X1)
+           0.61   data arrival time
+
+   1.85    1.85   clock clk_d (rise edge)
+   0.00    1.85   clock network delay (ideal)
+  -0.05    1.80   clock uncertainty
+   0.00    1.80   clock reconvergence pessimism
+           1.80 ^ _101923_/CK (DFF_X1)
+  -0.04    1.76   library setup time
+           1.76   data required time
+---------------------------------------------------------
+           1.76   data required time
+          -0.61   data arrival time
+---------------------------------------------------------
+           1.14   slack (MET)
+
+
+Startpoint: _103053_ (rising edge-triggered flip-flop clocked by clk_e)
+Endpoint: _099343_ (rising edge-triggered flip-flop clocked by clk_e)
+Path Group: clk_e
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk_e (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _103053_/CK (DFFS_X1)
+   0.96    0.96 ^ _103053_/Q (DFFS_X1)
+   6.20    7.16 v _052273_/ZN (INV_X1)
+   0.60    7.76 v _097261_/ZN (AND2_X1)
+   0.00    7.76 v _099343_/D (DFF_X1)
+           7.76   data arrival time
+
+   1.90    1.90   clock clk_e (rise edge)
+   0.00    1.90   clock network delay (ideal)
+  -0.05    1.85   clock uncertainty
+   0.00    1.85   clock reconvergence pessimism
+           1.85 ^ _099343_/CK (DFF_X1)
+  -0.07    1.78   library setup time
+           1.78   data required time
+---------------------------------------------------------
+           1.78   data required time
+          -7.76   data arrival time
+---------------------------------------------------------
+          -5.98   slack (VIOLATED)
+
+

@@ -1,0 +1,40 @@
+{
+  "design_name": "ddc_fir",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_fir.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/ddc_fir.sdc",
+  "timestamp": "20260912T163225Z",
+  "timing": {
+    "worst_slack_ns": 3.32,
+    "data_arrival_time_ns": 1.64,
+    "data_required_time_ns": 4.96,
+    "startpoint": "_2696_",
+    "endpoint": "_2690_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 33,
+    "max_frequency_mhz": 595.2380952380952
+  },
+  "power": {
+    "internal_uw": 707.0,
+    "switching_uw": 421.0,
+    "leakage_uw": 45.599999999999994,
+    "total_uw": 1170.0
+  },
+  "area": {
+    "cell_area_um2": 2062.032,
+    "total_cells": 1410,
+    "flip_flops": 145
+  },
+  "ppa": {
+    "area_score": 9.699170526936536,
+    "timing_score": 33.199999999999996,
+    "power_score": 1.7094017094017095,
+    "overall_score": 14.352488723595126
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

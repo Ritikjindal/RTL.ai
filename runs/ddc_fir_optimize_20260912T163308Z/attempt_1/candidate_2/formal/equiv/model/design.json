@@ -1,0 +1,2716 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.68+130 (git sha1 dd83bbad2-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "__eqcheck_top",
+        "cell_sorts": [
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_eqcheck_wrapper_v_55_188",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_eqcheck_wrapper_v_55_188",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:55.33-55.114"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_eqcheck_wrapper_v_53_186",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_eqcheck_wrapper_v_53_186",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:53.13-53.25"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$193",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:55.17-55.31|eqcheck_wrapper.v:55.13-55.115"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$196",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:52.13-52.23|eqcheck_wrapper.v:52.9-56.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$199",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:52.13-52.23|eqcheck_wrapper.v:52.9-56.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$201",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:46.18-46.31|eqcheck_wrapper.v:46.14-46.57"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$204",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:45.13-45.16|eqcheck_wrapper.v:45.9-46.57"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$eqcheck_wrapper.v:46$183",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:46.18-46.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "gold",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "in_data",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "in_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "out_data",
+                  "direction": "",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "out_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "gold_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:13.10-20.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$eqcheck_wrapper.v:55$191",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:55.41-55.113"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$206",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:44.5-47.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$207",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:37.5-40.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$208",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:37.5-40.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$initstate",
+            "ports": [
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$initstate$180",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:52.13-52.23"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$eqcheck_wrapper.v:55$187",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:55.17-55.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$eqcheck_wrapper.v:55$189",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:55.41-55.76"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$eqcheck_wrapper.v:55$190",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:55.80-55.113"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "gate",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "in_data",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "in_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "out_data",
+                  "direction": "",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "out_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "gate_inst",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "eqcheck_wrapper.v:22.10-29.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$eqcheck_wrapper.v:46$184",
+                  "attributes": {
+                    "src": "eqcheck_wrapper.v:46.43-46.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "eqcheck_wrapper.v:1.1-59.10"
+        }
+      },
+      {
+        "name": "gate",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ternary$gold_gate.v:202$55",
+                  "attributes": {
+                    "src": "gold_gate.v:202.18-202.41"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:203$56",
+                  "attributes": {
+                    "src": "gold_gate.v:203.18-203.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:204$57",
+                  "attributes": {
+                    "src": "gold_gate.v:204.18-204.59"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:205$58",
+                  "attributes": {
+                    "src": "gold_gate.v:205.18-205.45"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:206$59",
+                  "attributes": {
+                    "src": "gold_gate.v:206.18-206.59"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:207$60",
+                  "attributes": {
+                    "src": "gold_gate.v:207.18-207.45"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:208$61",
+                  "attributes": {
+                    "src": "gold_gate.v:208.18-208.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:209$62",
+                  "attributes": {
+                    "src": "gold_gate.v:209.18-209.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:210$63",
+                  "attributes": {
+                    "src": "gold_gate.v:210.18-210.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:211$64",
+                  "attributes": {
+                    "src": "gold_gate.v:211.18-211.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:212$65",
+                  "attributes": {
+                    "src": "gold_gate.v:212.18-212.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:213$66",
+                  "attributes": {
+                    "src": "gold_gate.v:213.18-213.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:214$67",
+                  "attributes": {
+                    "src": "gold_gate.v:214.18-214.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:215$68",
+                  "attributes": {
+                    "src": "gold_gate.v:215.18-215.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:216$69",
+                  "attributes": {
+                    "src": "gold_gate.v:216.18-216.52"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:217$70",
+                  "attributes": {
+                    "src": "gold_gate.v:217.18-217.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:218$71",
+                  "attributes": {
+                    "src": "gold_gate.v:218.18-218.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:219$72",
+                  "attributes": {
+                    "src": "gold_gate.v:219.18-219.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:220$73",
+                  "attributes": {
+                    "src": "gold_gate.v:220.18-220.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:221$74",
+                  "attributes": {
+                    "src": "gold_gate.v:221.18-221.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:222$75",
+                  "attributes": {
+                    "src": "gold_gate.v:222.18-222.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:223$76",
+                  "attributes": {
+                    "src": "gold_gate.v:223.18-223.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:224$77",
+                  "attributes": {
+                    "src": "gold_gate.v:224.18-224.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:225$78",
+                  "attributes": {
+                    "src": "gold_gate.v:225.18-225.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:226$79",
+                  "attributes": {
+                    "src": "gold_gate.v:226.18-226.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:227$80",
+                  "attributes": {
+                    "src": "gold_gate.v:227.18-227.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:228$81",
+                  "attributes": {
+                    "src": "gold_gate.v:228.18-228.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:229$82",
+                  "attributes": {
+                    "src": "gold_gate.v:229.18-229.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:230$83",
+                  "attributes": {
+                    "src": "gold_gate.v:230.18-230.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:231$84",
+                  "attributes": {
+                    "src": "gold_gate.v:231.18-231.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:232$85",
+                  "attributes": {
+                    "src": "gold_gate.v:232.18-232.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:233$86",
+                  "attributes": {
+                    "src": "gold_gate.v:233.18-233.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:234$87",
+                  "attributes": {
+                    "src": "gold_gate.v:234.18-234.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:235$88",
+                  "attributes": {
+                    "src": "gold_gate.v:235.18-235.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:236$89",
+                  "attributes": {
+                    "src": "gold_gate.v:236.18-236.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:237$90",
+                  "attributes": {
+                    "src": "gold_gate.v:237.18-237.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:238$91",
+                  "attributes": {
+                    "src": "gold_gate.v:238.18-238.45"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:239$92",
+                  "attributes": {
+                    "src": "gold_gate.v:239.18-239.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:240$93",
+                  "attributes": {
+                    "src": "gold_gate.v:240.16-240.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:241$94",
+                  "attributes": {
+                    "src": "gold_gate.v:241.18-241.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [21, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$gold_gate.v:146$19",
+                  "attributes": {
+                    "src": "gold_gate.v:146.18-146.217"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010101",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [36, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [36, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$226",
+                  "attributes": {
+                    "src": "gold_gate.v:200.3-201.32"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$procdff$227",
+                  "attributes": {
+                    "src": "gold_gate.v:198.3-199.32"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$procdff$228",
+                  "attributes": {
+                    "src": "gold_gate.v:196.3-197.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$229",
+                  "attributes": {
+                    "src": "gold_gate.v:194.3-195.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$230",
+                  "attributes": {
+                    "src": "gold_gate.v:192.3-193.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$231",
+                  "attributes": {
+                    "src": "gold_gate.v:190.3-191.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$232",
+                  "attributes": {
+                    "src": "gold_gate.v:188.3-189.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$233",
+                  "attributes": {
+                    "src": "gold_gate.v:186.3-187.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$234",
+                  "attributes": {
+                    "src": "gold_gate.v:184.3-185.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$235",
+                  "attributes": {
+                    "src": "gold_gate.v:182.3-183.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$236",
+                  "attributes": {
+                    "src": "gold_gate.v:180.3-181.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$237",
+                  "attributes": {
+                    "src": "gold_gate.v:178.3-179.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$238",
+                  "attributes": {
+                    "src": "gold_gate.v:176.3-177.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$239",
+                  "attributes": {
+                    "src": "gold_gate.v:174.3-175.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$240",
+                  "attributes": {
+                    "src": "gold_gate.v:172.3-173.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$241",
+                  "attributes": {
+                    "src": "gold_gate.v:170.3-171.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$242",
+                  "attributes": {
+                    "src": "gold_gate.v:168.3-169.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$243",
+                  "attributes": {
+                    "src": "gold_gate.v:166.3-167.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$244",
+                  "attributes": {
+                    "src": "gold_gate.v:164.3-165.23"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$245",
+                  "attributes": {
+                    "src": "gold_gate.v:162.3-163.24"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mul",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [17, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$mul$gold_gate.v:147$20",
+                  "attributes": {
+                    "src": "gold_gate.v:147.22-147.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:148$21",
+                  "attributes": {
+                    "src": "gold_gate.v:148.22-148.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:149$22",
+                  "attributes": {
+                    "src": "gold_gate.v:149.22-149.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:150$23",
+                  "attributes": {
+                    "src": "gold_gate.v:150.22-150.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:151$24",
+                  "attributes": {
+                    "src": "gold_gate.v:151.22-151.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:152$25",
+                  "attributes": {
+                    "src": "gold_gate.v:152.22-152.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:153$26",
+                  "attributes": {
+                    "src": "gold_gate.v:153.22-153.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:154$27",
+                  "attributes": {
+                    "src": "gold_gate.v:154.22-154.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:155$28",
+                  "attributes": {
+                    "src": "gold_gate.v:155.22-155.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:156$29",
+                  "attributes": {
+                    "src": "gold_gate.v:156.22-156.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:157$30",
+                  "attributes": {
+                    "src": "gold_gate.v:157.23-157.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:158$31",
+                  "attributes": {
+                    "src": "gold_gate.v:158.23-158.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:159$32",
+                  "attributes": {
+                    "src": "gold_gate.v:159.23-159.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:160$33",
+                  "attributes": {
+                    "src": "gold_gate.v:160.23-160.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:161$34",
+                  "attributes": {
+                    "src": "gold_gate.v:161.23-161.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [21, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$gt$gold_gate.v:145$18",
+                  "attributes": {
+                    "src": "gold_gate.v:145.18-145.217"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010101",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [36, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [36, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$gold_gate.v:128$1",
+                  "attributes": {
+                    "src": "gold_gate.v:128.17-128.54"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:129$2",
+                  "attributes": {
+                    "src": "gold_gate.v:129.23-129.112"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010010"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:130$3",
+                  "attributes": {
+                    "src": "gold_gate.v:130.23-130.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010010",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010011"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:131$4",
+                  "attributes": {
+                    "src": "gold_gate.v:131.23-131.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010011",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:132$5",
+                  "attributes": {
+                    "src": "gold_gate.v:132.23-132.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010101"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:133$6",
+                  "attributes": {
+                    "src": "gold_gate.v:133.23-133.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:134$7",
+                  "attributes": {
+                    "src": "gold_gate.v:134.23-134.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:135$8",
+                  "attributes": {
+                    "src": "gold_gate.v:135.23-135.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:136$9",
+                  "attributes": {
+                    "src": "gold_gate.v:136.23-136.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:137$10",
+                  "attributes": {
+                    "src": "gold_gate.v:137.23-137.112"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010010"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:138$11",
+                  "attributes": {
+                    "src": "gold_gate.v:138.23-138.109"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010010",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010011"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:139$12",
+                  "attributes": {
+                    "src": "gold_gate.v:139.23-139.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010011",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:140$13",
+                  "attributes": {
+                    "src": "gold_gate.v:140.23-140.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010101"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:141$14",
+                  "attributes": {
+                    "src": "gold_gate.v:141.23-141.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:142$15",
+                  "attributes": {
+                    "src": "gold_gate.v:142.23-142.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:143$16",
+                  "attributes": {
+                    "src": "gold_gate.v:143.23-143.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:144$17",
+                  "attributes": {
+                    "src": "gold_gate.v:144.16-144.71"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "gold_gate.v:3.1-262.10"
+        }
+      },
+      {
+        "name": "gold",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ternary$gold_gate.v:445$145",
+                  "attributes": {
+                    "src": "gold_gate.v:445.18-445.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:446$146",
+                  "attributes": {
+                    "src": "gold_gate.v:446.18-446.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:447$147",
+                  "attributes": {
+                    "src": "gold_gate.v:447.18-447.52"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:448$148",
+                  "attributes": {
+                    "src": "gold_gate.v:448.18-448.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:449$149",
+                  "attributes": {
+                    "src": "gold_gate.v:449.18-449.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:450$150",
+                  "attributes": {
+                    "src": "gold_gate.v:450.18-450.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:451$151",
+                  "attributes": {
+                    "src": "gold_gate.v:451.18-451.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:452$152",
+                  "attributes": {
+                    "src": "gold_gate.v:452.18-452.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:453$153",
+                  "attributes": {
+                    "src": "gold_gate.v:453.18-453.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:454$154",
+                  "attributes": {
+                    "src": "gold_gate.v:454.18-454.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:455$155",
+                  "attributes": {
+                    "src": "gold_gate.v:455.18-455.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:456$156",
+                  "attributes": {
+                    "src": "gold_gate.v:456.18-456.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:457$157",
+                  "attributes": {
+                    "src": "gold_gate.v:457.18-457.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:458$158",
+                  "attributes": {
+                    "src": "gold_gate.v:458.18-458.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:459$159",
+                  "attributes": {
+                    "src": "gold_gate.v:459.18-459.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:460$160",
+                  "attributes": {
+                    "src": "gold_gate.v:460.18-460.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:461$161",
+                  "attributes": {
+                    "src": "gold_gate.v:461.18-461.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:462$162",
+                  "attributes": {
+                    "src": "gold_gate.v:462.18-462.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:463$163",
+                  "attributes": {
+                    "src": "gold_gate.v:463.18-463.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:464$164",
+                  "attributes": {
+                    "src": "gold_gate.v:464.18-464.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:465$165",
+                  "attributes": {
+                    "src": "gold_gate.v:465.18-465.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:466$166",
+                  "attributes": {
+                    "src": "gold_gate.v:466.18-466.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:467$167",
+                  "attributes": {
+                    "src": "gold_gate.v:467.18-467.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:468$168",
+                  "attributes": {
+                    "src": "gold_gate.v:468.18-468.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:469$169",
+                  "attributes": {
+                    "src": "gold_gate.v:469.18-469.43"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:470$170",
+                  "attributes": {
+                    "src": "gold_gate.v:470.18-470.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:471$171",
+                  "attributes": {
+                    "src": "gold_gate.v:471.18-471.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:472$172",
+                  "attributes": {
+                    "src": "gold_gate.v:472.18-472.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:473$173",
+                  "attributes": {
+                    "src": "gold_gate.v:473.18-473.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:474$174",
+                  "attributes": {
+                    "src": "gold_gate.v:474.18-474.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:475$175",
+                  "attributes": {
+                    "src": "gold_gate.v:475.18-475.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:476$176",
+                  "attributes": {
+                    "src": "gold_gate.v:476.18-476.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:477$177",
+                  "attributes": {
+                    "src": "gold_gate.v:477.18-477.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:478$178",
+                  "attributes": {
+                    "src": "gold_gate.v:478.16-478.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$ternary$gold_gate.v:479$179",
+                  "attributes": {
+                    "src": "gold_gate.v:479.18-479.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [21, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$gold_gate.v:395$112",
+                  "attributes": {
+                    "src": "gold_gate.v:395.18-395.217"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010101",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$209",
+                  "attributes": {
+                    "src": "gold_gate.v:443.3-444.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$210",
+                  "attributes": {
+                    "src": "gold_gate.v:441.3-442.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$211",
+                  "attributes": {
+                    "src": "gold_gate.v:439.3-440.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$212",
+                  "attributes": {
+                    "src": "gold_gate.v:437.3-438.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$213",
+                  "attributes": {
+                    "src": "gold_gate.v:435.3-436.26"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$214",
+                  "attributes": {
+                    "src": "gold_gate.v:433.3-434.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$215",
+                  "attributes": {
+                    "src": "gold_gate.v:431.3-432.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$216",
+                  "attributes": {
+                    "src": "gold_gate.v:429.3-430.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$217",
+                  "attributes": {
+                    "src": "gold_gate.v:427.3-428.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$218",
+                  "attributes": {
+                    "src": "gold_gate.v:425.3-426.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$219",
+                  "attributes": {
+                    "src": "gold_gate.v:423.3-424.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$220",
+                  "attributes": {
+                    "src": "gold_gate.v:421.3-422.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$221",
+                  "attributes": {
+                    "src": "gold_gate.v:419.3-420.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$222",
+                  "attributes": {
+                    "src": "gold_gate.v:417.3-418.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$223",
+                  "attributes": {
+                    "src": "gold_gate.v:415.3-416.25"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$224",
+                  "attributes": {
+                    "src": "gold_gate.v:413.3-414.23"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$225",
+                  "attributes": {
+                    "src": "gold_gate.v:411.3-412.24"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mul",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [17, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$mul$gold_gate.v:396$113",
+                  "attributes": {
+                    "src": "gold_gate.v:396.22-396.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:397$114",
+                  "attributes": {
+                    "src": "gold_gate.v:397.22-397.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:398$115",
+                  "attributes": {
+                    "src": "gold_gate.v:398.22-398.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:399$116",
+                  "attributes": {
+                    "src": "gold_gate.v:399.22-399.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:400$117",
+                  "attributes": {
+                    "src": "gold_gate.v:400.22-400.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:401$118",
+                  "attributes": {
+                    "src": "gold_gate.v:401.22-401.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:402$119",
+                  "attributes": {
+                    "src": "gold_gate.v:402.22-402.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:403$120",
+                  "attributes": {
+                    "src": "gold_gate.v:403.22-403.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:404$121",
+                  "attributes": {
+                    "src": "gold_gate.v:404.22-404.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:405$122",
+                  "attributes": {
+                    "src": "gold_gate.v:405.22-405.61"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:406$123",
+                  "attributes": {
+                    "src": "gold_gate.v:406.23-406.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:407$124",
+                  "attributes": {
+                    "src": "gold_gate.v:407.23-407.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:408$125",
+                  "attributes": {
+                    "src": "gold_gate.v:408.23-408.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:409$126",
+                  "attributes": {
+                    "src": "gold_gate.v:409.23-409.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                },
+                {
+                  "name": "$mul$gold_gate.v:410$127",
+                  "attributes": {
+                    "src": "gold_gate.v:410.23-410.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000010001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [21, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$gt$gold_gate.v:394$111",
+                  "attributes": {
+                    "src": "gold_gate.v:394.18-394.217"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010101",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [17, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [18, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$gold_gate.v:378$95",
+                  "attributes": {
+                    "src": "gold_gate.v:378.22-378.111"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010010"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:379$96",
+                  "attributes": {
+                    "src": "gold_gate.v:379.22-379.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010010",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010011"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:380$97",
+                  "attributes": {
+                    "src": "gold_gate.v:380.22-380.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010011",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:381$98",
+                  "attributes": {
+                    "src": "gold_gate.v:381.22-381.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010001",
+                    "Y_WIDTH": "00000000000000000000000000010101"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:382$99",
+                  "attributes": {
+                    "src": "gold_gate.v:382.22-382.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:383$100",
+                  "attributes": {
+                    "src": "gold_gate.v:383.22-383.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:384$101",
+                  "attributes": {
+                    "src": "gold_gate.v:384.22-384.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:385$102",
+                  "attributes": {
+                    "src": "gold_gate.v:385.22-385.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:386$103",
+                  "attributes": {
+                    "src": "gold_gate.v:386.22-386.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:387$104",
+                  "attributes": {
+                    "src": "gold_gate.v:387.23-387.108"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:388$105",
+                  "attributes": {
+                    "src": "gold_gate.v:388.23-388.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:389$106",
+                  "attributes": {
+                    "src": "gold_gate.v:389.23-389.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:390$107",
+                  "attributes": {
+                    "src": "gold_gate.v:390.23-390.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:391$108",
+                  "attributes": {
+                    "src": "gold_gate.v:391.23-391.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:392$109",
+                  "attributes": {
+                    "src": "gold_gate.v:392.16-392.107"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100100",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                },
+                {
+                  "name": "$add$gold_gate.v:393$110",
+                  "attributes": {
+                    "src": "gold_gate.v:393.17-393.54"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000100100",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000100100"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "gold_gate.v:264.1-498.10"
+        }
+      }
+  ]
+}

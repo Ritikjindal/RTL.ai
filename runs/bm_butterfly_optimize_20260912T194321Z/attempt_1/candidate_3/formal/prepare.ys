@@ -1,0 +1,23 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v
+hierarchy -check -top bm_butterfly
+proc
+flatten
+opt_clean
+rename bm_butterfly gold
+design -stash gold_design
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/bm_butterfly_optimize_20260912T194321Z/attempt_1/candidate_3/bm_butterfly_candidate.v
+hierarchy -check -top bm_butterfly
+proc
+flatten
+opt_clean
+rename bm_butterfly gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+setattr -mod -unset top gold gate
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/bm_butterfly_optimize_20260912T194321Z/attempt_1/candidate_3/formal/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/bm_butterfly_optimize_20260912T194321Z/attempt_1/candidate_3/formal/ports.json

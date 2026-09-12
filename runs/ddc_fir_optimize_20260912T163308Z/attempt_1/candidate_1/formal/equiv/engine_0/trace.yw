@@ -1,0 +1,53 @@
+{
+  "format": "Yosys Witness Trace",
+  "generator": "smtbmc",
+  "clocks": [
+    {"path": ["\\clk"], "edge": "posedge", "offset": 0}
+  ],
+  "signals": [
+    {"path": ["\\clk"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\in_data"], "width": 16, "offset": 0, "init_only": false},
+    {"path": ["\\in_valid"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\rst"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\gate_inst", "\\out_data"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\out_valid"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\out_valid_pipeline"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\partial_sum_reg_A"], "width": 36, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\partial_sum_reg_B"], "width": 36, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[0]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[1]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[2]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[3]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[4]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[5]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[6]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\shift[7]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\out_data"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\out_valid"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[0]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[1]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[2]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[3]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[4]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[5]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[6]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\shift[7]"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_out_data_d1"], "width": 16, "offset": 0, "init_only": true},
+    {"path": ["\\gold_out_valid_d1"], "width": 1, "offset": 0, "init_only": true}
+  ],
+  "steps": [
+    {"bits": "110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000"},
+    {"bits": "0110101110100101010"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0100000000000000000"},
+    {"bits": "0000000000000000000"},
+    {"bits": "0000000000000000000"},
+    {"bits": "0000000000000000000"},
+    {"bits": "0000000000000000000"}
+  ]
+}

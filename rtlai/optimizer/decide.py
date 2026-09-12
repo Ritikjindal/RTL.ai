@@ -9,7 +9,7 @@ BALANCED_WEIGHTS = {"area": 0.40, "max frequency": 0.30, "power": 0.30}
 # Timing-closure weights, used when the baseline VIOLATES its constraint. The brief is
 # about closing timing: when the design is failing, frequency is what matters and
 # area/power are almost irrelevant.
-CLOSURE_WEIGHTS = {"area": 0.10, "max frequency": 0.80, "power": 0.30}
+CLOSURE_WEIGHTS = {"area": 0.10, "max frequency": 0.80, "power": 0.10}
 
 # Rejects catastrophic single-axis regressions (e.g. the hand-built ALU ripple-carry
 # candidate, which lost 36% of max frequency). Deliberately loose enough to permit
@@ -27,6 +27,20 @@ def _pct_improvement(
         return (baseline - candidate) / baseline * 100.0
     return (candidate - baseline) / baseline * 100.0
 
+def _slack_improvement(baseline_ns: Optional[float], candidate_ns: Optional[float]) -> Optional[float]:
+    """
+    Percent improvement in worst slack, scaled by how bad the baseline was.
+
+    Used instead of max frequency when the baseline violates timing. On a multi-clock
+    design, max_frequency_mhz is derived from whichever path happens to be worst, and
+    that path moves between clocks with different periods -- so two frequency numbers
+    can describe different constraints and are not comparable. Slack is always measured
+    against its own path's constraint, so it is.
+    """
+    if baseline_ns is None or candidate_ns is None or baseline_ns == 0:
+        return None
+    return (candidate_ns - baseline_ns) / abs(baseline_ns) * 100.0
+
 
 def _dimensions(
     baseline: RunResult, candidate: RunResult
@@ -39,7 +53,9 @@ def _dimensions(
     dims = [
         ("area", weights["area"],
          _pct_improvement(baseline.area.cell_area_um2, candidate.area.cell_area_um2, True)),
-        ("max frequency", weights["max frequency"],
+        ("timing", weights["max frequency"],
+         _slack_improvement(baseline.timing.worst_slack_ns, candidate.timing.worst_slack_ns)
+         if closing_timing else
          _pct_improvement(baseline.timing.max_frequency_mhz, candidate.timing.max_frequency_mhz, False)),
         ("power", weights["power"],
          _pct_improvement(baseline.power.total_uw, candidate.power.total_uw, True)),
@@ -74,9 +90,13 @@ def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str, Option
     dominates and a candidate that doesn't get faster is rejected outright. If timing
     is already met, area/timing/power are weighted in balance.
 
-    Note this scores TIMING on max frequency, not worst slack. Slack is measured
-    against a fixed clock constraint, so a design can lose a third of its achievable
-    frequency while its slack barely moves.
+    Timing is scored on WORST SLACK when the baseline violates its constraint, and on
+    MAX FREQUENCY when it already meets it. Slack is comparable across clocks because
+    each path is measured against its own constraint; max frequency is not, since on a
+    multi-clock design it is derived from whichever path happens to be worst and that
+    path can move between clocks with different periods. When timing is already met,
+    frequency is the better measure, because slack against a fixed period understates
+    how much headroom a design actually has.
 
     Returns (accepted, human-readable reason, net weighted improvement).
     """
@@ -92,10 +112,10 @@ def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str, Option
 
     # When the baseline is failing timing, a candidate that doesn't make it faster is
     # not a solution, whatever it does for area or power.
-    if closing_timing and by_name["max frequency"] <= 0:
+    if closing_timing and by_name["timing"] <= 0:
         return False, (
             f"Rejected [{mode}]: baseline violates timing and this candidate does not improve "
-            f"max frequency ({breakdown})."
+            f"worst slack ({breakdown})."
         ), net
 
     regressions = [(name, value) for name, _, value in dims if value < -MAX_REGRESSION_PCT]

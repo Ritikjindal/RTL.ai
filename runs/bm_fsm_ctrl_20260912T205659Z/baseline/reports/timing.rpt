@@ -1,0 +1,70 @@
+Startpoint: _3685_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _3641_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _3685_/CK (DFF_X1)
+   0.21    0.21 ^ _3685_/Q (DFF_X1)
+   0.06    0.27 v _1922_/ZN (INV_X1)
+   0.05    0.32 ^ _2189_/ZN (AOI21_X1)
+   0.02    0.34 v _2191_/ZN (AOI21_X1)
+   0.05    0.39 v _2343_/ZN (XNOR2_X1)
+   0.06    0.45 v _2348_/Z (XOR2_X1)
+   0.04    0.49 v _2502_/ZN (XNOR2_X1)
+   0.07    0.56 v _2503_/Z (MUX2_X1)
+   0.05    0.61 v _2508_/ZN (XNOR2_X1)
+   0.06    0.67 v _2631_/Z (XOR2_X1)
+   0.07    0.74 v _2632_/Z (MUX2_X1)
+   0.06    0.80 v _2637_/Z (XOR2_X1)
+   0.04    0.84 v _2755_/ZN (XNOR2_X1)
+   0.07    0.90 v _2756_/Z (MUX2_X1)
+   0.05    0.95 ^ _2762_/ZN (XNOR2_X1)
+   0.03    0.98 v _2763_/ZN (NAND3_X1)
+   0.04    1.02 v _2764_/ZN (AND2_X1)
+   0.04    1.06 ^ _2771_/ZN (OAI21_X1)
+   0.03    1.09 v _2772_/ZN (OAI21_X1)
+   0.05    1.14 ^ _2777_/ZN (OAI21_X1)
+   0.03    1.17 v _2778_/ZN (OAI21_X1)
+   0.05    1.22 ^ _2782_/ZN (OAI21_X1)
+   0.02    1.24 v _2784_/ZN (AOI21_X1)
+   0.05    1.29 ^ _2786_/ZN (OAI21_X1)
+   0.03    1.31 v _2884_/ZN (XNOR2_X1)
+   0.06    1.38 ^ _2885_/ZN (NOR3_X1)
+   0.05    1.42 ^ _2887_/ZN (AND2_X1)
+   0.01    1.43 v _2888_/ZN (INV_X1)
+   0.10    1.54 ^ _2892_/ZN (NOR4_X1)
+   0.01    1.55 v _2929_/ZN (NOR2_X1)
+   0.05    1.61 ^ _2930_/ZN (AOI22_X1)
+   0.05    1.66 ^ _2931_/ZN (XNOR2_X1)
+   0.05    1.71 ^ _2933_/ZN (XNOR2_X1)
+   0.03    1.75 v _3071_/ZN (AOI221_X1)
+   0.10    1.85 ^ _3073_/ZN (OAI33_X1)
+   0.05    1.90 ^ _3081_/ZN (AND2_X1)
+   0.03    1.93 v _3197_/ZN (OAI211_X1)
+   0.05    1.97 v _3204_/ZN (XNOR2_X1)
+   0.16    2.13 ^ _3205_/ZN (NOR4_X1)
+   0.07    2.19 v _3225_/ZN (NAND4_X1)
+   0.04    2.24 ^ _3229_/ZN (XNOR2_X1)
+   0.02    2.26 v _3231_/ZN (AOI221_X1)
+   0.08    2.34 v _3233_/ZN (OR3_X1)
+   0.03    2.37 ^ _3234_/ZN (AOI21_X1)
+   0.00    2.37 ^ _3641_/D (DFF_X1)
+           2.37   data arrival time
+
+   1.48    1.48   clock clk (rise edge)
+   0.00    1.48   clock network delay (ideal)
+   0.00    1.48   clock reconvergence pessimism
+           1.48 ^ _3641_/CK (DFF_X1)
+  -0.03    1.45   library setup time
+           1.45   data required time
+---------------------------------------------------------
+           1.45   data required time
+          -2.37   data arrival time
+---------------------------------------------------------
+          -0.93   slack (VIOLATED)
+
+

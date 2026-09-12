@@ -1,0 +1,1927 @@
+{
+  "creator": "Yosys 0.68+130 (git sha1 dd83bbad2-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)",
+  "modules": {
+    "gate": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:14.1-87.10"
+      },
+      "parameter_default_values": {
+        "ACCW": "00000000000000000000000000010100",
+        "DW": "00000000000000000000000000001000",
+        "PW": "00000000000000000000000000010000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "in_valid": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ar": {
+          "direction": "input",
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ]
+        },
+        "ai": {
+          "direction": "input",
+          "bits": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+        },
+        "br": {
+          "direction": "input",
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ]
+        },
+        "bi": {
+          "direction": "input",
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ]
+        },
+        "out_valid": {
+          "direction": "output",
+          "bits": [ 37 ]
+        },
+        "cr": {
+          "direction": "output",
+          "bits": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]
+        },
+        "ci": {
+          "direction": "output",
+          "bits": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ]
+        }
+      },
+      "cells": {
+        "$add$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:55$545": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010000",
+            "Y_WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:55.29-55.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ],
+            "B": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109 ],
+            "Y": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 ]
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:56$546": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010000",
+            "Y_WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:56.29-56.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142 ],
+            "B": [ 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158 ],
+            "Y": [ 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175 ]
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:80$549": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010100",
+            "Y_WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:80.23-80.62"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+            "B": [ 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, "0", "0", "0" ],
+            "Y": [ 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212 ]
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:81$550": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010100",
+            "Y_WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:81.23-81.62"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ],
+            "B": [ 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, "0", "0", "0" ],
+            "Y": [ 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:50$541": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:50.24-50.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 250, 251, 252, 253, 254, 255, 256, 257 ],
+            "B": [ 258, 259, 260, 261, 262, 263, 264, 265 ],
+            "Y": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:51$542": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:51.24-51.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 266, 267, 268, 269, 270, 271, 272, 273 ],
+            "B": [ 274, 275, 276, 277, 278, 279, 280, 281 ],
+            "Y": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:52$543": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:52.24-52.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 250, 251, 252, 253, 254, 255, 256, 257 ],
+            "B": [ 274, 275, 276, 277, 278, 279, 280, 281 ],
+            "Y": [ 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:53$544": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:53.24-53.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 266, 267, 268, 269, 270, 271, 272, 273 ],
+            "B": [ 258, 259, 260, 261, 262, 263, 264, 265 ],
+            "Y": [ 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158 ]
+          }
+        },
+        "$procdff$601": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:73.5-85.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 282 ],
+            "Q": [ 37 ]
+          }
+        },
+        "$procdff$602": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:73.5-85.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ],
+            "Q": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]
+          }
+        },
+        "$procdff$603": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:73.5-85.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322 ],
+            "Q": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ]
+          }
+        },
+        "$procdff$604": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:61.5-71.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 323 ],
+            "Q": [ 324 ]
+          }
+        },
+        "$procdff$605": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:61.5-71.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341 ],
+            "Q": [ 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229 ]
+          }
+        },
+        "$procdff$606": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:61.5-71.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358 ],
+            "Q": [ 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192 ]
+          }
+        },
+        "$procdff$607": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 359 ],
+            "Q": [ 360 ]
+          }
+        },
+        "$procdff$608": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 361, 362, 363, 364, 365, 366, 367, 368 ],
+            "Q": [ 250, 251, 252, 253, 254, 255, 256, 257 ]
+          }
+        },
+        "$procdff$609": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 369, 370, 371, 372, 373, 374, 375, 376 ],
+            "Q": [ 266, 267, 268, 269, 270, 271, 272, 273 ]
+          }
+        },
+        "$procdff$610": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 377, 378, 379, 380, 381, 382, 383, 384 ],
+            "Q": [ 258, 259, 260, 261, 262, 263, 264, 265 ]
+          }
+        },
+        "$procdff$611": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 385, 386, 387, 388, 389, 390, 391, 392 ],
+            "Q": [ 274, 275, 276, 277, 278, 279, 280, 281 ]
+          }
+        },
+        "$procmux$565": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:74.13-74.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:74.9-84.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 324 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 282 ]
+          }
+        },
+        "$procmux$567": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:79.17-79.21|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:79.13-82.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ],
+            "B": [ 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249 ],
+            "S": [ 324 ],
+            "Y": [ 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412 ]
+          }
+        },
+        "$procmux$570": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:74.13-74.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:74.9-84.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322 ]
+          }
+        },
+        "$procmux$572": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:79.17-79.21|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:79.13-82.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+            "B": [ 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212 ],
+            "S": [ 324 ],
+            "Y": [ 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432 ]
+          }
+        },
+        "$procmux$575": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:74.13-74.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:74.9-84.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ]
+          }
+        },
+        "$procmux$578": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:62.13-62.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:62.9-70.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 360 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 323 ]
+          }
+        },
+        "$procmux$581": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:62.13-62.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:62.9-70.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341 ]
+          }
+        },
+        "$procmux$584": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:62.13-62.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:62.9-70.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358 ]
+          }
+        },
+        "$procmux$587": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.13-35.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 359 ]
+          }
+        },
+        "$procmux$590": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.13-35.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 385, 386, 387, 388, 389, 390, 391, 392 ]
+          }
+        },
+        "$procmux$593": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.13-35.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 377, 378, 379, 380, 381, 382, 383, 384 ]
+          }
+        },
+        "$procmux$596": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.13-35.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 369, 370, 371, 372, 373, 374, 375, 376 ]
+          }
+        },
+        "$procmux$599": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.13-35.16|/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:35.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 361, 362, 363, 364, 365, 366, 367, 368 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\ai_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 369, 370, 371, 372, 373, 374, 375, 376 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          }
+        },
+        "$0\\ar_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 361, 362, 363, 364, 365, 366, 367, 368 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          }
+        },
+        "$0\\bi_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 385, 386, 387, 388, 389, 390, 391, 392 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          }
+        },
+        "$0\\br_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 377, 378, 379, 380, 381, 382, 383, 384 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          }
+        },
+        "$0\\ci[19:0]": {
+          "hide_name": 1,
+          "bits": [ 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:73.5-85.8"
+          }
+        },
+        "$0\\cr[19:0]": {
+          "hide_name": 1,
+          "bits": [ 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:73.5-85.8"
+          }
+        },
+        "$0\\imag_part_r[16:0]": {
+          "hide_name": 1,
+          "bits": [ 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:61.5-71.8"
+          }
+        },
+        "$0\\out_valid[0:0]": {
+          "hide_name": 1,
+          "bits": [ 282 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:73.5-85.8"
+          }
+        },
+        "$0\\real_part_r[16:0]": {
+          "hide_name": 1,
+          "bits": [ 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:61.5-71.8"
+          }
+        },
+        "$0\\vld2[0:0]": {
+          "hide_name": 1,
+          "bits": [ 323 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:61.5-71.8"
+          }
+        },
+        "$0\\vld[0:0]": {
+          "hide_name": 1,
+          "bits": [ 359 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:34.5-48.8"
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:80$549_Y": {
+          "hide_name": 1,
+          "bits": [ 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:80.23-80.62"
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:81$550_Y": {
+          "hide_name": 1,
+          "bits": [ 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:81.23-81.62"
+          }
+        },
+        "$procmux$567_Y": {
+          "hide_name": 1,
+          "bits": [ 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412 ],
+          "attributes": {
+          }
+        },
+        "$procmux$572_Y": {
+          "hide_name": 1,
+          "bits": [ 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432 ],
+          "attributes": {
+          }
+        },
+        "ai": {
+          "hide_name": 0,
+          "bits": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:23.28-23.30"
+          }
+        },
+        "ai_r": {
+          "hide_name": 0,
+          "bits": [ 266, 267, 268, 269, 270, 271, 272, 273 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:31.24-31.28"
+          }
+        },
+        "ar": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:22.28-22.30"
+          }
+        },
+        "ar_r": {
+          "hide_name": 0,
+          "bits": [ 250, 251, 252, 253, 254, 255, 256, 257 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:31.18-31.22"
+          }
+        },
+        "bi": {
+          "hide_name": 0,
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:25.28-25.30"
+          }
+        },
+        "bi_r": {
+          "hide_name": 0,
+          "bits": [ 274, 275, 276, 277, 278, 279, 280, 281 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:31.36-31.40"
+          }
+        },
+        "br": {
+          "hide_name": 0,
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:24.28-24.30"
+          }
+        },
+        "br_r": {
+          "hide_name": 0,
+          "bits": [ 258, 259, 260, 261, 262, 263, 264, 265 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:31.30-31.34"
+          }
+        },
+        "ci": {
+          "hide_name": 0,
+          "bits": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:28.28-28.30"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:19.28-19.31"
+          }
+        },
+        "cr": {
+          "hide_name": 0,
+          "bits": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:27.28-27.30"
+          }
+        },
+        "ii": {
+          "hide_name": 0,
+          "bits": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:51.19-51.21"
+          }
+        },
+        "imag_part": {
+          "hide_name": 0,
+          "bits": [ 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:56.17-56.26"
+          }
+        },
+        "imag_part_r": {
+          "hide_name": 0,
+          "bits": [ 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:58.29-58.40"
+          }
+        },
+        "in_valid": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:21.28-21.36"
+          }
+        },
+        "ir": {
+          "hide_name": 0,
+          "bits": [ 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:53.19-53.21"
+          }
+        },
+        "out_valid": {
+          "hide_name": 0,
+          "bits": [ 37 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:26.28-26.37"
+          }
+        },
+        "real_part": {
+          "hide_name": 0,
+          "bits": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:55.17-55.26"
+          }
+        },
+        "real_part_r": {
+          "hide_name": 0,
+          "bits": [ 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:58.16-58.27"
+          }
+        },
+        "ri": {
+          "hide_name": 0,
+          "bits": [ 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:52.19-52.21"
+          }
+        },
+        "rr": {
+          "hide_name": 0,
+          "bits": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:50.19-50.21"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:20.28-20.31"
+          }
+        },
+        "vld": {
+          "hide_name": 0,
+          "bits": [ 360 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:32.18-32.21"
+          }
+        },
+        "vld2": {
+          "hide_name": 0,
+          "bits": [ 324 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T204454Z/attempt_1/candidate_2/design/bm_butterfly.v:59.16-59.20"
+          }
+        }
+      }
+    },
+    "gold": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:13.1-71.10"
+      },
+      "parameter_default_values": {
+        "ACCW": "00000000000000000000000000010100",
+        "DW": "00000000000000000000000000001000",
+        "PW": "00000000000000000000000000010000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "in_valid": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "ar": {
+          "direction": "input",
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ]
+        },
+        "ai": {
+          "direction": "input",
+          "bits": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+        },
+        "br": {
+          "direction": "input",
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ]
+        },
+        "bi": {
+          "direction": "input",
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ]
+        },
+        "out_valid": {
+          "direction": "output",
+          "bits": [ 37 ]
+        },
+        "cr": {
+          "direction": "output",
+          "bits": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]
+        },
+        "ci": {
+          "direction": "output",
+          "bits": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ]
+        }
+      },
+      "cells": {
+        "$add$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:54$246": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010000",
+            "Y_WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:54.29-54.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ],
+            "B": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109 ],
+            "Y": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 ]
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:55$247": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010000",
+            "Y_WIDTH": "00000000000000000000000000010001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:55.29-55.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142 ],
+            "B": [ 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158 ],
+            "Y": [ 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175 ]
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:64$249": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010100",
+            "Y_WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:64.23-64.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+            "B": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, "0", "0", "0" ],
+            "Y": [ 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195 ]
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:65$250": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000010100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010100",
+            "Y_WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:65.23-65.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ],
+            "B": [ 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, "0", "0", "0" ],
+            "Y": [ 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:49$242": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:49.24-49.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 216, 217, 218, 219, 220, 221, 222, 223 ],
+            "B": [ 224, 225, 226, 227, 228, 229, 230, 231 ],
+            "Y": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:50$243": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:50.24-50.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 232, 233, 234, 235, 236, 237, 238, 239 ],
+            "B": [ 240, 241, 242, 243, 244, 245, 246, 247 ],
+            "Y": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:51$244": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:51.24-51.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 216, 217, 218, 219, 220, 221, 222, 223 ],
+            "B": [ 240, 241, 242, 243, 244, 245, 246, 247 ],
+            "Y": [ 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142 ]
+          }
+        },
+        "$mul$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:52$245": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000010000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:52.24-52.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 232, 233, 234, 235, 236, 237, 238, 239 ],
+            "B": [ 224, 225, 226, 227, 228, 229, 230, 231 ],
+            "Y": [ 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158 ]
+          }
+        },
+        "$procdff$292": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:57.5-69.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 248 ],
+            "Q": [ 37 ]
+          }
+        },
+        "$procdff$293": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:57.5-69.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268 ],
+            "Q": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]
+          }
+        },
+        "$procdff$294": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:57.5-69.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288 ],
+            "Q": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ]
+          }
+        },
+        "$procdff$295": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 289 ],
+            "Q": [ 290 ]
+          }
+        },
+        "$procdff$296": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 291, 292, 293, 294, 295, 296, 297, 298 ],
+            "Q": [ 216, 217, 218, 219, 220, 221, 222, 223 ]
+          }
+        },
+        "$procdff$297": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 299, 300, 301, 302, 303, 304, 305, 306 ],
+            "Q": [ 232, 233, 234, 235, 236, 237, 238, 239 ]
+          }
+        },
+        "$procdff$298": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 307, 308, 309, 310, 311, 312, 313, 314 ],
+            "Q": [ 224, 225, 226, 227, 228, 229, 230, 231 ]
+          }
+        },
+        "$procdff$299": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 315, 316, 317, 318, 319, 320, 321, 322 ],
+            "Q": [ 240, 241, 242, 243, 244, 245, 246, 247 ]
+          }
+        },
+        "$procmux$265": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:58.13-58.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:58.9-68.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 290 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 248 ]
+          }
+        },
+        "$procmux$267": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:63.17-63.20|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:63.13-66.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ],
+            "B": [ 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215 ],
+            "S": [ 290 ],
+            "Y": [ 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342 ]
+          }
+        },
+        "$procmux$270": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:58.13-58.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:58.9-68.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288 ]
+          }
+        },
+        "$procmux$272": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:63.17-63.20|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:63.13-66.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+            "B": [ 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195 ],
+            "S": [ 290 ],
+            "Y": [ 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362 ]
+          }
+        },
+        "$procmux$275": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000010100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:58.13-58.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:58.9-68.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268 ]
+          }
+        },
+        "$procmux$278": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.13-34.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.9-46.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 289 ]
+          }
+        },
+        "$procmux$281": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.13-34.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.9-46.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 315, 316, 317, 318, 319, 320, 321, 322 ]
+          }
+        },
+        "$procmux$284": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.13-34.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.9-46.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 307, 308, 309, 310, 311, 312, 313, 314 ]
+          }
+        },
+        "$procmux$287": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.13-34.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.9-46.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 299, 300, 301, 302, 303, 304, 305, 306 ]
+          }
+        },
+        "$procmux$290": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.13-34.16|/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:34.9-46.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 291, 292, 293, 294, 295, 296, 297, 298 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\ai_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 299, 300, 301, 302, 303, 304, 305, 306 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          }
+        },
+        "$0\\ar_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 291, 292, 293, 294, 295, 296, 297, 298 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          }
+        },
+        "$0\\bi_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 315, 316, 317, 318, 319, 320, 321, 322 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          }
+        },
+        "$0\\br_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 307, 308, 309, 310, 311, 312, 313, 314 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          }
+        },
+        "$0\\ci[19:0]": {
+          "hide_name": 1,
+          "bits": [ 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:57.5-69.8"
+          }
+        },
+        "$0\\cr[19:0]": {
+          "hide_name": 1,
+          "bits": [ 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:57.5-69.8"
+          }
+        },
+        "$0\\out_valid[0:0]": {
+          "hide_name": 1,
+          "bits": [ 248 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:57.5-69.8"
+          }
+        },
+        "$0\\vld[0:0]": {
+          "hide_name": 1,
+          "bits": [ 289 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:33.5-47.8"
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:64$249_Y": {
+          "hide_name": 1,
+          "bits": [ 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:64.23-64.60"
+          }
+        },
+        "$add$/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:65$250_Y": {
+          "hide_name": 1,
+          "bits": [ 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:65.23-65.60"
+          }
+        },
+        "$procmux$267_Y": {
+          "hide_name": 1,
+          "bits": [ 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342 ],
+          "attributes": {
+          }
+        },
+        "$procmux$272_Y": {
+          "hide_name": 1,
+          "bits": [ 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362 ],
+          "attributes": {
+          }
+        },
+        "ai": {
+          "hide_name": 0,
+          "bits": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:22.28-22.30"
+          }
+        },
+        "ai_r": {
+          "hide_name": 0,
+          "bits": [ 232, 233, 234, 235, 236, 237, 238, 239 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:30.24-30.28"
+          }
+        },
+        "ar": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:21.28-21.30"
+          }
+        },
+        "ar_r": {
+          "hide_name": 0,
+          "bits": [ 216, 217, 218, 219, 220, 221, 222, 223 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:30.18-30.22"
+          }
+        },
+        "bi": {
+          "hide_name": 0,
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:24.28-24.30"
+          }
+        },
+        "bi_r": {
+          "hide_name": 0,
+          "bits": [ 240, 241, 242, 243, 244, 245, 246, 247 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:30.36-30.40"
+          }
+        },
+        "br": {
+          "hide_name": 0,
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:23.28-23.30"
+          }
+        },
+        "br_r": {
+          "hide_name": 0,
+          "bits": [ 224, 225, 226, 227, 228, 229, 230, 231 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:30.30-30.34"
+          }
+        },
+        "ci": {
+          "hide_name": 0,
+          "bits": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:27.28-27.30"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:18.28-18.31"
+          }
+        },
+        "cr": {
+          "hide_name": 0,
+          "bits": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:26.28-26.30"
+          }
+        },
+        "ii": {
+          "hide_name": 0,
+          "bits": [ 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:50.19-50.21"
+          }
+        },
+        "imag_part": {
+          "hide_name": 0,
+          "bits": [ 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:55.17-55.26"
+          }
+        },
+        "in_valid": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:20.28-20.36"
+          }
+        },
+        "ir": {
+          "hide_name": 0,
+          "bits": [ 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:52.19-52.21"
+          }
+        },
+        "out_valid": {
+          "hide_name": 0,
+          "bits": [ 37 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:25.28-25.37"
+          }
+        },
+        "real_part": {
+          "hide_name": 0,
+          "bits": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:54.17-54.26"
+          }
+        },
+        "ri": {
+          "hide_name": 0,
+          "bits": [ 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:51.19-51.21"
+          }
+        },
+        "rr": {
+          "hide_name": 0,
+          "bits": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:49.19-49.21"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:19.28-19.31"
+          }
+        },
+        "vld": {
+          "hide_name": 0,
+          "bits": [ 290 ],
+          "attributes": {
+            "src": "/Users/ritikjindal/rtl-ai-project/designs/bm_butterfly.v:31.18-31.21"
+          }
+        }
+      }
+    }
+  }
+}

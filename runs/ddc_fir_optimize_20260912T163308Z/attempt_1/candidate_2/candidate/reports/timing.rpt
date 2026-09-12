@@ -1,0 +1,57 @@
+Startpoint: _2931_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _2810_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _2931_/CK (DFF_X1)
+   0.14    0.14 ^ _2931_/Q (DFF_X1)
+   0.07    0.20 ^ _2034_/Z (XOR2_X1)
+   0.08    0.28 ^ _2121_/ZN (XNOR2_X1)
+   0.06    0.34 ^ _2423_/ZN (XNOR2_X1)
+   0.06    0.40 ^ _2455_/Z (XOR2_X1)
+   0.05    0.46 ^ _2457_/ZN (XNOR2_X1)
+   0.05    0.50 ^ _2458_/ZN (XNOR2_X1)
+   0.06    0.57 ^ _2485_/Z (XOR2_X1)
+   0.05    0.62 ^ _2490_/ZN (XNOR2_X1)
+   0.06    0.68 ^ _2511_/Z (XOR2_X1)
+   0.03    0.71 v _2514_/ZN (XNOR2_X1)
+   0.06    0.77 v _2584_/Z (XOR2_X1)
+   0.07    0.84 ^ _2586_/ZN (AOI221_X1)
+   0.02    0.86 v _2588_/ZN (OAI21_X1)
+   0.09    0.95 ^ _2590_/ZN (AOI221_X1)
+   0.04    1.00 v _2592_/ZN (OAI33_X1)
+   0.05    1.04 ^ _2593_/ZN (AOI21_X1)
+   0.03    1.07 v _2595_/ZN (OAI21_X1)
+   0.05    1.12 ^ _2597_/ZN (AOI21_X1)
+   0.03    1.14 v _2598_/ZN (OAI21_X1)
+   0.05    1.20 ^ _2599_/ZN (AOI21_X1)
+   0.03    1.23 v _2601_/ZN (OAI211_X1)
+   0.05    1.28 v _2602_/ZN (AND3_X1)
+   0.05    1.33 ^ _2603_/ZN (OAI21_X1)
+   0.02    1.35 v _2607_/ZN (AOI21_X1)
+   0.05    1.39 ^ _2608_/ZN (OAI21_X1)
+   0.02    1.42 v _2609_/ZN (AOI21_X1)
+   0.10    1.52 ^ _2611_/ZN (OAI33_X1)
+   0.03    1.55 v _2612_/ZN (OAI21_X1)
+   0.04    1.59 v _2621_/ZN (XNOR2_X1)
+   0.02    1.62 ^ _2624_/ZN (AOI21_X1)
+   0.00    1.62 ^ _2810_/D (DFF_X1)
+           1.62   data arrival time
+
+   1.48    1.48   clock clk (rise edge)
+   0.00    1.48   clock network delay (ideal)
+   0.00    1.48   clock reconvergence pessimism
+           1.48 ^ _2810_/CK (DFF_X1)
+  -0.04    1.44   library setup time
+           1.44   data required time
+---------------------------------------------------------
+           1.44   data required time
+          -1.62   data arrival time
+---------------------------------------------------------
+          -0.17   slack (VIOLATED)
+
+

@@ -1,0 +1,40 @@
+{
+  "design_name": "bm_dot4",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/bm_dot4.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/ddc_fir.sdc",
+  "timestamp": "20260912T200703Z",
+  "timing": {
+    "worst_slack_ns": -0.18,
+    "data_arrival_time_ns": 1.63,
+    "data_required_time_ns": 1.45,
+    "startpoint": "_4116_",
+    "endpoint": "_4192_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 33,
+    "max_frequency_mhz": 602.4096385542169
+  },
+  "power": {
+    "internal_uw": 1410.0,
+    "switching_uw": 840.0,
+    "leakage_uw": 59.4,
+    "total_uw": 2310.0
+  },
+  "area": {
+    "cell_area_um2": 2714.264,
+    "total_cells": 2097,
+    "flip_flops": 86
+  },
+  "ppa": {
+    "area_score": 7.368480000471582,
+    "timing_score": 0.0,
+    "power_score": 0.8658008658008658,
+    "overall_score": 3.2071322599288927
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

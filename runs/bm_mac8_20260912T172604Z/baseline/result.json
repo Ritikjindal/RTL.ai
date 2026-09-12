@@ -1,0 +1,40 @@
+{
+  "design_name": "bm_mac8",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/bm_mac8.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/ddc_fir.sdc",
+  "timestamp": "20260912T172604Z",
+  "timing": {
+    "worst_slack_ns": -0.47,
+    "data_arrival_time_ns": 1.91,
+    "data_required_time_ns": 1.44,
+    "startpoint": "_6645_",
+    "endpoint": "_6725_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 38,
+    "max_frequency_mhz": 512.8205128205128
+  },
+  "power": {
+    "internal_uw": 3810.0,
+    "switching_uw": 2750.0,
+    "leakage_uw": 94.7,
+    "total_uw": 6660.0
+  },
+  "area": {
+    "cell_area_um2": 4339.258,
+    "total_cells": 3365,
+    "flip_flops": 151
+  },
+  "ppa": {
+    "area_score": 4.6090829353774305,
+    "timing_score": 0.0,
+    "power_score": 0.3003003003003003,
+    "overall_score": 1.9337232642410624
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

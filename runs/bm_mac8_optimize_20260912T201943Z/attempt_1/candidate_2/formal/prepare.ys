@@ -1,0 +1,23 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/bm_mac8.v
+hierarchy -check -top bm_mac8
+proc
+flatten
+opt_clean
+rename bm_mac8 gold
+design -stash gold_design
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/bm_mac8_optimize_20260912T201943Z/attempt_1/candidate_2/bm_mac8_candidate.v
+hierarchy -check -top bm_mac8
+proc
+flatten
+opt_clean
+rename bm_mac8 gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+setattr -mod -unset top gold gate
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/bm_mac8_optimize_20260912T201943Z/attempt_1/candidate_2/formal/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/bm_mac8_optimize_20260912T201943Z/attempt_1/candidate_2/formal/ports.json

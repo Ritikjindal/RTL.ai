@@ -1,0 +1,40 @@
+{
+  "design_name": "ddc_fir_candidate",
+  "rtl_path": "/Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_2/ddc_fir_candidate.v",
+  "sdc_path": "/Users/ritikjindal/rtl-ai-project/constraints/ddc_fir.sdc",
+  "timestamp": "20260912T163308Z",
+  "timing": {
+    "worst_slack_ns": -0.17,
+    "data_arrival_time_ns": 1.62,
+    "data_required_time_ns": 1.44,
+    "startpoint": "_2931_",
+    "endpoint": "_2810_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 33,
+    "max_frequency_mhz": 606.0606060606061
+  },
+  "power": {
+    "internal_uw": 2070.0,
+    "switching_uw": 1070.0,
+    "leakage_uw": 47.6,
+    "total_uw": 3190.0
+  },
+  "area": {
+    "cell_area_um2": 2187.318,
+    "total_cells": 1471,
+    "flip_flops": 164
+  },
+  "ppa": {
+    "area_score": 9.143617891865745,
+    "timing_score": 0.0,
+    "power_score": 0.6269592476489028,
+    "overall_score": 3.845534931040969
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": true,
+  "formal_passed": true,
+  "formal_summary": "PASS (bounded) \u2014 ddc_fir.v and ddc_fir_candidate.v show no counterexample within 20 steps (bounded model check; this is NOT an unbounded proof). Candidate latency is +1 cycle(s) versus the baseline.",
+  "formal_baseline_rtl_path": "/Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_fir.v"
+}

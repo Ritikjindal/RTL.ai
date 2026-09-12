@@ -1,0 +1,23 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_fir.v
+hierarchy -check -top ddc_fir
+proc
+flatten
+opt_clean
+rename ddc_fir gold
+design -stash gold_design
+
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_1/ddc_fir_candidate.v
+hierarchy -check -top ddc_fir
+proc
+flatten
+opt_clean
+rename ddc_fir gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+setattr -mod -unset top gold gate
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_1/formal/gold_gate.v
+write_json /Users/ritikjindal/rtl-ai-project/runs/ddc_fir_optimize_20260912T163308Z/attempt_1/candidate_1/formal/ports.json

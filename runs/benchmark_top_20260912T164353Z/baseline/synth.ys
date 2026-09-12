@@ -1,0 +1,41 @@
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark_top.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/clk_divider.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/cdc_sync.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/cdc_handshake.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/reset_sync.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/crc32.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_cic.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_fir.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_mixer.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/ddc_nco.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/picorv32.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/sad8x8.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/sha256.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/sha256_core.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/sha256_k_constants.v
+read_verilog -sv /Users/ritikjindal/rtl-ai-project/designs/benchmark/sha256_w_mem.v
+
+hierarchy -check -top benchmark_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /Users/ritikjindal/rtl-ai-project/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260912T164353Z/baseline/netlist/benchmark_top_netlist.v
+
+write_json /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_20260912T164353Z/baseline/netlist/benchmark_top_netlist.json
