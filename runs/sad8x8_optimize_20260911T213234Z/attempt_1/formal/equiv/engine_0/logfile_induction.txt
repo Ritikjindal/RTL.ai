@@ -1,0 +1,6 @@
+##   0:00:00  Solver: yices
+##   0:00:00  Trying induction in step 20..
+##   0:00:00  Trying induction in step 19..
+##   0:00:00  Trying induction in step 18..
+##   0:01:01  waiting for solver (1 minute)
+##   0:05:07  waiting for solver (5 minutes)

@@ -1,0 +1,6 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:08 (8)
+Elapsed process time [H:MM:SS (secs)]: 0:00:07 (7)
+engine_0 (smtbmc) returned FAIL
+counterexample trace: engine_0/trace.vcd
+counterexample trace: engine_0/trace.yw
+  failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_91_15431 at eqcheck_wrapper.v:91.14-91.369 step 1

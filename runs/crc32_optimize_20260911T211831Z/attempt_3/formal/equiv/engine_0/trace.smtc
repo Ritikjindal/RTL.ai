@@ -1,0 +1,43 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$1954] false)
+assume (= [$auto$async2sync.cc:116:execute$1958] true)
+assume (= [gate_inst.active] false)
+assume (= [gate_inst.crc] #b00000000000000000000000000000000)
+assume (= [gate_inst.out_crc] #b10000000000000000000000000000000)
+assume (= [gate_inst.out_valid] false)
+assume (= [gold_inst.active] false)
+assume (= [gold_inst.crc] #b00000000000000000000000000000000)
+assume (= [gold_inst.out_crc] #b00000000000000000000000000000000)
+assume (= [gold_inst.out_valid] false)
+
+state 0
+assume (= [clk] false)
+assume (= [in_bytes] #b0000)
+assume (= [in_data] #b0000000000000000000000000000000000000000000000000000000000000000)
+assume (= [in_last] false)
+assume (= [in_valid] false)
+assume (= [rst] true)
+
+state 1
+assume (= [clk] false)
+assume (= [in_bytes] #b1100)
+assume (= [in_data] #b1101000010101100011100110110001110001000110011101001100010010110)
+assume (= [in_last] true)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 2
+assume (= [clk] false)
+assume (= [in_bytes] #b0000)
+assume (= [in_data] #b0000000000000000000000000000000000000000000000000000000000000000)
+assume (= [in_last] false)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 3
+assume (= [clk] false)
+assume (= [in_bytes] #b0000)
+assume (= [in_data] #b0000000000000000000000000000000000000000000000000000000000000000)
+assume (= [in_last] false)
+assume (= [in_valid] false)
+assume (= [rst] false)

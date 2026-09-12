@@ -1,0 +1,40 @@
+{
+  "design_name": "crc32",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/constraints/crc32.sdc",
+  "timestamp": "20260911T210759Z",
+  "timing": {
+    "worst_slack_ns": 7.23,
+    "data_arrival_time_ns": 2.68,
+    "data_required_time_ns": 9.91,
+    "startpoint": "in_data[0]",
+    "endpoint": "_2204_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 31,
+    "max_frequency_mhz": 361.0108303249098
+  },
+  "power": {
+    "internal_uw": 50300.0,
+    "switching_uw": 39300.0,
+    "leakage_uw": 39.3,
+    "total_uw": 89600.0
+  },
+  "area": {
+    "cell_area_um2": 1743.364,
+    "total_cells": 1126,
+    "flip_flops": 66
+  },
+  "ppa": {
+    "area_score": 11.472073531402506,
+    "timing_score": 72.30000000000001,
+    "power_score": 0.022321428571428572,
+    "overall_score": 26.28552584113243
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

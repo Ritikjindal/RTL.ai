@@ -1,0 +1,629 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: gold_gate.v
+Parsing SystemVerilog input from `gold_gate.v' to AST representation.
+Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+Generating RTLIL representation for module `\gate'.
+Generating RTLIL representation for module `\gold'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: eqcheck_wrapper.v
+Parsing SystemVerilog input from `eqcheck_wrapper.v' to AST representation.
+Generating RTLIL representation for module `\__eqcheck_top'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \__eqcheck_top
+Used module:     \gate
+Used module:     \gold
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \__eqcheck_top
+Used module:     \gate
+Used module:     \gold
+Removed 0 unused modules.
+Module __eqcheck_top directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$eqcheck_wrapper.v:57$356 in module __eqcheck_top.
+Marked 1 switch rules as full_case in process $proc$eqcheck_wrapper.v:50$353 in module __eqcheck_top.
+Marked 1 switch rules as full_case in process $proc$gold_gate.v:930$345 in module gold.
+Marked 1 switch rules as full_case in process $proc$gold_gate.v:324$182 in module gate.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 24 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\__eqcheck_top.$proc$eqcheck_wrapper.v:49$363'.
+  Set init value: \warmup = 8'00000000
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~6 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\__eqcheck_top.$proc$eqcheck_wrapper.v:49$363'.
+Creating decoders for process `\__eqcheck_top.$proc$eqcheck_wrapper.v:57$356'.
+     1/2: $assert$eqcheck_wrapper.v:61$359_EN
+     2/2: $assume$eqcheck_wrapper.v:59$357_EN
+Creating decoders for process `\__eqcheck_top.$proc$eqcheck_wrapper.v:50$353'.
+     1/1: $0\warmup[7:0]
+Creating decoders for process `\__eqcheck_top.$proc$eqcheck_wrapper.v:43$352'.
+Creating decoders for process `\gold.$proc$gold_gate.v:930$345'.
+     1/1: $1\_214_$func$gold_gate.v:930$189.$result[31:0]$350
+Creating decoders for process `\gold.$proc$gold_gate.v:891$195'.
+Creating decoders for process `\gold.$proc$gold_gate.v:889$194'.
+Creating decoders for process `\gold.$proc$gold_gate.v:887$193'.
+Creating decoders for process `\gold.$proc$gold_gate.v:885$192'.
+Creating decoders for process `\gate.$proc$gold_gate.v:324$182'.
+     1/1: $1\_252_$func$gold_gate.v:324$2.$result[31:0]$187
+Creating decoders for process `\gate.$proc$gold_gate.v:283$18'.
+Creating decoders for process `\gate.$proc$gold_gate.v:281$17'.
+Creating decoders for process `\gate.$proc$gold_gate.v:279$16'.
+Creating decoders for process `\gate.$proc$gold_gate.v:277$15'.
+Creating decoders for process `\gate.$proc$gold_gate.v:275$14'.
+Creating decoders for process `\gate.$proc$gold_gate.v:273$13'.
+Creating decoders for process `\gate.$proc$gold_gate.v:271$12'.
+Creating decoders for process `\gate.$proc$gold_gate.v:269$11'.
+Creating decoders for process `\gate.$proc$gold_gate.v:267$10'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\gold.\_214_$func$gold_gate.v:930$188.$result' from process `\gold.$proc$gold_gate.v:930$345'.
+No latch inferred for signal `\gate.\_252_$func$gold_gate.v:324$1.$result' from process `\gate.$proc$gold_gate.v:324$182'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\__eqcheck_top.\warmup' using process `\__eqcheck_top.$proc$eqcheck_wrapper.v:50$353'.
+  created $dff cell `$procdff$395' with positive edge clock.
+Creating register for signal `\__eqcheck_top.\gold_out_valid_d1' using process `\__eqcheck_top.$proc$eqcheck_wrapper.v:43$352'.
+  created $dff cell `$procdff$396' with positive edge clock.
+Creating register for signal `\__eqcheck_top.\gold_out_crc_d1' using process `\__eqcheck_top.$proc$eqcheck_wrapper.v:43$352'.
+  created $dff cell `$procdff$397' with positive edge clock.
+Creating register for signal `\gold.\active' using process `\gold.$proc$gold_gate.v:891$195'.
+  created $dff cell `$procdff$398' with positive edge clock.
+Creating register for signal `\gold.\crc' using process `\gold.$proc$gold_gate.v:889$194'.
+  created $dff cell `$procdff$399' with positive edge clock.
+Creating register for signal `\gold.\out_crc' using process `\gold.$proc$gold_gate.v:887$193'.
+  created $dff cell `$procdff$400' with positive edge clock.
+Creating register for signal `\gold.\out_valid' using process `\gold.$proc$gold_gate.v:885$192'.
+  created $dff cell `$procdff$401' with positive edge clock.
+Creating register for signal `\gate.\crc_mid' using process `\gate.$proc$gold_gate.v:283$18'.
+  created $dff cell `$procdff$402' with positive edge clock.
+Creating register for signal `\gate.\data_hi_reg' using process `\gate.$proc$gold_gate.v:281$17'.
+  created $dff cell `$procdff$403' with positive edge clock.
+Creating register for signal `\gate.\last_reg' using process `\gate.$proc$gold_gate.v:279$16'.
+  created $dff cell `$procdff$404' with positive edge clock.
+Creating register for signal `\gate.\bytes_reg' using process `\gate.$proc$gold_gate.v:277$15'.
+  created $dff cell `$procdff$405' with positive edge clock.
+Creating register for signal `\gate.\valid_reg' using process `\gate.$proc$gold_gate.v:275$14'.
+  created $dff cell `$procdff$406' with positive edge clock.
+Creating register for signal `\gate.\active' using process `\gate.$proc$gold_gate.v:273$13'.
+  created $dff cell `$procdff$407' with positive edge clock.
+Creating register for signal `\gate.\crc' using process `\gate.$proc$gold_gate.v:271$12'.
+  created $dff cell `$procdff$408' with positive edge clock.
+Creating register for signal `\gate.\out_crc' using process `\gate.$proc$gold_gate.v:269$11'.
+  created $dff cell `$procdff$409' with positive edge clock.
+Creating register for signal `\gate.\out_valid' using process `\gate.$proc$gold_gate.v:267$10'.
+  created $dff cell `$procdff$410' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `__eqcheck_top.$proc$eqcheck_wrapper.v:49$363'.
+Found and cleaned up 2 empty switches in `\__eqcheck_top.$proc$eqcheck_wrapper.v:57$356'.
+Removing empty process `__eqcheck_top.$proc$eqcheck_wrapper.v:57$356'.
+Found and cleaned up 2 empty switches in `\__eqcheck_top.$proc$eqcheck_wrapper.v:50$353'.
+Removing empty process `__eqcheck_top.$proc$eqcheck_wrapper.v:50$353'.
+Removing empty process `__eqcheck_top.$proc$eqcheck_wrapper.v:43$352'.
+Found and cleaned up 1 empty switch in `\gold.$proc$gold_gate.v:930$345'.
+Removing empty process `gold.$proc$gold_gate.v:930$345'.
+Removing empty process `gold.$proc$gold_gate.v:891$195'.
+Removing empty process `gold.$proc$gold_gate.v:889$194'.
+Removing empty process `gold.$proc$gold_gate.v:887$193'.
+Removing empty process `gold.$proc$gold_gate.v:885$192'.
+Found and cleaned up 1 empty switch in `\gate.$proc$gold_gate.v:324$182'.
+Removing empty process `gate.$proc$gold_gate.v:324$182'.
+Removing empty process `gate.$proc$gold_gate.v:283$18'.
+Removing empty process `gate.$proc$gold_gate.v:281$17'.
+Removing empty process `gate.$proc$gold_gate.v:279$16'.
+Removing empty process `gate.$proc$gold_gate.v:277$15'.
+Removing empty process `gate.$proc$gold_gate.v:275$14'.
+Removing empty process `gate.$proc$gold_gate.v:273$13'.
+Removing empty process `gate.$proc$gold_gate.v:271$12'.
+Removing empty process `gate.$proc$gold_gate.v:269$11'.
+Removing empty process `gate.$proc$gold_gate.v:267$10'.
+Cleaned up 6 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gold.
+Optimizing module gate.
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gold.
+Optimizing module gate.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gold..
+Finding unused cells or wires in module \gate..
+Removed 0 unused cells and 487 unused wires.
+<suppressed ~3 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module __eqcheck_top...
+Checking module gold...
+Checking module gate...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gold.
+Optimizing module gate.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\__eqcheck_top'.
+Computing hashes of 19 cells of `\__eqcheck_top'.
+Finding duplicate cells in `\__eqcheck_top'.
+Finding identical cells in module `\gold'.
+Computing hashes of 156 cells of `\gold'.
+Finding duplicate cells in `\gold'.
+Finding identical cells in module `\gate'.
+Computing hashes of 180 cells of `\gate'.
+Finding duplicate cells in `\gate'.
+Computing hashes of 179 cells of `\gate'.
+Finding duplicate cells in `\gate'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \__eqcheck_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gold..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gate..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $ternary$gold_gate.v:336$50.
+    dead port 2/2 on $mux $ternary$gold_gate.v:333$47.
+    dead port 2/2 on $mux $ternary$gold_gate.v:331$45.
+    dead port 1/2 on $mux $ternary$gold_gate.v:330$44.
+Removed 4 multiplexer ports.
+<suppressed ~69 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \__eqcheck_top.
+  Optimizing cells in module \gold.
+  Optimizing cells in module \gate.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\__eqcheck_top'.
+Computing hashes of 19 cells of `\__eqcheck_top'.
+Finding duplicate cells in `\__eqcheck_top'.
+Finding identical cells in module `\gold'.
+Computing hashes of 156 cells of `\gold'.
+Finding duplicate cells in `\gold'.
+Finding identical cells in module `\gate'.
+Computing hashes of 175 cells of `\gate'.
+Finding duplicate cells in `\gate'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gold..
+Finding unused cells or wires in module \gate..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gold.
+Optimizing module gate.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \__eqcheck_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gold..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gate..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~65 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \__eqcheck_top.
+  Optimizing cells in module \gold.
+  Optimizing cells in module \gate.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\__eqcheck_top'.
+Computing hashes of 19 cells of `\__eqcheck_top'.
+Finding duplicate cells in `\__eqcheck_top'.
+Finding identical cells in module `\gold'.
+Computing hashes of 156 cells of `\gold'.
+Finding duplicate cells in `\gold'.
+Finding identical cells in module `\gate'.
+Computing hashes of 175 cells of `\gate'.
+Finding duplicate cells in `\gate'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gold..
+Finding unused cells or wires in module \gate..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gold.
+Optimizing module gate.
+
+3.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 7 bits (of 8) from port B of cell __eqcheck_top.$lt$eqcheck_wrapper.v:52$354 ($lt).
+Removed top 7 bits (of 8) from port B of cell __eqcheck_top.$add$eqcheck_wrapper.v:52$355 ($add).
+Removed top 7 bits (of 8) from port B of cell __eqcheck_top.$ge$eqcheck_wrapper.v:61$358 ($ge).
+Removed top 1 bits (of 4) from port B of cell gold.$eq$gold_gate.v:932$207 ($eq).
+Removed top 1 bits (of 4) from port B of cell gold.$eq$gold_gate.v:933$208 ($eq).
+Removed top 1 bits (of 4) from port B of cell gold.$eq$gold_gate.v:934$209 ($eq).
+Removed top 1 bits (of 4) from port B of cell gold.$eq$gold_gate.v:935$210 ($eq).
+Removed top 2 bits (of 4) from port B of cell gold.$eq$gold_gate.v:936$211 ($eq).
+Removed top 2 bits (of 4) from port B of cell gold.$eq$gold_gate.v:937$212 ($eq).
+Removed top 3 bits (of 4) from port B of cell gold.$eq$gold_gate.v:938$213 ($eq).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:942$217 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:943$218 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:944$219 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:945$220 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:946$221 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:947$222 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:948$223 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:949$224 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:950$225 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:951$226 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:952$227 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:953$228 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:954$229 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:955$230 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:956$231 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:957$232 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:958$233 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:959$234 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:960$235 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:961$236 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:962$237 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:963$238 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:964$239 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:965$240 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:966$241 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:967$242 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:968$243 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:969$244 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:970$245 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:971$246 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:972$247 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:973$248 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:974$249 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:975$250 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:976$251 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:977$252 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:978$253 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:979$254 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:980$255 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:981$256 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:982$257 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:983$258 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:984$259 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:985$260 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:986$261 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:987$262 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:988$263 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:989$264 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:990$265 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:991$266 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:992$267 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:993$268 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:994$269 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:995$270 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:996$271 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:997$272 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:998$273 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:999$274 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:1000$275 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:1001$276 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:1002$277 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:1003$278 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:1004$279 ($xor).
+Removed top 1 bits (of 32) from port A of cell gold.$xor$gold_gate.v:1005$280 ($xor).
+Removed top 29 bits (of 32) from port B of cell gate.$gt$gold_gate.v:261$4 ($gt).
+Removed top 29 bits (of 32) from port B of cell gate.$le$gold_gate.v:263$6 ($le).
+Removed top 1 bits (of 3) from port B of cell gate.$eq$gold_gate.v:326$40 ($eq).
+Removed top 1 bits (of 3) from port B of cell gate.$eq$gold_gate.v:327$41 ($eq).
+Removed top 2 bits (of 3) from port B of cell gate.$eq$gold_gate.v:328$42 ($eq).
+Removed top 1 bits (of 4) from mux cell gate.$ternary$gold_gate.v:335$49 ($mux).
+Removed top 1 bits (of 4) from mux cell gate.$ternary$gold_gate.v:337$51 ($mux).
+Removed top 29 bits (of 32) from port B of cell gate.$sub$gold_gate.v:338$52 ($sub).
+Removed top 29 bits (of 32) from port Y of cell gate.$sub$gold_gate.v:338$52 ($sub).
+Removed top 1 bits (of 4) from port A of cell gate.$sub$gold_gate.v:338$52 ($sub).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:340$54 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:341$55 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:342$56 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:343$57 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:344$58 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:345$59 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:346$60 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:347$61 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:348$62 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:349$63 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:350$64 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:351$65 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:352$66 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:353$67 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:354$68 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:355$69 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:356$70 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:357$71 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:358$72 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:359$73 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:360$74 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:361$75 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:362$76 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:363$77 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:364$78 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:365$79 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:366$80 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:367$81 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:368$82 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:369$83 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:370$84 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:371$85 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:404$118 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:405$119 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:406$120 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:407$121 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:408$122 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:409$123 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:410$124 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:411$125 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:412$126 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:413$127 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:414$128 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:415$129 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:416$130 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:417$131 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:418$132 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:419$133 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:420$134 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:421$135 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:422$136 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:423$137 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:424$138 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:425$139 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:426$140 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:427$141 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:428$142 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:429$143 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:430$144 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:431$145 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:432$146 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:433$147 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:434$148 ($xor).
+Removed top 1 bits (of 32) from port A of cell gate.$xor$gold_gate.v:435$149 ($xor).
+Removed top 29 bits (of 32) from wire gate._159_.
+Removed top 1 bits (of 4) from wire gate.bytes_s2_adjusted.
+Removed top 1 bits (of 4) from wire gate._009_.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gold..
+Finding unused cells or wires in module \gate..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gold.
+Optimizing module gate.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\__eqcheck_top'.
+Computing hashes of 19 cells of `\__eqcheck_top'.
+Finding duplicate cells in `\__eqcheck_top'.
+Finding identical cells in module `\gold'.
+Computing hashes of 156 cells of `\gold'.
+Finding duplicate cells in `\gold'.
+Finding identical cells in module `\gate'.
+Computing hashes of 175 cells of `\gate'.
+Finding duplicate cells in `\gate'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gold..
+Finding unused cells or wires in module \gate..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Executing SORT pass.
+
+3.13. Printing statistics.
+
+=== __eqcheck_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       25 wires
+      212 wire bits
+       13 public wires
+      179 public wire bits
+        6 ports
+       72 port bits
+       17 cells
+        1   $add
+        2   $check
+        3   $dff
+        2   $eq
+        1   $ge
+        1   $initstate
+        1   $logic_and
+        1   $lt
+        5   $mux
+        2 submodules
+        1   gate
+        1   gold
+
+=== gate ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      189 wires
+     5145 wire bits
+      189 public wires
+     5145 public wire bits
+        8 ports
+      105 port bits
+      175 cells
+        9   $dff
+        4   $eq
+        1   $gt
+        1   $le
+        2   $logic_and
+        1   $logic_not
+       25   $mux
+        2   $not
+        1   $pmux
+        1   $sub
+      128   $xor
+
+=== gold ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      167 wires
+     4930 wire bits
+      167 public wires
+     4930 public wire bits
+        8 ports
+      105 port bits
+      156 cells
+        4   $dff
+        8   $eq
+        1   $logic_not
+       12   $mux
+        2   $not
+        1   $pmux
+      128   $xor
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      348 __eqcheck_top
+      175 gate
+      156 gold
+
+        +----------Count including submodules.
+        | 
+      381 wires
+    10287 wire bits
+      369 public wires
+    10254 public wire bits
+       22 ports
+      282 port bits
+        - memories
+        - memory bits
+        - processes
+      348 cells
+        1   $add
+        2   $check
+       16   $dff
+       14   $eq
+        1   $ge
+        1   $gt
+        1   $initstate
+        1   $le
+        3   $logic_and
+        2   $logic_not
+        1   $lt
+       42   $mux
+        4   $not
+        2   $pmux
+        1   $sub
+      256   $xor
+        2 submodules
+        1   gate
+        1   gold
+
+3.14. Executing CHECK pass (checking for obvious problems).
+Checking module __eqcheck_top...
+Checking module gate...
+Checking module gold...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `__eqcheck_top'. Setting top module to __eqcheck_top.
+
+4.1. Analyzing design hierarchy..
+Top module:  \__eqcheck_top
+Used module:     \gate
+Used module:     \gold
+
+4.2. Analyzing design hierarchy..
+Top module:  \__eqcheck_top
+Used module:     \gate
+Used module:     \gold
+Removed 0 unused modules.
+Module __eqcheck_top directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 967dc48551, time: 0.16s, user: 0.10s, system: 0.03s, MEM: 34.50 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 50% 4x read_verilog (0 sec), 17% 5x opt_clean (0 sec), ...

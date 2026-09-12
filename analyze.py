@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
-# analyze.py — thin CLI entry point over the rtlai package.
+# analyze.py — synthesize, time and score an RTL design; optionally A/B a candidate.
+#
+#   python3 analyze.py --rtl designs/foo/*.v --sdc constraints/foo.sdc
+#   python3 analyze.py --rtl designs/foo/*.v --sdc constraints/foo.sdc --candidate designs/bar/*.v
+#
+# Nothing in this file needs editing to analyze a new design.
 
 import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
+from rtlai.cli import build_parser, resolve_config, DesignConfig
 from rtlai.synth import run_yosys, SynthesisError
 from rtlai.sta import run_sta, STAError
 from rtlai.parse_timing import parse_timing_report
@@ -18,16 +24,21 @@ from rtlai.compare import compare_results
 PROJECT_ROOT = Path(__file__).resolve().parent
 RUNS_DIR = PROJECT_ROOT / "runs"
 
-# Stage 0 bring-up config. Becomes CLI args once there's more than one design.
-DESIGN_NAME = "benchmark_top"
-TOP_MODULE = "benchmark_top"
-RTL_FILE = PROJECT_ROOT / "designs" / "benchmark_flat.v"
-SDC_FILE = PROJECT_ROOT / "constraints" / "benchmark_top.sdc"
-LIB_FILE = PROJECT_ROOT / "lib" / "NangateOpenCellLibrary_typical.lib"
-CANDIDATE_RTL = PROJECT_ROOT / "designs" / "benchmark_flat.v"
 
-def analyze_design(rtl_path: Path, design_name: str, run_dir: Path, timestamp: str) -> RunResult:
-    """Synthesizes one RTL file and runs STA on it, returning its RunResult.
+def files_str(files) -> str:
+    """One string identifying a design's sources. Used for `rtl_path` and for the
+    baseline cross-check in compare.py, so both sides must build it the same way."""
+    return "; ".join(str(Path(f).resolve()) for f in files)
+
+
+def analyze_design(
+    cfg: DesignConfig,
+    rtl_files,
+    design_name: str,
+    run_dir: Path,
+    timestamp: str,
+) -> RunResult:
+    """Synthesizes one design and runs STA on it, returning its RunResult.
     Formal equivalence is handled separately by the caller, since it's an
     RTL-level check that doesn't need a netlist at all."""
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -39,16 +50,16 @@ def analyze_design(rtl_path: Path, design_name: str, run_dir: Path, timestamp: s
 
     result = RunResult(
         design_name=design_name,
-        rtl_path=str(rtl_path),
-        sdc_path=str(SDC_FILE),
+        rtl_path=files_str(rtl_files),
+        sdc_path=str(cfg.sdc_file),
         timestamp=timestamp,
     )
 
     try:
         yosys_stdout = run_yosys(
-            rtl_path=rtl_path,
-            top_module=TOP_MODULE,
-            lib_path=LIB_FILE,
+            rtl_paths=rtl_files,
+            top_module=cfg.top_module,
+            lib_path=cfg.lib_file,
             netlist_v=netlist_v,
             netlist_json=netlist_json,
             run_dir=run_dir,
@@ -62,14 +73,14 @@ def analyze_design(rtl_path: Path, design_name: str, run_dir: Path, timestamp: s
     if not netlist_json.exists():
         result.notes.append("Synthesis reported success but JSON netlist was not generated.")
     else:
-        result.area = build_area_result(str(netlist_json), TOP_MODULE, yosys_stdout)
+        result.area = build_area_result(str(netlist_json), cfg.top_module, yosys_stdout)
 
     try:
         run_sta(
             netlist_v=netlist_v,
-            sdc_path=SDC_FILE,
-            lib_path=LIB_FILE,
-            top_module=TOP_MODULE,
+            sdc_path=cfg.sdc_file,
+            lib_path=cfg.lib_file,
+            top_module=cfg.top_module,
             timing_report=timing_report,
             power_report=power_report,
             run_dir=run_dir,
@@ -98,30 +109,31 @@ def analyze_design(rtl_path: Path, design_name: str, run_dir: Path, timestamp: s
     return result
 
 
-def run_baseline():
+def run(cfg: DesignConfig):
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_dir = RUNS_DIR / f"{DESIGN_NAME}_{timestamp}"
+    run_dir = RUNS_DIR / f"{cfg.design_name}_{timestamp}"
 
-    print(f"[1/4] Running Yosys synthesis + OpenSTA on baseline '{DESIGN_NAME}'...")
+    print(f"[1/4] Running Yosys synthesis + OpenSTA on baseline '{cfg.design_name}'...")
+    print(f"      top module: {cfg.top_module}   sources: {len(cfg.rtl_files)} file(s)")
     baseline_result = analyze_design(
-        rtl_path=RTL_FILE,
-        design_name=DESIGN_NAME,
+        cfg=cfg,
+        rtl_files=cfg.rtl_files,
+        design_name=cfg.design_name,
         run_dir=run_dir / "baseline",
         timestamp=timestamp,
     )
     print(f"      Done: {run_dir / 'baseline' / 'result.json'}")
+
     candidate_result = None
 
-    
-
-    if CANDIDATE_RTL is not None:
+    if cfg.candidate_files:
         formal_dir = run_dir / "formal"
         print("[2/4] Checking formal equivalence: baseline vs candidate...")
         try:
             eq_result = verify_equivalence(
-                original_rtl=RTL_FILE,
-                candidate_rtl=CANDIDATE_RTL,
-                top_module=TOP_MODULE,
+                original_rtl=cfg.rtl_files,
+                candidate_rtl=cfg.candidate_files,
+                top_module=cfg.top_module,
                 run_dir=formal_dir,
             )
             formal_passed = eq_result.passed
@@ -134,25 +146,24 @@ def run_baseline():
             print(f"      {formal_summary}")
             print("[3/4] Running Yosys synthesis + OpenSTA on candidate...")
             candidate_result = analyze_design(
-                rtl_path=CANDIDATE_RTL,
-                design_name=f"{DESIGN_NAME}_candidate",
+                cfg=cfg,
+                rtl_files=cfg.candidate_files,
+                design_name=f"{cfg.design_name}_candidate",
                 run_dir=run_dir / "candidate",
                 timestamp=timestamp,
             )
             candidate_result.formal_checked = True
             candidate_result.formal_passed = True
             candidate_result.formal_summary = formal_summary
-            candidate_result.formal_baseline_rtl_path = str(RTL_FILE)
+            candidate_result.formal_baseline_rtl_path = files_str(cfg.rtl_files)
             candidate_result.to_json(str(run_dir / "candidate" / "result.json"))
             print(f"      Done: {run_dir / 'candidate' / 'result.json'}")
             compare_results(baseline_result, candidate_result)
-            
         else:
-            print(f"     {formal_summary}")
+            print(f"      {formal_summary}")
             print("[3/4] Skipping candidate synthesis — not formally equivalent to baseline.")
     else:
-        print("[2/4] No candidate set — skipping equivalence check.")
-
+        print("[2/4] No candidate given — skipping equivalence check.")
 
     print(f"[4/4] All run artifacts under: {run_dir}")
     return baseline_result, candidate_result
@@ -167,7 +178,6 @@ def print_summary(result: RunResult) -> None:
         print("\nFormal Equivalence")
         print(f"  Passed  : {result.formal_passed}")
         print(f"  Summary : {result.formal_summary}")
-
 
     a, t, p = result.area, result.timing, result.power
 
@@ -199,15 +209,23 @@ def print_summary(result: RunResult) -> None:
     print(f"  Power score    : {result.ppa.power_score}")
     print(f"  Overall score  : {result.ppa.overall_score}")
     print(f"  Assessment     : {assess_ppa(result.ppa)}")
-    
+
     if result.notes:
         print("\nNotes")
         for n in result.notes:
             print(f"  - {n}")
 
 
-if __name__ == "__main__":
-    baseline_result, candidate_result = run_baseline()
+def main():
+    parser = build_parser(
+        "Synthesize, time and score an RTL design.", with_candidate=True
+    )
+    cfg = resolve_config(parser.parse_args(), PROJECT_ROOT)
+    baseline_result, candidate_result = run(cfg)
     print_summary(baseline_result)
     if candidate_result is not None:
         print_summary(candidate_result)
+
+
+if __name__ == "__main__":
+    main()

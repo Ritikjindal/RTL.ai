@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-11T22:58:28" hostname="LAPTOP-QA0271O4" package="equiv" id="0" name="default" tests="1" errors="0" failures="2" time="7" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:91.14-91.369" time="0" type="ASSERT" location="eqcheck_wrapper.v:91.14-91.369" id="_witness_.check_assert_eqcheck_wrapper_v_91_15431" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:91.14-91.369 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<system-out>SBY 22:58:19 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] Removing directory '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv'.
+SBY 22:58:19 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/gold_gate.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv/src/gold_gate.v'.
+SBY 22:58:19 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/eqcheck_wrapper.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv/src/eqcheck_wrapper.v'.
+SBY 22:58:19 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: smtbmc
+SBY 22:58:19 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] base: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 22:58:19 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] base: Warning: Encountered `parallel_case' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using the Verilog `parallel_case' attribute or the SystemVerilog `unique' or `priority' keywords is recommended!
+SBY 22:58:23 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] base: finished (returncode=0)
+SBY 22:58:23 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] prep: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 22:58:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] prep: finished (returncode=0)
+SBY 22:58:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] smt2: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 22:58:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] smt2: finished (returncode=0)
+SBY 22:58:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv; yosys-smtbmc --presat --unroll --noprogress -t 40  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 22:58:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:00  Solver: yices
+SBY 22:58:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 22:58:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 22:58:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:01  Checking assumptions in step 1..
+SBY 22:58:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:01  Checking assertions in step 1..
+SBY 22:58:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:01  BMC failed!
+SBY 22:58:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:01  Assert failed in __eqcheck_top: eqcheck_wrapper.v:91.14-91.369 (_witness_.check_assert_eqcheck_wrapper_v_91_15431)
+SBY 22:58:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace.vcd
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace.smtc
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: ##   0:00:03  Status: failed
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: finished (returncode=1)
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] engine_0: Status returned by engine: FAIL
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:08 (8)
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:07 (7)
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] summary: engine_0 (smtbmc) returned FAIL
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] summary: counterexample trace: /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv/engine_0/trace.vcd
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] summary:   failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_91_15431 at eqcheck_wrapper.v:91.14-91.369 step 1
+SBY 22:58:28 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/equiv] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

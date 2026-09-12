@@ -1,0 +1,208 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module __eqcheck_top.
+Found 0 SCCs in module gate.
+Found 0 SCCs in module gold.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing gate.$procdff$2024 ($adff): ARST=\reset_n, D=\_006_, Q=\block_reg[15]
+Replacing gate.$procdff$2029 ($adff): ARST=\reset_n, D=\_005_, Q=\block_reg[14]
+Replacing gate.$procdff$2034 ($adff): ARST=\reset_n, D=\_004_, Q=\block_reg[13]
+Replacing gate.$procdff$2039 ($adff): ARST=\reset_n, D=\_003_, Q=\block_reg[12]
+Replacing gate.$procdff$2044 ($adff): ARST=\reset_n, D=\_002_, Q=\block_reg[11]
+Replacing gate.$procdff$2049 ($adff): ARST=\reset_n, D=\_001_, Q=\block_reg[10]
+Replacing gate.$procdff$2054 ($adff): ARST=\reset_n, D=\_015_, Q=\block_reg[9]
+Replacing gate.$procdff$2059 ($adff): ARST=\reset_n, D=\_014_, Q=\block_reg[8]
+Replacing gate.$procdff$2064 ($adff): ARST=\reset_n, D=\_013_, Q=\block_reg[7]
+Replacing gate.$procdff$2069 ($adff): ARST=\reset_n, D=\_012_, Q=\block_reg[6]
+Replacing gate.$procdff$2074 ($adff): ARST=\reset_n, D=\_011_, Q=\block_reg[5]
+Replacing gate.$procdff$2079 ($adff): ARST=\reset_n, D=\_010_, Q=\block_reg[4]
+Replacing gate.$procdff$2084 ($adff): ARST=\reset_n, D=\_009_, Q=\block_reg[3]
+Replacing gate.$procdff$2089 ($adff): ARST=\reset_n, D=\_008_, Q=\block_reg[2]
+Replacing gate.$procdff$2094 ($adff): ARST=\reset_n, D=\_007_, Q=\block_reg[1]
+Replacing gate.$procdff$2099 ($adff): ARST=\reset_n, D=\_000_, Q=\block_reg[0]
+Replacing gate.$procdff$2104 ($adff): ARST=\reset_n, D=\core.digest_valid_reg, Q=\digest_valid_reg
+Replacing gate.$procdff$2109 ($adff): ARST=\reset_n, D=\_016_, Q=\digest_reg
+Replacing gate.$procdff$2114 ($adff): ARST=\reset_n, D=\core.ready, Q=\ready_reg
+Replacing gate.$procdff$2119 ($adff): ARST=\reset_n, D=\_017_, Q=\mode_reg
+Replacing gate.$procdff$2124 ($adff): ARST=\reset_n, D=\next_new, Q=\next_reg
+Replacing gate.$procdff$2129 ($adff): ARST=\reset_n, D=\init_new, Q=\init_reg
+Replacing gate.$procdff$2134 ($adff): ARST=\reset_n, D=\_225_, Q=\core.w_mem_inst.w_mem[0]
+Replacing gate.$procdff$2139 ($adff): ARST=\reset_n, D=\_232_, Q=\core.w_mem_inst.w_mem[1]
+Replacing gate.$procdff$2144 ($adff): ARST=\reset_n, D=\_233_, Q=\core.w_mem_inst.w_mem[2]
+Replacing gate.$procdff$2149 ($adff): ARST=\reset_n, D=\_234_, Q=\core.w_mem_inst.w_mem[3]
+Replacing gate.$procdff$2154 ($adff): ARST=\reset_n, D=\_235_, Q=\core.w_mem_inst.w_mem[4]
+Replacing gate.$procdff$2159 ($adff): ARST=\reset_n, D=\_236_, Q=\core.w_mem_inst.w_mem[5]
+Replacing gate.$procdff$2164 ($adff): ARST=\reset_n, D=\_237_, Q=\core.w_mem_inst.w_mem[6]
+Replacing gate.$procdff$2169 ($adff): ARST=\reset_n, D=\_238_, Q=\core.w_mem_inst.w_mem[7]
+Replacing gate.$procdff$2174 ($adff): ARST=\reset_n, D=\_239_, Q=\core.w_mem_inst.w_mem[8]
+Replacing gate.$procdff$2179 ($adff): ARST=\reset_n, D=\_240_, Q=\core.w_mem_inst.w_mem[9]
+Replacing gate.$procdff$2184 ($adff): ARST=\reset_n, D=\_226_, Q=\core.w_mem_inst.w_mem[10]
+Replacing gate.$procdff$2189 ($adff): ARST=\reset_n, D=\_227_, Q=\core.w_mem_inst.w_mem[11]
+Replacing gate.$procdff$2194 ($adff): ARST=\reset_n, D=\_228_, Q=\core.w_mem_inst.w_mem[12]
+Replacing gate.$procdff$2199 ($adff): ARST=\reset_n, D=\_229_, Q=\core.w_mem_inst.w_mem[13]
+Replacing gate.$procdff$2204 ($adff): ARST=\reset_n, D=\_230_, Q=\core.w_mem_inst.w_mem[14]
+Replacing gate.$procdff$2209 ($adff): ARST=\reset_n, D=\_231_, Q=\core.w_mem_inst.w_mem[15]
+Replacing gate.$procdff$2214 ($adff): ARST=\reset_n, D=\_043_, Q=\core.a_reg
+Replacing gate.$procdff$2219 ($adff): ARST=\reset_n, D=\_044_, Q=\core.b_reg
+Replacing gate.$procdff$2224 ($adff): ARST=\reset_n, D=\_045_, Q=\core.c_reg
+Replacing gate.$procdff$2229 ($adff): ARST=\reset_n, D=\_046_, Q=\core.d_reg
+Replacing gate.$procdff$2234 ($adff): ARST=\reset_n, D=\_048_, Q=\core.e_reg
+Replacing gate.$procdff$2239 ($adff): ARST=\reset_n, D=\_049_, Q=\core.f_reg
+Replacing gate.$procdff$2244 ($adff): ARST=\reset_n, D=\_050_, Q=\core.g_reg
+Replacing gate.$procdff$2249 ($adff): ARST=\reset_n, D=\_051_, Q=\core.h_reg
+Replacing gate.$procdff$2254 ($adff): ARST=\reset_n, D=\_035_, Q=\core.H0_reg
+Replacing gate.$procdff$2259 ($adff): ARST=\reset_n, D=\_036_, Q=\core.H1_reg
+Replacing gate.$procdff$2264 ($adff): ARST=\reset_n, D=\_037_, Q=\core.H2_reg
+Replacing gate.$procdff$2269 ($adff): ARST=\reset_n, D=\_038_, Q=\core.H3_reg
+Replacing gate.$procdff$2274 ($adff): ARST=\reset_n, D=\_039_, Q=\core.H4_reg
+Replacing gate.$procdff$2279 ($adff): ARST=\reset_n, D=\_040_, Q=\core.H5_reg
+Replacing gate.$procdff$2284 ($adff): ARST=\reset_n, D=\_041_, Q=\core.H6_reg
+Replacing gate.$procdff$2289 ($adff): ARST=\reset_n, D=\_042_, Q=\core.H7_reg
+Replacing gate.$procdff$2294 ($adff): ARST=\reset_n, D=\_053_, Q=\core.t_ctr_reg
+Replacing gate.$procdff$2299 ($adff): ARST=\reset_n, D=\_052_, Q=\core.sha256_ctrl_reg
+Replacing gate.$procdff$2304 ($adff): ARST=\reset_n, D=\_047_, Q=\core.digest_valid_reg
+Replacing gold.$procdff$1739 ($adff): ARST=\reset_n, D=\_006_, Q=\block_reg[15]
+Replacing gold.$procdff$1744 ($adff): ARST=\reset_n, D=\_005_, Q=\block_reg[14]
+Replacing gold.$procdff$1749 ($adff): ARST=\reset_n, D=\_004_, Q=\block_reg[13]
+Replacing gold.$procdff$1754 ($adff): ARST=\reset_n, D=\_003_, Q=\block_reg[12]
+Replacing gold.$procdff$1759 ($adff): ARST=\reset_n, D=\_002_, Q=\block_reg[11]
+Replacing gold.$procdff$1764 ($adff): ARST=\reset_n, D=\_001_, Q=\block_reg[10]
+Replacing gold.$procdff$1769 ($adff): ARST=\reset_n, D=\_015_, Q=\block_reg[9]
+Replacing gold.$procdff$1774 ($adff): ARST=\reset_n, D=\_014_, Q=\block_reg[8]
+Replacing gold.$procdff$1779 ($adff): ARST=\reset_n, D=\_013_, Q=\block_reg[7]
+Replacing gold.$procdff$1784 ($adff): ARST=\reset_n, D=\_012_, Q=\block_reg[6]
+Replacing gold.$procdff$1789 ($adff): ARST=\reset_n, D=\_011_, Q=\block_reg[5]
+Replacing gold.$procdff$1794 ($adff): ARST=\reset_n, D=\_010_, Q=\block_reg[4]
+Replacing gold.$procdff$1799 ($adff): ARST=\reset_n, D=\_009_, Q=\block_reg[3]
+Replacing gold.$procdff$1804 ($adff): ARST=\reset_n, D=\_008_, Q=\block_reg[2]
+Replacing gold.$procdff$1809 ($adff): ARST=\reset_n, D=\_007_, Q=\block_reg[1]
+Replacing gold.$procdff$1814 ($adff): ARST=\reset_n, D=\_000_, Q=\block_reg[0]
+Replacing gold.$procdff$1819 ($adff): ARST=\reset_n, D=\core.digest_valid_reg, Q=\digest_valid_reg
+Replacing gold.$procdff$1824 ($adff): ARST=\reset_n, D=\_016_, Q=\digest_reg
+Replacing gold.$procdff$1829 ($adff): ARST=\reset_n, D=\core.ready, Q=\ready_reg
+Replacing gold.$procdff$1834 ($adff): ARST=\reset_n, D=\_017_, Q=\mode_reg
+Replacing gold.$procdff$1839 ($adff): ARST=\reset_n, D=\next_new, Q=\next_reg
+Replacing gold.$procdff$1844 ($adff): ARST=\reset_n, D=\init_new, Q=\init_reg
+Replacing gold.$procdff$1849 ($adff): ARST=\reset_n, D=\_231_, Q=\core.w_mem_inst.w_mem[15]
+Replacing gold.$procdff$1854 ($adff): ARST=\reset_n, D=\_230_, Q=\core.w_mem_inst.w_mem[14]
+Replacing gold.$procdff$1859 ($adff): ARST=\reset_n, D=\_229_, Q=\core.w_mem_inst.w_mem[13]
+Replacing gold.$procdff$1864 ($adff): ARST=\reset_n, D=\_228_, Q=\core.w_mem_inst.w_mem[12]
+Replacing gold.$procdff$1869 ($adff): ARST=\reset_n, D=\_227_, Q=\core.w_mem_inst.w_mem[11]
+Replacing gold.$procdff$1874 ($adff): ARST=\reset_n, D=\_226_, Q=\core.w_mem_inst.w_mem[10]
+Replacing gold.$procdff$1879 ($adff): ARST=\reset_n, D=\_240_, Q=\core.w_mem_inst.w_mem[9]
+Replacing gold.$procdff$1884 ($adff): ARST=\reset_n, D=\_239_, Q=\core.w_mem_inst.w_mem[8]
+Replacing gold.$procdff$1889 ($adff): ARST=\reset_n, D=\_238_, Q=\core.w_mem_inst.w_mem[7]
+Replacing gold.$procdff$1894 ($adff): ARST=\reset_n, D=\_237_, Q=\core.w_mem_inst.w_mem[6]
+Replacing gold.$procdff$1899 ($adff): ARST=\reset_n, D=\_236_, Q=\core.w_mem_inst.w_mem[5]
+Replacing gold.$procdff$1904 ($adff): ARST=\reset_n, D=\_235_, Q=\core.w_mem_inst.w_mem[4]
+Replacing gold.$procdff$1909 ($adff): ARST=\reset_n, D=\_234_, Q=\core.w_mem_inst.w_mem[3]
+Replacing gold.$procdff$1914 ($adff): ARST=\reset_n, D=\_233_, Q=\core.w_mem_inst.w_mem[2]
+Replacing gold.$procdff$1919 ($adff): ARST=\reset_n, D=\_232_, Q=\core.w_mem_inst.w_mem[1]
+Replacing gold.$procdff$1924 ($adff): ARST=\reset_n, D=\_225_, Q=\core.w_mem_inst.w_mem[0]
+Replacing gold.$procdff$1929 ($adff): ARST=\reset_n, D=\_052_, Q=\core.sha256_ctrl_reg
+Replacing gold.$procdff$1934 ($adff): ARST=\reset_n, D=\_053_, Q=\core.t_ctr_reg
+Replacing gold.$procdff$1939 ($adff): ARST=\reset_n, D=\_042_, Q=\core.H7_reg
+Replacing gold.$procdff$1944 ($adff): ARST=\reset_n, D=\_041_, Q=\core.H6_reg
+Replacing gold.$procdff$1949 ($adff): ARST=\reset_n, D=\_040_, Q=\core.H5_reg
+Replacing gold.$procdff$1954 ($adff): ARST=\reset_n, D=\_039_, Q=\core.H4_reg
+Replacing gold.$procdff$1959 ($adff): ARST=\reset_n, D=\_038_, Q=\core.H3_reg
+Replacing gold.$procdff$1964 ($adff): ARST=\reset_n, D=\_037_, Q=\core.H2_reg
+Replacing gold.$procdff$1969 ($adff): ARST=\reset_n, D=\_036_, Q=\core.H1_reg
+Replacing gold.$procdff$1974 ($adff): ARST=\reset_n, D=\_035_, Q=\core.H0_reg
+Replacing gold.$procdff$1979 ($adff): ARST=\reset_n, D=\_051_, Q=\core.h_reg
+Replacing gold.$procdff$1984 ($adff): ARST=\reset_n, D=\_050_, Q=\core.g_reg
+Replacing gold.$procdff$1989 ($adff): ARST=\reset_n, D=\_049_, Q=\core.f_reg
+Replacing gold.$procdff$1994 ($adff): ARST=\reset_n, D=\_048_, Q=\core.e_reg
+Replacing gold.$procdff$1999 ($adff): ARST=\reset_n, D=\_046_, Q=\core.d_reg
+Replacing gold.$procdff$2004 ($adff): ARST=\reset_n, D=\_045_, Q=\core.c_reg
+Replacing gold.$procdff$2009 ($adff): ARST=\reset_n, D=\_044_, Q=\core.b_reg
+Replacing gold.$procdff$2014 ($adff): ARST=\reset_n, D=\_043_, Q=\core.a_reg
+Replacing gold.$procdff$2019 ($adff): ARST=\reset_n, D=\_047_, Q=\core.digest_valid_reg
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gate..
+Finding unused cells or wires in module \gold..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gate..
+Finding unused cells or wires in module \gold..
+Removed 3 unused cells and 3 unused wires.
+<suppressed ~6 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module __eqcheck_top...
+Checking module gate...
+Checking module gold...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module __eqcheck_top.
+Optimizing module gate.
+<suppressed ~4 debug messages>
+Optimizing module gold.
+<suppressed ~4 debug messages>
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\__eqcheck_top'.
+Computing hashes of 13 cells of `\__eqcheck_top'.
+Finding duplicate cells in `\__eqcheck_top'.
+Finding identical cells in module `\gate'.
+Computing hashes of 471 cells of `\gate'.
+Finding duplicate cells in `\gate'.
+Finding identical cells in module `\gold'.
+Computing hashes of 471 cells of `\gold'.
+Finding duplicate cells in `\gold'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gate..
+Finding unused cells or wires in module \gold..
+Removed 30 unused cells and 66 unused wires.
+<suppressed ~66 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \__eqcheck_top..
+Finding unused cells or wires in module \gate..
+Finding unused cells or wires in module \gold..
+Removed 0 unused cells and 118 unused wires.
+<suppressed ~2 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: c00d3b2d95, time: 0.18s, user: 0.13s, system: 0.01s, MEM: 25.29 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 39% 4x opt_clean (0 sec), 22% 1x check (0 sec), ...

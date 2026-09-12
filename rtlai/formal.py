@@ -21,7 +21,7 @@ class FormalError(RuntimeError):
 
 
 PREPARE_TEMPLATE = """\
-read_verilog -sv {gold_rtl}
+{gold_reads}
 hierarchy -check -top {top_module}
 proc
 flatten
@@ -29,7 +29,7 @@ opt_clean
 rename {top_module} gold
 design -stash gold_design
 
-read_verilog -sv {gate_rtl}
+{gate_reads}
 hierarchy -check -top {top_module}
 proc
 flatten
@@ -40,7 +40,7 @@ design -stash gate_design
 design -copy-from gold_design -as gold gold
 design -copy-from gate_design -as gate gate
 
-hierarchy -check
+setattr -mod -unset top gold gate
 
 write_verilog -noattr {combined_v}
 write_json {ports_json}
@@ -51,6 +51,7 @@ SBY_TEMPLATE = """\
 mode {mode}
 depth {depth}
 multiclock {multiclock}
+timeout {timeout}
 
 [engines]
 smtbmc
@@ -74,17 +75,44 @@ class EquivalenceResult:
     wrapper_path: Optional[Path] = None
 
 
-def _prepare_gold_gate(original_rtl: Path, candidate_rtl: Path, top_module: str, run_dir: Path):
-    """Loads both RTL files under distinct names (gold/gate), writes them
-    back out as one combined Verilog file, and returns their port lists
-    (validated to match -- a candidate with a different interface can't
-    be meaningfully equivalence-checked at all)."""
+def _as_list(paths):
+    """Accepts a single path or a list of them, so existing single-file callers
+    keep working unchanged."""
+    if isinstance(paths, (str, Path)):
+        return [Path(paths)]
+    return [Path(p) for p in paths]
+
+def _display_name(paths) -> str:
+    """Short label for a design in summary messages, whether it's one file or many."""
+    files = _as_list(paths)
+    if len(files) == 1:
+        return files[0].name
+    return f"{files[0].name} (+{len(files) - 1} more)"   
+
+
+def _prepare_gold_gate(original_rtl, candidate_rtl, top_module: str, run_dir: Path):
+    """Elaborates and flattens each design separately into a single module, then
+    brings the two together as `gold` and `gate`.
+
+    Each side must be flattened BEFORE they are combined. A design with submodules
+    would otherwise define the same submodule names twice and the second read
+    collides -- renaming only the top module is not enough.
+
+    Returns the combined netlist path and the gold port list (validated against the
+    gate's; a candidate with a different interface cannot be meaningfully
+    equivalence-checked at all)."""
+    gold_files = _as_list(original_rtl)
+    gate_files = _as_list(candidate_rtl)
+
     combined_v = run_dir / "gold_gate.v"
     ports_json = run_dir / "ports.json"
 
+    gold_reads = "\n".join(f"read_verilog -sv {f.resolve()}" for f in gold_files)
+    gate_reads = "\n".join(f"read_verilog -sv {f.resolve()}" for f in gate_files)
+
     script_content = PREPARE_TEMPLATE.format(
-        gold_rtl=Path(original_rtl).resolve(),
-        gate_rtl=Path(candidate_rtl).resolve(),
+        gold_reads=gold_reads,
+        gate_reads=gate_reads,
         top_module=top_module,
         combined_v=combined_v.resolve(),
         ports_json=ports_json.resolve(),
@@ -106,8 +134,16 @@ def _prepare_gold_gate(original_rtl: Path, candidate_rtl: Path, top_module: str,
     with open(ports_json) as f:
         data = json.load(f)
 
-    gold_ports = data["modules"]["gold"]["ports"]
-    gate_ports = data["modules"]["gate"]["ports"]
+    modules = data.get("modules", {})
+    missing = [m for m in ("gold", "gate") if m not in modules]
+    if missing:
+        raise FormalError(
+            f"Prepare did not produce module(s) {missing} (found: {sorted(modules)}). "
+            f"See {run_dir / 'prepare.log'}"
+        )
+
+    gold_ports = modules["gold"]["ports"]
+    gate_ports = modules["gate"]["ports"]
 
     if set(gold_ports.keys()) != set(gate_ports.keys()):
         raise FormalError(
@@ -301,6 +337,7 @@ def verify_equivalence(
     reset_port: Optional[str] = None,
     reset_active_high: Optional[bool] = None,
     latency_offset: int = 0,
+    timeout_s: int = 300,
 ) -> EquivalenceResult:
     run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -320,6 +357,7 @@ def verify_equivalence(
         mode=mode,
         depth=effective_depth,
         multiclock="on" if is_multiclock else "off",
+        timeout=timeout_s,
         combined_v_name=combined_v.name,
         wrapper_v_name=wrapper_path.name,
         combined_v_path=combined_v.resolve(),
@@ -334,7 +372,7 @@ def verify_equivalence(
     log = result.stdout + result.stderr
     (run_dir / "equiv_sby.log").write_text(log)
 
-    match = re.search(r"DONE\s*\((PASS|FAIL|UNKNOWN)", log)
+    match = re.search(r"DONE\s*\((PASS|FAIL|UNKNOWN|TIMEOUT)", log)
     if match is None:
         raise FormalError(
             f"Could not determine a verdict from sby output (exit {result.returncode}). "
@@ -357,28 +395,38 @@ def verify_equivalence(
     elif verdict == "FAIL":
         passed = False
         bounded = False
+    elif verdict == "TIMEOUT":
+        raise FormalError(
+            f"Equivalence check TIMED OUT after {timeout_s}s -- the candidate is neither "
+            f"proven equivalent nor proven different. This usually means the transformation "
+            f"restructures arithmetic in a way that is hard for a SAT solver to verify "
+            f"(e.g. reordering a long adder chain). See {run_dir / 'equiv_sby.log'}"
+        )
     else:
         raise FormalError(
             f"Verdict '{verdict}' with no passing basecase -- INCONCLUSIVE, not verified. "
             f"See {run_dir / 'equiv_sby.log'}"
         )
 
+    gold_name = _display_name(original_rtl)
+    gate_name = _display_name(candidate_rtl)
+
     if passed and bounded:
         summary = (
-            f"PASS (bounded) — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
-            f"show no counterexample within {effective_depth} steps (bounded model check; "
-            f"this is NOT an unbounded proof)."
+            f"PASS (bounded) — {gold_name} and {gate_name} show no counterexample within "
+            f"{effective_depth} steps (bounded model check; this is NOT an unbounded proof)."
         )
     elif passed:
         summary = (
-            f"PASS — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
-            f"are formally equivalent (proved by SymbiYosys, depth={effective_depth})."
+            f"PASS — {gold_name} and {gate_name} are formally equivalent "
+            f"(proved by SymbiYosys, depth={effective_depth})."
         )
     else:
         summary = (
-            f"FAIL — {Path(original_rtl).name} and {Path(candidate_rtl).name} "
-            f"are NOT equivalent. See {run_dir}/equiv/engine_0/ for the counterexample trace."
+            f"FAIL — {gold_name} and {gate_name} are NOT equivalent. "
+            f"See {run_dir}/equiv/engine_0/ for the counterexample trace."
         )
+
     if passed and latency_offset > 0:
         summary += f" Candidate latency is +{latency_offset} cycle(s) versus the baseline."
 

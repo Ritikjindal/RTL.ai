@@ -21,6 +21,15 @@ Rules you must follow:
   list must still be identical - pipelining changes WHEN outputs appear, never the interface.
 - Output ONLY the Verilog code, inside a single ```verilog code block. Do not include any explanation before or
   after the code block.
+- Write Verilog-2001. Do NOT use SystemVerilog constructs that Yosys will reject:
+  no '{...} assignment patterns, no multi-dimensional parameter/localparam arrays,
+  no `logic`, no `always_ff`/`always_comb`, no packed struct types. Use plain
+  `reg`/`wire`, explicit `always @(...)` blocks, and one-dimensional arrays.
+- Never emit a large table of hand-derived constants (CRC lookahead matrices,
+  precomputed coefficient tables, ROM contents) unless every value is given to you
+  explicitly in the plan. If the plan asks for a table you would have to derive
+  yourself, do not guess or emit placeholder values - implement the plan's intent
+  using the design's existing computation instead.
 """
 
 

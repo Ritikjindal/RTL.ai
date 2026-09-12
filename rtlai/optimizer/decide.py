@@ -1,5 +1,5 @@
 # rtlai/optimizer/decide.py
-from typing import Optional, Tuple
+from typing import List, Optional, Tuple
 
 from rtlai.schema import RunResult
 
@@ -9,7 +9,7 @@ BALANCED_WEIGHTS = {"area": 0.40, "max frequency": 0.30, "power": 0.30}
 # Timing-closure weights, used when the baseline VIOLATES its constraint. The brief is
 # about closing timing: when the design is failing, frequency is what matters and
 # area/power are almost irrelevant.
-CLOSURE_WEIGHTS = {"area": 0.10, "max frequency": 0.80, "power": 0.10}
+CLOSURE_WEIGHTS = {"area": 0.10, "max frequency": 0.80, "power": 0.30}
 
 # Rejects catastrophic single-axis regressions (e.g. the hand-built ALU ripple-carry
 # candidate, which lost 36% of max frequency). Deliberately loose enough to permit
@@ -18,7 +18,9 @@ CLOSURE_WEIGHTS = {"area": 0.10, "max frequency": 0.80, "power": 0.10}
 MAX_REGRESSION_PCT = 25.0
 
 
-def _pct_improvement(baseline: Optional[float], candidate: Optional[float], lower_is_better: bool) -> Optional[float]:
+def _pct_improvement(
+    baseline: Optional[float], candidate: Optional[float], lower_is_better: bool
+) -> Optional[float]:
     if baseline is None or candidate is None or baseline == 0:
         return None
     if lower_is_better:
@@ -26,7 +28,39 @@ def _pct_improvement(baseline: Optional[float], candidate: Optional[float], lowe
     return (candidate - baseline) / baseline * 100.0
 
 
-def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str]:
+def _dimensions(
+    baseline: RunResult, candidate: RunResult
+) -> Tuple[str, bool, List[Tuple[str, float, Optional[float]]]]:
+    """Shared scoring core. Returns (mode, closing_timing, [(name, weight, pct)])."""
+    closing_timing = baseline.timing_passed is False
+    weights = CLOSURE_WEIGHTS if closing_timing else BALANCED_WEIGHTS
+    mode = "timing-closure" if closing_timing else "balanced"
+
+    dims = [
+        ("area", weights["area"],
+         _pct_improvement(baseline.area.cell_area_um2, candidate.area.cell_area_um2, True)),
+        ("max frequency", weights["max frequency"],
+         _pct_improvement(baseline.timing.max_frequency_mhz, candidate.timing.max_frequency_mhz, False)),
+        ("power", weights["power"],
+         _pct_improvement(baseline.power.total_uw, candidate.power.total_uw, True)),
+    ]
+    return mode, closing_timing, dims
+
+
+def score_candidate(baseline: RunResult, candidate: RunResult) -> Optional[float]:
+    """
+    Net weighted improvement over the baseline, in percent. Positive is better.
+
+    Used to RANK the candidates produced by best-of-N sampling. Returns None if any
+    measurement is missing, which callers should treat as unrankable.
+    """
+    _, _, dims = _dimensions(baseline, candidate)
+    if any(value is None for _, _, value in dims):
+        return None
+    return sum(weight * value for _, weight, value in dims)
+
+
+def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str, Optional[float]]:
     """
     Decides whether to accept a formally-equivalent candidate by comparing it
     RELATIVELY against the baseline, not against fixed absolute targets.
@@ -44,27 +78,17 @@ def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str]:
     against a fixed clock constraint, so a design can lose a third of its achievable
     frequency while its slack barely moves.
 
-    Returns (accepted, human-readable reason).
+    Returns (accepted, human-readable reason, net weighted improvement).
     """
-    closing_timing = baseline.timing_passed is False
-    weights = CLOSURE_WEIGHTS if closing_timing else BALANCED_WEIGHTS
-    mode = "timing-closure" if closing_timing else "balanced"
-
-    dims = [
-        ("area", weights["area"],
-         _pct_improvement(baseline.area.cell_area_um2, candidate.area.cell_area_um2, True)),
-        ("max frequency", weights["max frequency"],
-         _pct_improvement(baseline.timing.max_frequency_mhz, candidate.timing.max_frequency_mhz, False)),
-        ("power", weights["power"],
-         _pct_improvement(baseline.power.total_uw, candidate.power.total_uw, True)),
-    ]
+    mode, closing_timing, dims = _dimensions(baseline, candidate)
 
     missing = [name for name, _, value in dims if value is None]
     if missing:
-        return False, f"Cannot decide: missing measurements for {', '.join(missing)}."
+        return False, f"Cannot decide: missing measurements for {', '.join(missing)}.", None
 
     by_name = {name: value for name, _, value in dims}
     breakdown = ", ".join(f"{name} {value:+.1f}%" for name, _, value in dims)
+    net = sum(weight * value for _, weight, value in dims)
 
     # When the baseline is failing timing, a candidate that doesn't make it faster is
     # not a solution, whatever it does for area or power.
@@ -72,7 +96,7 @@ def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str]:
         return False, (
             f"Rejected [{mode}]: baseline violates timing and this candidate does not improve "
             f"max frequency ({breakdown})."
-        )
+        ), net
 
     regressions = [(name, value) for name, _, value in dims if value < -MAX_REGRESSION_PCT]
     if regressions:
@@ -80,10 +104,8 @@ def decide(baseline: RunResult, candidate: RunResult) -> Tuple[bool, str]:
         return False, (
             f"Rejected [{mode}]: unacceptable regression ({detail}); "
             f"limit is {MAX_REGRESSION_PCT:.1f}%."
-        )
-
-    net = sum(weight * value for _, weight, value in dims)
+        ), net
 
     if net > 0:
-        return True, f"Accepted [{mode}]: net weighted improvement {net:+.1f}% ({breakdown})."
-    return False, f"Rejected [{mode}]: net weighted improvement {net:+.1f}% is not positive ({breakdown})."
+        return True, f"Accepted [{mode}]: net weighted improvement {net:+.1f}% ({breakdown}).", net
+    return False, f"Rejected [{mode}]: net weighted improvement {net:+.1f}% is not positive ({breakdown}).", net

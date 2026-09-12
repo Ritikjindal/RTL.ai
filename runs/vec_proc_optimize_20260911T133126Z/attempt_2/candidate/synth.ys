@@ -1,0 +1,24 @@
+read_verilog /mnt/d/tushar/Downloads/RTL.ai/runs/vec_proc_optimize_20260911T133126Z/attempt_2/vec_proc_candidate.v
+
+hierarchy -top vec_proc
+
+proc
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/vec_proc_optimize_20260911T133126Z/attempt_2/candidate/netlist/vec_proc_candidate_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/vec_proc_optimize_20260911T133126Z/attempt_2/candidate/netlist/vec_proc_candidate_netlist.json

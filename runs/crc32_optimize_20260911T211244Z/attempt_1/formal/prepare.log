@@ -1,0 +1,259 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/formal/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v' to AST representation.
+Generating RTLIL representation for module `\crc32'.
+Warning: Replacing memory \c_tap with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:60, /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:58
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \crc32
+
+2.2. Analyzing design hierarchy..
+Top module:  \crc32
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266 in module crc32.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5 in module crc32.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 14 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+     1/4: $0\out_valid[0:0]
+     2/4: $0\active[0:0]
+     3/4: $0\crc[31:0]
+     4/4: $0\out_crc[31:0]
+Creating decoders for process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+     1/1: $1$mem2reg_rd$\c_tap$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:66$3_DATA[31:0]$264
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\crc32.\b' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\i' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\cnext' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[0]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[1]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[2]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[3]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[4]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[5]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[6]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[7]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+No latch inferred for signal `\crc32.\c_tap[8]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\crc32.\out_valid' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+  created $dff cell `$procdff$304' with positive edge clock.
+Creating register for signal `\crc32.\out_crc' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+  created $dff cell `$procdff$305' with positive edge clock.
+Creating register for signal `\crc32.\crc' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+  created $dff cell `$procdff$306' with positive edge clock.
+Creating register for signal `\crc32.\active' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+  created $dff cell `$procdff$307' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+Removing empty process `crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:69$266'.
+Found and cleaned up 1 empty switch in `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+Removing empty process `crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v:57$5'.
+Cleaned up 4 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module crc32.
+<suppressed ~130 debug messages>
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \crc32..
+Removed 0 unused cells and 114 unused wires.
+<suppressed ~1 debug messages>
+Renaming module \crc32 to \gold.
+
+6. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v' to AST representation.
+Generating RTLIL representation for module `\crc32'.
+Warning: Replacing memory \c_tap_hi with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:80, /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:78
+Warning: Replacing memory \c_tap_lo with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:59, /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:57
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range select out of bounds on signal `\in_data_hi_r': Setting result bit to undef.
+/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:83: Warning: Range [31:31] select out of bounds on signal `\in_data_hi_r': Setting 1 LSB bits to undef.
+Successfully finished Verilog frontend.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \crc32
+
+7.2. Analyzing design hierarchy..
+Top module:  \crc32
+Removed 0 unused modules.
+
+8. Executing PROC pass (convert processes to netlists).
+
+8.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579 in module crc32.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445 in module crc32.
+Removed a total of 0 dead cases.
+
+8.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 17 assignments to connections.
+
+8.4. Executing PROC_INIT pass (extract init attributes).
+
+8.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+8.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+     1/9: $0\in_valid_r[0:0]
+     2/9: $0\out_valid[0:0]
+     3/9: $0\crc_mid[31:0]
+     4/9: $0\in_data_hi_r[31:0]
+     5/9: $0\in_last_r[0:0]
+     6/9: $0\in_bytes_r[3:0]
+     7/9: $0\active[0:0]
+     8/9: $0\crc[31:0]
+     9/9: $0\out_crc[31:0]
+Creating decoders for process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+     1/1: $1$mem2reg_rd$\c_tap_hi$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:86$314_DATA[31:0]$577
+Creating decoders for process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+
+8.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\crc32.\b' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\i' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\cnext' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\c_tap_hi[4]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\c_tap_hi[3]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\c_tap_hi[2]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\c_tap_hi[1]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\c_tap_hi[0]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+No latch inferred for signal `\crc32.\b' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+No latch inferred for signal `\crc32.\i' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+No latch inferred for signal `\crc32.\c_tap_lo[4]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+No latch inferred for signal `\crc32.\c_tap_lo[3]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+No latch inferred for signal `\crc32.\c_tap_lo[2]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+No latch inferred for signal `\crc32.\c_tap_lo[1]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+No latch inferred for signal `\crc32.\c_tap_lo[0]' from process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\crc32.\out_valid' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$643' with positive edge clock.
+Creating register for signal `\crc32.\out_crc' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$644' with positive edge clock.
+Creating register for signal `\crc32.\crc' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$645' with positive edge clock.
+Creating register for signal `\crc32.\active' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$646' with positive edge clock.
+Creating register for signal `\crc32.\in_valid_r' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$647' with positive edge clock.
+Creating register for signal `\crc32.\in_bytes_r' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$648' with positive edge clock.
+Creating register for signal `\crc32.\in_last_r' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$649' with positive edge clock.
+Creating register for signal `\crc32.\in_data_hi_r' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$650' with positive edge clock.
+Creating register for signal `\crc32.\crc_mid' using process `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+  created $dff cell `$procdff$651' with positive edge clock.
+
+8.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+Removing empty process `crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:89$579'.
+Found and cleaned up 1 empty switch in `\crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+Removing empty process `crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:77$445'.
+Removing empty process `crc32.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/crc32_optimize_20260911T211244Z/attempt_1/crc32_candidate.v:56$316'.
+Cleaned up 5 empty switches.
+
+8.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module crc32.
+<suppressed ~130 debug messages>
+
+9. Executing FLATTEN pass (flatten design).
+
+10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \crc32..
+Removed 3 unused cells and 134 unused wires.
+<suppressed ~5 debug messages>
+Renaming module \crc32 to \gate.
+
+11. Executing Verilog backend.
+
+11.1. Executing BMUXMAP pass.
+
+11.2. Executing DEMUXMAP pass.
+Dumping module `\gate'.
+Dumping module `\gold'.
+
+12. Executing JSON backend.
+
+Warnings: 5 unique messages, 35 total
+End of script. Logfile hash: 766db50f30, time: 0.09s, user: 0.05s, system: 0.01s, MEM: 59.20 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 53% 4x read_verilog (0 sec), 11% 2x opt_clean (0 sec), ...

@@ -1,0 +1,39 @@
+{
+  "format": "Yosys Witness Trace",
+  "generator": "smtbmc",
+  "clocks": [
+    {"path": ["\\clk"], "edge": "posedge", "offset": 0}
+  ],
+  "signals": [
+    {"path": ["\\clk"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\gate_inst", "\\_witness_", "\\anyseq_auto_setundef_cc_550_execute_442"], "width": 32, "offset": 0, "init_only": false},
+    {"path": ["\\gold_inst", "\\_witness_", "\\anyseq_auto_setundef_cc_550_execute_448"], "width": 32, "offset": 0, "init_only": false},
+    {"path": ["\\in_bytes"], "width": 4, "offset": 0, "init_only": false},
+    {"path": ["\\in_data"], "width": 64, "offset": 0, "init_only": false},
+    {"path": ["\\in_last"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\in_valid"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\rst"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\gate_inst", "\\active"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\bytes_reg"], "width": 4, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\crc"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\crc_mid"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\data_hi_reg"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\last_reg"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\out_crc"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\out_valid"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gate_inst", "\\valid_reg"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\active"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\crc"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\out_crc"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gold_inst", "\\out_valid"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\gold_out_crc_d1"], "width": 32, "offset": 0, "init_only": true},
+    {"path": ["\\gold_out_valid_d1"], "width": 1, "offset": 0, "init_only": true}
+  ],
+  "steps": [
+    {"bits": "11000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+    {"bits": "0110000000000000000000000000000000000000000000000000000000000000000101001111111111111111111111111111111000000000000000000000000000000000"},
+    {"bits": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111111111111111111110"},
+    {"bits": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+    {"bits": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+  ]
+}

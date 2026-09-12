@@ -1,0 +1,191 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/formal/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v' to AST representation.
+Generating RTLIL representation for module `\mac_unit'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \mac_unit
+
+2.2. Analyzing design hierarchy..
+Top module:  \mac_unit
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:42$9 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1 in module mac_unit.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:42$9'.
+     1/2: $0\acc_valid[0:0]
+     2/2: $0\acc[23:0]
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1'.
+     1/3: $0\valid_reg[0:0]
+     2/3: $0\b_reg[31:0]
+     3/3: $0\a_reg[31:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mac_unit.\acc' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:42$9'.
+  created $dff cell `$procdff$32' with positive edge clock.
+Creating register for signal `\mac_unit.\acc_valid' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:42$9'.
+  created $dff cell `$procdff$33' with positive edge clock.
+Creating register for signal `\mac_unit.\a_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1'.
+  created $dff cell `$procdff$34' with positive edge clock.
+Creating register for signal `\mac_unit.\b_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1'.
+  created $dff cell `$procdff$35' with positive edge clock.
+Creating register for signal `\mac_unit.\valid_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1'.
+  created $dff cell `$procdff$36' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:42$9'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:42$9'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v:19$1'.
+Cleaned up 3 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~1 debug messages>
+Renaming module \mac_unit to \gold.
+
+6. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v' to AST representation.
+Generating RTLIL representation for module `\mac_unit'.
+Successfully finished Verilog frontend.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \mac_unit
+
+7.2. Analyzing design hierarchy..
+Top module:  \mac_unit
+Removed 0 unused modules.
+
+8. Executing PROC pass (convert processes to netlists).
+
+8.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:57$46 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:46$45 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37 in module mac_unit.
+Removed a total of 0 dead cases.
+
+8.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 0 assignments to connections.
+
+8.4. Executing PROC_INIT pass (extract init attributes).
+
+8.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+8.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:57$46'.
+     1/2: $0\acc_valid[0:0]
+     2/2: $0\acc[23:0]
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:46$45'.
+     1/2: $0\valid_reg2[0:0]
+     2/2: $0\sum_reg[17:0]
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37'.
+     1/3: $0\valid_reg[0:0]
+     2/3: $0\b_reg[31:0]
+     3/3: $0\a_reg[31:0]
+
+8.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mac_unit.\acc' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:57$46'.
+  created $dff cell `$procdff$75' with positive edge clock.
+Creating register for signal `\mac_unit.\acc_valid' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:57$46'.
+  created $dff cell `$procdff$76' with positive edge clock.
+Creating register for signal `\mac_unit.\valid_reg2' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:46$45'.
+  created $dff cell `$procdff$77' with positive edge clock.
+Creating register for signal `\mac_unit.\sum_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:46$45'.
+  created $dff cell `$procdff$78' with positive edge clock.
+Creating register for signal `\mac_unit.\a_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37'.
+  created $dff cell `$procdff$79' with positive edge clock.
+Creating register for signal `\mac_unit.\b_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37'.
+  created $dff cell `$procdff$80' with positive edge clock.
+Creating register for signal `\mac_unit.\valid_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37'.
+  created $dff cell `$procdff$81' with positive edge clock.
+
+8.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:57$46'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:57$46'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:46$45'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:46$45'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/mac_unit_candidate.v:19$37'.
+Cleaned up 4 empty switches.
+
+8.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+9. Executing FLATTEN pass (flatten design).
+
+10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
+Renaming module \mac_unit to \gate.
+
+11. Executing Verilog backend.
+
+11.1. Executing BMUXMAP pass.
+
+11.2. Executing DEMUXMAP pass.
+Dumping module `\gate'.
+Dumping module `\gold'.
+
+12. Executing JSON backend.
+
+End of script. Logfile hash: dde0c3e3d8, time: 0.03s, user: 0.01s, system: 0.01s, MEM: 60.11 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 42% 2x write_json (0 sec), 26% 4x read_verilog (0 sec), ...

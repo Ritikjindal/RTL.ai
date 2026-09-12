@@ -1,0 +1,39 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/reset_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_cic.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_fir.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_mixer.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_nco.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/picorv32.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sad8x8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v
+hierarchy -check -top benchmark_top
+proc
+flatten
+opt_clean
+rename benchmark_top gold
+design -stash gold_design
+
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_top_flat.v
+hierarchy -check -top benchmark_top
+proc
+flatten
+opt_clean
+rename benchmark_top gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+setattr -mod -unset top gold gate
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/gold_gate.v
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/formal/ports.json

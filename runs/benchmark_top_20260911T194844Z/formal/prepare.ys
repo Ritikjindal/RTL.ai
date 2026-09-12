@@ -1,0 +1,23 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_flat.v
+hierarchy -check -top benchmark_top
+proc
+flatten
+opt_clean
+rename benchmark_top gold
+design -stash gold_design
+
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_flat.v
+hierarchy -check -top benchmark_top
+proc
+flatten
+opt_clean
+rename benchmark_top gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+hierarchy -check
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T194844Z/formal/gold_gate.v
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T194844Z/formal/ports.json

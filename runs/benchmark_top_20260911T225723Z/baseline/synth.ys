@@ -1,0 +1,41 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/reset_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_cic.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_fir.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_mixer.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/ddc_nco.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/picorv32.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sad8x8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v
+
+hierarchy -check -top benchmark_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/baseline/netlist/benchmark_top_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_20260911T225723Z/baseline/netlist/benchmark_top_netlist.json

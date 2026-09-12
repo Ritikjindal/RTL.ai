@@ -63,6 +63,10 @@ RULES you must follow:
   the original, so any behavioural difference will be caught and the candidate rejected.
 - If you are told a previous attempt failed, read the failure carefully - especially any
   counterexample stimulus - work out what went wrong, and propose a genuinely different approach.
+- Do not propose changes that require precomputing a large table of constants (CRC
+  matrices, coefficient ROMs, lookup tables). The implementer cannot derive such
+  tables reliably and will produce wrong values. Prefer restructuring the existing
+  computation - pipelining, retiming, rebalancing a tree, re-encoding state.
 """
 
 

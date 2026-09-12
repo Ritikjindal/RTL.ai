@@ -1,0 +1,37 @@
+SBY 21:47:17 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] Removing directory '/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv'.
+SBY 21:47:17 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/gold_gate.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv/src/gold_gate.v'.
+SBY 21:47:17 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/eqcheck_wrapper.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv/src/eqcheck_wrapper.v'.
+SBY 21:47:17 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0: smtbmc
+SBY 21:47:17 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] base: starting process "cd /mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] base: finished (returncode=0)
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] prep: starting process "cd /mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv/model; yosys -ql design_prep.log design_prep.ys"
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] prep: finished (returncode=0)
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] smt2: starting process "cd /mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] smt2: finished (returncode=0)
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: starting process "cd /mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: starting process "cd /mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:47:18 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 21:48:20 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: ##   0:01:01  waiting for solver (1 minute)
+SBY 21:48:20 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:01:01  waiting for solver (1 minute)
+SBY 21:52:26 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: ##   0:05:08  waiting for solver (5 minutes)
+SBY 21:52:26 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: ##   0:05:08  waiting for solver (5 minutes)
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] Reached TIMEOUT (300 seconds). Terminating all subprocesses.
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.basecase: terminating process
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] engine_0.induction: terminating process
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:05:01 (301)
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] summary: engine_0 (smtbmc) did not return a status
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] summary: engine_0 did not produce any traces
+SBY 21:52:27 [/mnt/d/tushar/Downloads/RTL.ai/runs/sad8x8_20260911T214712Z/formal/equiv] DONE (TIMEOUT, rc=8)

@@ -1,0 +1,25 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/crc32.v
+
+hierarchy -check -top crc32
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_20260911T210759Z/baseline/netlist/crc32_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/crc32_20260911T210759Z/baseline/netlist/crc32_netlist.json

@@ -1,0 +1,1150 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `/mnt/d/tushar/Downloads/RTL.ai/runs/sha_multifile_selfcheck/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v' to AST representation.
+Generating RTLIL representation for module `\sha256'.
+Warning: Replacing memory \block_reg with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:169
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v' to AST representation.
+Generating RTLIL representation for module `\sha256_core'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v' to AST representation.
+Generating RTLIL representation for module `\sha256_k_constants'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v' to AST representation.
+Generating RTLIL representation for module `\sha256_w_mem'.
+Warning: Replacing memory \w_mem with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:104
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \sha256
+Used module:     \sha256_core
+Used module:         \sha256_w_mem
+Used module:         \sha256_k_constants
+
+5.2. Analyzing design hierarchy..
+Top module:  \sha256
+Used module:     \sha256_core
+Used module:         \sha256_w_mem
+Used module:         \sha256_k_constants
+Removed 0 unused modules.
+
+6. Executing PROC pass (convert processes to netlists).
+
+6.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87 in module sha256_w_mem.
+Removed 1 dead cases from process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$80 in module sha256_w_mem.
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$80 in module sha256_w_mem.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78 in module sha256_w_mem.
+Removed 1 dead cases from process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$75 in module sha256_k_constants.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$75 in module sha256_k_constants.
+Marked 4 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73 in module sha256_core.
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$71 in module sha256_core.
+Marked 4 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68 in module sha256_core.
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39 in module sha256_core.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37 in module sha256_core.
+Removed 1 dead cases from process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12 in module sha256.
+Marked 8 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12 in module sha256.
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4 in module sha256.
+Removed a total of 3 dead cases.
+
+6.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 81 assignments to connections.
+
+6.4. Executing PROC_INIT pass (extract init attributes).
+
+6.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset_n in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+Found async reset \reset_n in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+Found async reset \reset_n in `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+
+6.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~35 debug messages>
+
+6.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+     1/34: $2\w_mem_we[0:0]
+     2/34: $2\w_mem15_new[31:0]
+     3/34: $2\w_mem14_new[31:0]
+     4/34: $2\w_mem13_new[31:0]
+     5/34: $2\w_mem12_new[31:0]
+     6/34: $2\w_mem11_new[31:0]
+     7/34: $2\w_mem10_new[31:0]
+     8/34: $2\w_mem09_new[31:0]
+     9/34: $2\w_mem08_new[31:0]
+    10/34: $2\w_mem07_new[31:0]
+    11/34: $2\w_mem06_new[31:0]
+    12/34: $2\w_mem05_new[31:0]
+    13/34: $2\w_mem04_new[31:0]
+    14/34: $2\w_mem03_new[31:0]
+    15/34: $2\w_mem02_new[31:0]
+    16/34: $2\w_mem01_new[31:0]
+    17/34: $2\w_mem00_new[31:0]
+    18/34: $1\w_mem_we[0:0]
+    19/34: $1\w_mem15_new[31:0]
+    20/34: $1\w_mem14_new[31:0]
+    21/34: $1\w_mem13_new[31:0]
+    22/34: $1\w_mem12_new[31:0]
+    23/34: $1\w_mem11_new[31:0]
+    24/34: $1\w_mem10_new[31:0]
+    25/34: $1\w_mem09_new[31:0]
+    26/34: $1\w_mem08_new[31:0]
+    27/34: $1\w_mem07_new[31:0]
+    28/34: $1\w_mem06_new[31:0]
+    29/34: $1\w_mem05_new[31:0]
+    30/34: $1\w_mem04_new[31:0]
+    31/34: $1\w_mem03_new[31:0]
+    32/34: $1\w_mem02_new[31:0]
+    33/34: $1\w_mem01_new[31:0]
+    34/34: $1\w_mem00_new[31:0]
+Creating decoders for process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$80'.
+     1/4: $2$mem2reg_rd$\w_mem$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:141$77_DATA[31:0]$86
+     2/4: $1\w_tmp[31:0]
+     3/4: $1$mem2reg_rd$\w_mem$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:141$77_DATA[31:0]$85
+     4/4: $1$mem2reg_rd$\w_mem$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:141$77_ADDR[3:0]$84
+Creating decoders for process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+     1/17: $1\reg_update.i[31:0]
+     2/17: $0\w_mem[15][31:0]
+     3/17: $0\w_mem[14][31:0]
+     4/17: $0\w_mem[13][31:0]
+     5/17: $0\w_mem[12][31:0]
+     6/17: $0\w_mem[11][31:0]
+     7/17: $0\w_mem[10][31:0]
+     8/17: $0\w_mem[9][31:0]
+     9/17: $0\w_mem[8][31:0]
+    10/17: $0\w_mem[7][31:0]
+    11/17: $0\w_mem[6][31:0]
+    12/17: $0\w_mem[5][31:0]
+    13/17: $0\w_mem[4][31:0]
+    14/17: $0\w_mem[3][31:0]
+    15/17: $0\w_mem[2][31:0]
+    16/17: $0\w_mem[1][31:0]
+    17/17: $0\w_mem[0][31:0]
+Creating decoders for process `\sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$75'.
+     1/1: $1\tmp_K[31:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+     1/32: $4\sha256_ctrl_we[0:0]
+     2/32: $4\sha256_ctrl_new[1:0]
+     3/32: $3\sha256_ctrl_we[0:0]
+     4/32: $3\sha256_ctrl_new[1:0]
+     5/32: $3\digest_valid_we[0:0]
+     6/32: $3\digest_valid_new[0:0]
+     7/32: $3\state_init[0:0]
+     8/32: $3\w_init[0:0]
+     9/32: $3\t_ctr_rst[0:0]
+    10/32: $2\sha256_ctrl_we[0:0]
+    11/32: $2\sha256_ctrl_new[1:0]
+    12/32: $2\digest_valid_we[0:0]
+    13/32: $2\digest_valid_new[0:0]
+    14/32: $2\t_ctr_rst[0:0]
+    15/32: $2\first_block[0:0]
+    16/32: $2\state_init[0:0]
+    17/32: $2\w_init[0:0]
+    18/32: $2\digest_init[0:0]
+    19/32: $1\w_init[0:0]
+    20/32: $1\state_init[0:0]
+    21/32: $1\sha256_ctrl_we[0:0]
+    22/32: $1\sha256_ctrl_new[1:0]
+    23/32: $1\digest_valid_we[0:0]
+    24/32: $1\digest_valid_new[0:0]
+    25/32: $1\t_ctr_rst[0:0]
+    26/32: $1\first_block[0:0]
+    27/32: $1\digest_init[0:0]
+    28/32: $1\ready_flag[0:0]
+    29/32: $1\w_next[0:0]
+    30/32: $1\state_update[0:0]
+    31/32: $1\digest_update[0:0]
+    32/32: $1\t_ctr_inc[0:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$71'.
+     1/4: $2\t_ctr_we[0:0]
+     2/4: $2\t_ctr_new[5:0]
+     3/4: $1\t_ctr_we[0:0]
+     4/4: $1\t_ctr_new[5:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+     1/34: $2\a_h_we[0:0]
+     2/34: $4\h_new[31:0]
+     3/34: $4\g_new[31:0]
+     4/34: $4\f_new[31:0]
+     5/34: $4\e_new[31:0]
+     6/34: $4\d_new[31:0]
+     7/34: $4\c_new[31:0]
+     8/34: $4\b_new[31:0]
+     9/34: $4\a_new[31:0]
+    10/34: $3\h_new[31:0]
+    11/34: $3\g_new[31:0]
+    12/34: $3\f_new[31:0]
+    13/34: $3\e_new[31:0]
+    14/34: $3\d_new[31:0]
+    15/34: $3\c_new[31:0]
+    16/34: $3\b_new[31:0]
+    17/34: $3\a_new[31:0]
+    18/34: $2\h_new[31:0]
+    19/34: $2\g_new[31:0]
+    20/34: $2\f_new[31:0]
+    21/34: $2\e_new[31:0]
+    22/34: $2\d_new[31:0]
+    23/34: $2\c_new[31:0]
+    24/34: $2\b_new[31:0]
+    25/34: $2\a_new[31:0]
+    26/34: $1\h_new[31:0]
+    27/34: $1\g_new[31:0]
+    28/34: $1\f_new[31:0]
+    29/34: $1\e_new[31:0]
+    30/34: $1\d_new[31:0]
+    31/34: $1\c_new[31:0]
+    32/34: $1\b_new[31:0]
+    33/34: $1\a_new[31:0]
+    34/34: $1\a_h_we[0:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$59'.
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$48'.
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+     1/26: $2\H_we[0:0]
+     2/26: $3\H7_new[31:0]
+     3/26: $3\H6_new[31:0]
+     4/26: $3\H5_new[31:0]
+     5/26: $3\H4_new[31:0]
+     6/26: $3\H3_new[31:0]
+     7/26: $3\H2_new[31:0]
+     8/26: $3\H1_new[31:0]
+     9/26: $3\H0_new[31:0]
+    10/26: $2\H7_new[31:0]
+    11/26: $2\H6_new[31:0]
+    12/26: $2\H5_new[31:0]
+    13/26: $2\H4_new[31:0]
+    14/26: $2\H3_new[31:0]
+    15/26: $2\H2_new[31:0]
+    16/26: $2\H1_new[31:0]
+    17/26: $2\H0_new[31:0]
+    18/26: $1\H7_new[31:0]
+    19/26: $1\H6_new[31:0]
+    20/26: $1\H5_new[31:0]
+    21/26: $1\H4_new[31:0]
+    22/26: $1\H3_new[31:0]
+    23/26: $1\H2_new[31:0]
+    24/26: $1\H1_new[31:0]
+    25/26: $1\H0_new[31:0]
+    26/26: $1\H_we[0:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+     1/19: $0\sha256_ctrl_reg[1:0]
+     2/19: $0\t_ctr_reg[5:0]
+     3/19: $0\H7_reg[31:0]
+     4/19: $0\H6_reg[31:0]
+     5/19: $0\H5_reg[31:0]
+     6/19: $0\H4_reg[31:0]
+     7/19: $0\H3_reg[31:0]
+     8/19: $0\H2_reg[31:0]
+     9/19: $0\H1_reg[31:0]
+    10/19: $0\H0_reg[31:0]
+    11/19: $0\h_reg[31:0]
+    12/19: $0\g_reg[31:0]
+    13/19: $0\f_reg[31:0]
+    14/19: $0\e_reg[31:0]
+    15/19: $0\d_reg[31:0]
+    16/19: $0\c_reg[31:0]
+    17/19: $0\b_reg[31:0]
+    18/19: $0\a_reg[31:0]
+    19/19: $0\digest_valid_reg[0:0]
+Creating decoders for process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+     1/27: $5\tmp_read_data[31:0]
+     2/27: $4\tmp_read_data[31:0]
+     3/27: $4$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_DATA[31:0]$28
+     4/27: $3\tmp_read_data[31:0]
+     5/27: $3$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_DATA[31:0]$27
+     6/27: $3$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_ADDR[3:0]$26
+     7/27: $3\block_we[0:0]
+     8/27: $3\mode_we[0:0]
+     9/27: $3\mode_new[0:0]
+    10/27: $3\next_new[0:0]
+    11/27: $3\init_new[0:0]
+    12/27: $2\block_we[0:0]
+    13/27: $2\mode_we[0:0]
+    14/27: $2\mode_new[0:0]
+    15/27: $2\next_new[0:0]
+    16/27: $2\init_new[0:0]
+    17/27: $2$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_DATA[31:0]$18
+    18/27: $2$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_ADDR[3:0]$17
+    19/27: $2\tmp_read_data[31:0]
+    20/27: $1$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_DATA[31:0]$16
+    21/27: $1$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$3_ADDR[3:0]$15
+    22/27: $1\tmp_read_data[31:0]
+    23/27: $1\block_we[0:0]
+    24/27: $1\mode_we[0:0]
+    25/27: $1\mode_new[0:0]
+    26/27: $1\next_new[0:0]
+    27/27: $1\init_new[0:0]
+Creating decoders for process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+     1/27: $2$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$2_ADDR[3:0]$10
+     2/27: $2$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$2_DATA[31:0]$11
+     3/27: $1$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$2_DATA[31:0]$9
+     4/27: $1$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$2_ADDR[3:0]$8
+     5/27: $0\next_reg[0:0]
+     6/27: $0\init_reg[0:0]
+     7/27: $0\digest_valid_reg[0:0]
+     8/27: $0\ready_reg[0:0]
+     9/27: $1\reg_update.i[31:0]
+    10/27: $0\block_reg[15][31:0]
+    11/27: $0\block_reg[14][31:0]
+    12/27: $0\block_reg[13][31:0]
+    13/27: $0\block_reg[12][31:0]
+    14/27: $0\block_reg[11][31:0]
+    15/27: $0\block_reg[10][31:0]
+    16/27: $0\block_reg[9][31:0]
+    17/27: $0\block_reg[8][31:0]
+    18/27: $0\block_reg[7][31:0]
+    19/27: $0\block_reg[6][31:0]
+    20/27: $0\block_reg[5][31:0]
+    21/27: $0\block_reg[4][31:0]
+    22/27: $0\block_reg[3][31:0]
+    23/27: $0\block_reg[2][31:0]
+    24/27: $0\block_reg[1][31:0]
+    25/27: $0\block_reg[0][31:0]
+    26/27: $0\digest_reg[255:0]
+    27/27: $0\mode_reg[0:0]
+
+6.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sha256_w_mem.\w_mem00_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem01_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem02_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem03_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem04_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem05_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem06_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem07_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem08_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem09_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem10_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem11_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem12_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem13_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem14_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem15_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_we' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_0' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_1' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_9' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_14' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.d0' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.d1' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+No latch inferred for signal `\sha256_w_mem.\w_tmp' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$80'.
+No latch inferred for signal `\sha256_k_constants.\tmp_K' from process `\sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$75'.
+No latch inferred for signal `\sha256_core.\t_ctr_inc' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\t_ctr_rst' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\digest_valid_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\digest_valid_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\sha256_ctrl_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\sha256_ctrl_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\digest_init' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\digest_update' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\state_init' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\state_update' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\first_block' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\ready_flag' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\w_init' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\w_next' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+No latch inferred for signal `\sha256_core.\t_ctr_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$71'.
+No latch inferred for signal `\sha256_core.\t_ctr_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$71'.
+No latch inferred for signal `\sha256_core.\a_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\b_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\c_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\d_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\e_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\f_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\g_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\h_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\a_h_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+No latch inferred for signal `\sha256_core.\t2' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$59'.
+No latch inferred for signal `\sha256_core.\t2_logic.sum0' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$59'.
+No latch inferred for signal `\sha256_core.\t2_logic.maj' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$59'.
+No latch inferred for signal `\sha256_core.\t1' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$48'.
+No latch inferred for signal `\sha256_core.\t1_logic.sum1' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$48'.
+No latch inferred for signal `\sha256_core.\t1_logic.ch' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$48'.
+No latch inferred for signal `\sha256_core.\H0_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H1_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H2_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H3_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H4_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H5_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H6_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H7_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256_core.\H_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+No latch inferred for signal `\sha256.\init_new' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+No latch inferred for signal `\sha256.\next_new' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+No latch inferred for signal `\sha256.\mode_new' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+No latch inferred for signal `\sha256.\mode_we' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+No latch inferred for signal `\sha256.\block_we' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+No latch inferred for signal `\sha256.\tmp_read_data' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+No latch inferred for signal `\sha256.\tmp_error' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+
+6.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sha256_w_mem.\reg_update.i' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1200' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[0]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1205' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[1]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1210' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[2]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1215' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[3]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1220' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[4]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1225' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[5]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1230' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[6]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1235' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[7]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1240' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[8]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1245' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[9]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1250' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[10]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1255' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[11]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1260' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[12]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1265' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[13]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1270' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[14]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1275' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[15]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+  created $adff cell `$procdff$1280' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\digest_valid_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1285' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\a_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1290' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\b_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1295' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\c_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1300' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\d_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1305' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\e_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1310' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\f_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1315' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\g_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1320' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\h_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1325' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H0_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1330' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H1_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1335' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H2_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1340' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H3_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1345' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H4_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1350' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H5_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1355' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H6_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1360' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H7_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1365' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\t_ctr_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1370' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\sha256_ctrl_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+  created $adff cell `$procdff$1375' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\init_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1380' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\next_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1385' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\mode_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1390' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\ready_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1395' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\digest_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1400' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\digest_valid_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1405' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\reg_update.i' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1410' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[0]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1415' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[1]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1420' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[2]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1425' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[3]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1430' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[4]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1435' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[5]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1440' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[6]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1445' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[7]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1450' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[8]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1455' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[9]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1460' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[10]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1465' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[11]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1470' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[12]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1475' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[13]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1480' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[14]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1485' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[15]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1490' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$2_ADDR' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1495' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$2_DATA' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+  created $adff cell `$procdff$1500' with positive edge clock and positive level reset.
+
+6.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+Removing empty process `sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$87'.
+Found and cleaned up 2 empty switches in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$80'.
+Removing empty process `sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$80'.
+Found and cleaned up 1 empty switch in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+Removing empty process `sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$78'.
+Found and cleaned up 1 empty switch in `\sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$75'.
+Removing empty process `sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$75'.
+Found and cleaned up 4 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$73'.
+Found and cleaned up 2 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$71'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$71'.
+Found and cleaned up 4 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$68'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$59'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$48'.
+Found and cleaned up 3 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$39'.
+Found and cleaned up 5 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$37'.
+Found and cleaned up 8 empty switches in `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+Removing empty process `sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$12'.
+Found and cleaned up 4 empty switches in `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+Removing empty process `sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$4'.
+Cleaned up 36 empty switches.
+
+6.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sha256_w_mem.
+<suppressed ~35 debug messages>
+Optimizing module sha256_k_constants.
+Optimizing module sha256_core.
+<suppressed ~64 debug messages>
+Optimizing module sha256.
+<suppressed ~53 debug messages>
+
+7. Executing FLATTEN pass (flatten design).
+Deleting now unused module sha256_w_mem.
+Deleting now unused module sha256_k_constants.
+Deleting now unused module sha256_core.
+<suppressed ~3 debug messages>
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sha256..
+Removed 84 unused cells and 785 unused wires.
+<suppressed ~88 debug messages>
+Renaming module \sha256 to \gold.
+
+9. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v' to AST representation.
+Generating RTLIL representation for module `\sha256'.
+Warning: Replacing memory \block_reg with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:169
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v' to AST representation.
+Generating RTLIL representation for module `\sha256_core'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v' to AST representation.
+Generating RTLIL representation for module `\sha256_k_constants'.
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v' to AST representation.
+Generating RTLIL representation for module `\sha256_w_mem'.
+Warning: Replacing memory \w_mem with list of registers. See /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:104
+Successfully finished Verilog frontend.
+
+13. Executing HIERARCHY pass (managing design hierarchy).
+
+13.1. Analyzing design hierarchy..
+Top module:  \sha256
+Used module:     \sha256_core
+Used module:         \sha256_w_mem
+Used module:         \sha256_k_constants
+
+13.2. Analyzing design hierarchy..
+Top module:  \sha256
+Used module:     \sha256_core
+Used module:         \sha256_w_mem
+Used module:         \sha256_k_constants
+Removed 0 unused modules.
+
+14. Executing PROC pass (convert processes to netlists).
+
+14.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+14.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590 in module sha256_w_mem.
+Removed 1 dead cases from process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$1583 in module sha256_w_mem.
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$1583 in module sha256_w_mem.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581 in module sha256_w_mem.
+Removed 1 dead cases from process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$1578 in module sha256_k_constants.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$1578 in module sha256_k_constants.
+Marked 4 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576 in module sha256_core.
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$1574 in module sha256_core.
+Marked 4 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571 in module sha256_core.
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542 in module sha256_core.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540 in module sha256_core.
+Removed 1 dead cases from process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515 in module sha256.
+Marked 8 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515 in module sha256.
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507 in module sha256.
+Removed a total of 3 dead cases.
+
+14.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 81 assignments to connections.
+
+14.4. Executing PROC_INIT pass (extract init attributes).
+
+14.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset_n in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+Found async reset \reset_n in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+Found async reset \reset_n in `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+
+14.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~35 debug messages>
+
+14.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+     1/34: $2\w_mem_we[0:0]
+     2/34: $2\w_mem15_new[31:0]
+     3/34: $2\w_mem14_new[31:0]
+     4/34: $2\w_mem13_new[31:0]
+     5/34: $2\w_mem12_new[31:0]
+     6/34: $2\w_mem11_new[31:0]
+     7/34: $2\w_mem10_new[31:0]
+     8/34: $2\w_mem09_new[31:0]
+     9/34: $2\w_mem08_new[31:0]
+    10/34: $2\w_mem07_new[31:0]
+    11/34: $2\w_mem06_new[31:0]
+    12/34: $2\w_mem05_new[31:0]
+    13/34: $2\w_mem04_new[31:0]
+    14/34: $2\w_mem03_new[31:0]
+    15/34: $2\w_mem02_new[31:0]
+    16/34: $2\w_mem01_new[31:0]
+    17/34: $2\w_mem00_new[31:0]
+    18/34: $1\w_mem_we[0:0]
+    19/34: $1\w_mem15_new[31:0]
+    20/34: $1\w_mem14_new[31:0]
+    21/34: $1\w_mem13_new[31:0]
+    22/34: $1\w_mem12_new[31:0]
+    23/34: $1\w_mem11_new[31:0]
+    24/34: $1\w_mem10_new[31:0]
+    25/34: $1\w_mem09_new[31:0]
+    26/34: $1\w_mem08_new[31:0]
+    27/34: $1\w_mem07_new[31:0]
+    28/34: $1\w_mem06_new[31:0]
+    29/34: $1\w_mem05_new[31:0]
+    30/34: $1\w_mem04_new[31:0]
+    31/34: $1\w_mem03_new[31:0]
+    32/34: $1\w_mem02_new[31:0]
+    33/34: $1\w_mem01_new[31:0]
+    34/34: $1\w_mem00_new[31:0]
+Creating decoders for process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$1583'.
+     1/4: $2$mem2reg_rd$\w_mem$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:141$1580_DATA[31:0]$1589
+     2/4: $1\w_tmp[31:0]
+     3/4: $1$mem2reg_rd$\w_mem$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:141$1580_DATA[31:0]$1587
+     4/4: $1$mem2reg_rd$\w_mem$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:141$1580_ADDR[3:0]$1588
+Creating decoders for process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+     1/17: $1\reg_update.i[31:0]
+     2/17: $0\w_mem[0][31:0]
+     3/17: $0\w_mem[1][31:0]
+     4/17: $0\w_mem[2][31:0]
+     5/17: $0\w_mem[3][31:0]
+     6/17: $0\w_mem[4][31:0]
+     7/17: $0\w_mem[5][31:0]
+     8/17: $0\w_mem[6][31:0]
+     9/17: $0\w_mem[7][31:0]
+    10/17: $0\w_mem[8][31:0]
+    11/17: $0\w_mem[9][31:0]
+    12/17: $0\w_mem[10][31:0]
+    13/17: $0\w_mem[11][31:0]
+    14/17: $0\w_mem[12][31:0]
+    15/17: $0\w_mem[13][31:0]
+    16/17: $0\w_mem[14][31:0]
+    17/17: $0\w_mem[15][31:0]
+Creating decoders for process `\sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$1578'.
+     1/1: $1\tmp_K[31:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+     1/32: $4\sha256_ctrl_we[0:0]
+     2/32: $4\sha256_ctrl_new[1:0]
+     3/32: $3\sha256_ctrl_we[0:0]
+     4/32: $3\sha256_ctrl_new[1:0]
+     5/32: $3\digest_valid_we[0:0]
+     6/32: $3\digest_valid_new[0:0]
+     7/32: $3\state_init[0:0]
+     8/32: $3\w_init[0:0]
+     9/32: $3\t_ctr_rst[0:0]
+    10/32: $2\sha256_ctrl_we[0:0]
+    11/32: $2\sha256_ctrl_new[1:0]
+    12/32: $2\digest_valid_we[0:0]
+    13/32: $2\digest_valid_new[0:0]
+    14/32: $2\t_ctr_rst[0:0]
+    15/32: $2\first_block[0:0]
+    16/32: $2\state_init[0:0]
+    17/32: $2\w_init[0:0]
+    18/32: $2\digest_init[0:0]
+    19/32: $1\t_ctr_rst[0:0]
+    20/32: $1\digest_valid_new[0:0]
+    21/32: $1\digest_valid_we[0:0]
+    22/32: $1\sha256_ctrl_new[1:0]
+    23/32: $1\sha256_ctrl_we[0:0]
+    24/32: $1\state_init[0:0]
+    25/32: $1\w_init[0:0]
+    26/32: $1\digest_init[0:0]
+    27/32: $1\first_block[0:0]
+    28/32: $1\ready_flag[0:0]
+    29/32: $1\t_ctr_inc[0:0]
+    30/32: $1\digest_update[0:0]
+    31/32: $1\state_update[0:0]
+    32/32: $1\w_next[0:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$1574'.
+     1/4: $2\t_ctr_we[0:0]
+     2/4: $2\t_ctr_new[5:0]
+     3/4: $1\t_ctr_we[0:0]
+     4/4: $1\t_ctr_new[5:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+     1/34: $2\a_h_we[0:0]
+     2/34: $4\h_new[31:0]
+     3/34: $4\g_new[31:0]
+     4/34: $4\f_new[31:0]
+     5/34: $4\e_new[31:0]
+     6/34: $4\d_new[31:0]
+     7/34: $4\c_new[31:0]
+     8/34: $4\b_new[31:0]
+     9/34: $4\a_new[31:0]
+    10/34: $3\h_new[31:0]
+    11/34: $3\g_new[31:0]
+    12/34: $3\f_new[31:0]
+    13/34: $3\e_new[31:0]
+    14/34: $3\d_new[31:0]
+    15/34: $3\c_new[31:0]
+    16/34: $3\b_new[31:0]
+    17/34: $3\a_new[31:0]
+    18/34: $2\a_new[31:0]
+    19/34: $2\b_new[31:0]
+    20/34: $2\c_new[31:0]
+    21/34: $2\d_new[31:0]
+    22/34: $2\e_new[31:0]
+    23/34: $2\f_new[31:0]
+    24/34: $2\g_new[31:0]
+    25/34: $2\h_new[31:0]
+    26/34: $1\a_new[31:0]
+    27/34: $1\b_new[31:0]
+    28/34: $1\c_new[31:0]
+    29/34: $1\d_new[31:0]
+    30/34: $1\e_new[31:0]
+    31/34: $1\f_new[31:0]
+    32/34: $1\g_new[31:0]
+    33/34: $1\h_new[31:0]
+    34/34: $1\a_h_we[0:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$1562'.
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$1551'.
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+     1/26: $2\H_we[0:0]
+     2/26: $3\H7_new[31:0]
+     3/26: $3\H6_new[31:0]
+     4/26: $3\H5_new[31:0]
+     5/26: $3\H4_new[31:0]
+     6/26: $3\H3_new[31:0]
+     7/26: $3\H2_new[31:0]
+     8/26: $3\H1_new[31:0]
+     9/26: $3\H0_new[31:0]
+    10/26: $2\H7_new[31:0]
+    11/26: $2\H6_new[31:0]
+    12/26: $2\H5_new[31:0]
+    13/26: $2\H4_new[31:0]
+    14/26: $2\H3_new[31:0]
+    15/26: $2\H2_new[31:0]
+    16/26: $2\H1_new[31:0]
+    17/26: $2\H0_new[31:0]
+    18/26: $1\H0_new[31:0]
+    19/26: $1\H1_new[31:0]
+    20/26: $1\H2_new[31:0]
+    21/26: $1\H3_new[31:0]
+    22/26: $1\H4_new[31:0]
+    23/26: $1\H5_new[31:0]
+    24/26: $1\H6_new[31:0]
+    25/26: $1\H7_new[31:0]
+    26/26: $1\H_we[0:0]
+Creating decoders for process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+     1/19: $0\a_reg[31:0]
+     2/19: $0\b_reg[31:0]
+     3/19: $0\c_reg[31:0]
+     4/19: $0\d_reg[31:0]
+     5/19: $0\e_reg[31:0]
+     6/19: $0\f_reg[31:0]
+     7/19: $0\g_reg[31:0]
+     8/19: $0\h_reg[31:0]
+     9/19: $0\H0_reg[31:0]
+    10/19: $0\H1_reg[31:0]
+    11/19: $0\H2_reg[31:0]
+    12/19: $0\H3_reg[31:0]
+    13/19: $0\H4_reg[31:0]
+    14/19: $0\H5_reg[31:0]
+    15/19: $0\H6_reg[31:0]
+    16/19: $0\H7_reg[31:0]
+    17/19: $0\t_ctr_reg[5:0]
+    18/19: $0\sha256_ctrl_reg[1:0]
+    19/19: $0\digest_valid_reg[0:0]
+Creating decoders for process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+     1/27: $5\tmp_read_data[31:0]
+     2/27: $4\tmp_read_data[31:0]
+     3/27: $4$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_DATA[31:0]$1531
+     4/27: $3\tmp_read_data[31:0]
+     5/27: $3$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_DATA[31:0]$1529
+     6/27: $3$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_ADDR[3:0]$1530
+     7/27: $3\block_we[0:0]
+     8/27: $3\mode_we[0:0]
+     9/27: $3\mode_new[0:0]
+    10/27: $3\next_new[0:0]
+    11/27: $3\init_new[0:0]
+    12/27: $2\block_we[0:0]
+    13/27: $2\mode_we[0:0]
+    14/27: $2\mode_new[0:0]
+    15/27: $2\next_new[0:0]
+    16/27: $2\init_new[0:0]
+    17/27: $2$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_ADDR[3:0]$1521
+    18/27: $2$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_DATA[31:0]$1520
+    19/27: $2\tmp_read_data[31:0]
+    20/27: $1$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_ADDR[3:0]$1519
+    21/27: $1$mem2reg_rd$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:232$1506_DATA[31:0]$1518
+    22/27: $1\tmp_read_data[31:0]
+    23/27: $1\block_we[0:0]
+    24/27: $1\mode_we[0:0]
+    25/27: $1\mode_new[0:0]
+    26/27: $1\next_new[0:0]
+    27/27: $1\init_new[0:0]
+Creating decoders for process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+     1/27: $2$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$1505_ADDR[3:0]$1514
+     2/27: $2$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$1505_DATA[31:0]$1513
+     3/27: $1$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$1505_ADDR[3:0]$1512
+     4/27: $1$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$1505_DATA[31:0]$1511
+     5/27: $0\next_reg[0:0]
+     6/27: $0\init_reg[0:0]
+     7/27: $0\digest_valid_reg[0:0]
+     8/27: $0\ready_reg[0:0]
+     9/27: $1\reg_update.i[31:0]
+    10/27: $0\block_reg[15][31:0]
+    11/27: $0\block_reg[14][31:0]
+    12/27: $0\block_reg[13][31:0]
+    13/27: $0\block_reg[12][31:0]
+    14/27: $0\block_reg[11][31:0]
+    15/27: $0\block_reg[10][31:0]
+    16/27: $0\block_reg[9][31:0]
+    17/27: $0\block_reg[8][31:0]
+    18/27: $0\block_reg[7][31:0]
+    19/27: $0\block_reg[6][31:0]
+    20/27: $0\block_reg[5][31:0]
+    21/27: $0\block_reg[4][31:0]
+    22/27: $0\block_reg[3][31:0]
+    23/27: $0\block_reg[2][31:0]
+    24/27: $0\block_reg[1][31:0]
+    25/27: $0\block_reg[0][31:0]
+    26/27: $0\digest_reg[255:0]
+    27/27: $0\mode_reg[0:0]
+
+14.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.d1' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.d0' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_14' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_9' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_1' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_update_logic.w_0' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem_we' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem15_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem14_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem13_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem12_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem11_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem10_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem09_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem08_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem07_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem06_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem05_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem04_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem03_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem02_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem01_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_mem00_new' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+No latch inferred for signal `\sha256_w_mem.\w_tmp' from process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$1583'.
+No latch inferred for signal `\sha256_k_constants.\tmp_K' from process `\sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$1578'.
+No latch inferred for signal `\sha256_core.\w_next' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\w_init' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\ready_flag' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\first_block' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\state_update' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\state_init' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\digest_update' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\digest_init' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\sha256_ctrl_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\sha256_ctrl_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\digest_valid_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\digest_valid_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\t_ctr_rst' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\t_ctr_inc' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+No latch inferred for signal `\sha256_core.\t_ctr_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$1574'.
+No latch inferred for signal `\sha256_core.\t_ctr_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$1574'.
+No latch inferred for signal `\sha256_core.\a_h_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\h_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\g_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\f_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\e_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\d_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\c_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\b_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\a_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+No latch inferred for signal `\sha256_core.\t2_logic.maj' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$1562'.
+No latch inferred for signal `\sha256_core.\t2_logic.sum0' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$1562'.
+No latch inferred for signal `\sha256_core.\t2' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$1562'.
+No latch inferred for signal `\sha256_core.\t1_logic.ch' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$1551'.
+No latch inferred for signal `\sha256_core.\t1_logic.sum1' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$1551'.
+No latch inferred for signal `\sha256_core.\t1' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$1551'.
+No latch inferred for signal `\sha256_core.\H_we' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H7_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H6_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H5_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H4_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H3_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H2_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H1_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256_core.\H0_new' from process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+No latch inferred for signal `\sha256.\init_new' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+No latch inferred for signal `\sha256.\next_new' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+No latch inferred for signal `\sha256.\mode_new' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+No latch inferred for signal `\sha256.\mode_we' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+No latch inferred for signal `\sha256.\block_we' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+No latch inferred for signal `\sha256.\tmp_read_data' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+No latch inferred for signal `\sha256.\tmp_error' from process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+
+14.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sha256_w_mem.\w_mem[15]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2703' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[14]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2708' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[13]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2713' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[12]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2718' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[11]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2723' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[10]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2728' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[9]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2733' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[8]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2738' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[7]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2743' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[6]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2748' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[5]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2753' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[4]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2758' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[3]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2763' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[2]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2768' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[1]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2773' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\w_mem[0]' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2778' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_w_mem.\reg_update.i' using process `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+  created $adff cell `$procdff$2783' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\digest_valid_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2788' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\sha256_ctrl_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2793' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\t_ctr_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2798' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H7_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2803' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H6_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2808' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H5_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2813' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H4_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2818' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H3_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2823' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H2_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2828' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H1_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2833' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\H0_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2838' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\h_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2843' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\g_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2848' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\f_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2853' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\e_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2858' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\d_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2863' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\c_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2868' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\b_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2873' with positive edge clock and positive level reset.
+Creating register for signal `\sha256_core.\a_reg' using process `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+  created $adff cell `$procdff$2878' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\init_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2883' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\next_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2888' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\mode_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2893' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\ready_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2898' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\digest_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2903' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\digest_valid_reg' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2908' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[0]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2913' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[1]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2918' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[2]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2923' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[3]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2928' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[4]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2933' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[5]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2938' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[6]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2943' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[7]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2948' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[8]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2953' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[9]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2958' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[10]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2963' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[11]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2968' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[12]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2973' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[13]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2978' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[14]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2983' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\block_reg[15]' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2988' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$1505_DATA' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2993' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.$mem2reg_wr$\block_reg$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:192$1505_ADDR' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$2998' with positive edge clock and positive level reset.
+Creating register for signal `\sha256.\reg_update.i' using process `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+  created $adff cell `$procdff$3003' with positive edge clock and positive level reset.
+
+14.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+14.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+Removing empty process `sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:153$1590'.
+Found and cleaned up 2 empty switches in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$1583'.
+Removing empty process `sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:138$1583'.
+Found and cleaned up 1 empty switch in `\sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+Removing empty process `sha256_w_mem.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_w_mem.v:97$1581'.
+Found and cleaned up 1 empty switch in `\sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$1578'.
+Removing empty process `sha256_k_constants.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_k_constants.v:61$1578'.
+Found and cleaned up 4 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:469$1576'.
+Found and cleaned up 2 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$1574'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:445$1574'.
+Found and cleaned up 4 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:371$1571'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:350$1562'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:330$1551'.
+Found and cleaned up 3 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:271$1542'.
+Found and cleaned up 5 empty switches in `\sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+Removing empty process `sha256_core.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256_core.v:203$1540'.
+Found and cleaned up 8 empty switches in `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+Removing empty process `sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:203$1515'.
+Found and cleaned up 4 empty switches in `\sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+Removing empty process `sha256.$proc$/mnt/d/tushar/Downloads/RTL.ai/designs/benchmark/sha256.v:162$1507'.
+Cleaned up 36 empty switches.
+
+14.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sha256_w_mem.
+<suppressed ~35 debug messages>
+Optimizing module sha256_k_constants.
+Optimizing module sha256_core.
+<suppressed ~64 debug messages>
+Optimizing module sha256.
+<suppressed ~53 debug messages>
+
+15. Executing FLATTEN pass (flatten design).
+Deleting now unused module sha256_w_mem.
+Deleting now unused module sha256_k_constants.
+Deleting now unused module sha256_core.
+<suppressed ~3 debug messages>
+
+16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sha256..
+Removed 84 unused cells and 785 unused wires.
+<suppressed ~88 debug messages>
+Renaming module \sha256 to \gate.
+
+17. Executing Verilog backend.
+
+17.1. Executing BMUXMAP pass.
+
+17.2. Executing DEMUXMAP pass.
+Dumping module `\gate'.
+Dumping module `\gold'.
+
+18. Executing JSON backend.
+
+Warnings: 2 unique messages, 4 total
+End of script. Logfile hash: dafe0f690b, time: 0.31s, user: 0.13s, system: 0.02s, MEM: 24.81 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 30% 2x opt_clean (0 sec), 27% 16x read_verilog (0 sec), ...
