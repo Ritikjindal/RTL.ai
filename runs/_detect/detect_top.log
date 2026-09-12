@@ -8,53 +8,53 @@
 
 -- Executing script file `/Users/ritikjindal/rtl-ai-project/runs/_detect/detect_top.ys' --
 
-1. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v' to AST representation.
+1. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v' to AST representation.
 Generating RTLIL representation for module `\benchmark_top'.
 Successfully finished Verilog frontend.
 
-2. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v' to AST representation.
+2. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v' to AST representation.
 Generating RTLIL representation for module `\bm_dot4'.
 Successfully finished Verilog frontend.
 
-3. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v' to AST representation.
+3. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v' to AST representation.
 Generating RTLIL representation for module `\bm_fir6'.
 Successfully finished Verilog frontend.
 
-4. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v' to AST representation.
+4. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v' to AST representation.
 Generating RTLIL representation for module `\bm_fsm_ctrl'.
 Successfully finished Verilog frontend.
 
-5. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v' to AST representation.
+5. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v' to AST representation.
 Generating RTLIL representation for module `\bm_mac8'.
 Successfully finished Verilog frontend.
 
-6. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v' to AST representation.
+6. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v' to AST representation.
 Generating RTLIL representation for module `\cdc_handshake'.
 Successfully finished Verilog frontend.
 
-7. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v' to AST representation.
+7. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v' to AST representation.
 Generating RTLIL representation for module `\cdc_sync'.
 Successfully finished Verilog frontend.
 
-8. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v' to AST representation.
+8. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v' to AST representation.
 Generating RTLIL representation for module `\clk_divider'.
 Successfully finished Verilog frontend.
 
-9. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v' to AST representation.
+9. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v' to AST representation.
 Generating RTLIL representation for module `\mac_unit'.
 Successfully finished Verilog frontend.
 
-10. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v
-Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v' to AST representation.
+10. Executing Verilog-2005 frontend: /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v
+Parsing SystemVerilog input from `/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v' to AST representation.
 Generating RTLIL representation for module `\reset_sync'.
 Successfully finished Verilog frontend.
 
@@ -198,193 +198,193 @@ Removed 2 unused modules.
 Cleaned up 0 empty switches.
 
 12.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$310 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000000110.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$306 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000001000.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$302 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000001010.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298 in module $paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295 in module $paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v:12$294 in module reset_sync.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:56$292 in module mac_unit.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:45$291 in module mac_unit.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283 in module mac_unit.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:304$587 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:303$586 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:302$585 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:301$584 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:300$583 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:260$581 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:259$579 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:258$577 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:257$575 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:256$573 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:245$571 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:244$569 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:243$567 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:242$565 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:241$563 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:104$517 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:100$513 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:96$509 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:92$505 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:88$501 in module benchmark_top.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v:12$278 in module cdc_sync.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$314 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000000100.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:54$270 in module bm_mac8.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254 in module bm_mac8.
-Marked 3 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249 in module bm_fsm_ctrl.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:63$194 in module bm_fsm_ctrl.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:54$193 in module bm_fir6.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181 in module bm_fir6.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:54$179 in module bm_dot4.
-Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171 in module bm_dot4.
-Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$318 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000000010.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$310 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000000110.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$306 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000001000.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$302 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000001010.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298 in module $paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295 in module $paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v:12$294 in module reset_sync.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:56$292 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:45$291 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:304$587 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:303$586 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:302$585 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:301$584 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:300$583 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:260$581 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:259$579 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:258$577 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:257$575 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:256$573 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:245$571 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:244$569 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:243$567 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:242$565 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:241$563 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:104$517 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:100$513 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:96$509 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:92$505 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:88$501 in module benchmark_top.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v:12$278 in module cdc_sync.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$314 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000000100.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:54$270 in module bm_mac8.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254 in module bm_mac8.
+Marked 3 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249 in module bm_fsm_ctrl.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:63$194 in module bm_fsm_ctrl.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:54$193 in module bm_fir6.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181 in module bm_fir6.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:61$179 in module bm_dot4.
+Marked 1 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171 in module bm_dot4.
+Marked 2 switch rules as full_case in process $proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$318 in module $paramod\clk_divider\DIV=s32'00000000000000000000000000000010.
 Removed a total of 0 dead cases.
 
 12.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
-Removed 45 redundant assignments.
+Removed 47 redundant assignments.
 Promoted 53 assignments to connections.
 
 12.4. Executing PROC_INIT pass (extract init attributes).
 
 12.5. Executing PROC_ARST pass (detect async resets in processes).
-Found async reset \rst_async in `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v:12$294'.
+Found async reset \rst_async in `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v:12$294'.
 
 12.6. Executing PROC_ROM pass (convert switches to ROMs).
 Converted 0 switches.
 <suppressed ~63 debug messages>
 
 12.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$310'.
+Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$310'.
      1/2: $0\count[7:0]
      2/2: $0\clk_out[0:0]
-Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$306'.
+Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$306'.
      1/2: $0\count[7:0]
      2/2: $0\clk_out[0:0]
-Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$302'.
+Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$302'.
      1/2: $0\count[7:0]
      2/2: $0\clk_out[0:0]
-Creating decoders for process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298'.
+Creating decoders for process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298'.
      1/3: $0\ack[0:0]
      2/3: $0\data_valid[0:0]
      3/3: $0\data_out[15:0]
-Creating decoders for process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295'.
+Creating decoders for process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295'.
      1/3: $0\data_hold[15:0]
      2/3: $0\req[0:0]
      3/3: $0\busy[0:0]
-Creating decoders for process `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v:12$294'.
+Creating decoders for process `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v:12$294'.
      1/2: $0\stable[0:0]
      2/2: $0\meta[0:0]
-Creating decoders for process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:56$292'.
+Creating decoders for process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:56$292'.
      1/2: $0\acc_valid[0:0]
      2/2: $0\acc[23:0]
-Creating decoders for process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:45$291'.
+Creating decoders for process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:45$291'.
      1/2: $0\valid_reg2[0:0]
      2/2: $0\sum_reg[17:0]
-Creating decoders for process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283'.
+Creating decoders for process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283'.
      1/3: $0\valid_reg[0:0]
      2/3: $0\b_reg[31:0]
      3/3: $0\a_reg[31:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$697'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$696'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$695'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$694'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$693'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$692'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$691'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$690'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$689'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$688'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$687'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$686'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$685'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$684'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$683'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$682'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$681'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$680'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$679'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$678'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$677'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$676'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$675'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$674'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$673'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$672'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$671'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$670'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$669'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$668'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$667'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$666'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$665'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$664'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$663'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$662'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$661'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:304$587'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$697'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$696'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$695'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$694'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$693'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$692'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$691'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$690'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$689'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$688'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$687'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$686'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$685'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$684'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$683'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$682'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$681'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$680'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$679'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$678'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$677'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$676'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$675'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$674'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$673'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$672'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$671'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$670'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$669'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$668'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$667'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$666'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$665'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$664'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$663'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$662'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$661'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:304$587'.
      1/1: $0\rx_e[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:303$586'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:303$586'.
      1/1: $0\rx_d[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:302$585'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:302$585'.
      1/1: $0\rx_c[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:301$584'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:301$584'.
      1/1: $0\rx_b[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:300$583'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:300$583'.
      1/1: $0\rx_a[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:260$581'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:260$581'.
      1/1: $0\send_ea[0:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:259$579'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:259$579'.
      1/1: $0\send_de[0:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:258$577'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:258$577'.
      1/1: $0\send_cd[0:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:257$575'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:257$575'.
      1/1: $0\send_bc[0:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:256$573'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:256$573'.
      1/1: $0\send_ab[0:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:245$571'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:245$571'.
      1/1: $0\dcnt_e[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:244$569'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:244$569'.
      1/1: $0\dcnt_d[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:243$567'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:243$567'.
      1/1: $0\dcnt_c[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:242$565'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:242$565'.
      1/1: $0\dcnt_b[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:241$563'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:241$563'.
      1/1: $0\dcnt_a[15:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:226$557'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:221$551'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:216$544'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:211$532'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:206$521'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:104$517'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:226$557'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:221$551'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:216$544'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:211$532'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:206$521'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:104$517'.
      1/1: $0\lfsr_e[31:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:100$513'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:100$513'.
      1/1: $0\lfsr_d[31:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:96$509'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:96$509'.
      1/1: $0\lfsr_c[31:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:92$505'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:92$505'.
      1/1: $0\lfsr_b[31:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:88$501'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:88$501'.
      1/1: $0\lfsr_a[31:0]
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:76$500'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:75$499'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:74$498'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:73$497'.
-Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:72$496'.
-Creating decoders for process `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v:12$278'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:76$500'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:75$499'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:74$498'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:73$497'.
+Creating decoders for process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:72$496'.
+Creating decoders for process `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v:12$278'.
      1/2: $0\stable[0:0]
      2/2: $0\meta[0:0]
-Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$314'.
+Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$314'.
      1/2: $0\count[7:0]
      2/2: $0\clk_out[0:0]
-Creating decoders for process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:54$270'.
+Creating decoders for process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:54$270'.
      1/2: $0\out_valid[0:0]
      2/2: $0\acc[20:0]
-Creating decoders for process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254'.
+Creating decoders for process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254'.
      1/3: $0\vld[0:0]
      2/3: $0\b_reg[63:0]
      3/3: $0\a_reg[63:0]
-Creating decoders for process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating decoders for process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
      1/8: $0\status[3:0]
      2/8: $0\out_valid[0:0]
      3/8: $0\state[15:0]
@@ -393,12 +393,12 @@ Creating decoders for process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-proj
      6/8: $0\hold[15:0]
      7/8: $0\out_data[23:0]
      8/8: $0\acc[23:0]
-Creating decoders for process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:63$194'.
+Creating decoders for process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:63$194'.
      1/1: $1\next[15:0]
-Creating decoders for process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:54$193'.
+Creating decoders for process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:54$193'.
      1/2: $0\out_valid[0:0]
      2/2: $0\out_data[18:0]
-Creating decoders for process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating decoders for process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
      1/7: $0\vld[0:0]
      2/7: $0\t5[7:0]
      3/7: $0\t4[7:0]
@@ -406,356 +406,362 @@ Creating decoders for process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/
      5/7: $0\t2[7:0]
      6/7: $0\t1[7:0]
      7/7: $0\t0[7:0]
-Creating decoders for process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:54$179'.
+Creating decoders for process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:61$179'.
      1/2: $0\out_valid[0:0]
      2/2: $0\acc[19:0]
-Creating decoders for process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171'.
-     1/3: $0\vld[0:0]
-     2/3: $0\b_reg[31:0]
-     3/3: $0\a_reg[31:0]
-Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$318'.
+Creating decoders for process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+     1/5: $0\vld2[0:0]
+     2/5: $0\sum_reg[17:0]
+     3/5: $0\vld[0:0]
+     4/5: $0\b_reg[31:0]
+     5/5: $0\a_reg[31:0]
+Creating decoders for process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$318'.
      1/2: $0\count[7:0]
      2/2: $0\clk_out[0:0]
 
 12.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\benchmark_top.\e_out[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$697'.
-No latch inferred for signal `\benchmark_top.\e_out[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$696'.
-No latch inferred for signal `\benchmark_top.\e_out[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$695'.
-No latch inferred for signal `\benchmark_top.\e_out[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$694'.
-No latch inferred for signal `\benchmark_top.\e_out[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$693'.
-No latch inferred for signal `\benchmark_top.\d_acc[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$692'.
-No latch inferred for signal `\benchmark_top.\d_acc[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$691'.
-No latch inferred for signal `\benchmark_top.\d_acc[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$690'.
-No latch inferred for signal `\benchmark_top.\d_acc[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$689'.
-No latch inferred for signal `\benchmark_top.\d_acc[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$688'.
-No latch inferred for signal `\benchmark_top.\c_acc[5]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$687'.
-No latch inferred for signal `\benchmark_top.\c_acc[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$686'.
-No latch inferred for signal `\benchmark_top.\c_acc[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$685'.
-No latch inferred for signal `\benchmark_top.\c_acc[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$684'.
-No latch inferred for signal `\benchmark_top.\c_acc[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$683'.
-No latch inferred for signal `\benchmark_top.\c_acc[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$682'.
-No latch inferred for signal `\benchmark_top.\b_out[10]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$681'.
-No latch inferred for signal `\benchmark_top.\b_out[9]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$680'.
-No latch inferred for signal `\benchmark_top.\b_out[8]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$679'.
-No latch inferred for signal `\benchmark_top.\b_out[7]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$678'.
-No latch inferred for signal `\benchmark_top.\b_out[6]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$677'.
-No latch inferred for signal `\benchmark_top.\b_out[5]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$676'.
-No latch inferred for signal `\benchmark_top.\b_out[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$675'.
-No latch inferred for signal `\benchmark_top.\b_out[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$674'.
-No latch inferred for signal `\benchmark_top.\b_out[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$673'.
-No latch inferred for signal `\benchmark_top.\b_out[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$672'.
-No latch inferred for signal `\benchmark_top.\b_out[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$671'.
-No latch inferred for signal `\benchmark_top.\a_acc[9]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$670'.
-No latch inferred for signal `\benchmark_top.\a_acc[8]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$669'.
-No latch inferred for signal `\benchmark_top.\a_acc[7]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$668'.
-No latch inferred for signal `\benchmark_top.\a_acc[6]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$667'.
-No latch inferred for signal `\benchmark_top.\a_acc[5]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$666'.
-No latch inferred for signal `\benchmark_top.\a_acc[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$665'.
-No latch inferred for signal `\benchmark_top.\a_acc[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$664'.
-No latch inferred for signal `\benchmark_top.\a_acc[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$663'.
-No latch inferred for signal `\benchmark_top.\a_acc[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$662'.
-No latch inferred for signal `\benchmark_top.\a_acc[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$661'.
-No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:226$557'.
-No latch inferred for signal `\benchmark_top.\e_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:226$557'.
-No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:221$551'.
-No latch inferred for signal `\benchmark_top.\d_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:221$551'.
-No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:216$544'.
-No latch inferred for signal `\benchmark_top.\c_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:216$544'.
-No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:211$532'.
-No latch inferred for signal `\benchmark_top.\b_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:211$532'.
-No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:206$521'.
-No latch inferred for signal `\benchmark_top.\a_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:206$521'.
-No latch inferred for signal `\bm_fsm_ctrl.\next' from process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:63$194'.
+No latch inferred for signal `\benchmark_top.\e_out[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$697'.
+No latch inferred for signal `\benchmark_top.\e_out[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$696'.
+No latch inferred for signal `\benchmark_top.\e_out[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$695'.
+No latch inferred for signal `\benchmark_top.\e_out[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$694'.
+No latch inferred for signal `\benchmark_top.\e_out[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$693'.
+No latch inferred for signal `\benchmark_top.\d_acc[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$692'.
+No latch inferred for signal `\benchmark_top.\d_acc[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$691'.
+No latch inferred for signal `\benchmark_top.\d_acc[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$690'.
+No latch inferred for signal `\benchmark_top.\d_acc[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$689'.
+No latch inferred for signal `\benchmark_top.\d_acc[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$688'.
+No latch inferred for signal `\benchmark_top.\c_acc[5]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$687'.
+No latch inferred for signal `\benchmark_top.\c_acc[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$686'.
+No latch inferred for signal `\benchmark_top.\c_acc[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$685'.
+No latch inferred for signal `\benchmark_top.\c_acc[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$684'.
+No latch inferred for signal `\benchmark_top.\c_acc[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$683'.
+No latch inferred for signal `\benchmark_top.\c_acc[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$682'.
+No latch inferred for signal `\benchmark_top.\b_out[10]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$681'.
+No latch inferred for signal `\benchmark_top.\b_out[9]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$680'.
+No latch inferred for signal `\benchmark_top.\b_out[8]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$679'.
+No latch inferred for signal `\benchmark_top.\b_out[7]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$678'.
+No latch inferred for signal `\benchmark_top.\b_out[6]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$677'.
+No latch inferred for signal `\benchmark_top.\b_out[5]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$676'.
+No latch inferred for signal `\benchmark_top.\b_out[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$675'.
+No latch inferred for signal `\benchmark_top.\b_out[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$674'.
+No latch inferred for signal `\benchmark_top.\b_out[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$673'.
+No latch inferred for signal `\benchmark_top.\b_out[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$672'.
+No latch inferred for signal `\benchmark_top.\b_out[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$671'.
+No latch inferred for signal `\benchmark_top.\a_acc[9]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$670'.
+No latch inferred for signal `\benchmark_top.\a_acc[8]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$669'.
+No latch inferred for signal `\benchmark_top.\a_acc[7]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$668'.
+No latch inferred for signal `\benchmark_top.\a_acc[6]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$667'.
+No latch inferred for signal `\benchmark_top.\a_acc[5]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$666'.
+No latch inferred for signal `\benchmark_top.\a_acc[4]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$665'.
+No latch inferred for signal `\benchmark_top.\a_acc[3]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$664'.
+No latch inferred for signal `\benchmark_top.\a_acc[2]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$663'.
+No latch inferred for signal `\benchmark_top.\a_acc[1]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$662'.
+No latch inferred for signal `\benchmark_top.\a_acc[0]' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$661'.
+No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:226$557'.
+No latch inferred for signal `\benchmark_top.\e_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:226$557'.
+No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:221$551'.
+No latch inferred for signal `\benchmark_top.\d_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:221$551'.
+No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:216$544'.
+No latch inferred for signal `\benchmark_top.\c_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:216$544'.
+No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:211$532'.
+No latch inferred for signal `\benchmark_top.\b_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:211$532'.
+No latch inferred for signal `\benchmark_top.\k' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:206$521'.
+No latch inferred for signal `\benchmark_top.\a_red_r' from process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:206$521'.
+No latch inferred for signal `\bm_fsm_ctrl.\next' from process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:63$194'.
 
 12.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$310'.
-  created $dff cell `$procdff$1048' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$310'.
-  created $dff cell `$procdff$1049' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$306'.
-  created $dff cell `$procdff$1050' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$306'.
-  created $dff cell `$procdff$1051' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$302'.
-  created $dff cell `$procdff$1052' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$302'.
-  created $dff cell `$procdff$1053' with positive edge clock.
-Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\data_out' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$310'.
   created $dff cell `$procdff$1054' with positive edge clock.
-Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\data_valid' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$310'.
   created $dff cell `$procdff$1055' with positive edge clock.
-Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\ack' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$306'.
   created $dff cell `$procdff$1056' with positive edge clock.
-Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\busy' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$306'.
   created $dff cell `$procdff$1057' with positive edge clock.
-Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\req' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$302'.
   created $dff cell `$procdff$1058' with positive edge clock.
-Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\data_hold' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$302'.
   created $dff cell `$procdff$1059' with positive edge clock.
-Creating register for signal `\reset_sync.\meta' using process `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v:12$294'.
-  created $adff cell `$procdff$1062' with positive edge clock and positive level reset.
-Creating register for signal `\reset_sync.\stable' using process `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v:12$294'.
-  created $adff cell `$procdff$1065' with positive edge clock and positive level reset.
-Creating register for signal `\mac_unit.\acc' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:56$292'.
-  created $dff cell `$procdff$1066' with positive edge clock.
-Creating register for signal `\mac_unit.\acc_valid' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:56$292'.
-  created $dff cell `$procdff$1067' with positive edge clock.
-Creating register for signal `\mac_unit.\sum_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:45$291'.
-  created $dff cell `$procdff$1068' with positive edge clock.
-Creating register for signal `\mac_unit.\valid_reg2' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:45$291'.
-  created $dff cell `$procdff$1069' with positive edge clock.
-Creating register for signal `\mac_unit.\a_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283'.
-  created $dff cell `$procdff$1070' with positive edge clock.
-Creating register for signal `\mac_unit.\b_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283'.
-  created $dff cell `$procdff$1071' with positive edge clock.
-Creating register for signal `\mac_unit.\valid_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283'.
+Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\data_out' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298'.
+  created $dff cell `$procdff$1060' with positive edge clock.
+Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\data_valid' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298'.
+  created $dff cell `$procdff$1061' with positive edge clock.
+Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\ack' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298'.
+  created $dff cell `$procdff$1062' with positive edge clock.
+Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\busy' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295'.
+  created $dff cell `$procdff$1063' with positive edge clock.
+Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\req' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295'.
+  created $dff cell `$procdff$1064' with positive edge clock.
+Creating register for signal `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.\data_hold' using process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295'.
+  created $dff cell `$procdff$1065' with positive edge clock.
+Creating register for signal `\reset_sync.\meta' using process `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v:12$294'.
+  created $adff cell `$procdff$1068' with positive edge clock and positive level reset.
+Creating register for signal `\reset_sync.\stable' using process `\reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v:12$294'.
+  created $adff cell `$procdff$1071' with positive edge clock and positive level reset.
+Creating register for signal `\mac_unit.\acc' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:56$292'.
   created $dff cell `$procdff$1072' with positive edge clock.
-Creating register for signal `\benchmark_top.\rx_e' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:304$587'.
+Creating register for signal `\mac_unit.\acc_valid' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:56$292'.
   created $dff cell `$procdff$1073' with positive edge clock.
-Creating register for signal `\benchmark_top.\rx_d' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:303$586'.
+Creating register for signal `\mac_unit.\sum_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:45$291'.
   created $dff cell `$procdff$1074' with positive edge clock.
-Creating register for signal `\benchmark_top.\rx_c' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:302$585'.
+Creating register for signal `\mac_unit.\valid_reg2' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:45$291'.
   created $dff cell `$procdff$1075' with positive edge clock.
-Creating register for signal `\benchmark_top.\rx_b' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:301$584'.
+Creating register for signal `\mac_unit.\a_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283'.
   created $dff cell `$procdff$1076' with positive edge clock.
-Creating register for signal `\benchmark_top.\rx_a' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:300$583'.
+Creating register for signal `\mac_unit.\b_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283'.
   created $dff cell `$procdff$1077' with positive edge clock.
-Creating register for signal `\benchmark_top.\send_ea' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:260$581'.
+Creating register for signal `\mac_unit.\valid_reg' using process `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283'.
   created $dff cell `$procdff$1078' with positive edge clock.
-Creating register for signal `\benchmark_top.\send_de' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:259$579'.
+Creating register for signal `\benchmark_top.\rx_e' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:304$587'.
   created $dff cell `$procdff$1079' with positive edge clock.
-Creating register for signal `\benchmark_top.\send_cd' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:258$577'.
+Creating register for signal `\benchmark_top.\rx_d' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:303$586'.
   created $dff cell `$procdff$1080' with positive edge clock.
-Creating register for signal `\benchmark_top.\send_bc' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:257$575'.
+Creating register for signal `\benchmark_top.\rx_c' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:302$585'.
   created $dff cell `$procdff$1081' with positive edge clock.
-Creating register for signal `\benchmark_top.\send_ab' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:256$573'.
+Creating register for signal `\benchmark_top.\rx_b' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:301$584'.
   created $dff cell `$procdff$1082' with positive edge clock.
-Creating register for signal `\benchmark_top.\dcnt_e' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:245$571'.
+Creating register for signal `\benchmark_top.\rx_a' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:300$583'.
   created $dff cell `$procdff$1083' with positive edge clock.
-Creating register for signal `\benchmark_top.\dcnt_d' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:244$569'.
+Creating register for signal `\benchmark_top.\send_ea' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:260$581'.
   created $dff cell `$procdff$1084' with positive edge clock.
-Creating register for signal `\benchmark_top.\dcnt_c' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:243$567'.
+Creating register for signal `\benchmark_top.\send_de' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:259$579'.
   created $dff cell `$procdff$1085' with positive edge clock.
-Creating register for signal `\benchmark_top.\dcnt_b' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:242$565'.
+Creating register for signal `\benchmark_top.\send_cd' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:258$577'.
   created $dff cell `$procdff$1086' with positive edge clock.
-Creating register for signal `\benchmark_top.\dcnt_a' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:241$563'.
+Creating register for signal `\benchmark_top.\send_bc' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:257$575'.
   created $dff cell `$procdff$1087' with positive edge clock.
-Creating register for signal `\benchmark_top.\lfsr_e' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:104$517'.
+Creating register for signal `\benchmark_top.\send_ab' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:256$573'.
   created $dff cell `$procdff$1088' with positive edge clock.
-Creating register for signal `\benchmark_top.\lfsr_d' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:100$513'.
+Creating register for signal `\benchmark_top.\dcnt_e' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:245$571'.
   created $dff cell `$procdff$1089' with positive edge clock.
-Creating register for signal `\benchmark_top.\lfsr_c' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:96$509'.
+Creating register for signal `\benchmark_top.\dcnt_d' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:244$569'.
   created $dff cell `$procdff$1090' with positive edge clock.
-Creating register for signal `\benchmark_top.\lfsr_b' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:92$505'.
+Creating register for signal `\benchmark_top.\dcnt_c' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:243$567'.
   created $dff cell `$procdff$1091' with positive edge clock.
-Creating register for signal `\benchmark_top.\lfsr_a' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:88$501'.
+Creating register for signal `\benchmark_top.\dcnt_b' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:242$565'.
   created $dff cell `$procdff$1092' with positive edge clock.
-Creating register for signal `\benchmark_top.\rst_e_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:76$500'.
+Creating register for signal `\benchmark_top.\dcnt_a' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:241$563'.
   created $dff cell `$procdff$1093' with positive edge clock.
-Creating register for signal `\benchmark_top.\rst_d_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:75$499'.
+Creating register for signal `\benchmark_top.\lfsr_e' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:104$517'.
   created $dff cell `$procdff$1094' with positive edge clock.
-Creating register for signal `\benchmark_top.\rst_c_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:74$498'.
+Creating register for signal `\benchmark_top.\lfsr_d' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:100$513'.
   created $dff cell `$procdff$1095' with positive edge clock.
-Creating register for signal `\benchmark_top.\rst_b_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:73$497'.
+Creating register for signal `\benchmark_top.\lfsr_c' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:96$509'.
   created $dff cell `$procdff$1096' with positive edge clock.
-Creating register for signal `\benchmark_top.\rst_a_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:72$496'.
+Creating register for signal `\benchmark_top.\lfsr_b' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:92$505'.
   created $dff cell `$procdff$1097' with positive edge clock.
-Creating register for signal `\cdc_sync.\meta' using process `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v:12$278'.
+Creating register for signal `\benchmark_top.\lfsr_a' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:88$501'.
   created $dff cell `$procdff$1098' with positive edge clock.
-Creating register for signal `\cdc_sync.\stable' using process `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v:12$278'.
+Creating register for signal `\benchmark_top.\rst_e_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:76$500'.
   created $dff cell `$procdff$1099' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$314'.
+Creating register for signal `\benchmark_top.\rst_d_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:75$499'.
   created $dff cell `$procdff$1100' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$314'.
+Creating register for signal `\benchmark_top.\rst_c_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:74$498'.
   created $dff cell `$procdff$1101' with positive edge clock.
-Creating register for signal `\bm_mac8.\acc' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:54$270'.
+Creating register for signal `\benchmark_top.\rst_b_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:73$497'.
   created $dff cell `$procdff$1102' with positive edge clock.
-Creating register for signal `\bm_mac8.\out_valid' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:54$270'.
+Creating register for signal `\benchmark_top.\rst_a_rep' using process `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:72$496'.
   created $dff cell `$procdff$1103' with positive edge clock.
-Creating register for signal `\bm_mac8.\a_reg' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254'.
+Creating register for signal `\cdc_sync.\meta' using process `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v:12$278'.
   created $dff cell `$procdff$1104' with positive edge clock.
-Creating register for signal `\bm_mac8.\b_reg' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254'.
+Creating register for signal `\cdc_sync.\stable' using process `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v:12$278'.
   created $dff cell `$procdff$1105' with positive edge clock.
-Creating register for signal `\bm_mac8.\vld' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$314'.
   created $dff cell `$procdff$1106' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\acc' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$314'.
   created $dff cell `$procdff$1107' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\out_valid' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_mac8.\acc' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:54$270'.
   created $dff cell `$procdff$1108' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\out_data' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_mac8.\out_valid' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:54$270'.
   created $dff cell `$procdff$1109' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\status' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_mac8.\a_reg' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254'.
   created $dff cell `$procdff$1110' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\state' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_mac8.\b_reg' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254'.
   created $dff cell `$procdff$1111' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\hold' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_mac8.\vld' using process `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254'.
   created $dff cell `$procdff$1112' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\count' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_fsm_ctrl.\acc' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1113' with positive edge clock.
-Creating register for signal `\bm_fsm_ctrl.\length' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
+Creating register for signal `\bm_fsm_ctrl.\out_valid' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1114' with positive edge clock.
-Creating register for signal `\bm_fir6.\out_valid' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:54$193'.
+Creating register for signal `\bm_fsm_ctrl.\out_data' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1115' with positive edge clock.
-Creating register for signal `\bm_fir6.\out_data' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:54$193'.
+Creating register for signal `\bm_fsm_ctrl.\status' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1116' with positive edge clock.
-Creating register for signal `\bm_fir6.\vld' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fsm_ctrl.\state' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1117' with positive edge clock.
-Creating register for signal `\bm_fir6.\t0' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fsm_ctrl.\hold' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1118' with positive edge clock.
-Creating register for signal `\bm_fir6.\t1' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fsm_ctrl.\count' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1119' with positive edge clock.
-Creating register for signal `\bm_fir6.\t2' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fsm_ctrl.\length' using process `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
   created $dff cell `$procdff$1120' with positive edge clock.
-Creating register for signal `\bm_fir6.\t3' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fir6.\out_valid' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:54$193'.
   created $dff cell `$procdff$1121' with positive edge clock.
-Creating register for signal `\bm_fir6.\t4' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fir6.\out_data' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:54$193'.
   created $dff cell `$procdff$1122' with positive edge clock.
-Creating register for signal `\bm_fir6.\t5' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
+Creating register for signal `\bm_fir6.\vld' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1123' with positive edge clock.
-Creating register for signal `\bm_dot4.\acc' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:54$179'.
+Creating register for signal `\bm_fir6.\t0' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1124' with positive edge clock.
-Creating register for signal `\bm_dot4.\out_valid' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:54$179'.
+Creating register for signal `\bm_fir6.\t1' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1125' with positive edge clock.
-Creating register for signal `\bm_dot4.\a_reg' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171'.
+Creating register for signal `\bm_fir6.\t2' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1126' with positive edge clock.
-Creating register for signal `\bm_dot4.\b_reg' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171'.
+Creating register for signal `\bm_fir6.\t3' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1127' with positive edge clock.
-Creating register for signal `\bm_dot4.\vld' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171'.
+Creating register for signal `\bm_fir6.\t4' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1128' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$318'.
+Creating register for signal `\bm_fir6.\t5' using process `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
   created $dff cell `$procdff$1129' with positive edge clock.
-Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$318'.
+Creating register for signal `\bm_dot4.\acc' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:61$179'.
   created $dff cell `$procdff$1130' with positive edge clock.
+Creating register for signal `\bm_dot4.\out_valid' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:61$179'.
+  created $dff cell `$procdff$1131' with positive edge clock.
+Creating register for signal `\bm_dot4.\a_reg' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+  created $dff cell `$procdff$1132' with positive edge clock.
+Creating register for signal `\bm_dot4.\b_reg' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+  created $dff cell `$procdff$1133' with positive edge clock.
+Creating register for signal `\bm_dot4.\vld' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+  created $dff cell `$procdff$1134' with positive edge clock.
+Creating register for signal `\bm_dot4.\sum_reg' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+  created $dff cell `$procdff$1135' with positive edge clock.
+Creating register for signal `\bm_dot4.\vld2' using process `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+  created $dff cell `$procdff$1136' with positive edge clock.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.\clk_out' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$318'.
+  created $dff cell `$procdff$1137' with positive edge clock.
+Creating register for signal `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.\count' using process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$318'.
+  created $dff cell `$procdff$1138' with positive edge clock.
 
 12.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 12.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$310'.
-Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$310'.
-Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$306'.
-Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$306'.
-Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$302'.
-Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$302'.
-Found and cleaned up 3 empty switches in `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298'.
-Removing empty process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:66$298'.
-Found and cleaned up 3 empty switches in `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295'.
-Removing empty process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_handshake.v:35$295'.
-Removing empty process `reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/reset_sync.v:12$294'.
-Found and cleaned up 2 empty switches in `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:56$292'.
-Removing empty process `mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:56$292'.
-Found and cleaned up 1 empty switch in `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:45$291'.
-Removing empty process `mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:45$291'.
-Found and cleaned up 1 empty switch in `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283'.
-Removing empty process `mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/mac_unit.v:22$283'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$697'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$696'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$695'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$694'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:188$693'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$692'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$691'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$690'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$689'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:171$688'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$687'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$686'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$685'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$684'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$683'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:154$682'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$681'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$680'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$679'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$678'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$677'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$676'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$675'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$674'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$673'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$672'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:137$671'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$670'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$669'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$668'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$667'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$666'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$665'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$664'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$663'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$662'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:120$661'.
-Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:304$587'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:304$587'.
-Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:303$586'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:303$586'.
-Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:302$585'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:302$585'.
-Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:301$584'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:301$584'.
-Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:300$583'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:300$583'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:260$581'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:260$581'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:259$579'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:259$579'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:258$577'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:258$577'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:257$575'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:257$575'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:256$573'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:256$573'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:245$571'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:245$571'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:244$569'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:244$569'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:243$567'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:243$567'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:242$565'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:242$565'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:241$563'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:241$563'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:226$557'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:221$551'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:216$544'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:211$532'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:206$521'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:104$517'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:104$517'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:100$513'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:100$513'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:96$509'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:96$509'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:92$505'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:92$505'.
-Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:88$501'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:88$501'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:76$500'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:75$499'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:74$498'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:73$497'.
-Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/benchmark_top.v:72$496'.
-Found and cleaned up 1 empty switch in `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v:12$278'.
-Removing empty process `cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/cdc_sync.v:12$278'.
-Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$314'.
-Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$314'.
-Found and cleaned up 1 empty switch in `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:54$270'.
-Removing empty process `bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:54$270'.
-Found and cleaned up 1 empty switch in `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254'.
-Removing empty process `bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_mac8.v:23$254'.
-Found and cleaned up 8 empty switches in `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
-Removing empty process `bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:111$249'.
-Found and cleaned up 1 empty switch in `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:63$194'.
-Removing empty process `bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fsm_ctrl.v:63$194'.
-Found and cleaned up 1 empty switch in `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:54$193'.
-Removing empty process `bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:54$193'.
-Found and cleaned up 2 empty switches in `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
-Removing empty process `bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_fir6.v:28$181'.
-Found and cleaned up 2 empty switches in `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:54$179'.
-Removing empty process `bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:54$179'.
-Found and cleaned up 1 empty switch in `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171'.
-Removing empty process `bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/bm_dot4.v:23$171'.
-Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$318'.
-Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T211401Z/optimized/clk_divider.v:16$318'.
+Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$310'.
+Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000110.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$310'.
+Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$306'.
+Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$306'.
+Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$302'.
+Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000001010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$302'.
+Found and cleaned up 3 empty switches in `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298'.
+Removing empty process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:66$298'.
+Found and cleaned up 3 empty switches in `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295'.
+Removing empty process `$paramod\cdc_handshake\WIDTH=s32'00000000000000000000000000010000.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v:35$295'.
+Removing empty process `reset_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v:12$294'.
+Found and cleaned up 2 empty switches in `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:56$292'.
+Removing empty process `mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:56$292'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:45$291'.
+Removing empty process `mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:45$291'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283'.
+Removing empty process `mac_unit.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v:22$283'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$697'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$696'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$695'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$694'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:188$693'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$692'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$691'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$690'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$689'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:171$688'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$687'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$686'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$685'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$684'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$683'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:154$682'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$681'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$680'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$679'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$678'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$677'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$676'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$675'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$674'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$673'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$672'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:137$671'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$670'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$669'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$668'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$667'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$666'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$665'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$664'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$663'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$662'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:120$661'.
+Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:304$587'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:304$587'.
+Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:303$586'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:303$586'.
+Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:302$585'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:302$585'.
+Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:301$584'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:301$584'.
+Found and cleaned up 2 empty switches in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:300$583'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:300$583'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:260$581'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:260$581'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:259$579'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:259$579'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:258$577'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:258$577'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:257$575'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:257$575'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:256$573'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:256$573'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:245$571'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:245$571'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:244$569'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:244$569'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:243$567'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:243$567'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:242$565'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:242$565'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:241$563'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:241$563'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:226$557'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:221$551'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:216$544'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:211$532'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:206$521'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:104$517'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:104$517'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:100$513'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:100$513'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:96$509'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:96$509'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:92$505'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:92$505'.
+Found and cleaned up 1 empty switch in `\benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:88$501'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:88$501'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:76$500'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:75$499'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:74$498'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:73$497'.
+Removing empty process `benchmark_top.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v:72$496'.
+Found and cleaned up 1 empty switch in `\cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v:12$278'.
+Removing empty process `cdc_sync.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v:12$278'.
+Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$314'.
+Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000100.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$314'.
+Found and cleaned up 1 empty switch in `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:54$270'.
+Removing empty process `bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:54$270'.
+Found and cleaned up 1 empty switch in `\bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254'.
+Removing empty process `bm_mac8.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v:23$254'.
+Found and cleaned up 8 empty switches in `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
+Removing empty process `bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:111$249'.
+Found and cleaned up 1 empty switch in `\bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:63$194'.
+Removing empty process `bm_fsm_ctrl.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v:63$194'.
+Found and cleaned up 1 empty switch in `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:54$193'.
+Removing empty process `bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:54$193'.
+Found and cleaned up 2 empty switches in `\bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
+Removing empty process `bm_fir6.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v:28$181'.
+Found and cleaned up 2 empty switches in `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:61$179'.
+Removing empty process `bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:61$179'.
+Found and cleaned up 1 empty switch in `\bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+Removing empty process `bm_dot4.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v:26$171'.
+Found and cleaned up 2 empty switches in `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$318'.
+Removing empty process `$paramod\clk_divider\DIV=s32'00000000000000000000000000000010.$proc$/Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v:16$318'.
 Cleaned up 63 empty switches.
 
 12.12. Executing OPT_EXPR pass (perform const folding).
@@ -781,6 +787,6 @@ Optimizing module $paramod\clk_divider\DIV=s32'00000000000000000000000000000010.
 
 13. Executing JSON backend.
 
-End of script. Logfile hash: 5a84f5865d, time: 0.05s, user: 0.04s, system: 0.02s, MEM: 20.97 MB peak
+End of script. Logfile hash: f0cf484e0e, time: 0.05s, user: 0.04s, system: 0.02s, MEM: 21.00 MB peak
 Yosys 0.68+130 (git sha1 dd83bbad2-dirty, Release, Clang /usr/local/osxcross/target/bin/aarch64-apple-darwin25.5-clang++ 21.1.8)
-Time spent: 40% 20x read_verilog (0 sec), 29% 1x hierarchy (0 sec), ...
+Time spent: 38% 20x read_verilog (0 sec), 30% 1x hierarchy (0 sec), ...

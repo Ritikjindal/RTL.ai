@@ -1,0 +1,8 @@
+# running in /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T215629Z/attempt_1/candidate_2/formal/equiv/model/
+read_rtlil design_prep.il
+hierarchy -smtcheck
+delete */t:$print
+formalff -assume
+dffunmap
+stat
+write_smt2 -wires design_smt2.smt2

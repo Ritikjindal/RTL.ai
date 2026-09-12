@@ -1,0 +1,143 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$287] false)
+assume (= [$auto$async2sync.cc:116:execute$291] true)
+assume (= [gate_inst.acc] #b000000000000000000000000)
+assume (= [gate_inst.acc_d] #b000000000000000000000000)
+assume (= [gate_inst.acc_mid] #b000000000000000000000000)
+assume (= [gate_inst.cntx_d] #b000000000000000000000000)
+assume (= [gate_inst.count] #b00000000)
+assume (= [gate_inst.ext_d] #b000000000000000000000000)
+assume (= [gate_inst.held_d] #b000000000000000000000000)
+assume (= [gate_inst.hold] #b0000000000000000)
+assume (= [gate_inst.in_valid_d] false)
+assume (= [gate_inst.length] #b0000000000000000)
+assume (= [gate_inst.lenx_d] #b000000000000000000000000)
+assume (= [gate_inst.out_data] #b000000000000000000000000)
+assume (= [gate_inst.out_valid] false)
+assume (= [gate_inst.state] #b0000000000000000)
+assume (= [gate_inst.state_d] #b0000000000000000)
+assume (= [gate_inst.status] #b0000)
+assume (= [gold_inst.acc] #b000000000000000000000000)
+assume (= [gold_inst.count] #b00000000)
+assume (= [gold_inst.hold] #b0000000000000000)
+assume (= [gold_inst.length] #b0000000000000000)
+assume (= [gold_inst.out_data] #b100000000000000000000000)
+assume (= [gold_inst.out_valid] false)
+assume (= [gold_inst.state] #b0000000000000000)
+assume (= [gold_inst.status] #b1000)
+assume (= [gold_out_data_d1] #b100000000000000000000000)
+assume (= [gold_out_valid_d1] true)
+assume (= [gold_status_d1] #b1000)
+assume (= [warmup] #b00000000)
+
+state 0
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0000000000000000)
+assume (= [in_valid] false)
+assume (= [rst] true)
+
+state 1
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0101010110101010)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 2
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b1010010101011010)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 3
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0000000000000000)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 4
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b1011100000000000)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 5
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0101011000000000)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 6
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b1111011111111100)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 7
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b1000101011110000)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 8
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0111111000000000)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 9
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b1010010001011010)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 10
+assume (= [clk] false)
+assume (= [cmd] #b1000)
+assume (= [in_data] #b0100001100000000)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 11
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b1010010101011010)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 12
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0000000000000000)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 13
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0000000000000000)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 14
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0000000000000000)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 15
+assume (= [clk] false)
+assume (= [cmd] #b0000)
+assume (= [in_data] #b0000000000000000)
+assume (= [in_valid] false)
+assume (= [rst] false)
