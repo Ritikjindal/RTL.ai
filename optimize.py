@@ -3,10 +3,11 @@
 #
 #   python3 optimize.py --rtl designs/*.v --sdc constraints/foo.sdc
 #
-# Give it a whole design and it will: analyse it, identify the module that owns the
-# critical path, rewrite only that module, prove that module equivalent in isolation,
-# reintegrate it, and re-measure the whole design. Nothing in this file needs editing
-# to optimize a new design.
+# Give it a design and it will keep optimizing until it runs out of improvements:
+# each ROUND analyses the current design, identifies the module owning the critical
+# path, rewrites and proves just that module, reintegrates it, and re-measures the
+# whole design. The next round starts from that result, so as the bottleneck migrates
+# from one domain to the next the tool follows it. Stops when a round finds nothing.
 
 from pathlib import Path
 from datetime import datetime, timezone
@@ -19,7 +20,7 @@ from rtlai.modules import list_modules, locate_module, patch_design
 from rtlai.attribute import optimizable_modules
 from rtlai.optimizer.planner import generate_plan, extract_latency_offset
 from rtlai.optimizer.coder import generate_code
-from rtlai.optimizer.config import MAX_ATTEMPTS, CANDIDATES_PER_ATTEMPT
+from rtlai.optimizer.config import MAX_ATTEMPTS, CANDIDATES_PER_ATTEMPT, MAX_ROUNDS
 from rtlai.optimizer.counterexample import extract_counterexample
 from rtlai.optimizer.decide import decide
 
@@ -42,48 +43,44 @@ def _trim_cex(cex: str, limit: int = MAX_CEX_CHARS) -> str:
     )
 
 
-def _select_target_module(cfg, baseline_result):
+def _select_target_module(rtl_files, top_module, baseline_result, exclude=()):
     """
     Which module should be rewritten?
 
-    For a single-module design, itself. For a hierarchy, the module that owns the
+    For a single-module design, itself. For a hierarchy, the module owning the
     critical path: STA names the failing CLOCK, and a module instance's clock
     connection says which domain it belongs to. The netlist cannot answer this --
     abc renames every cell and keeps no hierarchy or source attributes.
+
+    `exclude` holds modules already tried unsuccessfully this run, so a later round
+    does not keep re-attacking a module the tool has shown it cannot improve.
     """
-    index = list_modules(cfg.rtl_files)
+    index = list_modules(rtl_files)
 
     if len(index) == 1:
-        return next(iter(index))
+        only = next(iter(index))
+        return None if only in exclude else only
 
     clock = baseline_result.timing.clock
     if not clock:
-        raise RuntimeError(
-            "No critical-path clock was reported, so the responsible module cannot be "
-            "identified. Check the STA timing report."
-        )
+        return None
 
-    candidates = optimizable_modules(cfg.rtl_files, cfg.top_module, clock)
-    if not candidates:
-        raise RuntimeError(
-            f"No optimizable module found on the critical clock '{clock}'. Modules on "
-            "that clock are all multi-clock or clock-generating, which cannot be "
-            "formally checked with latency offsets."
-        )
-
-    return candidates[0]
+    for name in optimizable_modules(rtl_files, top_module, clock):
+        if name not in exclude:
+            return name
+    return None
 
 
-def _evaluate_candidate(cfg, target_module, rtl_code, plan, latency_offset,
+def _evaluate_candidate(cfg, rtl_files, target_module, rtl_code, plan, latency_offset,
                         baseline_result, candidate_dir, timestamp, label, seen_code):
     """
     Generate one candidate implementation of `plan`, prove the MODULE equivalent in
     isolation, reintegrate it, then measure and score the WHOLE design.
 
     Verification is at module scope because whole-design equivalence does not scale;
-    scoring is at design scope because that is the improvement that actually matters.
-    Identical module name and port list -- enforced by the coder prompt -- is what
-    makes the substitution sound.
+    scoring is at design scope because that is the improvement that matters. Identical
+    module name and port list -- enforced by the coder prompt -- is what makes the
+    substitution sound.
     """
     candidate_dir.mkdir(parents=True, exist_ok=True)
     print(f"  [{label}] Asking coder to implement the plan...")
@@ -110,16 +107,13 @@ def _evaluate_candidate(cfg, target_module, rtl_code, plan, latency_offset,
                 "reason": "duplicate of an earlier sample", "cex": None}
     seen_code.add(normalized)
 
-    # Reintegrate: the whole design, with just this module replaced.
-    location = locate_module(cfg.rtl_files, target_module)
-    patched_files = patch_design(
-        cfg.rtl_files, location, candidate_code, candidate_dir / "design"
-    )
+    location = locate_module(rtl_files, target_module)
+    patched_files = patch_design(rtl_files, location, candidate_code, candidate_dir / "design")
 
     print(f"  [{label}] Checking formal equivalence of '{target_module}'...")
     try:
         eq_result = verify_equivalence(
-            original_rtl=cfg.rtl_files,
+            original_rtl=rtl_files,
             candidate_rtl=patched_files,
             top_module=target_module,
             run_dir=candidate_dir / "formal",
@@ -127,9 +121,10 @@ def _evaluate_candidate(cfg, target_module, rtl_code, plan, latency_offset,
         )
     except FormalError as e:
         print(f"  [{label}] FormalError: {e}")
-        return {"status": "formal_error", "label": label, "path": module_path,
-                "score": None, "reason": f"could not be formally checked: {e}",
-                "cex": None}
+        timed_out = "TIMED OUT" in str(e)
+        return {"status": "formal_timeout" if timed_out else "formal_error",
+                "label": label, "path": module_path, "score": None,
+                "reason": f"could not be formally checked: {e}", "cex": None}
 
     if not eq_result.passed:
         print(f"  [{label}] {eq_result.summary}")
@@ -149,7 +144,7 @@ def _evaluate_candidate(cfg, target_module, rtl_code, plan, latency_offset,
     candidate_result.formal_checked = True
     candidate_result.formal_passed = True
     candidate_result.formal_summary = eq_result.summary
-    candidate_result.formal_baseline_rtl_path = files_str(cfg.rtl_files)
+    candidate_result.formal_baseline_rtl_path = files_str(rtl_files)
     candidate_result.to_json(str(candidate_dir / "candidate" / "result.json"))
 
     accepted, reason, score = decide(baseline_result, candidate_result)
@@ -159,32 +154,14 @@ def _evaluate_candidate(cfg, target_module, rtl_code, plan, latency_offset,
             "score": score, "reason": reason, "cex": None}
 
 
-def optimize(cfg: DesignConfig):
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    run_dir = RUNS_DIR / f"{cfg.design_name}_optimize_{timestamp}"
-
-    print(f"[baseline] Synthesizing + measuring baseline '{cfg.design_name}'...")
-    print(f"           top module: {cfg.top_module}   sources: {len(cfg.rtl_files)} file(s)")
-    baseline_result = analyze_design(
-        cfg=cfg,
-        rtl_files=cfg.rtl_files,
-        design_name=cfg.design_name,
-        run_dir=run_dir / "baseline",
-        timestamp=timestamp,
-    )
-    print(f"           Done: {run_dir / 'baseline' / 'result.json'}")
-
-    target_module = _select_target_module(cfg, baseline_result)
-    location = locate_module(cfg.rtl_files, target_module)
-
+def _run_round(cfg, rtl_files, baseline_result, target_module, round_dir, timestamp):
+    """
+    One optimization round on `target_module`. Returns the winning candidate dict,
+    or None if no attempt produced an accepted candidate.
+    """
+    location = locate_module(rtl_files, target_module)
     clock = baseline_result.timing.clock
-    print(f"\n[target]   Critical path is on clock '{clock}'.")
-    print(f"           Responsible module: '{target_module}' ({location.path.name}, "
-          f"{len(location.text.splitlines())} lines)")
 
-    # The planner sees only this module's source, plus a note on why it was chosen.
-    # Sending the whole design would cost a fortune in output tokens and risk the coder
-    # corrupting modules it was never asked to touch.
     rtl_code = (
         f"// This module owns the critical path of the full design "
         f"(clock '{clock}', worst slack {baseline_result.timing.worst_slack_ns} ns).\n"
@@ -192,6 +169,7 @@ def optimize(cfg: DesignConfig):
     )
 
     feedback = None
+    timeout_attempts = 0
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         print(f"\n[attempt {attempt}/{MAX_ATTEMPTS}] Asking planner for a plan...")
@@ -202,54 +180,46 @@ def optimize(cfg: DesignConfig):
         if latency_offset:
             print(f"[attempt {attempt}] Plan declares +{latency_offset} cycle(s) of added latency.")
 
-        attempt_dir = run_dir / f"attempt_{attempt}"
+        attempt_dir = round_dir / f"attempt_{attempt}"
 
         print(f"[attempt {attempt}] Sampling {CANDIDATES_PER_ATTEMPT} implementation(s) of this plan.")
         candidates = []
         seen_code = set()
         for n in range(1, CANDIDATES_PER_ATTEMPT + 1):
-            candidates.append(_evaluate_candidate(
-                cfg=cfg, target_module=target_module, rtl_code=rtl_code, plan=plan,
-                latency_offset=latency_offset, baseline_result=baseline_result,
+            result = _evaluate_candidate(
+                cfg=cfg, rtl_files=rtl_files, target_module=target_module,
+                rtl_code=rtl_code, plan=plan, latency_offset=latency_offset,
+                baseline_result=baseline_result,
                 candidate_dir=attempt_dir / f"candidate_{n}",
                 timestamp=timestamp, label=f"attempt {attempt}.{n}", seen_code=seen_code,
-            ))
+            )
+            candidates.append(result)
+            if result["status"] == "formal_timeout":
+                print(f"  [attempt {attempt}] Formal check timed out; skipping the remaining "
+                      f"{CANDIDATES_PER_ATTEMPT - n} sample(s) of this plan — they implement "
+                      "the same transform and would time out identically.")
+                break
 
         accepted = [c for c in candidates if c["status"] == "accepted"]
         if accepted:
             best = max(accepted, key=lambda c: c["score"])
             print(f"\n[attempt {attempt}] {len(accepted)}/{CANDIDATES_PER_ATTEMPT} sample(s) accepted; "
                   f"winner is [{best['label']}] at {best['score']:+.1f}%.")
-
             for c in sorted(candidates, key=lambda c: (c["score"] is None, -(c["score"] or 0))):
                 mark = "*" if c is best else " "
                 score = f"{c['score']:+.1f}%" if c["score"] is not None else "n/a"
                 print(f"           {mark} [{c['label']}] {c['status']:<15} {score}")
 
-            compare_results(baseline_result, best["result"])
-
-            optimized_dir = run_dir / "optimized"
-            patch_design(cfg.rtl_files, location, best["path"].read_text(), optimized_dir)
-
-            print(f"\n[accepted] {best['label']}: {best['reason']}")
-            print(f"\nOptimized module : {best['path']}")
-            print(f"Optimized design : {optimized_dir}")
-            if latency_offset:
-                print(f"NOTE: '{target_module}' now produces its outputs +{latency_offset} "
-                      "cycle(s) later. Substitution into the top level is only sound if the "
-                      "surrounding logic tolerates that.")
-            
-            if "bounded" in (best["result"].formal_summary or "").lower():
-                print(f"NOTE: '{target_module}' was verified by BOUNDED model checking only "
-                      "— no counterexample exists within the checked depth, but this is not "
-                      "an unbounded proof. Report it as bounded, with the depth stated.")
-                
-            return baseline_result, best["result"]
+            best["latency_offset"] = latency_offset
+            best["module"] = target_module
+            best["clock"] = clock
+            return best
 
         with_cex = next((c for c in candidates if c["cex"]), None)
         rejected = [c for c in candidates if c["status"] == "rejected"]
         infeasible = [c for c in candidates if c["status"] == "infeasible"]
         not_equiv = [c for c in candidates if c["status"] == "not_equivalent"]
+        timed_out = [c for c in candidates if c["status"] == "formal_timeout"]
         tally = ", ".join(c["status"] for c in candidates)
         print(f"[attempt {attempt}] No sample accepted ({tally}).")
 
@@ -265,6 +235,25 @@ def optimize(cfg: DesignConfig):
                 "what your proposed change would produce instead, identify the specific signal "
                 "that differs and why, and propose a corrected approach that fixes it."
             )
+        elif timed_out:
+            timeout_attempts += 1
+            if timeout_attempts >= 2:
+                print(f"[attempt {attempt}] Two plans in a row could not be verified within the "
+                      f"time budget. Abandoning '{target_module}'.")
+                return None
+            feedback = (
+                f"Attempt {attempt}: your transform is likely correct but could NOT BE VERIFIED "
+                "within the time budget — the equivalence checker timed out in both unbounded "
+                "and bounded modes. This is a limitation of the checker, not evidence that your "
+                "plan is wrong, but an unverifiable change cannot be accepted.\n\n"
+                "Propose a change that is easier to verify. Transforms that defeat the checker: "
+                "reassociating or rebalancing long arithmetic chains; anything touching wide "
+                "multipliers; and transforms whose correctness depends on an invariant the "
+                "checker cannot know, such as a state register always being one-hot. Transforms "
+                "that verify quickly: inserting a pipeline register between existing stages "
+                "without changing the arithmetic, re-encoding a state register, and sharing or "
+                "removing redundant logic."
+            )
         elif rejected:
             best_rejected = max(rejected, key=lambda c: c["score"])
             feedback = (
@@ -277,12 +266,10 @@ def optimize(cfg: DesignConfig):
         elif infeasible and len(infeasible) == len(candidates):
             feedback = (
                 f"Attempt {attempt}: the coder judged this plan undoable in all "
-                f"{CANDIDATES_PER_ATTEMPT} attempt(s), not merely risky. Reported reason(s): "
+                f"{CANDIDATES_PER_ATTEMPT} attempt(s). Reported reason(s): "
                 f"{'; '.join(c['reason'] for c in infeasible)}. "
                 "Propose a different approach that does not require deriving a large table or "
-                "complex closed-form transformation by hand - prefer structural changes "
-                "(pipelining, re-encoding, sharing existing logic) over ones requiring new "
-                "derived constants."
+                "complex closed-form transformation by hand - prefer structural changes."
             )
         else:
             detail = "; ".join(c["reason"] for c in candidates)
@@ -291,8 +278,104 @@ def optimize(cfg: DesignConfig):
                 f"be evaluated ({detail}). Propose a simpler, more directly implementable change."
             )
 
-    print(f"\n[rejected] No improved candidate found after {MAX_ATTEMPTS} attempts. Keeping baseline.")
-    return baseline_result, None
+    return None
+
+
+def optimize(cfg: DesignConfig):
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_dir = RUNS_DIR / f"{cfg.design_name}_optimize_{timestamp}"
+
+    print(f"[baseline] Synthesizing + measuring baseline '{cfg.design_name}'...")
+    print(f"           top module: {cfg.top_module}   sources: {len(cfg.rtl_files)} file(s)")
+    original_result = analyze_design(
+        cfg=cfg, rtl_files=cfg.rtl_files, design_name=cfg.design_name,
+        run_dir=run_dir / "baseline", timestamp=timestamp,
+    )
+    print(f"           Done: {run_dir / 'baseline' / 'result.json'}")
+
+    rtl_files = list(cfg.rtl_files)
+    current_result = original_result
+    history = []
+    exhausted = set()          # modules this run has failed to improve
+    offsets = {}               # module -> cumulative added latency, in cycles
+
+    for rnd in range(1, MAX_ROUNDS + 1):
+        target = _select_target_module(rtl_files, cfg.top_module, current_result, exhausted)
+        if target is None:
+            print(f"\n[round {rnd}] No further optimizable module on the critical path. Stopping.")
+            break
+
+        clock = current_result.timing.clock
+        location = locate_module(rtl_files, target)
+        print(f"\n{'=' * 70}")
+        print(f"[round {rnd}/{MAX_ROUNDS}] Critical path on clock '{clock}'.")
+        print(f"           Responsible module: '{target}' ({location.path.name}, "
+              f"{len(location.text.splitlines())} lines)")
+        print(f"           Current worst slack: {current_result.timing.worst_slack_ns} ns")
+        print("=" * 70)
+
+        round_dir = run_dir / f"round_{rnd}"
+        best = _run_round(cfg, rtl_files, current_result, target, round_dir, timestamp)
+
+        if best is None:
+            print(f"[round {rnd}] '{target}' could not be improved. Excluding it and trying "
+                  "the next module on the critical path.")
+            exhausted.add(target)
+            continue
+
+        # Adopt the winner as the new design and carry on from there.
+        optimized_dir = round_dir / "optimized"
+        patch_design(rtl_files, location, best["path"].read_text(), optimized_dir)
+
+        rtl_files = sorted(optimized_dir.glob("*.v"))
+        current_result = best["result"]
+        offsets[target] = offsets.get(target, 0) + best["latency_offset"]
+        history.append(best)
+
+        print(f"\n[round {rnd}] Accepted: {best['reason']}")
+        print(f"[round {rnd}] Design now at {optimized_dir}")
+
+    # ---------------------------------------------------------------- summary
+    print(f"\n{'=' * 70}")
+    print("OPTIMIZATION COMPLETE")
+    print("=" * 70)
+
+    if not history:
+        print("No round produced an accepted candidate. The original design stands.")
+        return original_result, None
+
+    print(f"\n{len(history)} round(s) accepted:\n")
+    print(f"  {'Rnd':<5}{'Clock':<10}{'Module':<18}{'Offset':<9}{'Net':>8}")
+    for i, h in enumerate(history, 1):
+        print(f"  {i:<5}{h['clock']:<10}{h['module']:<18}"
+              f"{('+' + str(h['latency_offset'])) if h['latency_offset'] else '0':<9}"
+              f"{h['score']:>+7.1f}%")
+
+    final_dir = run_dir / "optimized"
+    last_dir = run_dir / f"round_{len(history)}" / "optimized"
+    final_dir.mkdir(parents=True, exist_ok=True)
+    for f in sorted(last_dir.glob("*.v")):
+        (final_dir / f.name).write_text(f.read_text())
+
+    compare_results(original_result, current_result)
+
+    print(f"\nOptimized design : {final_dir}")
+
+    latency_changed = {m: k for m, k in offsets.items() if k}
+    if latency_changed:
+        print("\nNOTE: cumulative added latency, relative to the ORIGINAL design:")
+        for m, k in latency_changed.items():
+            print(f"  {m}: +{k} cycle(s)")
+        print("  Each round's proof is against that round's own baseline, which is valid, "
+              "but the totals above are what the surrounding logic must tolerate.")
+
+    bounded = [h for h in history
+               if "bounded" in (h["result"].formal_summary or "").lower()]
+    if bounded:
+        print("\nNOTE: verified by BOUNDED model checking only (not an unbounded proof): "
+              + ", ".join(h["module"] for h in bounded))
+
+    return original_result, current_result
 
 
 def main():
