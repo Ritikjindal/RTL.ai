@@ -1,8 +1,0 @@
-# running in /Users/ritikjindal/rtl-ai-project/runs/vec_proc_optimize_20260910T184716Z/attempt_3/formal/equiv/model/
-read_rtlil design_prep.il
-hierarchy -smtcheck
-delete */t:$print
-formalff -assume
-dffunmap
-stat
-write_smt2 -wires design_smt2.smt2

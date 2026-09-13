@@ -1,9 +1,0 @@
-# running in /mnt/d/tushar/Downloads/RTL.ai/runs/mac_unit_optimize_20260911T222540Z/attempt_1/candidate_1/formal/equiv/src/
-read_verilog -sv gold_gate.v
-read_verilog -sv eqcheck_wrapper.v
-prep -top __eqcheck_top
-
-hierarchy -smtcheck
-rename -witness
-write_jny -no-connections ../model/design.json
-write_rtlil ../model/design.il

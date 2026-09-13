@@ -1,4 +1,0 @@
-Elapsed clock time [H:MM:SS (secs)]: 0:05:01 (301)
-Elapsed process time [H:MM:SS (secs)]: 0:00:23 (23)
-engine_0 (smtbmc) returned pass for basecase
-engine_0 did not produce any traces

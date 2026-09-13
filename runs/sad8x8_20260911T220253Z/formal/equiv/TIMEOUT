@@ -1,4 +1,0 @@
-Elapsed clock time [H:MM:SS (secs)]: 0:05:01 (301)
-Elapsed process time [H:MM:SS (secs)]: 0:01:11 (71)
-engine_0 (smtbmc boolector) returned pass for induction
-engine_0 did not produce any traces
