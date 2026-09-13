@@ -24,8 +24,14 @@ foreach c [all_clocks] {{ lappend clk_groups [get_name $c] }}
 report_checks -path_delay max -path_group $clk_groups -format full_clock_expanded > {timing_report}
 
 set_power_activity -input -activity 0.1
-set_power_activity -input_ports clk -activity 1.0
-set_power_activity -input_ports rst -activity 0.0
+foreach p [all_inputs] {{
+    set n [get_name $p]
+    if {{[string match -nocase *clk* $n] || [string match -nocase *clock* $n]}} {{
+        set_power_activity -input_ports $p -activity 1.0
+    }} elseif {{[string match -nocase *rst* $n] || [string match -nocase *reset* $n]}} {{
+        set_power_activity -input_ports $p -activity 0.0
+    }}
+}}
 report_power > {power_report}
 """
 

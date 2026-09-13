@@ -1,0 +1,34 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/mac_unit.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/bm_fir6.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/bm_dot4.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/bm_mac8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/bm_fsm_ctrl.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/design/reset_sync.v
+
+hierarchy -check -top benchmark_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/candidate/netlist/benchmark_top_candidate_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/candidate/netlist/benchmark_top_candidate_netlist.json

@@ -23,6 +23,7 @@ from rtlai.optimizer.coder import generate_code
 from rtlai.optimizer.config import MAX_ATTEMPTS, CANDIDATES_PER_ATTEMPT, MAX_ROUNDS
 from rtlai.optimizer.counterexample import extract_counterexample
 from rtlai.optimizer.decide import decide
+from rtlai.equiv_eqy import verify_equivalence_eqy, EqyError
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
@@ -110,21 +111,50 @@ def _evaluate_candidate(cfg, rtl_files, target_module, rtl_code, plan, latency_o
     location = locate_module(rtl_files, target_module)
     patched_files = patch_design(rtl_files, location, candidate_code, candidate_dir / "design")
 
-    print(f"  [{label}] Checking formal equivalence of '{target_module}'...")
-    try:
-        eq_result = verify_equivalence(
-            original_rtl=rtl_files,
-            candidate_rtl=patched_files,
-            top_module=target_module,
-            run_dir=candidate_dir / "formal",
-            latency_offset=latency_offset,
-        )
-    except FormalError as e:
-        print(f"  [{label}] FormalError: {e}")
-        timed_out = "TIMED OUT" in str(e)
-        return {"status": "formal_timeout" if timed_out else "formal_error",
-                "label": label, "path": module_path, "score": None,
-                "reason": f"could not be formally checked: {e}", "cex": None}
+        # Checker dispatch. eqy matches registers and proves each combinational cone, so it
+    # scales far better than an unrolled miter -- but it needs the register sets to
+    # correspond, which rules it out the moment a plan adds a pipeline stage. So it is
+    # used only at LATENCY_OFFSET 0, and only its PASS is taken as final: eqy proves
+    # cones for ALL register values including unreachable ones, so a FAIL from it may
+    # be a false negative (a transform correct only because some register is one-hot).
+    # In that case fall back to SymbiYosys, whose BMC path starts from reset and
+    # therefore only explores reachable states.
+    eq_result = None
+
+    if latency_offset == 0:
+        print(f"  [{label}] Checking equivalence of '{target_module}' with eqy...")
+        try:
+            eqy_result = verify_equivalence_eqy(
+                original_rtl=rtl_files,
+                candidate_rtl=patched_files,
+                top_module=target_module,
+                run_dir=candidate_dir / "formal_eqy",
+            )
+            if eqy_result.passed:
+                eq_result = eqy_result
+            else:
+                print(f"  [{label}] eqy reports not equivalent — not conclusive "
+                      "(it also proves unreachable states), falling back to SymbiYosys.")
+        except EqyError as e:
+            print(f"  [{label}] eqy inconclusive: {e}")
+            print(f"  [{label}] Falling back to SymbiYosys.")
+
+        if eq_result is None:
+            print(f"  [{label}] Checking formal equivalence of '{target_module}' with SymbiYosys...")
+            try:
+                eq_result = verify_equivalence(
+                    original_rtl=rtl_files,
+                    candidate_rtl=patched_files,
+                    top_module=target_module,
+                    run_dir=candidate_dir / "formal",
+                    latency_offset=latency_offset,
+                )
+            except FormalError as e:
+                print(f"  [{label}] FormalError: {e}")
+                timed_out = "TIMED OUT" in str(e)
+                return {"status": "formal_timeout" if timed_out else "formal_error",
+                        "label": label, "path": module_path, "score": None,
+                        "reason": f"could not be formally checked: {e}", "cex": None}
 
     if not eq_result.passed:
         print(f"  [{label}] {eq_result.summary}")
@@ -173,7 +203,12 @@ def _run_round(cfg, rtl_files, baseline_result, target_module, round_dir, timest
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         print(f"\n[attempt {attempt}/{MAX_ATTEMPTS}] Asking planner for a plan...")
-        plan = generate_plan(rtl_code, baseline_result, previous_feedback=feedback)
+        try:
+            plan = generate_plan(rtl_code, baseline_result, previous_feedback=feedback)
+        except RuntimeError as e:
+            print(f"[attempt {attempt}] Planner failed: {e}")
+            print(f"[attempt {attempt}] Abandoning '{target_module}' and moving on.")
+            return None
         print(plan)
 
         latency_offset = extract_latency_offset(plan)

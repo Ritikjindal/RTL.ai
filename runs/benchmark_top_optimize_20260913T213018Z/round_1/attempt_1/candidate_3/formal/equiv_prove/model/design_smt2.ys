@@ -1,0 +1,8 @@
+# running in /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_3/formal/equiv_prove/model/
+read_rtlil design_prep.il
+hierarchy -smtcheck
+delete */t:$print
+formalff -assume
+dffunmap
+stat
+write_smt2 -wires design_smt2.smt2

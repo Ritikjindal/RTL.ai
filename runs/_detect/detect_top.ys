@@ -1,13 +1,13 @@
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/benchmark_top.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_dot4.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fir6.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_fsm_ctrl.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/bm_mac8.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_handshake.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/cdc_sync.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/clk_divider.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/mac_unit.v
-read_verilog -sv /Users/ritikjindal/rtl-ai-project/runs/benchmark_top_optimize_20260912T212257Z/optimized/reset_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_fir6.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_dot4.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_mac8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_fsm_ctrl.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/reset_sync.v
 hierarchy -auto-top
 proc
-write_json /Users/ritikjindal/rtl-ai-project/runs/_detect/detect_top.json
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/_detect/detect_top.json

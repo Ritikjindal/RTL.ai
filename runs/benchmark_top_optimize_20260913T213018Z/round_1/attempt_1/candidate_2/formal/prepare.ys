@@ -1,0 +1,41 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_fir6.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_dot4.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_mac8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_fsm_ctrl.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/designs/reset_sync.v
+hierarchy -check -top mac_unit
+proc
+flatten
+opt_clean
+rename mac_unit gold
+design -stash gold_design
+
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/mac_unit.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/bm_fir6.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/bm_dot4.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/bm_mac8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/bm_fsm_ctrl.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/design/reset_sync.v
+hierarchy -check -top mac_unit
+proc
+flatten
+opt_clean
+rename mac_unit gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+setattr -mod -unset top gold gate
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/formal/gold_gate.v
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_1/attempt_1/candidate_2/formal/ports.json

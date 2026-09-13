@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-13T21:41:53" hostname="LAPTOP-QA0271O4" package="equiv_prove" id="0" name="default" tests="1" errors="0" failures="2" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:64.33-64.147" time="0" type="ASSERT" location="eqcheck_wrapper.v:64.33-64.147" id="_witness_.check_assert_eqcheck_wrapper_v_64_209" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:64.33-64.147 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<system-out>SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] Removing directory '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove'.
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/gold_gate.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove/src/gold_gate.v'.
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/eqcheck_wrapper.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove/src/eqcheck_wrapper.v'.
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0: smtbmc
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] base: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] base: finished (returncode=0)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] prep: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] prep: finished (returncode=0)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] smt2: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] smt2: finished (returncode=0)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove; yosys-smtbmc --presat --unroll --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove; yosys-smtbmc --presat --unroll -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 17..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Assert failed in __eqcheck_top: eqcheck_wrapper.v:64.33-64.147 (_witness_.check_assert_eqcheck_wrapper_v_64_209)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 16..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 15..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 14..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 13..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: ##   0:00:00  Status: failed
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: finished (returncode=1)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] engine_0.induction: terminating process
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] summary: engine_0 (smtbmc) returned FAIL for basecase
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] summary: counterexample trace [basecase]: /mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove/engine_0/trace.vcd
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] summary:   failed assertion __eqcheck_top._witness_.check_assert_eqcheck_wrapper_v_64_209 at eqcheck_wrapper.v:64.33-64.147 step 3
+SBY 21:41:53 [/mnt/d/tushar/Downloads/RTL.ai/runs/benchmark_top_optimize_20260913T213018Z/round_3/attempt_1/candidate_1/formal/equiv_prove] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

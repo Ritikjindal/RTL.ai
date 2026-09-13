@@ -115,6 +115,22 @@ def _clock_port_count(module_text: str) -> Tuple[int, int]:
             outs += 1
     return ins, outs
 
+PORT_RANGE_RE = re.compile(r"\b(?:input|output|inout)\b[^;,)]*?\[[^\]]+\]")
+
+
+def _has_datapath_ports(module_text: str) -> bool:
+    """
+    True if the module has at least one multi-bit port.
+
+    A module whose every port is a single bit is control or synchronizer logic, not a
+    datapath block: there is nothing to restructure, and rewriting it is actively
+    unsafe. SymbiYosys models no metastability, so it would prove a one-flop
+    synchronizer "equivalent" to a two-flop one and the optimizer would happily accept
+    the smaller, broken version.
+    """
+    header_end = module_text.find(");")
+    header = module_text[:header_end if header_end > 0 else len(module_text)]
+    return PORT_RANGE_RE.search(header) is not None
 
 def optimizable_modules(
     paths: Sequence[Path],
@@ -146,6 +162,8 @@ def optimizable_modules(
         loc = locate_module(paths, name)
         clk_in, clk_out = _clock_port_count(loc.text)
         if clk_in > 1 or clk_out > 0:
+            continue
+        if not _has_datapath_ports(loc.text):
             continue
         ranked.append((len(loc.text), name))
 
