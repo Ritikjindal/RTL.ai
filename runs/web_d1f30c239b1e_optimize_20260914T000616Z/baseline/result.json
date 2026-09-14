@@ -1,0 +1,41 @@
+{
+  "design_name": "web_d1f30c239b1e",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/constraints/mac_unit.sdc",
+  "timestamp": "20260914T000616Z",
+  "top_module": "mac_unit",
+  "timing": {
+    "worst_slack_ns": -0.27,
+    "data_arrival_time_ns": 1.69,
+    "data_required_time_ns": 1.42,
+    "startpoint": "_3610_",
+    "endpoint": "_3576_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 33,
+    "max_frequency_mhz": 564.9717514124294
+  },
+  "power": {
+    "internal_uw": 770.0,
+    "switching_uw": 367.0,
+    "leakage_uw": 50.4,
+    "total_uw": 1190.0
+  },
+  "area": {
+    "cell_area_um2": 2410.758,
+    "total_cells": 1821,
+    "flip_flops": 90
+  },
+  "ppa": {
+    "area_score": 8.296145859518045,
+    "timing_score": 0.0,
+    "power_score": 1.680672268907563,
+    "overall_score": 3.8226600244794873
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

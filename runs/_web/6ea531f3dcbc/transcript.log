@@ -1,0 +1,5 @@
+[1/4] Running Yosys synthesis + OpenSTA on baseline 'web_6ea531f3dcbc'...
+      top module: gps_top   sources: 14 file(s)
+Yosys failed (exit 1):
+/mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/chip_enable.v:1: ERROR: Re-definition of module `\chip_rate_generator'!
+

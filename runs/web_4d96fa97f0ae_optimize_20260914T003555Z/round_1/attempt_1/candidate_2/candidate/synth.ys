@@ -1,0 +1,25 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v
+
+hierarchy -check -top bm_mac8
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/candidate/netlist/web_4d96fa97f0ae_candidate_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/candidate/netlist/web_4d96fa97f0ae_candidate_netlist.json

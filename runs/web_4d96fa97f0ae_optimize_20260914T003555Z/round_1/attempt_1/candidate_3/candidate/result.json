@@ -1,0 +1,41 @@
+{
+  "design_name": "web_4d96fa97f0ae_candidate",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_3/design/bm_mac8.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/constraints/bm_mac8.sdc",
+  "timestamp": "20260914T003555Z",
+  "top_module": "bm_mac8",
+  "timing": {
+    "worst_slack_ns": 0.16,
+    "data_arrival_time_ns": 1.45,
+    "data_required_time_ns": 1.61,
+    "startpoint": "_6546_",
+    "endpoint": "_6579_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 31,
+    "max_frequency_mhz": 649.3506493506493
+  },
+  "power": {
+    "internal_uw": 1370.0,
+    "switching_uw": 730.0,
+    "leakage_uw": 93.9,
+    "total_uw": 2190.0
+  },
+  "area": {
+    "cell_area_um2": 4325.692,
+    "total_cells": 3291,
+    "flip_flops": 149
+  },
+  "ppa": {
+    "area_score": 4.6235376906169,
+    "timing_score": 1.6,
+    "power_score": 0.91324200913242,
+    "overall_score": 2.6033876789864863
+  },
+  "timing_passed": true,
+  "notes": [],
+  "formal_checked": true,
+  "formal_passed": true,
+  "formal_summary": "PASS \u2014 bm_mac8.v and bm_mac8.v are formally equivalent (proved by eqy, register-matched partitions).",
+  "formal_baseline_rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/designs/bm_mac8.v"
+}

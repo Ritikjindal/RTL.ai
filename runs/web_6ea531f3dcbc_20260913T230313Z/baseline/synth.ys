@@ -1,0 +1,38 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/chip_rate_generator.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/nco_cordic_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/phase_accumulator.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/cordic_stage.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/cordic_pipline.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/bpsk_modulator.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/bit_pipeline_delay.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/atan_lut.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/chip_enable.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/spreader.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/nav_controller.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/gps_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/CA_gen.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/6ea531f3dcbc/BRAM.v
+
+hierarchy -check -top gps_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/web_6ea531f3dcbc_20260913T230313Z/baseline/netlist/web_6ea531f3dcbc_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/web_6ea531f3dcbc_20260913T230313Z/baseline/netlist/web_6ea531f3dcbc_netlist.json

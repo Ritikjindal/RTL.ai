@@ -1,0 +1,81 @@
+[baseline] Synthesizing + measuring baseline 'web_4d96fa97f0ae'...
+           top module: bm_mac8   sources: 1 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/baseline/result.json
+
+======================================================================
+[round 1/1] Critical path on clock 'clk'.
+           Responsible module: 'bm_mac8' (bm_mac8.v, 59 lines)
+           Current worst slack: -0.3 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 0
+
+**Metric targeted:** Timing (critical path fix). The worst slack is -0.3 ns (data arrival 1.91 ns vs. required 1.61 ns), and the reported critical path startpoint/endpoint corresponds to the accumulation chain c0→c7, which is a 7-deep ripple of sequential 21-bit adders following the 8 parallel multipliers. This ripple-add chain is the dominant contributor to the 38 levels of logic on the critical path.
+
+**Diagnosis:** The multiply stage (m0..m7) is already parallel and roughly balanced, but the summation is written as a strictly serial dependency chain (c1 = c0+m1, c2 = c1+m2, ..., c7 = c6+m7), forcing every adder to wait on the previous one's full carry propagation. That gives 7 sequential adder delays in series before the result reaches the output register `acc`, which is far more logic depth than necessary for summing 8 independent products.
+
+**Change (logic restructuring — balanced adder tree):** Replace the serial reduction chain (c0..c7) with a balanced binary tree of adders that sums the same 8 partial products (m0..m7) in log2(8) = 3 sequential addition levels instead of 7:
+
+- Level 1 (4 adders, in parallel): 
+  - s0 = m0 + m1
+  - s1 = m2 + m3
+  - s2 = m4 + m5
+  - s3 = m6 + m7
+- Level 2 (2 adders, in parallel):
+  - t0 = s0 + s1
+  - t1 = s2 + s3
+- Level 3 (1 adder):
+  - c7 = t0 + t1
+
+Feed this final `c7` into the existing output register exactly as before (`acc <= c7;` in the same always block, same reset behavior, same bit width ACCW throughout intermediate sums to avoid truncation). No new registers or pipeline stages are introduced — the multiply-then-register-then-sum-then-register cycle structure (a_reg/b_reg → combinational mult+sum → acc) stays exactly the same, only the internal add ordering changes from a linear chain to a tree, cutting the number of series adder delays from 7 down to 3 and directly shortening the reported critical path.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking equivalence of 'bm_mac8' with eqy...
+  [attempt 1.1] PASS — bm_mac8.v and bm_mac8.v are formally equivalent (proved by eqy, register-matched partitions).
+  [attempt 1.1] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.1] Accepted [timing-closure]: net weighted improvement +128.9% (area +0.3%, timing +153.3%, power +62.3%).
+  [attempt 1.2] Asking coder to implement the plan...
+  [attempt 1.2] Checking equivalence of 'bm_mac8' with eqy...
+  [attempt 1.2] PASS — bm_mac8.v and bm_mac8.v are formally equivalent (proved by eqy, register-matched partitions).
+  [attempt 1.2] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.2] Accepted [timing-closure]: net weighted improvement +128.9% (area +0.3%, timing +153.3%, power +62.3%).
+  [attempt 1.3] Asking coder to implement the plan...
+  [attempt 1.3] Checking equivalence of 'bm_mac8' with eqy...
+  [attempt 1.3] PASS — bm_mac8.v and bm_mac8.v are formally equivalent (proved by eqy, register-matched partitions).
+  [attempt 1.3] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.3] Accepted [timing-closure]: net weighted improvement +128.9% (area +0.3%, timing +153.3%, power +62.3%).
+
+[attempt 1] 3/3 sample(s) accepted; winner is [attempt 1.1] at +128.9%.
+           * [attempt 1.1] accepted        +128.9%
+             [attempt 1.2] accepted        +128.9%
+             [attempt 1.3] accepted        +128.9%
+
+[round 1] Accepted: Accepted [timing-closure]: net weighted improvement +128.9% (area +0.3%, timing +153.3%, power +62.3%).
+[round 1] Design now at /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/optimized
+
+======================================================================
+OPTIMIZATION COMPLETE
+======================================================================
+
+1 round(s) accepted:
+
+  Rnd  Clock     Module            Offset        Net
+  1    clk       bm_mac8           0         +128.9%
+
+======================================================================
+Comparison: web_4d96fa97f0ae  vs.  web_4d96fa97f0ae_candidate
+======================================================================
+Formal equivalence: PASS — bm_mac8.v and bm_mac8.v are formally equivalent (proved by eqy, register-matched partitions).
+
+Metric                     Baseline      Candidate       Delta
+--------------------------------------------------------------
+Cell area (um2)             4339.26        4325.69       -0.3%
+Total cells                    3365           3291       -2.2%
+Flip-flops                      151            149       -1.3%
+Worst slack (ns)               -0.3           0.16   +0.46 abs
+Max freq (MHz)                  500        649.351      +29.9%
+Total power (uW)               5810           2190      -62.3%
+PPA overall score            1.9469        2.60339      +33.7%
+
+Optimized design : /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/optimized

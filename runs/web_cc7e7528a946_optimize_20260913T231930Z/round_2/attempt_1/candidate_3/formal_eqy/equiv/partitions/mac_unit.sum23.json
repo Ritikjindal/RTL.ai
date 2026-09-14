@@ -1,0 +1,80 @@
+{
+  "partition": {
+    "index": 3,
+    "name": "mac_unit.sum23",
+    "inbits": {
+      "prod2": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "prod3": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "outbits": {
+      "sum23": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.mac_unit.sum23",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 49
+  },
+  "gate_module": {
+    "name": "gold.mac_unit.sum23",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 49
+  }
+}

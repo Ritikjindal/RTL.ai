@@ -1,0 +1,37 @@
+{
+  "partition": {
+    "index": 1,
+    "name": "bm_mac8.out_valid",
+    "inbits": {
+      "clk": [
+        0
+      ],
+      "rst": [
+        0
+      ],
+      "vld": [
+        0
+      ]
+    },
+    "outbits": {
+      "out_valid": [
+        0
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_mac8.out_valid",
+    "internal": {},
+    "unused": {},
+    "cellcount": 2,
+    "bitcount": 5
+  },
+  "gate_module": {
+    "name": "gold.bm_mac8.out_valid",
+    "internal": {},
+    "unused": {},
+    "cellcount": 2,
+    "bitcount": 5
+  }
+}

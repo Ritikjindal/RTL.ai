@@ -20,12 +20,19 @@ def get_client() -> Anthropic:
 
 def call_claude(model: str, system_prompt: str, user_prompt: str, max_tokens: int = 16384) -> str:
     client = get_client()
-    response = client.messages.create(
+
+    # Streamed rather than a plain create(): the SDK rejects non-streaming requests
+    # whose worst-case duration could exceed 10 minutes, which a large max_tokens
+    # budget triggers. get_final_message() reassembles the whole reply, so everything
+    # downstream is unchanged.
+    with client.messages.stream(
         model=model,
         max_tokens=max_tokens,
         system=system_prompt,
         messages=[{"role": "user", "content": user_prompt}],
-    )
+    ) as stream:
+        response = stream.get_final_message()
+
     if response.stop_reason == "max_tokens":
         raise RuntimeError(
             f"Model hit the {max_tokens}-token limit before finishing. Raise max_tokens for this call."

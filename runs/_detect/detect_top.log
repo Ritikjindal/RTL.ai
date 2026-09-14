@@ -771,6 +771,6 @@ Optimizing module $paramod\clk_divider\DIV=s32'00000000000000000000000000000010.
 
 13. Executing JSON backend.
 
-End of script. Logfile hash: 23945fe3f8, time: 0.10s, user: 0.05s, system: 0.03s, MEM: 54.47 MB peak
+End of script. Logfile hash: 23945fe3f8, time: 0.25s, user: 0.04s, system: 0.04s, MEM: 54.54 MB peak
 Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
-Time spent: 45% 20x read_verilog (0 sec), 28% 1x hierarchy (0 sec), ...
+Time spent: 41% 20x read_verilog (0 sec), 28% 1x hierarchy (0 sec), ...

@@ -1,0 +1,47 @@
+[baseline] Synthesizing + measuring baseline 'web_282c9b23bad2'...
+           top module: mac_unit   sources: 1 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_282c9b23bad2_optimize_20260913T231601Z/baseline/result.json
+
+======================================================================
+[round 1/3] Critical path on clock 'clk'.
+           Responsible module: 'mac_unit' (mac_unit.v, 49 lines)
+           Current worst slack: -0.22 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+**Metric targeted:** Timing (critical path). The design has a negative worst slack of -0.22 ns (required 1.42 ns vs arrival 1.63 ns), a hard violation, so closing timing dominates over area/power. The critical path (_3440_ → _3471_, 34 logic levels) runs through the full combinational chain: a_reg/b_reg → four 8x8 multipliers → 2-stage adder tree (sum01, sum23) → final sum → accumulator adder → acc register, all in a single cycle.
+
+**Change — Pipelining: insert a register stage between the multiply/adder-tree output and the final accumulator addition.**
+
+Specifically:
+1. Add a new register `sum_reg [17:0]` and a companion `valid_reg2` (1 bit).
+2. On every posedge clk (with the same rst behavior as the other registers), capture:
+   - `sum_reg <= sum;` (the existing `wire [17:0] sum` computed from prod0..prod3 tree)
+   - `valid_reg2 <= valid_reg;`
+3. Change the accumulator update logic to consume the registered values instead of the combinational ones:
+   - `if (valid_reg2) acc <= acc + {6'd0, sum_reg}; else acc_valid <= 1'b0;`
+   - `acc_valid <= valid_reg2;` on the valid branch, matching original semantics but one cycle later.
+
+This splits the original 34-level combinational path into two shorter stages: (a) a_reg/b_reg → multipliers → adder tree → sum_reg (register boundary), and (b) sum_reg → final accumulator add → acc. Each stage now has roughly half the logic depth, which should bring arrival time well under the 1.42 ns required time and eliminate the -0.22 ns violation.
+
+Because acc and acc_valid now depend on a value that is registered one additional cycle before reaching the accumulator, outputs appear one clock cycle later than in the baseline for the same input sequence — hence LATENCY_OFFSET: 1.
+[attempt 1] Plan declares +1 cycle(s) of added latency.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+Traceback (most recent call last):
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 423, in <module>
+    main()
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 419, in main
+    optimize(cfg)
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 353, in optimize
+    best = _run_round(cfg, rtl_files, current_result, target, round_dir, timestamp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 224, in _run_round
+    result = _evaluate_candidate(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 159, in _evaluate_candidate
+    if not eq_result.passed:
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'passed'

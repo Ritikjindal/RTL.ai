@@ -53,6 +53,7 @@ def analyze_design(
         rtl_path=files_str(rtl_files),
         sdc_path=str(cfg.sdc_file),
         timestamp=timestamp,
+        top_module=cfg.top_module,
     )
 
     try:

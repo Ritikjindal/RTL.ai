@@ -1,0 +1,235 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `run.ys' --
+
+1. Executing Verilog-2005 frontend: ../../../partitions/bm_fsm_ctrl.out_data.sv
+Parsing SystemVerilog input from `../../../partitions/bm_fsm_ctrl.out_data.sv' to AST representation.
+Generating RTLIL representation for module `\miter'.
+Generating RTLIL representation for module `\miter_cmp_prop'.
+Generating RTLIL representation for module `\miter_def_prop'.
+Generating RTLIL representation for module `\gold.bm_fsm_ctrl.out_data'.
+Generating RTLIL representation for module `\gate.bm_fsm_ctrl.out_data'.
+Successfully finished Verilog frontend.
+
+2. Executing RTLIL frontend.
+Input filename: ../../../partitions/bm_fsm_ctrl.out_data.il
+Replacing existing blackbox module \gold.bm_fsm_ctrl.out_data.
+Replacing existing blackbox module \gate.bm_fsm_ctrl.out_data.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \miter
+Used module:     \miter_cmp_prop
+Used module:     \gate.bm_fsm_ctrl.out_data
+Used module:     \gold.bm_fsm_ctrl.out_data
+Parameter 1 (\WIDTH) = 24
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\miter_cmp_prop'.
+Parameter 1 (\WIDTH) = 24
+Parameter 2 (\TYPE) = 48'011000010111001101110011011001010111001001110100
+Generating RTLIL representation for module `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop'.
+
+3.3. Analyzing design hierarchy..
+Top module:  \miter
+Used module:     $paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop
+Used module:     \gate.bm_fsm_ctrl.out_data
+Used module:     \gold.bm_fsm_ctrl.out_data
+
+3.4. Analyzing design hierarchy..
+Top module:  \miter
+Used module:     $paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop
+Used module:     \gate.bm_fsm_ctrl.out_data
+Used module:     \gold.bm_fsm_ctrl.out_data
+Removing unused module `\miter_def_prop'.
+Removing unused module `\miter_cmp_prop'.
+Removed 2 unused modules.
+Module $paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop directly or indirectly contains formal properties -> setting "keep" attribute.
+Module miter directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell miter.__po_out_data__assert ($paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop).
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 3 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.$proc$../../../partitions/bm_fsm_ctrl.out_data.sv:70$750'.
+Creating decoders for process `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.$proc$../../../partitions/bm_fsm_ctrl.out_data.sv:64$653'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.\i' from process `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.$proc$../../../partitions/bm_fsm_ctrl.out_data.sv:64$653'.
+No latch inferred for signal `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.\okay' from process `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.$proc$../../../partitions/bm_fsm_ctrl.out_data.sv:64$653'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.$proc$../../../partitions/bm_fsm_ctrl.out_data.sv:70$750'.
+Removing empty process `$paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.$proc$../../../partitions/bm_fsm_ctrl.out_data.sv:64$653'.
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gold.bm_fsm_ctrl.out_data.
+Optimizing module $paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.
+<suppressed ~1 debug messages>
+Optimizing module gate.bm_fsm_ctrl.out_data.
+Optimizing module miter.
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing FORMALFF pass.
+
+7. Executing SETUNDEF pass (replace undef values with defined constants).
+
+8. Executing FLATTEN pass (flatten design).
+Deleting now unused module gold.bm_fsm_ctrl.out_data.
+Deleting now unused module $paramod$f846b4465c1517fbcf890325af24f3b55f47264f\miter_cmp_prop.
+Deleting now unused module gate.bm_fsm_ctrl.out_data.
+<suppressed ~3 debug messages>
+
+9. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+10. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter.
+<suppressed ~1 debug messages>
+
+11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \miter..
+Removed 1 unused cells and 7 unused wires.
+<suppressed ~2 debug messages>
+
+12. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \__pi_clk
+Import def constraint for this timestep: \__pi_rst
+Import def constraint for this timestep: \__pi_state__12
+Import def constraint for this timestep: \__pi_acc
+Imported 105 cells to SAT database.
+Import proof for assert: \__po_out_data__assert.okay when 1'1.
+
+** Trying induction with length 1 **
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \__pi_clk
+Import def constraint for this timestep: \__pi_rst
+Import def constraint for this timestep: \__pi_state__12
+Import def constraint for this timestep: \__pi_acc
+Imported 105 cells to SAT database.
+Final init constraint equation: \gold.out_data = 24'x
+Import proof for assert: \__po_out_data__assert.okay when 1'1.
+Import show expression: \__po_out_data__assert.i
+Import show expression: \__po_out_data__assert.okay
+Import show expression: \__po_out_data__assert.in_gate
+Import show expression: \__po_out_data__assert.in_gold
+Import show expression: \gate.rst
+Import show expression: \gate.state
+Import show expression: \gate.acc
+Import show expression: \gate.out_data
+Import show expression: \gate.clk
+Import show expression: \gate.__pi_acc
+Import show expression: \gate.__pi_clk
+Import show expression: \gate.__pi_rst
+Import show expression: \gate.__pi_state__12
+Import show expression: \gate.__po_out_data
+Import show expression: \gold.rst
+Import show expression: \gold.state
+Import show expression: \gold.acc
+Import show expression: \gold.out_data
+Import show expression: \gold.clk
+Import show expression: \gold.__pi_acc
+Import show expression: \gold.__pi_clk
+Import show expression: \gold.__pi_rst
+Import show expression: \gold.__pi_state__12
+Import show expression: \gold.__po_out_data
+Import show expression: \__po_out_data__gate
+Import show expression: \__po_out_data__gold
+Import show expression: \__pi_state__12
+Import show expression: \__pi_rst
+Import show expression: \__pi_clk
+Import show expression: \__pi_acc
+
+[base case 1] Solving problem with 4456 variables and 11888 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \__pi_clk
+Import def constraint for this timestep: \__pi_rst
+Import def constraint for this timestep: \__pi_state__12
+Import def constraint for this timestep: \__pi_acc
+Imported 105 cells to SAT database.
+Import proof for assert: \__po_out_data__assert.okay when 1'1.
+Import show expression: \__po_out_data__assert.i
+Import show expression: \__po_out_data__assert.okay
+Import show expression: \__po_out_data__assert.in_gate
+Import show expression: \__po_out_data__assert.in_gold
+Import show expression: \gate.rst
+Import show expression: \gate.state
+Import show expression: \gate.acc
+Import show expression: \gate.out_data
+Import show expression: \gate.clk
+Import show expression: \gate.__pi_acc
+Import show expression: \gate.__pi_clk
+Import show expression: \gate.__pi_rst
+Import show expression: \gate.__pi_state__12
+Import show expression: \gate.__po_out_data
+Import show expression: \gold.rst
+Import show expression: \gold.state
+Import show expression: \gold.acc
+Import show expression: \gold.out_data
+Import show expression: \gold.clk
+Import show expression: \gold.__pi_acc
+Import show expression: \gold.__pi_clk
+Import show expression: \gold.__pi_rst
+Import show expression: \gold.__pi_state__12
+Import show expression: \gold.__po_out_data
+Import show expression: \__po_out_data__gate
+Import show expression: \__po_out_data__gold
+Import show expression: \__pi_state__12
+Import show expression: \__pi_rst
+Import show expression: \__pi_clk
+Import show expression: \__pi_acc
+
+[induction step 1] Solving problem with 9292 variables and 24828 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 5d7d3c2dbe, time: 0.07s, user: 0.04s, system: 0.01s, MEM: 26.25 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 86% 1x sat (0 sec), 3% 1x hierarchy (0 sec), ...

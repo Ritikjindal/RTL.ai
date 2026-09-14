@@ -1,0 +1,62 @@
+Startpoint: _6846_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _6777_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _6846_/CK (DFF_X1)
+   0.15    0.15 ^ _6846_/Q (DFF_X1)
+   0.04    0.19 v _6729_/ZN (AOI22_X1)
+   0.09    0.28 v _6731_/ZN (OR3_X1)
+   0.04    0.33 v _6733_/ZN (AND3_X1)
+   0.07    0.39 v _6742_/ZN (OR3_X1)
+   0.04    0.43 v _6744_/ZN (AND3_X1)
+   0.07    0.50 v _6753_/ZN (OR3_X1)
+   0.04    0.55 v _6755_/ZN (AND3_X1)
+   0.08    0.63 v _6758_/ZN (OR3_X1)
+   0.04    0.67 v _3456_/ZN (AND3_X1)
+   0.11    0.78 v _3460_/ZN (OR4_X1)
+   0.05    0.83 v _3463_/ZN (AND4_X1)
+   0.09    0.92 v _3465_/ZN (OR3_X1)
+   0.08    1.00 ^ _3828_/ZN (AOI211_X1)
+   0.05    1.05 v _4031_/ZN (OAI211_X1)
+   0.09    1.14 ^ _4403_/ZN (AOI211_X1)
+   0.05    1.19 v _4585_/ZN (OAI211_X1)
+   0.10    1.29 ^ _4835_/ZN (AOI211_X1)
+   0.04    1.32 v _4959_/ZN (OAI21_X1)
+   0.06    1.38 ^ _5113_/ZN (AOI21_X1)
+   0.03    1.41 v _5162_/ZN (OAI21_X1)
+   0.05    1.46 v _5164_/ZN (AND3_X1)
+   0.08    1.54 v _5167_/ZN (OR3_X1)
+   0.04    1.58 v _5169_/ZN (AND3_X1)
+   0.08    1.66 v _5171_/ZN (OR3_X1)
+   0.04    1.70 v _5174_/ZN (AND3_X1)
+   0.08    1.78 v _5176_/ZN (OR3_X1)
+   0.04    1.83 v _5179_/ZN (AND3_X1)
+   0.08    1.90 v _5182_/ZN (OR3_X1)
+   0.04    1.95 v _5184_/ZN (AND3_X1)
+   0.08    2.03 v _5187_/ZN (OR3_X1)
+   0.03    2.06 ^ _5191_/ZN (AOI21_X1)
+   0.03    2.09 v _5195_/ZN (OAI21_X1)
+   0.04    2.13 v _5220_/ZN (AND3_X1)
+   0.04    2.17 ^ _5223_/ZN (NOR3_X1)
+   0.00    2.17 ^ _6777_/D (DFF_X1)
+           2.17   data arrival time
+
+   1.70    1.70   clock clk (rise edge)
+   0.00    1.70   clock network delay (ideal)
+  -0.05    1.65   clock uncertainty
+   0.00    1.65   clock reconvergence pessimism
+           1.65 ^ _6777_/CK (DFF_X1)
+  -0.04    1.61   library setup time
+           1.61   data required time
+---------------------------------------------------------
+           1.61   data required time
+          -2.17   data arrival time
+---------------------------------------------------------
+          -0.56   slack (VIOLATED)
+
+

@@ -1,0 +1,59 @@
+[baseline] Synthesizing + measuring baseline 'web_323abe8663b7'...
+           top module: bm_mac8   sources: 1 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_323abe8663b7_optimize_20260914T002602Z/baseline/result.json
+
+======================================================================
+[round 1/1] Critical path on clock 'clk'.
+           Responsible module: 'bm_mac8' (bm_mac8.v, 59 lines)
+           Current worst slack: -0.56 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 0
+
+**Target metric: timing (worst slack -0.56 ns, critical path 37 logic levels, path type max).** The critical path runs from the multiplier outputs (`_6846_`) through the accumulation chain into the `acc` register (`_6777_`). The RTL builds this accumulation as a fully serial ripple of 7 adds (`c0 = m0; c1 = c0+m1; c2 = c1+m2; ... c7 = c6+m7`), so every partial-sum add sits directly behind the previous one. Combined with the 8x8 multiplier depth, this produces a 37-level combinational path whose 2.17 ns arrival time blows through the 1.61 ns required time, giving the reported -0.56 ns slack.
+
+**Change (logic restructuring, no new pipeline stage, no latency change):**
+Replace the 7-deep serial add chain (`c0..c7`) with a 3-level balanced binary adder tree that computes the exact same sum in the exact same cycle, using purely combinational rebalancing:
+
+- Level 1 (4 parallel adds): `t0 = m0 + m1; t1 = m2 + m3; t2 = m4 + m5; t3 = m6 + m7;`
+- Level 2 (2 parallel adds): `u0 = t0 + t1; u1 = t2 + t3;`
+- Level 3 (1 add): `sum = u0 + u1;`
+
+Then drive `acc <= sum;` in the existing output register in place of `acc <= c7;` (all intermediate signals `t0..t3`, `u0`, `u1`, `sum` remain combinational wires, same width `ACCW`, no new registers inserted, no change to `vld`/`out_valid` timing).
+
+This cuts the adder-chain depth from 7 sequential additions to 3 levels of additions (log2(8) = 3), removing roughly 4 levels of full-adder delay from the 37-level critical path while keeping the total number of register stages — and therefore the output latency — unchanged.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking equivalence of 'bm_mac8' with eqy...
+  [attempt 1.1] eqy inconclusive: eqy is not on PATH. It ships with oss-cad-suite.
+  [attempt 1.1] Falling back to SymbiYosys.
+  [attempt 1.1] Checking formal equivalence of 'bm_mac8' with SymbiYosys...
+Traceback (most recent call last):
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 458, in <module>
+    main()
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 454, in main
+    optimize(cfg)
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 362, in optimize
+    best = _run_round(cfg, rtl_files, current_result, target, round_dir, timestamp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 227, in _run_round
+    result = _evaluate_candidate(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 148, in _evaluate_candidate
+    eq_result = verify_equivalence(
+                ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/rtlai/formal.py", line 386, in verify_equivalence
+    verdict, log, basecase_passed = _run_sby(mode, effective_depth)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/rtlai/formal.py", line 372, in _run_sby
+    proc = subprocess.run(
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sby'

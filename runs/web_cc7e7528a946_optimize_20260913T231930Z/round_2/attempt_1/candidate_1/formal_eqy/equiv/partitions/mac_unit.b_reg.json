@@ -1,0 +1,99 @@
+{
+  "partition": {
+    "index": 10,
+    "name": "mac_unit.b_reg",
+    "inbits": {
+      "b_vec": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "clk": [
+        0
+      ],
+      "rst": [
+        0
+      ]
+    },
+    "outbits": {
+      "b_reg": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.mac_unit.b_reg",
+    "internal": {},
+    "unused": {},
+    "cellcount": 2,
+    "bitcount": 98
+  },
+  "gate_module": {
+    "name": "gold.mac_unit.b_reg",
+    "internal": {},
+    "unused": {},
+    "cellcount": 2,
+    "bitcount": 98
+  }
+}

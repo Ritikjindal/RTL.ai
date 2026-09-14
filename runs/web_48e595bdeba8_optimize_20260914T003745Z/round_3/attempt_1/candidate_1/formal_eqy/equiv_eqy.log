@@ -1,0 +1,340 @@
+EQY  1:04:15 [equiv] read_gold: starting process "yosys -ql equiv/gold.log equiv/gold.ys"
+EQY  1:04:15 [equiv] read_gold: finished (returncode=0)
+EQY  1:04:15 [equiv] read_gate: starting process "yosys -ql equiv/gate.log equiv/gate.ys"
+EQY  1:04:15 [equiv] read_gate: finished (returncode=0)
+EQY  1:04:15 [equiv] combine: starting process "yosys -ql equiv/combine.log equiv/combine.ys"
+EQY  1:04:15 [equiv] combine: finished (returncode=0)
+EQY  1:04:16 [equiv] partition: starting process "cd equiv; yosys -ql partition.log partition.ys"
+EQY  1:04:20 [equiv] partition: finished (returncode=0)
+EQY  1:04:22 [equiv] run: starting process "make -C equiv -f strategies.mk"
+EQY  1:04:22 [equiv] run: make: Entering directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY  1:04:22 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.acc'..
+EQY  1:04:22 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.acc' using strategy 'sat'
+EQY  1:04:22 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.0'..
+EQY  1:04:22 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.0' using strategy 'sat'
+EQY  1:04:22 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.1'..
+EQY  1:04:22 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.1' using strategy 'sat'
+EQY  1:04:22 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.10'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.10' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.11'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.11' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.12'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.12' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.13'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.13' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.14'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.14' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.15'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.15' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.16'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.16' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.17'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.17' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.18'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.18' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.19'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.19' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.2'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.2' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.20'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.20' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.21'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.21' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.22'..
+EQY  1:04:23 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.22' using strategy 'sat'
+EQY  1:04:23 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.23'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.23' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.3'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.3' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.4'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.4' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.5'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.5' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.6'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.6' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.7'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.7' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.8'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.8' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.cntx.9'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.cntx.9' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.count'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.count' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.d0'..
+EQY  1:04:24 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.d0' using strategy 'sat'
+EQY  1:04:24 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.d9'..
+EQY  1:04:25 [equiv] run: Could not prove equivalence of partition 'bm_fsm_ctrl.d9' using strategy 'sat': partitions not equivalent
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.0'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.0' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.1'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.1' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.10'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.10' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.11'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.11' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.12'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.12' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.13'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.13' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.14'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.14' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.15'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.15' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.16'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.16' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.17'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.17' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.18'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.18' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.19'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.19' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.2'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.2' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.20'..
+EQY  1:04:25 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.20' using strategy 'sat'
+EQY  1:04:25 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.21'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.21' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.22'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.22' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.23'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.23' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.3'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.3' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.4'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.4' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.5'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.5' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.6'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.6' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.7'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.7' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.8'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.8' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.ext.9'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.ext.9' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.0'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.0' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.1'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.1' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.10'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.10' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.11'..
+EQY  1:04:26 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.11' using strategy 'sat'
+EQY  1:04:26 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.12'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.12' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.13'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.13' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.14'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.14' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.15'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.15' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.16'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.16' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.17'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.17' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.18'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.18' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.19'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.19' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.2'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.2' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.20'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.20' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.21'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.21' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.22'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.22' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.23'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.23' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.3'..
+EQY  1:04:27 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.3' using strategy 'sat'
+EQY  1:04:27 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.4'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.4' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.5'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.5' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.6'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.6' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.7'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.7' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.8'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.8' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.held.9'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.held.9' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.hold'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.hold' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.length'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.length' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.0'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.0' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.1'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.1' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.10'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.10' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.11'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.11' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.12'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.12' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.13'..
+EQY  1:04:28 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.13' using strategy 'sat'
+EQY  1:04:28 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.14'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.14' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.15'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.15' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.16'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.16' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.17'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.17' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.18'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.18' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.19'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.19' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.2'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.2' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.20'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.20' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.21'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.21' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.22'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.22' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.23'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.23' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.3'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.3' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.4'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.4' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.5'..
+EQY  1:04:29 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.5' using strategy 'sat'
+EQY  1:04:29 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.6'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.6' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.7'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.7' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.8'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.8' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.lenx.9'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.lenx.9' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.next'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.next' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.out_data'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.out_data' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.out_valid'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.out_valid' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.state'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.state' using strategy 'sat'
+EQY  1:04:30 [equiv] run: Running strategy 'sat' on 'bm_fsm_ctrl.status'..
+EQY  1:04:30 [equiv] run: Proved equivalence of partition 'bm_fsm_ctrl.status' using strategy 'sat'
+EQY  1:04:30 [equiv] run: make -f strategies.mk summary
+EQY  1:04:30 [equiv] run: make[1]: Entering directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY  1:04:31 [equiv] run: make[1]: Leaving directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY  1:04:31 [equiv] run: make: Leaving directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY  1:04:31 [equiv] run: finished (returncode=0)
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.status
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.state
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.out_valid
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.out_data
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.next
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.23
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.22
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.21
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.20
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.19
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.18
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.17
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.16
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.15
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.14
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.13
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.12
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.11
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.10
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.9
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.8
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.7
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.6
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.5
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.4
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.3
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.2
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.1
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.lenx.0
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.length
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.hold
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.23
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.22
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.21
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.20
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.19
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.18
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.17
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.16
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.15
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.14
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.13
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.12
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.11
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.10
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.9
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.8
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.7
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.6
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.5
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.4
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.3
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.2
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.1
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.held.0
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.23
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.22
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.21
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.20
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.19
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.18
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.17
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.16
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.15
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.14
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.13
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.12
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.11
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.10
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.9
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.8
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.7
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.6
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.5
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.4
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.3
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.2
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.1
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.ext.0
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.d0
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.count
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.23
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.22
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.21
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.20
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.19
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.18
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.17
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.16
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.15
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.14
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.13
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.12
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.11
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.10
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.9
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.8
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.7
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.6
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.5
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.4
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.3
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.2
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.1
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.cntx.0
+EQY  1:04:31 [equiv] Successfully proved equivalence of partition bm_fsm_ctrl.acc
+EQY  1:04:31 [equiv] Warning: Failed to prove equivalence for 1/107 partitions:
+EQY  1:04:31 [equiv] Failed to prove equivalence of partition bm_fsm_ctrl.d9
+EQY  1:04:31 [equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:16 (16)
+EQY  1:04:31 [equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+EQY  1:04:31 [equiv] DONE (FAIL, rc=2)

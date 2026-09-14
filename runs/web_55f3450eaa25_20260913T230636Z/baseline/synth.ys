@@ -1,0 +1,38 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/chip_enable1.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/chip_rate_generator.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/nco_cordic_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/phase_accumulator.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/cordic_stage.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/cordic_pipline.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/bpsk_modulator.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/bit_pipeline_delay.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/atan_lut.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/spreader.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/nav_controller.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/gps_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/CA_gen.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/BRAM.v
+
+hierarchy -check -top gps_top
+
+proc
+flatten
+opt
+
+memory
+opt
+
+techmap
+opt
+
+dfflibmap -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+abc -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+clean
+
+stat -liberty /mnt/d/tushar/Downloads/RTL.ai/lib/NangateOpenCellLibrary_typical.lib
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/web_55f3450eaa25_20260913T230636Z/baseline/netlist/web_55f3450eaa25_netlist.v
+
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/web_55f3450eaa25_20260913T230636Z/baseline/netlist/web_55f3450eaa25_netlist.json

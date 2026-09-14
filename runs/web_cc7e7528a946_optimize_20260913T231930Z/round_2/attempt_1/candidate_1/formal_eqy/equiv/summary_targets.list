@@ -1,0 +1,14 @@
+strategies/mac_unit.valid_reg2/sat/status
+strategies/mac_unit.valid_reg/sat/status
+strategies/mac_unit.sum_reg/sat/status
+strategies/mac_unit.sum23/sat/status
+strategies/mac_unit.sum01/sat/status
+strategies/mac_unit.sum/sat/status
+strategies/mac_unit.prod3/sat/status
+strategies/mac_unit.prod2/sat/status
+strategies/mac_unit.prod1/sat/status
+strategies/mac_unit.prod0/sat/status
+strategies/mac_unit.b_reg/sat/status
+strategies/mac_unit.acc_valid/sat/status
+strategies/mac_unit.acc/sat/status
+strategies/mac_unit.a_reg/sat/status

@@ -1,0 +1,9 @@
+verilog_defaults -add -D CHECK_OUTPUTS
+read_verilog -sv ../../../partitions/mac_unit.sum_reg.sv
+read_rtlil ../../../partitions/mac_unit.sum_reg.il
+hierarchy -top miter; proc; chformal -cover -remove
+async2sync
+formalff -clk2ff -ff2anyinit gate.mac_unit.sum_reg
+setundef -anyseq gate.mac_unit.sum_reg
+flatten -wb; dffunmap; opt_expr -keepdc -undriven; opt_clean
+sat -tempinduct -set-init-undef -set-def-formal -set-def-inputs -maxsteps 5 -set-assumes -prove-asserts -show-public -dump_vcd trace.vcd miter

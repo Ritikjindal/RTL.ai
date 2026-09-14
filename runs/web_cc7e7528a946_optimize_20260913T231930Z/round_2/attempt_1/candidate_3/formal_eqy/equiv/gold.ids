@@ -1,0 +1,20 @@
+mac_unit . A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:7.1-69.10" A:top=1
+mac_unit valid_reg2 w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:20.16-20.26"
+mac_unit valid_reg w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:18.16-18.25"
+mac_unit valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:10.24-10.29" P=I
+mac_unit sum_reg w=17:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:19.16-19.23"
+mac_unit sum23 w=16:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:42.17-42.22"
+mac_unit sum01 w=16:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:41.17-41.22"
+mac_unit sum w=17:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:43.17-43.20"
+mac_unit rst w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:9.24-9.27" P=I
+mac_unit prod3 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:39.17-39.22"
+mac_unit prod2 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:38.17-38.22"
+mac_unit prod1 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:37.17-37.22"
+mac_unit prod0 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:36.17-36.22"
+mac_unit clk w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:8.24-8.27" P=I
+mac_unit b_vec w=31:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:12.24-12.29" P=I
+mac_unit b_reg w=31:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:17.23-17.28"
+mac_unit acc_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:14.24-14.33" P=O
+mac_unit acc w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:13.24-13.27" P=O
+mac_unit a_vec w=31:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:11.24-11.29" P=I
+mac_unit a_reg w=31:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:17.16-17.21"

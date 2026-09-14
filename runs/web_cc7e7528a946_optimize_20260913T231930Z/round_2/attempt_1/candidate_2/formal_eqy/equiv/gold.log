@@ -1,0 +1,211 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `equiv/gold.ys' --
+
+1. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v' to AST representation.
+Storing AST representation for module `$abstract\mac_unit'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\mac_unit'.
+Generating RTLIL representation for module `\mac_unit'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \mac_unit
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \mac_unit
+Removing unused module `$abstract\mac_unit'.
+Removed 1 unused modules.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:57$10 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:46$9 in module mac_unit.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1 in module mac_unit.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:57$10'.
+     1/2: $0\acc_valid[0:0]
+     2/2: $0\acc[23:0]
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:46$9'.
+     1/2: $0\valid_reg2[0:0]
+     2/2: $0\sum_reg[17:0]
+Creating decoders for process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1'.
+     1/3: $0\valid_reg[0:0]
+     2/3: $0\b_reg[31:0]
+     3/3: $0\a_reg[31:0]
+
+2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mac_unit.\acc' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:57$10'.
+  created $dff cell `$procdff$39' with positive edge clock.
+Creating register for signal `\mac_unit.\acc_valid' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:57$10'.
+  created $dff cell `$procdff$40' with positive edge clock.
+Creating register for signal `\mac_unit.\sum_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:46$9'.
+  created $dff cell `$procdff$41' with positive edge clock.
+Creating register for signal `\mac_unit.\valid_reg2' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:46$9'.
+  created $dff cell `$procdff$42' with positive edge clock.
+Creating register for signal `\mac_unit.\a_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1'.
+  created $dff cell `$procdff$43' with positive edge clock.
+Creating register for signal `\mac_unit.\b_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1'.
+  created $dff cell `$procdff$44' with positive edge clock.
+Creating register for signal `\mac_unit.\valid_reg' using process `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1'.
+  created $dff cell `$procdff$45' with positive edge clock.
+
+2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:57$10'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:57$10'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:46$9'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:46$9'.
+Found and cleaned up 1 empty switch in `\mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1'.
+Removing empty process `mac_unit.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:22$1'.
+Cleaned up 4 empty switches.
+
+2.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+2.4. Executing FUTURE pass.
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
+
+2.7. Executing CHECK pass (checking for obvious problems).
+Checking module mac_unit...
+Found and reported 0 problems.
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac_unit'.
+Computing hashes of 24 cells of `\mac_unit'.
+Finding duplicate cells in `\mac_unit'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mac_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mac_unit.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac_unit'.
+Computing hashes of 24 cells of `\mac_unit'.
+Finding duplicate cells in `\mac_unit'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+
+2.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+2.8.8. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 6 bits (of 24) from port B of cell mac_unit.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/optimized/mac_unit.v:62$11 ($add).
+
+2.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+
+2.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mac_unit.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mac_unit'.
+Computing hashes of 24 cells of `\mac_unit'.
+Finding duplicate cells in `\mac_unit'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+
+2.12.4. Finished fast OPT passes.
+
+2.13. Executing SORT pass.
+
+2.14. Printing statistics.
+
+=== mac_unit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       29 wires
+      450 wire bits
+       19 public wires
+      292 public wire bits
+        7 ports
+       92 port bits
+       24 cells
+        4   $add
+        7   $dff
+        4   $mul
+        9   $mux
+
+2.15. Executing CHECK pass (checking for obvious problems).
+Checking module mac_unit...
+Found and reported 0 problems.
+
+3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mac_unit..
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module mac_unit...
+Found and reported 0 problems.
+
+5. Executing SETUNDEF pass (replace undef values with defined constants).
+
+6. Executing RTLIL backend.
+Output filename: equiv/gold.il
+
+End of script. Logfile hash: 16a8c652f9, time: 0.05s, user: 0.01s, system: 0.01s, MEM: 18.38 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 27% 3x check (0 sec), 12% 5x opt_clean (0 sec), ...

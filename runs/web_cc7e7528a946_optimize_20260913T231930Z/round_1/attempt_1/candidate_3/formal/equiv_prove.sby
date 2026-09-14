@@ -1,0 +1,17 @@
+[options]
+mode prove
+depth 20
+multiclock off
+timeout 300
+
+[engines]
+smtbmc
+
+[script]
+read_verilog -sv gold_gate.v
+read_verilog -sv eqcheck_wrapper.v
+prep -top __eqcheck_top
+
+[files]
+/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/attempt_1/candidate_3/formal/gold_gate.v
+/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_1/attempt_1/candidate_3/formal/eqcheck_wrapper.v

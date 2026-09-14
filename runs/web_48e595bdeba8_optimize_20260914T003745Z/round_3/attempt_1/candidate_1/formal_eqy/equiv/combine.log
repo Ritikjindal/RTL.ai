@@ -1,0 +1,51 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `equiv/combine.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: equiv/gold.il
+
+2. Executing UNIQUIFY pass (creating unique copies of modules).
+Created 0 unique modules.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `bm_fsm_ctrl'. Setting top module to bm_fsm_ctrl.
+
+3.1. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+
+3.2. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+Removed 0 unused modules.
+
+4. Executing RTLIL frontend.
+Input filename: equiv/gate_recoded.il
+
+5. Executing UNIQUIFY pass (creating unique copies of modules).
+Created 0 unique modules.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `bm_fsm_ctrl'. Setting top module to bm_fsm_ctrl.
+
+6.1. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+
+6.2. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+Removed 0 unused modules.
+
+7. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter" with gold cell "gold.bm_fsm_ctrl" and gate cell "gate.bm_fsm_ctrl".
+
+8. Executing RTLIL backend.
+Output filename: equiv/combined.il
+
+End of script. Logfile hash: 9b7fb26779, time: 0.03s, user: 0.00s, system: 0.01s, MEM: 16.38 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 34% 4x read_rtlil (0 sec), 20% 2x write_rtlil (0 sec), ...

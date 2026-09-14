@@ -1,0 +1,19 @@
+[baseline] Synthesizing + measuring baseline 'web_330c09724c0e'...
+           top module: mac_unit   sources: 1 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_330c09724c0e_optimize_20260913T233946Z/baseline/result.json
+
+======================================================================
+[round 1/1] Critical path on clock 'clk'.
+           Responsible module: 'mac_unit' (mac_unit.v, 49 lines)
+           Current worst slack: -0.27 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+[attempt 1] Planner failed: ANTHROPIC_API_KEY is not set. Get a key from console.anthropic.com and run: export ANTHROPIC_API_KEY="your-key-here"
+[attempt 1] Abandoning 'mac_unit' and moving on.
+[round 1] 'mac_unit' could not be improved. Excluding it and trying the next module on the critical path.
+
+======================================================================
+OPTIMIZATION COMPLETE
+======================================================================
+No round produced an accepted candidate. The original design stands.

@@ -1,0 +1,56 @@
+Startpoint: _6546_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _6579_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _6546_/CK (DFF_X1)
+   0.13    0.13 ^ _6546_/Q (DFF_X1)
+   0.03    0.16 v _4921_/ZN (NAND2_X1)
+   0.06    0.22 v _4923_/Z (XOR2_X1)
+   0.04    0.26 v _4949_/ZN (XNOR2_X1)
+   0.06    0.33 v _4957_/Z (XOR2_X1)
+   0.05    0.37 v _4985_/ZN (XNOR2_X1)
+   0.06    0.43 v _4994_/Z (XOR2_X1)
+   0.06    0.50 v _5024_/Z (XOR2_X1)
+   0.05    0.54 v _5027_/ZN (XNOR2_X1)
+   0.06    0.60 v _5052_/Z (XOR2_X1)
+   0.05    0.65 v _5110_/ZN (XNOR2_X1)
+   0.05    0.70 ^ _5111_/ZN (OAI21_X1)
+   0.02    0.72 v _5113_/ZN (AOI21_X1)
+   0.05    0.77 ^ _5114_/ZN (OAI21_X1)
+   0.05    0.82 ^ _5441_/ZN (XNOR2_X1)
+   0.06    0.88 ^ _5444_/Z (XOR2_X1)
+   0.06    0.94 ^ _5523_/Z (XOR2_X1)
+   0.06    1.00 ^ _5525_/Z (XOR2_X1)
+   0.03    1.02 v _5579_/ZN (AOI21_X1)
+   0.05    1.07 ^ _5580_/ZN (OAI21_X1)
+   0.06    1.13 ^ _5608_/Z (XOR2_X1)
+   0.07    1.20 ^ _5610_/Z (XOR2_X1)
+   0.03    1.22 v _5673_/ZN (AOI21_X1)
+   0.05    1.27 ^ _5675_/ZN (OAI21_X1)
+   0.03    1.30 v _5676_/ZN (AOI21_X1)
+   0.05    1.35 ^ _5678_/ZN (OAI21_X1)
+   0.02    1.37 v _5680_/ZN (AOI21_X1)
+   0.05    1.42 v _5682_/ZN (OR2_X1)
+   0.03    1.45 v _5685_/ZN (AND3_X1)
+   0.00    1.45 v _6579_/D (DFF_X1)
+           1.45   data arrival time
+
+   1.70    1.70   clock clk (rise edge)
+   0.00    1.70   clock network delay (ideal)
+  -0.05    1.65   clock uncertainty
+   0.00    1.65   clock reconvergence pessimism
+           1.65 ^ _6579_/CK (DFF_X1)
+  -0.04    1.61   library setup time
+           1.61   data required time
+---------------------------------------------------------
+           1.61   data required time
+          -1.45   data arrival time
+---------------------------------------------------------
+           0.16   slack (MET)
+
+

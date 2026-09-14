@@ -53,6 +53,7 @@ class RunResult:
     rtl_path: str
     sdc_path: str
     timestamp: str                 # ISO 8601, set by the caller
+    top_module: Optional[str] = None
     timing: TimingResult = field(default_factory=TimingResult)
     power: PowerResult = field(default_factory=PowerResult)
     area: AreaResult = field(default_factory=AreaResult)
@@ -77,6 +78,7 @@ class RunResult:
             rtl_path=data["rtl_path"],
             sdc_path=data["sdc_path"],
             timestamp=data["timestamp"],
+            top_module=data.get("top_module"),
             timing=TimingResult(**data.get("timing", {})),
             power=PowerResult(**data.get("power", {})),
             area=AreaResult(**data.get("area", {})),

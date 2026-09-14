@@ -1,0 +1,42 @@
+{
+  "design_name": "web_55f3450eaa25",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/chip_enable1.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/chip_rate_generator.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/nco_cordic_top.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/phase_accumulator.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/cordic_stage.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/cordic_pipline.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/bpsk_modulator.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/bit_pipeline_delay.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/atan_lut.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/spreader.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/nav_controller.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/gps_top.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/CA_gen.v; /mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/BRAM.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/contraints_gnss.sdc",
+  "timestamp": "20260913T230636Z",
+  "timing": {
+    "worst_slack_ns": null,
+    "data_arrival_time_ns": null,
+    "data_required_time_ns": null,
+    "startpoint": null,
+    "endpoint": null,
+    "clock": null,
+    "path_type": null,
+    "logic_depth": null,
+    "max_frequency_mhz": null
+  },
+  "power": {
+    "internal_uw": null,
+    "switching_uw": null,
+    "leakage_uw": null,
+    "total_uw": null
+  },
+  "area": {
+    "cell_area_um2": null,
+    "total_cells": null,
+    "flip_flops": null
+  },
+  "ppa": {
+    "area_score": null,
+    "timing_score": null,
+    "power_score": null,
+    "overall_score": null
+  },
+  "timing_passed": null,
+  "notes": [
+    "Synthesis failed: Yosys failed (exit 1):\n/mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/BRAM.v:13: ERROR: Can not open file `nav_bits.mem` for \\$readmemb.\n"
+  ],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

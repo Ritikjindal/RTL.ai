@@ -1,0 +1,40 @@
+{
+  "design_name": "mac_unit",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/constraints/mac_unit.sdc",
+  "timestamp": "20260913T224221Z",
+  "timing": {
+    "worst_slack_ns": -0.22,
+    "data_arrival_time_ns": 1.63,
+    "data_required_time_ns": 1.42,
+    "startpoint": "_3440_",
+    "endpoint": "_3471_",
+    "clock": "clk",
+    "path_type": "max",
+    "logic_depth": 34,
+    "max_frequency_mhz": 581.3953488372093
+  },
+  "power": {
+    "internal_uw": 831.0,
+    "switching_uw": 398.0,
+    "leakage_uw": 50.1,
+    "total_uw": 1280.0
+  },
+  "area": {
+    "cell_area_um2": 2312.87,
+    "total_cells": 1736,
+    "flip_flops": 90
+  },
+  "ppa": {
+    "area_score": 8.647265086234851,
+    "timing_score": 0.0,
+    "power_score": 1.5625,
+    "overall_score": 3.927656034493941
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": false,
+  "formal_passed": null,
+  "formal_summary": null,
+  "formal_baseline_rtl_path": null
+}

@@ -1,0 +1,63 @@
+{
+  "partition": {
+    "index": 8,
+    "name": "mac_unit.prod1",
+    "inbits": {
+      "a_reg": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "b_reg": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "outbits": {
+      "prod1": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.mac_unit.prod1",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 32
+  },
+  "gate_module": {
+    "name": "gold.mac_unit.prod1",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 32
+  }
+}

@@ -1,0 +1,6 @@
+read -sv /mnt/d/tushar/Downloads/RTL.ai/designs/bm_mac8.v
+prep -top bm_mac8
+opt_clean
+check -initdrv
+setundef -undriven -undef
+write_rtlil equiv/gold.il

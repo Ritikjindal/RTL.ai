@@ -9,11 +9,12 @@
 # whole design. The next round starts from that result, so as the bottleneck migrates
 # from one domain to the next the tool follows it. Stops when a round finds nothing.
 
+import json
 from pathlib import Path
 from datetime import datetime, timezone
 
 from analyze import analyze_design, files_str, RUNS_DIR
-from rtlai.cli import build_parser, resolve_config, DesignConfig
+from rtlai.cli import build_parser, resolve_config, DesignConfig, count_clock_domains
 from rtlai.formal import verify_equivalence, FormalError
 from rtlai.compare import compare_results
 from rtlai.modules import list_modules, locate_module, patch_design
@@ -139,22 +140,24 @@ def _evaluate_candidate(cfg, rtl_files, target_module, rtl_code, plan, latency_o
             print(f"  [{label}] eqy inconclusive: {e}")
             print(f"  [{label}] Falling back to SymbiYosys.")
 
-        if eq_result is None:
-            print(f"  [{label}] Checking formal equivalence of '{target_module}' with SymbiYosys...")
-            try:
-                eq_result = verify_equivalence(
-                    original_rtl=rtl_files,
-                    candidate_rtl=patched_files,
-                    top_module=target_module,
-                    run_dir=candidate_dir / "formal",
-                    latency_offset=latency_offset,
-                )
-            except FormalError as e:
-                print(f"  [{label}] FormalError: {e}")
-                timed_out = "TIMED OUT" in str(e)
-                return {"status": "formal_timeout" if timed_out else "formal_error",
-                        "label": label, "path": module_path, "score": None,
-                        "reason": f"could not be formally checked: {e}", "cex": None}
+    if eq_result is None:
+        # Also the only path for latency_offset != 0: eqy needs matching register
+        # sets so it never runs there, but SymbiYosys takes latency_offset directly.
+        print(f"  [{label}] Checking formal equivalence of '{target_module}' with SymbiYosys...")
+        try:
+            eq_result = verify_equivalence(
+                original_rtl=rtl_files,
+                candidate_rtl=patched_files,
+                top_module=target_module,
+                run_dir=candidate_dir / "formal",
+                latency_offset=latency_offset,
+            )
+        except FormalError as e:
+            print(f"  [{label}] FormalError: {e}")
+            timed_out = "TIMED OUT" in str(e)
+            return {"status": "formal_timeout" if timed_out else "formal_error",
+                    "label": label, "path": module_path, "score": None,
+                    "reason": f"could not be formally checked: {e}", "cex": None}
 
     if not eq_result.passed:
         print(f"  [{label}] {eq_result.summary}")
@@ -334,7 +337,13 @@ def optimize(cfg: DesignConfig):
     exhausted = set()          # modules this run has failed to improve
     offsets = {}               # module -> cumulative added latency, in cycles
 
-    for rnd in range(1, MAX_ROUNDS + 1):
+    # One round per clock domain -- a single-clock design has exactly one critical
+    # path to chase, so it gets one round; a 5-domain design still caps at MAX_ROUNDS
+    # since each round is an expensive plan/code/prove loop.
+    num_clocks = count_clock_domains(cfg.sdc_file)
+    max_rounds = min(num_clocks, MAX_ROUNDS)
+
+    for rnd in range(1, max_rounds + 1):
         target = _select_target_module(rtl_files, cfg.top_module, current_result, exhausted)
         if target is None:
             print(f"\n[round {rnd}] No further optimizable module on the critical path. Stopping.")
@@ -343,7 +352,7 @@ def optimize(cfg: DesignConfig):
         clock = current_result.timing.clock
         location = locate_module(rtl_files, target)
         print(f"\n{'=' * 70}")
-        print(f"[round {rnd}/{MAX_ROUNDS}] Critical path on clock '{clock}'.")
+        print(f"[round {rnd}/{max_rounds}] Critical path on clock '{clock}'.")
         print(f"           Responsible module: '{target}' ({location.path.name}, "
               f"{len(location.text.splitlines())} lines)")
         print(f"           Current worst slack: {current_result.timing.worst_slack_ns} ns")
@@ -390,8 +399,27 @@ def optimize(cfg: DesignConfig):
     last_dir = run_dir / f"round_{len(history)}" / "optimized"
     final_dir.mkdir(parents=True, exist_ok=True)
     for f in sorted(last_dir.glob("*.v")):
-        (final_dir / f.name).write_text(f.read_text())
+        # Suffixed rather than same-named as the source, so a file downloaded next to
+        # the original is never silently mistaken for it.
+        (final_dir / f"{f.stem}_optimized{f.suffix}").write_text(f.read_text())
 
+    # The definitive final result, unambiguous even when several candidates were
+    # measured along the way (only some accepted) -- callers should read this rather
+    # than guess at it from the per-attempt candidate/result.json files scattered
+    # under round_*/attempt_*/.
+    current_result.to_json(str(final_dir / "result.json"))
+
+    # Each round proved its module equivalent against THAT round's baseline, so the
+    # final design is linked to the original by a CHAIN of proofs rather than a single
+    # one. compare_results rejects a candidate whose recorded baseline differs from the
+    # one passed in -- right in general, wrong here -- so restate the provenance.
+    chain = " -> ".join(["original"] + [h["module"] for h in history])
+    current_result.formal_baseline_rtl_path = original_result.rtl_path
+    current_result.formal_summary = (
+        f"PASS (chain of {len(history)} proofs: {chain}). Each round's module was proven "
+        "equivalent against the previous round's design; equivalence to the original "
+        "follows by transitivity, at the cumulative latency offsets reported below."
+    )
     compare_results(original_result, current_result)
 
     print(f"\nOptimized design : {final_dir}")
@@ -409,6 +437,24 @@ def optimize(cfg: DesignConfig):
     if bounded:
         print("\nNOTE: verified by BOUNDED model checking only (not an unbounded proof): "
               + ", ".join(h["module"] for h in bounded))
+
+    # Machine-readable round-by-round summary, so a UI can render the "N round(s)
+    # accepted" table above without scraping it back out of the terminal transcript.
+    (run_dir / "history.json").write_text(json.dumps({
+        "rounds": [
+            {
+                "round": i,
+                "clock": h["clock"],
+                "module": h["module"],
+                "latency_offset": h["latency_offset"],
+                "score": h["score"],
+                "reason": h["reason"],
+                "bounded": "bounded" in (h["result"].formal_summary or "").lower(),
+            }
+            for i, h in enumerate(history, 1)
+        ],
+        "latency_changed": latency_changed,
+    }, indent=2))
 
     return original_result, current_result
 

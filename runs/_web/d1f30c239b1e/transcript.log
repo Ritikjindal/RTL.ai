@@ -1,0 +1,58 @@
+[baseline] Synthesizing + measuring baseline 'web_d1f30c239b1e'...
+           top module: mac_unit   sources: 1 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_d1f30c239b1e_optimize_20260914T000616Z/baseline/result.json
+
+======================================================================
+[round 1/1] Critical path on clock 'clk'.
+           Responsible module: 'mac_unit' (mac_unit.v, 49 lines)
+           Current worst slack: -0.27 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+**Target metric: Timing (critical path violation).** Worst slack is -0.27 ns and the critical path from `_3610_` to `_3576_` runs through 33 levels of logic — this is the full combinational chain: `a_reg/b_reg → prod0..prod3 (8x8 multipliers) → sum01/sum23 adders → sum → acc + sum accumulator adder → acc register`. All four multiplies, the adder tree, and the final accumulate-add happen in one single cycle, which is why the arrival time (1.69 ns) exceeds the required time (1.42 ns).
+
+**Change: insert a pipeline register between the adder-tree output (`sum`) and the accumulator's add operation, splitting the 33-level path roughly in half.**
+
+Specifically:
+1. Add new registers `sum_reg [17:0]` and `valid_reg2` (1-bit).
+2. In the existing `always @(posedge clk)` block that currently holds `a_reg/b_reg/valid_reg`, add a second stage: on the same clock, register `sum` into `sum_reg` and `valid_reg` into `valid_reg2` (reset both to 0 on `rst`).
+3. Change the accumulator's always block to use `sum_reg` and `valid_reg2` instead of the combinational `sum` and `valid_reg`:
+   - `if (rst) acc <= 24'd0; acc_valid <= 0;`
+   - `else if (valid_reg2) acc <= acc + {6'd0, sum_reg}; acc_valid <= 1'b1;`
+   - `else acc_valid <= 1'b0;`
+
+This breaks the single 33-level combinational path into two shorter stages: (a) `a_reg/b_reg → multipliers → adder tree → sum_reg` and (b) `sum_reg → acc adder → acc register`, each with roughly half the logic depth, comfortably meeting the 1.42 ns required time. Since `acc`'s update now depends on a value that is one additional cycle old, the output (`acc`, `acc_valid`) is delayed by exactly one extra clock cycle relative to the original design, hence `LATENCY_OFFSET: 1`.
+[attempt 1] Plan declares +1 cycle(s) of added latency.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+Traceback (most recent call last):
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 458, in <module>
+    main()
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 454, in main
+    optimize(cfg)
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 362, in optimize
+    best = _run_round(cfg, rtl_files, current_result, target, round_dir, timestamp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 227, in _run_round
+    result = _evaluate_candidate(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/optimize.py", line 148, in _evaluate_candidate
+    eq_result = verify_equivalence(
+                ^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/rtlai/formal.py", line 386, in verify_equivalence
+    verdict, log, basecase_passed = _run_sby(mode, effective_depth)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/rtlai/formal.py", line 372, in _run_sby
+    proc = subprocess.run(
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'sby'

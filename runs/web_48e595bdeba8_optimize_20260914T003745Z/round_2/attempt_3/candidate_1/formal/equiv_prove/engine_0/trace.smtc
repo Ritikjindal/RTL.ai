@@ -1,0 +1,60 @@
+initial
+assume (= [$auto$async2sync.cc:107:execute$85] false)
+assume (= [$auto$async2sync.cc:116:execute$89] true)
+assume (= [gate_inst.a_reg] #b00000000000000000000000000000000)
+assume (= [gate_inst.acc] #b00000000000000000000)
+assume (= [gate_inst.b_reg] #b00000000000000000000000000000000)
+assume (= [gate_inst.out_valid] false)
+assume (= [gate_inst.sum_reg] #b00000000000000000)
+assume (= [gate_inst.vld] false)
+assume (= [gate_inst.vld2] false)
+assume (= [gold_acc_d1] #b10000000000000000000)
+assume (= [gold_inst.a_reg] #b00000000000000000000000000000000)
+assume (= [gold_inst.acc] #b10000000000000000000)
+assume (= [gold_inst.b_reg] #b00000000000000000000000000000000)
+assume (= [gold_inst.out_valid] false)
+assume (= [gold_inst.vld] false)
+assume (= [gold_out_valid_d1] true)
+assume (= [warmup] #b00000000)
+
+state 0
+assume (= [a_vec] #b00000000000000000000000000000000)
+assume (= [b_vec] #b00000000000000000000000000000000)
+assume (= [clk] false)
+assume (= [in_valid] false)
+assume (= [rst] true)
+
+state 1
+assume (= [a_vec] #b11101101000110010101111110101000)
+assume (= [b_vec] #b01010011010111000001100100101111)
+assume (= [clk] false)
+assume (= [in_valid] true)
+assume (= [rst] false)
+
+state 2
+assume (= [a_vec] #b00000000000000000000000000000000)
+assume (= [b_vec] #b00000000000000000000000000000000)
+assume (= [clk] false)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 3
+assume (= [a_vec] #b00000000000000000000000000000000)
+assume (= [b_vec] #b00000000000000000000000000000000)
+assume (= [clk] false)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 4
+assume (= [a_vec] #b00000000000000000000000000000000)
+assume (= [b_vec] #b00000000000000000000000000000000)
+assume (= [clk] false)
+assume (= [in_valid] false)
+assume (= [rst] false)
+
+state 5
+assume (= [a_vec] #b00000000000000000000000000000000)
+assume (= [b_vec] #b00000000000000000000000000000000)
+assume (= [clk] false)
+assume (= [in_valid] false)
+assume (= [rst] false)

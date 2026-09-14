@@ -1,0 +1,6 @@
+read -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v
+prep -top bm_mac8
+opt_clean
+check -initdrv
+setundef -undriven -undef
+write_rtlil equiv/gate.il

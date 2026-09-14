@@ -1,0 +1,5 @@
+[1/4] Running Yosys synthesis + OpenSTA on baseline 'web_55f3450eaa25'...
+      top module: gps_top   sources: 14 file(s)
+Yosys failed (exit 1):
+/mnt/d/tushar/Downloads/RTL.ai/runs/_web/55f3450eaa25/BRAM.v:13: ERROR: Can not open file `nav_bits.mem` for \$readmemb.
+

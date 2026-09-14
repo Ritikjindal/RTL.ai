@@ -1,0 +1,20 @@
+# [*] gold-match *
+mac_unit a_reg a_reg
+mac_unit a_vec a_vec
+mac_unit acc acc
+mac_unit acc_valid acc_valid
+mac_unit b_reg b_reg
+mac_unit b_vec b_vec
+mac_unit clk clk
+mac_unit prod0 prod0
+mac_unit prod1 prod1
+mac_unit prod2 prod2
+mac_unit prod3 prod3
+mac_unit rst rst
+mac_unit sum sum
+mac_unit sum01 sum01
+mac_unit sum23 sum23
+mac_unit sum_reg sum_reg
+mac_unit valid valid
+mac_unit valid_reg valid_reg
+mac_unit valid_reg2 valid_reg2

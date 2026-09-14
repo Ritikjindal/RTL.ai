@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/mnt/d/tushar/Downloads/RTL.ai/analyze.py", line 234, in <module>
+    main()
+  File "/mnt/d/tushar/Downloads/RTL.ai/analyze.py", line 226, in main
+    cfg = resolve_config(parser.parse_args(), PROJECT_ROOT)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/rtlai/cli.py", line 67, in resolve_config
+    top_module = args.top or detect_top_module(rtl_files, project_root / "runs" / "_detect")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/tushar/Downloads/RTL.ai/rtlai/synth.py", line 47, in detect_top_module
+    raise SynthesisError(
+rtlai.synth.SynthesisError: Could not determine the top module (yosys exit 1). Pass --top explicitly. See /mnt/d/tushar/Downloads/RTL.ai/runs/_detect/detect_top.log

@@ -1,0 +1,95 @@
+{
+  "partition": {
+    "index": 80,
+    "name": "bm_fsm_ctrl.d0",
+    "inbits": {
+      "acc": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "ext": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "outbits": {
+      "d0": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.d0",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 64
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.d0",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 64
+  }
+}

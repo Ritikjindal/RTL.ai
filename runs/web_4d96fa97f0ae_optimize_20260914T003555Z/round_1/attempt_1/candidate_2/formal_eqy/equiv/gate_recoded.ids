@@ -1,0 +1,26 @@
+bm_mac8 . A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:7.1-69.10" A:top=1 A:dynports=1
+bm_mac8 vld w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:22.20-22.23"
+bm_mac8 t1 w=17:0
+bm_mac8 t0 w=17:0
+bm_mac8 s3 w=16:0
+bm_mac8 s2 w=16:0
+bm_mac8 s1 w=16:0
+bm_mac8 s0 w=16:0
+bm_mac8 rst w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:13.35-13.38" P=I
+bm_mac8 out_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:17.35-17.44" P=O
+bm_mac8 m7 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:43.19-43.21"
+bm_mac8 m6 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:42.19-42.21"
+bm_mac8 m5 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:41.19-41.21"
+bm_mac8 m4 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:40.19-40.21"
+bm_mac8 m3 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:39.19-39.21"
+bm_mac8 m2 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:38.19-38.21"
+bm_mac8 m1 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:37.19-37.21"
+bm_mac8 m0 w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:36.19-36.21"
+bm_mac8 in_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:14.35-14.43" P=I
+bm_mac8 clk w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:12.35-12.38" P=I
+bm_mac8 c7 w=18:0
+bm_mac8 b_vec w=63:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:16.35-16.40" P=I
+bm_mac8 b_reg w=63:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:21.27-21.32"
+bm_mac8 acc w=20:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:18.35-18.38" P=O
+bm_mac8 a_vec w=63:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:15.35-15.40" P=I
+bm_mac8 a_reg w=63:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_4d96fa97f0ae_optimize_20260914T003555Z/round_1/attempt_1/candidate_2/design/bm_mac8.v:21.20-21.25"

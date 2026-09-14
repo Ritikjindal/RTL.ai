@@ -1,0 +1,1718 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `partition.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: combined.il
+
+2. Executing INSBUF pass (insert buffer cells for connected wires).
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$93: \lower_result [0] -> \acc_next [0]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$94: \lower_result [1] -> \acc_next [1]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$95: \lower_result [2] -> \acc_next [2]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$96: \lower_result [3] -> \acc_next [3]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$97: \lower_result [4] -> \acc_next [4]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$98: \lower_result [5] -> \acc_next [5]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$99: \lower_result [6] -> \acc_next [6]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$100: \lower_result [7] -> \acc_next [7]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$101: \lower_result [8] -> \acc_next [8]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$102: \lower_result [9] -> \acc_next [9]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$103: \lower_result [10] -> \acc_next [10]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$104: \lower_result [11] -> \acc_next [11]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$105: \sum_hi [0] -> \acc_next [12]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$106: \sum_hi [1] -> \acc_next [13]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$107: \sum_hi [2] -> \acc_next [14]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$108: \sum_hi [3] -> \acc_next [15]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$109: \sum_hi [4] -> \acc_next [16]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$110: \sum_hi [5] -> \acc_next [17]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$111: \sum_hi [6] -> \acc_next [18]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$112: \sum_hi [7] -> \acc_next [19]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$113: \sum_hi [8] -> \acc_next [20]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$114: \sum_hi [9] -> \acc_next [21]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$115: \sum_hi [10] -> \acc_next [22]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$116: \sum_hi [11] -> \acc_next [23]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$117: \lower_result [12] -> \carry_lo
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$118: \sum_reg [0] -> \sum_ext [0]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$119: \sum_reg [1] -> \sum_ext [1]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$120: \sum_reg [2] -> \sum_ext [2]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$121: \sum_reg [3] -> \sum_ext [3]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$122: \sum_reg [4] -> \sum_ext [4]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$123: \sum_reg [5] -> \sum_ext [5]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$124: \sum_reg [6] -> \sum_ext [6]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$125: \sum_reg [7] -> \sum_ext [7]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$126: \sum_reg [8] -> \sum_ext [8]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$127: \sum_reg [9] -> \sum_ext [9]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$128: \sum_reg [10] -> \sum_ext [10]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$129: \sum_reg [11] -> \sum_ext [11]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$130: \sum_reg [12] -> \sum_ext [12]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$131: \sum_reg [13] -> \sum_ext [13]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$132: \sum_reg [14] -> \sum_ext [14]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$133: \sum_reg [15] -> \sum_ext [15]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$134: \sum_reg [16] -> \sum_ext [16]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$135: \sum_reg [17] -> \sum_ext [17]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$136: 1'0 -> \sum_ext [18]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$137: 1'0 -> \sum_ext [19]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$138: 1'0 -> \sum_ext [20]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$139: 1'0 -> \sum_ext [21]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$140: 1'0 -> \sum_ext [22]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$141: 1'0 -> \sum_ext [23]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$142: \acc_next [0] -> \sum_lo [0]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$143: \acc_next [1] -> \sum_lo [1]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$144: \acc_next [2] -> \sum_lo [2]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$145: \acc_next [3] -> \sum_lo [3]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$146: \acc_next [4] -> \sum_lo [4]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$147: \acc_next [5] -> \sum_lo [5]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$148: \acc_next [6] -> \sum_lo [6]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$149: \acc_next [7] -> \sum_lo [7]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$150: \acc_next [8] -> \sum_lo [8]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$151: \acc_next [9] -> \sum_lo [9]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$152: \acc_next [10] -> \sum_lo [10]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$153: \acc_next [11] -> \sum_lo [11]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$154: \sum_hi_0 [0] -> \upper_result_0 [0]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$155: \sum_hi_0 [1] -> \upper_result_0 [1]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$156: \sum_hi_0 [2] -> \upper_result_0 [2]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$157: \sum_hi_0 [3] -> \upper_result_0 [3]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$158: \sum_hi_0 [4] -> \upper_result_0 [4]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$159: \sum_hi_0 [5] -> \upper_result_0 [5]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$160: \sum_hi_0 [6] -> \upper_result_0 [6]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$161: \sum_hi_0 [7] -> \upper_result_0 [7]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$162: \sum_hi_0 [8] -> \upper_result_0 [8]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$163: \sum_hi_0 [9] -> \upper_result_0 [9]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$164: \sum_hi_0 [10] -> \upper_result_0 [10]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$165: \sum_hi_0 [11] -> \upper_result_0 [11]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$166: \sum_hi_1 [0] -> \upper_result_1 [0]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$167: \sum_hi_1 [1] -> \upper_result_1 [1]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$168: \sum_hi_1 [2] -> \upper_result_1 [2]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$169: \sum_hi_1 [3] -> \upper_result_1 [3]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$170: \sum_hi_1 [4] -> \upper_result_1 [4]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$171: \sum_hi_1 [5] -> \upper_result_1 [5]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$172: \sum_hi_1 [6] -> \upper_result_1 [6]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$173: \sum_hi_1 [7] -> \upper_result_1 [7]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$174: \sum_hi_1 [8] -> \upper_result_1 [8]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$175: \sum_hi_1 [9] -> \upper_result_1 [9]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$176: \sum_hi_1 [10] -> \upper_result_1 [10]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$177: \sum_hi_1 [11] -> \upper_result_1 [11]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$178: 1'x -> \upper_result_1 [12]
+Add gate.mac_unit/$auto$insbuf.cc:97:execute$179: 1'x -> \upper_result_0 [12]
+Rewrite gate.mac_unit/$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_2/design/mac_unit.v:62$10/B: \sum_reg [11:0] -> \sum_ext [11:0]
+Rewrite gate.mac_unit/$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_2/design/mac_unit.v:68$12/B: \sum_reg [17:12] -> \sum_ext [17:12]
+Rewrite gate.mac_unit/$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_2/design/mac_unit.v:68$13/A: \sum_hi_0 -> \upper_result_0 [11:0]
+Rewrite gate.mac_unit/$procmux$23/B: { \sum_hi \lower_result [11:0] } -> { \acc_next [23:12] \sum_lo }
+Rewrite gate.mac_unit/$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_2/design/mac_unit.v:74$14/A: \sum_hi_0 -> \upper_result_0 [11:0]
+Rewrite gate.mac_unit/$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_2/design/mac_unit.v:74$14/B: \sum_hi_1 -> \upper_result_1 [11:0]
+Rewrite gate.mac_unit/$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_2/design/mac_unit.v:74$14/S: \lower_result [12] -> \carry_lo
+
+3. Executing EQY PARTITION task.
+
+3.1. Processing module pair gold.mac_unit / gate.mac_unit.
+
+3.1.1. Processing matched IDs for module mac_unit.
+
+3.1.2. Create fragment partitions for module mac_unit.
+Adding output bit \valid_reg2 to partition 0.
+Adding output bit \valid_reg to partition 1.
+Adding output bit \sum_reg [17] to partition 2.
+Adding output bit \sum_reg [16] to partition 2.
+Adding output bit \sum_reg [15] to partition 2.
+Adding output bit \sum_reg [14] to partition 2.
+Adding output bit \sum_reg [13] to partition 2.
+Adding output bit \sum_reg [12] to partition 2.
+Adding output bit \sum_reg [11] to partition 2.
+Adding output bit \sum_reg [10] to partition 2.
+Adding output bit \sum_reg [9] to partition 2.
+Adding output bit \sum_reg [8] to partition 2.
+Adding output bit \sum_reg [7] to partition 2.
+Adding output bit \sum_reg [6] to partition 2.
+Adding output bit \sum_reg [5] to partition 2.
+Adding output bit \sum_reg [4] to partition 2.
+Adding output bit \sum_reg [3] to partition 2.
+Adding output bit \sum_reg [2] to partition 2.
+Adding output bit \sum_reg [1] to partition 2.
+Adding output bit \sum_reg [0] to partition 2.
+Adding output bit \sum23 [16] to partition 3.
+Adding output bit \sum23 [15] to partition 3.
+Adding output bit \sum23 [14] to partition 3.
+Adding output bit \sum23 [13] to partition 3.
+Adding output bit \sum23 [12] to partition 3.
+Adding output bit \sum23 [11] to partition 3.
+Adding output bit \sum23 [10] to partition 3.
+Adding output bit \sum23 [9] to partition 3.
+Adding output bit \sum23 [8] to partition 3.
+Adding output bit \sum23 [7] to partition 3.
+Adding output bit \sum23 [6] to partition 3.
+Adding output bit \sum23 [5] to partition 3.
+Adding output bit \sum23 [4] to partition 3.
+Adding output bit \sum23 [3] to partition 3.
+Adding output bit \sum23 [2] to partition 3.
+Adding output bit \sum23 [1] to partition 3.
+Adding output bit \sum23 [0] to partition 3.
+Adding output bit \sum01 [16] to partition 4.
+Adding output bit \sum01 [15] to partition 4.
+Adding output bit \sum01 [14] to partition 4.
+Adding output bit \sum01 [13] to partition 4.
+Adding output bit \sum01 [12] to partition 4.
+Adding output bit \sum01 [11] to partition 4.
+Adding output bit \sum01 [10] to partition 4.
+Adding output bit \sum01 [9] to partition 4.
+Adding output bit \sum01 [8] to partition 4.
+Adding output bit \sum01 [7] to partition 4.
+Adding output bit \sum01 [6] to partition 4.
+Adding output bit \sum01 [5] to partition 4.
+Adding output bit \sum01 [4] to partition 4.
+Adding output bit \sum01 [3] to partition 4.
+Adding output bit \sum01 [2] to partition 4.
+Adding output bit \sum01 [1] to partition 4.
+Adding output bit \sum01 [0] to partition 4.
+Adding output bit \sum [17] to partition 5.
+Adding output bit \sum [16] to partition 5.
+Adding output bit \sum [15] to partition 5.
+Adding output bit \sum [14] to partition 5.
+Adding output bit \sum [13] to partition 5.
+Adding output bit \sum [12] to partition 5.
+Adding output bit \sum [11] to partition 5.
+Adding output bit \sum [10] to partition 5.
+Adding output bit \sum [9] to partition 5.
+Adding output bit \sum [8] to partition 5.
+Adding output bit \sum [7] to partition 5.
+Adding output bit \sum [6] to partition 5.
+Adding output bit \sum [5] to partition 5.
+Adding output bit \sum [4] to partition 5.
+Adding output bit \sum [3] to partition 5.
+Adding output bit \sum [2] to partition 5.
+Adding output bit \sum [1] to partition 5.
+Adding output bit \sum [0] to partition 5.
+Adding output bit \prod3 [15] to partition 6.
+Adding output bit \prod3 [14] to partition 6.
+Adding output bit \prod3 [13] to partition 6.
+Adding output bit \prod3 [12] to partition 6.
+Adding output bit \prod3 [11] to partition 6.
+Adding output bit \prod3 [10] to partition 6.
+Adding output bit \prod3 [9] to partition 6.
+Adding output bit \prod3 [8] to partition 6.
+Adding output bit \prod3 [7] to partition 6.
+Adding output bit \prod3 [6] to partition 6.
+Adding output bit \prod3 [5] to partition 6.
+Adding output bit \prod3 [4] to partition 6.
+Adding output bit \prod3 [3] to partition 6.
+Adding output bit \prod3 [2] to partition 6.
+Adding output bit \prod3 [1] to partition 6.
+Adding output bit \prod3 [0] to partition 6.
+Adding output bit \prod2 [15] to partition 7.
+Adding output bit \prod2 [14] to partition 7.
+Adding output bit \prod2 [13] to partition 7.
+Adding output bit \prod2 [12] to partition 7.
+Adding output bit \prod2 [11] to partition 7.
+Adding output bit \prod2 [10] to partition 7.
+Adding output bit \prod2 [9] to partition 7.
+Adding output bit \prod2 [8] to partition 7.
+Adding output bit \prod2 [7] to partition 7.
+Adding output bit \prod2 [6] to partition 7.
+Adding output bit \prod2 [5] to partition 7.
+Adding output bit \prod2 [4] to partition 7.
+Adding output bit \prod2 [3] to partition 7.
+Adding output bit \prod2 [2] to partition 7.
+Adding output bit \prod2 [1] to partition 7.
+Adding output bit \prod2 [0] to partition 7.
+Adding output bit \prod1 [15] to partition 8.
+Adding output bit \prod1 [14] to partition 8.
+Adding output bit \prod1 [13] to partition 8.
+Adding output bit \prod1 [12] to partition 8.
+Adding output bit \prod1 [11] to partition 8.
+Adding output bit \prod1 [10] to partition 8.
+Adding output bit \prod1 [9] to partition 8.
+Adding output bit \prod1 [8] to partition 8.
+Adding output bit \prod1 [7] to partition 8.
+Adding output bit \prod1 [6] to partition 8.
+Adding output bit \prod1 [5] to partition 8.
+Adding output bit \prod1 [4] to partition 8.
+Adding output bit \prod1 [3] to partition 8.
+Adding output bit \prod1 [2] to partition 8.
+Adding output bit \prod1 [1] to partition 8.
+Adding output bit \prod1 [0] to partition 8.
+Adding output bit \prod0 [15] to partition 9.
+Adding output bit \prod0 [14] to partition 9.
+Adding output bit \prod0 [13] to partition 9.
+Adding output bit \prod0 [12] to partition 9.
+Adding output bit \prod0 [11] to partition 9.
+Adding output bit \prod0 [10] to partition 9.
+Adding output bit \prod0 [9] to partition 9.
+Adding output bit \prod0 [8] to partition 9.
+Adding output bit \prod0 [7] to partition 9.
+Adding output bit \prod0 [6] to partition 9.
+Adding output bit \prod0 [5] to partition 9.
+Adding output bit \prod0 [4] to partition 9.
+Adding output bit \prod0 [3] to partition 9.
+Adding output bit \prod0 [2] to partition 9.
+Adding output bit \prod0 [1] to partition 9.
+Adding output bit \prod0 [0] to partition 9.
+Adding output bit \b_reg [31] to partition 10.
+Adding output bit \b_reg [30] to partition 10.
+Adding output bit \b_reg [29] to partition 10.
+Adding output bit \b_reg [28] to partition 10.
+Adding output bit \b_reg [27] to partition 10.
+Adding output bit \b_reg [26] to partition 10.
+Adding output bit \b_reg [25] to partition 10.
+Adding output bit \b_reg [24] to partition 10.
+Adding output bit \b_reg [23] to partition 10.
+Adding output bit \b_reg [22] to partition 10.
+Adding output bit \b_reg [21] to partition 10.
+Adding output bit \b_reg [20] to partition 10.
+Adding output bit \b_reg [19] to partition 10.
+Adding output bit \b_reg [18] to partition 10.
+Adding output bit \b_reg [17] to partition 10.
+Adding output bit \b_reg [16] to partition 10.
+Adding output bit \b_reg [15] to partition 10.
+Adding output bit \b_reg [14] to partition 10.
+Adding output bit \b_reg [13] to partition 10.
+Adding output bit \b_reg [12] to partition 10.
+Adding output bit \b_reg [11] to partition 10.
+Adding output bit \b_reg [10] to partition 10.
+Adding output bit \b_reg [9] to partition 10.
+Adding output bit \b_reg [8] to partition 10.
+Adding output bit \b_reg [7] to partition 10.
+Adding output bit \b_reg [6] to partition 10.
+Adding output bit \b_reg [5] to partition 10.
+Adding output bit \b_reg [4] to partition 10.
+Adding output bit \b_reg [3] to partition 10.
+Adding output bit \b_reg [2] to partition 10.
+Adding output bit \b_reg [1] to partition 10.
+Adding output bit \b_reg [0] to partition 10.
+Adding output bit \acc_valid to partition 11.
+Adding output bit \acc [23] to partition 12.
+Adding output bit \acc [22] to partition 12.
+Adding output bit \acc [21] to partition 12.
+Adding output bit \acc [20] to partition 12.
+Adding output bit \acc [19] to partition 12.
+Adding output bit \acc [18] to partition 12.
+Adding output bit \acc [17] to partition 12.
+Adding output bit \acc [16] to partition 12.
+Adding output bit \acc [15] to partition 12.
+Adding output bit \acc [14] to partition 12.
+Adding output bit \acc [13] to partition 12.
+Adding output bit \acc [12] to partition 12.
+Adding output bit \acc [11] to partition 12.
+Adding output bit \acc [10] to partition 12.
+Adding output bit \acc [9] to partition 12.
+Adding output bit \acc [8] to partition 12.
+Adding output bit \acc [7] to partition 12.
+Adding output bit \acc [6] to partition 12.
+Adding output bit \acc [5] to partition 12.
+Adding output bit \acc [4] to partition 12.
+Adding output bit \acc [3] to partition 12.
+Adding output bit \acc [2] to partition 12.
+Adding output bit \acc [1] to partition 12.
+Adding output bit \acc [0] to partition 12.
+Adding output bit \a_reg [31] to partition 13.
+Adding output bit \a_reg [30] to partition 13.
+Adding output bit \a_reg [29] to partition 13.
+Adding output bit \a_reg [28] to partition 13.
+Adding output bit \a_reg [27] to partition 13.
+Adding output bit \a_reg [26] to partition 13.
+Adding output bit \a_reg [25] to partition 13.
+Adding output bit \a_reg [24] to partition 13.
+Adding output bit \a_reg [23] to partition 13.
+Adding output bit \a_reg [22] to partition 13.
+Adding output bit \a_reg [21] to partition 13.
+Adding output bit \a_reg [20] to partition 13.
+Adding output bit \a_reg [19] to partition 13.
+Adding output bit \a_reg [18] to partition 13.
+Adding output bit \a_reg [17] to partition 13.
+Adding output bit \a_reg [16] to partition 13.
+Adding output bit \a_reg [15] to partition 13.
+Adding output bit \a_reg [14] to partition 13.
+Adding output bit \a_reg [13] to partition 13.
+Adding output bit \a_reg [12] to partition 13.
+Adding output bit \a_reg [11] to partition 13.
+Adding output bit \a_reg [10] to partition 13.
+Adding output bit \a_reg [9] to partition 13.
+Adding output bit \a_reg [8] to partition 13.
+Adding output bit \a_reg [7] to partition 13.
+Adding output bit \a_reg [6] to partition 13.
+Adding output bit \a_reg [5] to partition 13.
+Adding output bit \a_reg [4] to partition 13.
+Adding output bit \a_reg [3] to partition 13.
+Adding output bit \a_reg [2] to partition 13.
+Adding output bit \a_reg [1] to partition 13.
+Adding output bit \a_reg [0] to partition 13.
+
+Final list of fragment partitions:
+  0 \valid_reg2 <= \rst \valid_reg \clk
+  1 \valid_reg <= \rst \valid \clk
+  2 \sum_reg [0] \sum_reg [1] \sum_reg [2] \sum_reg [3] \sum_reg [4] \sum_reg [5] \sum_reg [6] \sum_reg [7] \sum_reg [8] \sum_reg [9] \sum_reg [10] \sum_reg [11] \sum_reg [12] \sum_reg [13] \sum_reg [14] \sum_reg [15] \sum_reg [16] \sum_reg [17] <= \rst \sum [17] \sum [16] \sum [15] \sum [14] \sum [13] \sum [12] \sum [11] \sum [10] \sum [9] \sum [8] \sum [7] \sum [6] \sum [5] \sum [4] \sum [3] \sum [2] \sum [1] \sum [0] \clk
+  3 \sum23 [0] \sum23 [1] \sum23 [2] \sum23 [3] \sum23 [4] \sum23 [5] \sum23 [6] \sum23 [7] \sum23 [8] \sum23 [9] \sum23 [10] \sum23 [11] \sum23 [12] \sum23 [13] \sum23 [14] \sum23 [15] \sum23 [16] <= \prod3 [15] \prod3 [14] \prod3 [13] \prod3 [12] \prod3 [11] \prod3 [10] \prod3 [9] \prod3 [8] \prod3 [7] \prod3 [6] \prod3 [5] \prod3 [4] \prod3 [3] \prod3 [2] \prod3 [1] \prod3 [0] \prod2 [15] \prod2 [14] \prod2 [13] \prod2 [12] \prod2 [11] \prod2 [10] \prod2 [9] \prod2 [8] \prod2 [7] \prod2 [6] \prod2 [5] \prod2 [4] \prod2 [3] \prod2 [2] \prod2 [1] \prod2 [0]
+  4 \sum01 [0] \sum01 [1] \sum01 [2] \sum01 [3] \sum01 [4] \sum01 [5] \sum01 [6] \sum01 [7] \sum01 [8] \sum01 [9] \sum01 [10] \sum01 [11] \sum01 [12] \sum01 [13] \sum01 [14] \sum01 [15] \sum01 [16] <= \prod1 [15] \prod1 [14] \prod1 [13] \prod1 [12] \prod1 [11] \prod1 [10] \prod1 [9] \prod1 [8] \prod1 [7] \prod1 [6] \prod1 [5] \prod1 [4] \prod1 [3] \prod1 [2] \prod1 [1] \prod1 [0] \prod0 [15] \prod0 [14] \prod0 [13] \prod0 [12] \prod0 [11] \prod0 [10] \prod0 [9] \prod0 [8] \prod0 [7] \prod0 [6] \prod0 [5] \prod0 [4] \prod0 [3] \prod0 [2] \prod0 [1] \prod0 [0]
+  5 \sum [0] \sum [1] \sum [2] \sum [3] \sum [4] \sum [5] \sum [6] \sum [7] \sum [8] \sum [9] \sum [10] \sum [11] \sum [12] \sum [13] \sum [14] \sum [15] \sum [16] \sum [17] <= \sum23 [16] \sum23 [15] \sum23 [14] \sum23 [13] \sum23 [12] \sum23 [11] \sum23 [10] \sum23 [9] \sum23 [8] \sum23 [7] \sum23 [6] \sum23 [5] \sum23 [4] \sum23 [3] \sum23 [2] \sum23 [1] \sum23 [0] \sum01 [16] \sum01 [15] \sum01 [14] \sum01 [13] \sum01 [12] \sum01 [11] \sum01 [10] \sum01 [9] \sum01 [8] \sum01 [7] \sum01 [6] \sum01 [5] \sum01 [4] \sum01 [3] \sum01 [2] \sum01 [1] \sum01 [0]
+  6 \prod3 [0] \prod3 [1] \prod3 [2] \prod3 [3] \prod3 [4] \prod3 [5] \prod3 [6] \prod3 [7] \prod3 [8] \prod3 [9] \prod3 [10] \prod3 [11] \prod3 [12] \prod3 [13] \prod3 [14] \prod3 [15] <= \b_reg [31] \b_reg [30] \b_reg [29] \b_reg [28] \b_reg [27] \b_reg [26] \b_reg [25] \b_reg [24] \a_reg [31] \a_reg [30] \a_reg [29] \a_reg [28] \a_reg [27] \a_reg [26] \a_reg [25] \a_reg [24]
+  7 \prod2 [0] \prod2 [1] \prod2 [2] \prod2 [3] \prod2 [4] \prod2 [5] \prod2 [6] \prod2 [7] \prod2 [8] \prod2 [9] \prod2 [10] \prod2 [11] \prod2 [12] \prod2 [13] \prod2 [14] \prod2 [15] <= \b_reg [23] \b_reg [22] \b_reg [21] \b_reg [20] \b_reg [19] \b_reg [18] \b_reg [17] \b_reg [16] \a_reg [23] \a_reg [22] \a_reg [21] \a_reg [20] \a_reg [19] \a_reg [18] \a_reg [17] \a_reg [16]
+  8 \prod1 [0] \prod1 [1] \prod1 [2] \prod1 [3] \prod1 [4] \prod1 [5] \prod1 [6] \prod1 [7] \prod1 [8] \prod1 [9] \prod1 [10] \prod1 [11] \prod1 [12] \prod1 [13] \prod1 [14] \prod1 [15] <= \b_reg [15] \b_reg [14] \b_reg [13] \b_reg [12] \b_reg [11] \b_reg [10] \b_reg [9] \b_reg [8] \a_reg [15] \a_reg [14] \a_reg [13] \a_reg [12] \a_reg [11] \a_reg [10] \a_reg [9] \a_reg [8]
+  9 \prod0 [0] \prod0 [1] \prod0 [2] \prod0 [3] \prod0 [4] \prod0 [5] \prod0 [6] \prod0 [7] \prod0 [8] \prod0 [9] \prod0 [10] \prod0 [11] \prod0 [12] \prod0 [13] \prod0 [14] \prod0 [15] <= \b_reg [7] \b_reg [6] \b_reg [5] \b_reg [4] \b_reg [3] \b_reg [2] \b_reg [1] \b_reg [0] \a_reg [7] \a_reg [6] \a_reg [5] \a_reg [4] \a_reg [3] \a_reg [2] \a_reg [1] \a_reg [0]
+  10 \b_reg [0] \b_reg [1] \b_reg [2] \b_reg [3] \b_reg [4] \b_reg [5] \b_reg [6] \b_reg [7] \b_reg [8] \b_reg [9] \b_reg [10] \b_reg [11] \b_reg [12] \b_reg [13] \b_reg [14] \b_reg [15] \b_reg [16] \b_reg [17] \b_reg [18] \b_reg [19] \b_reg [20] \b_reg [21] \b_reg [22] \b_reg [23] \b_reg [24] \b_reg [25] \b_reg [26] \b_reg [27] \b_reg [28] \b_reg [29] \b_reg [30] \b_reg [31] <= \rst \b_vec [31] \b_vec [30] \b_vec [29] \b_vec [28] \b_vec [27] \b_vec [26] \b_vec [25] \b_vec [24] \b_vec [23] \b_vec [22] \b_vec [21] \b_vec [20] \b_vec [19] \b_vec [18] \b_vec [17] \b_vec [16] \b_vec [15] \b_vec [14] \b_vec [13] \b_vec [12] \b_vec [11] \b_vec [10] \b_vec [9] \b_vec [8] \b_vec [7] \b_vec [6] \b_vec [5] \b_vec [4] \b_vec [3] \b_vec [2] \b_vec [1] \b_vec [0] \clk
+  11 \acc_valid <= \rst \valid_reg2 \clk
+  12 \acc [0] \acc [1] \acc [2] \acc [3] \acc [4] \acc [5] \acc [6] \acc [7] \acc [8] \acc [9] \acc [10] \acc [11] \acc [12] \acc [13] \acc [14] \acc [15] \acc [16] \acc [17] \acc [18] \acc [19] \acc [20] \acc [21] \acc [22] \acc [23] <= \sum_reg [16] \sum_reg [15] \sum_reg [14] \sum_reg [13] \sum_reg [12] \sum_reg [11] \sum_reg [10] \sum_reg [9] \sum_reg [8] \sum_reg [7] \sum_reg [6] \sum_reg [5] \sum_reg [4] \sum_reg [3] \sum_reg [2] \sum_reg [1] \sum_reg [0] \rst \valid_reg2 \sum_reg [17] \clk
+  13 \a_reg [0] \a_reg [1] \a_reg [2] \a_reg [3] \a_reg [4] \a_reg [5] \a_reg [6] \a_reg [7] \a_reg [8] \a_reg [9] \a_reg [10] \a_reg [11] \a_reg [12] \a_reg [13] \a_reg [14] \a_reg [15] \a_reg [16] \a_reg [17] \a_reg [18] \a_reg [19] \a_reg [20] \a_reg [21] \a_reg [22] \a_reg [23] \a_reg [24] \a_reg [25] \a_reg [26] \a_reg [27] \a_reg [28] \a_reg [29] \a_reg [30] \a_reg [31] <= \rst \a_vec [31] \a_vec [30] \a_vec [29] \a_vec [28] \a_vec [27] \a_vec [26] \a_vec [25] \a_vec [24] \a_vec [23] \a_vec [22] \a_vec [21] \a_vec [20] \a_vec [19] \a_vec [18] \a_vec [17] \a_vec [16] \a_vec [15] \a_vec [14] \a_vec [13] \a_vec [12] \a_vec [11] \a_vec [10] \a_vec [9] \a_vec [8] \a_vec [7] \a_vec [6] \a_vec [5] \a_vec [4] \a_vec [3] \a_vec [2] \a_vec [1] \a_vec [0] \clk
+
+3.1.3. Execute partitioning commands for module mac_unit.
+
+Amending partitions:
+Execute queued amend rules.
+Find automatic amend rules.
+  Checking partition 0:
+    Found 1 po matches and 0 auto/pi matches.
+  Checking partition 1:
+    Found 0 po matches and 0 auto/pi matches.
+  Checking partition 2:
+    Found 1 po matches and 0 auto/pi matches.
+  Checking partition 3:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 4:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 5:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 6:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 7:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 8:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 9:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 10:
+    Found 0 po matches and 0 auto/pi matches.
+  Checking partition 11:
+    Found 1 po matches and 0 auto/pi matches.
+  Checking partition 12:
+    Found 2 po matches and 0 auto/pi matches.
+  Checking partition 13:
+    Found 0 po matches and 0 auto/pi matches.
+
+Assigning partition names:
+Automatically naming partition 0 'valid_reg2' using a PO name: valid_reg2
+Automatically naming partition 1 'valid_reg' using a PO name: valid_reg
+Automatically naming partition 2 'sum_reg' using a PO name: sum_reg
+Automatically naming partition 3 'sum23' using a PO name: sum23
+Automatically naming partition 4 'sum01' using a PO name: sum01
+Automatically naming partition 5 'sum' using a PO name: sum
+Automatically naming partition 6 'prod3' using a PO name: prod3
+Automatically naming partition 7 'prod2' using a PO name: prod2
+Automatically naming partition 8 'prod1' using a PO name: prod1
+Automatically naming partition 9 'prod0' using a PO name: prod0
+Automatically naming partition 10 'b_reg' using a PO name: b_reg
+Automatically naming partition 11 'acc_valid' using a PO name: acc_valid
+Automatically naming partition 12 'acc' using a PO name: acc
+Automatically naming partition 13 'a_reg' using a PO name: a_reg
+
+Partition Summary:
+  Fragments:
+       0: \valid_reg2
+       1: \valid_reg
+       2: \sum_reg
+       3: \sum23
+       4: \sum01
+       5: \sum
+       6: \prod3
+       7: \prod2
+       8: \prod1
+       9: \prod0
+      10: \b_reg
+      11: \acc_valid
+      12: \acc
+      13: \a_reg
+  Partitions:
+       0: valid_reg2
+       1: valid_reg
+       2: sum_reg
+       3: sum23
+       4: sum01
+       5: sum
+       6: prod3
+       7: prod2
+       8: prod1
+       9: prod0
+      10: b_reg
+      11: acc_valid
+      12: acc
+      13: a_reg
+  Fragment-Partition-Matrix:
+           0           1          
+           01234 56789 0123
+       0   #=... ..... ....  valid_reg2
+       1   .#... ..... ....  valid_reg
+       2   ..#.. =.... ....  sum_reg
+       3   ...#. .==.. ....  sum23
+       4   ....# ...== ....  sum01
+       5   ...== #.... ....  sum
+       6   ..... .#... =..=  prod3
+       7   ..... ..#.. =..=  prod2
+       8   ..... ...#. =..=  prod1
+       9   ..... ....# =..=  prod0
+      10   ..... ..... #...  b_reg
+      11   =.... ..... .#..  acc_valid
+      12   =.=.. ..... ..#.  acc
+      13   ..... ..... ...#  a_reg
+  Legend for Fragment-Partition-Matrix:
+      #  .... partition is this single fragment
+      *  .... fragments merged into single partition
+      +  .... fragments amended to the partition
+      =  .... fragment is driving a partition input
+      -  .... fragment is driving an amended fragment
+      .  .... no relationship between fragment and partition
+      ,  .... unused fragment index (as result of grouping)
+
+3.1.4. Write partitions for module mac_unit.
+Adding non-output bit \valid_reg2 to partition 14.
+Adding non-output bit \valid_reg to partition 14.
+Adding non-output bit \valid to partition 14.
+Adding non-output bit \sum_reg [17] to partition 14.
+Adding non-output bit \sum_reg [16] to partition 14.
+Adding non-output bit \sum_reg [15] to partition 14.
+Adding non-output bit \sum_reg [14] to partition 14.
+Adding non-output bit \sum_reg [13] to partition 14.
+Adding non-output bit \sum_reg [12] to partition 14.
+Adding non-output bit \sum_reg [11] to partition 14.
+Adding non-output bit \sum_reg [10] to partition 14.
+Adding non-output bit \sum_reg [9] to partition 14.
+Adding non-output bit \sum_reg [8] to partition 14.
+Adding non-output bit \sum_reg [7] to partition 14.
+Adding non-output bit \sum_reg [6] to partition 14.
+Adding non-output bit \sum_reg [5] to partition 14.
+Adding non-output bit \sum_reg [4] to partition 14.
+Adding non-output bit \sum_reg [3] to partition 14.
+Adding non-output bit \sum_reg [2] to partition 14.
+Adding non-output bit \sum_reg [1] to partition 14.
+Adding non-output bit \sum_reg [0] to partition 14.
+Adding non-output bit \sum23 [16] to partition 14.
+Adding non-output bit \sum23 [15] to partition 14.
+Adding non-output bit \sum23 [14] to partition 14.
+Adding non-output bit \sum23 [13] to partition 14.
+Adding non-output bit \sum23 [12] to partition 14.
+Adding non-output bit \sum23 [11] to partition 14.
+Adding non-output bit \sum23 [10] to partition 14.
+Adding non-output bit \sum23 [9] to partition 14.
+Adding non-output bit \sum23 [8] to partition 14.
+Adding non-output bit \sum23 [7] to partition 14.
+Adding non-output bit \sum23 [6] to partition 14.
+Adding non-output bit \sum23 [5] to partition 14.
+Adding non-output bit \sum23 [4] to partition 14.
+Adding non-output bit \sum23 [3] to partition 14.
+Adding non-output bit \sum23 [2] to partition 14.
+Adding non-output bit \sum23 [1] to partition 14.
+Adding non-output bit \sum23 [0] to partition 14.
+Adding non-output bit \sum01 [16] to partition 14.
+Adding non-output bit \sum01 [15] to partition 14.
+Adding non-output bit \sum01 [14] to partition 14.
+Adding non-output bit \sum01 [13] to partition 14.
+Adding non-output bit \sum01 [12] to partition 14.
+Adding non-output bit \sum01 [11] to partition 14.
+Adding non-output bit \sum01 [10] to partition 14.
+Adding non-output bit \sum01 [9] to partition 14.
+Adding non-output bit \sum01 [8] to partition 14.
+Adding non-output bit \sum01 [7] to partition 14.
+Adding non-output bit \sum01 [6] to partition 14.
+Adding non-output bit \sum01 [5] to partition 14.
+Adding non-output bit \sum01 [4] to partition 14.
+Adding non-output bit \sum01 [3] to partition 14.
+Adding non-output bit \sum01 [2] to partition 14.
+Adding non-output bit \sum01 [1] to partition 14.
+Adding non-output bit \sum01 [0] to partition 14.
+Adding non-output bit \sum [17] to partition 14.
+Adding non-output bit \sum [16] to partition 14.
+Adding non-output bit \sum [15] to partition 14.
+Adding non-output bit \sum [14] to partition 14.
+Adding non-output bit \sum [13] to partition 14.
+Adding non-output bit \sum [12] to partition 14.
+Adding non-output bit \sum [11] to partition 14.
+Adding non-output bit \sum [10] to partition 14.
+Adding non-output bit \sum [9] to partition 14.
+Adding non-output bit \sum [8] to partition 14.
+Adding non-output bit \sum [7] to partition 14.
+Adding non-output bit \sum [6] to partition 14.
+Adding non-output bit \sum [5] to partition 14.
+Adding non-output bit \sum [4] to partition 14.
+Adding non-output bit \sum [3] to partition 14.
+Adding non-output bit \sum [2] to partition 14.
+Adding non-output bit \sum [1] to partition 14.
+Adding non-output bit \sum [0] to partition 14.
+Adding non-output bit \rst to partition 14.
+Adding non-output bit \prod3 [15] to partition 14.
+Adding non-output bit \prod3 [14] to partition 14.
+Adding non-output bit \prod3 [13] to partition 14.
+Adding non-output bit \prod3 [12] to partition 14.
+Adding non-output bit \prod3 [11] to partition 14.
+Adding non-output bit \prod3 [10] to partition 14.
+Adding non-output bit \prod3 [9] to partition 14.
+Adding non-output bit \prod3 [8] to partition 14.
+Adding non-output bit \prod3 [7] to partition 14.
+Adding non-output bit \prod3 [6] to partition 14.
+Adding non-output bit \prod3 [5] to partition 14.
+Adding non-output bit \prod3 [4] to partition 14.
+Adding non-output bit \prod3 [3] to partition 14.
+Adding non-output bit \prod3 [2] to partition 14.
+Adding non-output bit \prod3 [1] to partition 14.
+Adding non-output bit \prod3 [0] to partition 14.
+Adding non-output bit \prod2 [15] to partition 14.
+Adding non-output bit \prod2 [14] to partition 14.
+Adding non-output bit \prod2 [13] to partition 14.
+Adding non-output bit \prod2 [12] to partition 14.
+Adding non-output bit \prod2 [11] to partition 14.
+Adding non-output bit \prod2 [10] to partition 14.
+Adding non-output bit \prod2 [9] to partition 14.
+Adding non-output bit \prod2 [8] to partition 14.
+Adding non-output bit \prod2 [7] to partition 14.
+Adding non-output bit \prod2 [6] to partition 14.
+Adding non-output bit \prod2 [5] to partition 14.
+Adding non-output bit \prod2 [4] to partition 14.
+Adding non-output bit \prod2 [3] to partition 14.
+Adding non-output bit \prod2 [2] to partition 14.
+Adding non-output bit \prod2 [1] to partition 14.
+Adding non-output bit \prod2 [0] to partition 14.
+Adding non-output bit \prod1 [15] to partition 14.
+Adding non-output bit \prod1 [14] to partition 14.
+Adding non-output bit \prod1 [13] to partition 14.
+Adding non-output bit \prod1 [12] to partition 14.
+Adding non-output bit \prod1 [11] to partition 14.
+Adding non-output bit \prod1 [10] to partition 14.
+Adding non-output bit \prod1 [9] to partition 14.
+Adding non-output bit \prod1 [8] to partition 14.
+Adding non-output bit \prod1 [7] to partition 14.
+Adding non-output bit \prod1 [6] to partition 14.
+Adding non-output bit \prod1 [5] to partition 14.
+Adding non-output bit \prod1 [4] to partition 14.
+Adding non-output bit \prod1 [3] to partition 14.
+Adding non-output bit \prod1 [2] to partition 14.
+Adding non-output bit \prod1 [1] to partition 14.
+Adding non-output bit \prod1 [0] to partition 14.
+Adding non-output bit \prod0 [15] to partition 14.
+Adding non-output bit \prod0 [14] to partition 14.
+Adding non-output bit \prod0 [13] to partition 14.
+Adding non-output bit \prod0 [12] to partition 14.
+Adding non-output bit \prod0 [11] to partition 14.
+Adding non-output bit \prod0 [10] to partition 14.
+Adding non-output bit \prod0 [9] to partition 14.
+Adding non-output bit \prod0 [8] to partition 14.
+Adding non-output bit \prod0 [7] to partition 14.
+Adding non-output bit \prod0 [6] to partition 14.
+Adding non-output bit \prod0 [5] to partition 14.
+Adding non-output bit \prod0 [4] to partition 14.
+Adding non-output bit \prod0 [3] to partition 14.
+Adding non-output bit \prod0 [2] to partition 14.
+Adding non-output bit \prod0 [1] to partition 14.
+Adding non-output bit \prod0 [0] to partition 14.
+Adding non-output bit \clk to partition 14.
+Adding non-output bit \b_vec [31] to partition 14.
+Adding non-output bit \b_vec [30] to partition 14.
+Adding non-output bit \b_vec [29] to partition 14.
+Adding non-output bit \b_vec [28] to partition 14.
+Adding non-output bit \b_vec [27] to partition 14.
+Adding non-output bit \b_vec [26] to partition 14.
+Adding non-output bit \b_vec [25] to partition 14.
+Adding non-output bit \b_vec [24] to partition 14.
+Adding non-output bit \b_vec [23] to partition 14.
+Adding non-output bit \b_vec [22] to partition 14.
+Adding non-output bit \b_vec [21] to partition 14.
+Adding non-output bit \b_vec [20] to partition 14.
+Adding non-output bit \b_vec [19] to partition 14.
+Adding non-output bit \b_vec [18] to partition 14.
+Adding non-output bit \b_vec [17] to partition 14.
+Adding non-output bit \b_vec [16] to partition 14.
+Adding non-output bit \b_vec [15] to partition 14.
+Adding non-output bit \b_vec [14] to partition 14.
+Adding non-output bit \b_vec [13] to partition 14.
+Adding non-output bit \b_vec [12] to partition 14.
+Adding non-output bit \b_vec [11] to partition 14.
+Adding non-output bit \b_vec [10] to partition 14.
+Adding non-output bit \b_vec [9] to partition 14.
+Adding non-output bit \b_vec [8] to partition 14.
+Adding non-output bit \b_vec [7] to partition 14.
+Adding non-output bit \b_vec [6] to partition 14.
+Adding non-output bit \b_vec [5] to partition 14.
+Adding non-output bit \b_vec [4] to partition 14.
+Adding non-output bit \b_vec [3] to partition 14.
+Adding non-output bit \b_vec [2] to partition 14.
+Adding non-output bit \b_vec [1] to partition 14.
+Adding non-output bit \b_vec [0] to partition 14.
+Adding non-output bit \b_reg [31] to partition 14.
+Adding non-output bit \b_reg [30] to partition 14.
+Adding non-output bit \b_reg [29] to partition 14.
+Adding non-output bit \b_reg [28] to partition 14.
+Adding non-output bit \b_reg [27] to partition 14.
+Adding non-output bit \b_reg [26] to partition 14.
+Adding non-output bit \b_reg [25] to partition 14.
+Adding non-output bit \b_reg [24] to partition 14.
+Adding non-output bit \b_reg [23] to partition 14.
+Adding non-output bit \b_reg [22] to partition 14.
+Adding non-output bit \b_reg [21] to partition 14.
+Adding non-output bit \b_reg [20] to partition 14.
+Adding non-output bit \b_reg [19] to partition 14.
+Adding non-output bit \b_reg [18] to partition 14.
+Adding non-output bit \b_reg [17] to partition 14.
+Adding non-output bit \b_reg [16] to partition 14.
+Adding non-output bit \b_reg [15] to partition 14.
+Adding non-output bit \b_reg [14] to partition 14.
+Adding non-output bit \b_reg [13] to partition 14.
+Adding non-output bit \b_reg [12] to partition 14.
+Adding non-output bit \b_reg [11] to partition 14.
+Adding non-output bit \b_reg [10] to partition 14.
+Adding non-output bit \b_reg [9] to partition 14.
+Adding non-output bit \b_reg [8] to partition 14.
+Adding non-output bit \b_reg [7] to partition 14.
+Adding non-output bit \b_reg [6] to partition 14.
+Adding non-output bit \b_reg [5] to partition 14.
+Adding non-output bit \b_reg [4] to partition 14.
+Adding non-output bit \b_reg [3] to partition 14.
+Adding non-output bit \b_reg [2] to partition 14.
+Adding non-output bit \b_reg [1] to partition 14.
+Adding non-output bit \b_reg [0] to partition 14.
+Adding output bit \acc_valid to partition 14.
+Adding output bit \acc [23] to partition 14.
+Adding output bit \acc [22] to partition 14.
+Adding output bit \acc [21] to partition 14.
+Adding output bit \acc [20] to partition 14.
+Adding output bit \acc [19] to partition 14.
+Adding output bit \acc [18] to partition 14.
+Adding output bit \acc [17] to partition 14.
+Adding output bit \acc [16] to partition 14.
+Adding output bit \acc [15] to partition 14.
+Adding output bit \acc [14] to partition 14.
+Adding output bit \acc [13] to partition 14.
+Adding output bit \acc [12] to partition 14.
+Adding output bit \acc [11] to partition 14.
+Adding output bit \acc [10] to partition 14.
+Adding output bit \acc [9] to partition 14.
+Adding output bit \acc [8] to partition 14.
+Adding output bit \acc [7] to partition 14.
+Adding output bit \acc [6] to partition 14.
+Adding output bit \acc [5] to partition 14.
+Adding output bit \acc [4] to partition 14.
+Adding output bit \acc [3] to partition 14.
+Adding output bit \acc [2] to partition 14.
+Adding output bit \acc [1] to partition 14.
+Adding output bit \acc [0] to partition 14.
+Adding non-output bit \a_vec [31] to partition 14.
+Adding non-output bit \a_vec [30] to partition 14.
+Adding non-output bit \a_vec [29] to partition 14.
+Adding non-output bit \a_vec [28] to partition 14.
+Adding non-output bit \a_vec [27] to partition 14.
+Adding non-output bit \a_vec [26] to partition 14.
+Adding non-output bit \a_vec [25] to partition 14.
+Adding non-output bit \a_vec [24] to partition 14.
+Adding non-output bit \a_vec [23] to partition 14.
+Adding non-output bit \a_vec [22] to partition 14.
+Adding non-output bit \a_vec [21] to partition 14.
+Adding non-output bit \a_vec [20] to partition 14.
+Adding non-output bit \a_vec [19] to partition 14.
+Adding non-output bit \a_vec [18] to partition 14.
+Adding non-output bit \a_vec [17] to partition 14.
+Adding non-output bit \a_vec [16] to partition 14.
+Adding non-output bit \a_vec [15] to partition 14.
+Adding non-output bit \a_vec [14] to partition 14.
+Adding non-output bit \a_vec [13] to partition 14.
+Adding non-output bit \a_vec [12] to partition 14.
+Adding non-output bit \a_vec [11] to partition 14.
+Adding non-output bit \a_vec [10] to partition 14.
+Adding non-output bit \a_vec [9] to partition 14.
+Adding non-output bit \a_vec [8] to partition 14.
+Adding non-output bit \a_vec [7] to partition 14.
+Adding non-output bit \a_vec [6] to partition 14.
+Adding non-output bit \a_vec [5] to partition 14.
+Adding non-output bit \a_vec [4] to partition 14.
+Adding non-output bit \a_vec [3] to partition 14.
+Adding non-output bit \a_vec [2] to partition 14.
+Adding non-output bit \a_vec [1] to partition 14.
+Adding non-output bit \a_vec [0] to partition 14.
+Adding non-output bit \a_reg [31] to partition 14.
+Adding non-output bit \a_reg [30] to partition 14.
+Adding non-output bit \a_reg [29] to partition 14.
+Adding non-output bit \a_reg [28] to partition 14.
+Adding non-output bit \a_reg [27] to partition 14.
+Adding non-output bit \a_reg [26] to partition 14.
+Adding non-output bit \a_reg [25] to partition 14.
+Adding non-output bit \a_reg [24] to partition 14.
+Adding non-output bit \a_reg [23] to partition 14.
+Adding non-output bit \a_reg [22] to partition 14.
+Adding non-output bit \a_reg [21] to partition 14.
+Adding non-output bit \a_reg [20] to partition 14.
+Adding non-output bit \a_reg [19] to partition 14.
+Adding non-output bit \a_reg [18] to partition 14.
+Adding non-output bit \a_reg [17] to partition 14.
+Adding non-output bit \a_reg [16] to partition 14.
+Adding non-output bit \a_reg [15] to partition 14.
+Adding non-output bit \a_reg [14] to partition 14.
+Adding non-output bit \a_reg [13] to partition 14.
+Adding non-output bit \a_reg [12] to partition 14.
+Adding non-output bit \a_reg [11] to partition 14.
+Adding non-output bit \a_reg [10] to partition 14.
+Adding non-output bit \a_reg [9] to partition 14.
+Adding non-output bit \a_reg [8] to partition 14.
+Adding non-output bit \a_reg [7] to partition 14.
+Adding non-output bit \a_reg [6] to partition 14.
+Adding non-output bit \a_reg [5] to partition 14.
+Adding non-output bit \a_reg [4] to partition 14.
+Adding non-output bit \a_reg [3] to partition 14.
+Adding non-output bit \a_reg [2] to partition 14.
+Adding non-output bit \a_reg [1] to partition 14.
+Adding non-output bit \a_reg [0] to partition 14.
+Writing partition 0 as mac_unit.valid_reg2.
+  partition pi bit 0: \rst <-> \rst
+  partition pi bit 1: \valid_reg <-> \valid_reg
+  partition pi bit 2: \clk <-> \clk
+  partition po bit 0: \valid_reg2 <-> \valid_reg2
+
+3.1.5. Executing RTLIL backend.
+Output filename: partitions/mac_unit.valid_reg2.il
+<suppressed ~5994 debug messages>
+
+3.1.6. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.valid_reg2...
+Checking module gold.mac_unit.valid_reg2...
+Found and reported 0 problems.
+
+Writing partition 1 as mac_unit.valid_reg.
+  partition pi bit 0: \rst <-> \rst
+  partition pi bit 1: \valid <-> \valid
+  partition pi bit 2: \clk <-> \clk
+  partition po bit 0: \valid_reg <-> \valid_reg
+
+3.1.7. Executing RTLIL backend.
+Output filename: partitions/mac_unit.valid_reg.il
+<suppressed ~38 debug messages>
+
+3.1.8. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.valid_reg...
+Checking module gold.mac_unit.valid_reg...
+Found and reported 0 problems.
+
+Writing partition 2 as mac_unit.sum_reg.
+  partition pi bit 0: \rst <-> \rst
+  partition pi bit 1: \sum [17] <-> \sum [17]
+  partition pi bit 2: \sum [16] <-> \sum [16]
+  partition pi bit 3: \sum [15] <-> \sum [15]
+  partition pi bit 4: \sum [14] <-> \sum [14]
+  partition pi bit 5: \sum [13] <-> \sum [13]
+  partition pi bit 6: \sum [12] <-> \sum [12]
+  partition pi bit 7: \sum [11] <-> \sum [11]
+  partition pi bit 8: \sum [10] <-> \sum [10]
+  partition pi bit 9: \sum [9] <-> \sum [9]
+  partition pi bit 10: \sum [8] <-> \sum [8]
+  partition pi bit 11: \sum [7] <-> \sum [7]
+  partition pi bit 12: \sum [6] <-> \sum [6]
+  partition pi bit 13: \sum [5] <-> \sum [5]
+  partition pi bit 14: \sum [4] <-> \sum [4]
+  partition pi bit 15: \sum [3] <-> \sum [3]
+  partition pi bit 16: \sum [2] <-> \sum [2]
+  partition pi bit 17: \sum [1] <-> \sum [1]
+  partition pi bit 18: \sum [0] <-> \sum [0]
+  partition pi bit 19: \clk <-> \clk
+  partition po bit 0: \sum_reg [0] <-> \sum_reg [0]
+  partition po bit 1: \sum_reg [1] <-> \sum_reg [1]
+  partition po bit 2: \sum_reg [2] <-> \sum_reg [2]
+  partition po bit 3: \sum_reg [3] <-> \sum_reg [3]
+  partition po bit 4: \sum_reg [4] <-> \sum_reg [4]
+  partition po bit 5: \sum_reg [5] <-> \sum_reg [5]
+  partition po bit 6: \sum_reg [6] <-> \sum_reg [6]
+  partition po bit 7: \sum_reg [7] <-> \sum_reg [7]
+  partition po bit 8: \sum_reg [8] <-> \sum_reg [8]
+  partition po bit 9: \sum_reg [9] <-> \sum_reg [9]
+  partition po bit 10: \sum_reg [10] <-> \sum_reg [10]
+  partition po bit 11: \sum_reg [11] <-> \sum_reg [11]
+  partition po bit 12: \sum_reg [12] <-> \sum_reg [12]
+  partition po bit 13: \sum_reg [13] <-> \sum_reg [13]
+  partition po bit 14: \sum_reg [14] <-> \sum_reg [14]
+  partition po bit 15: \sum_reg [15] <-> \sum_reg [15]
+  partition po bit 16: \sum_reg [16] <-> \sum_reg [16]
+  partition po bit 17: \sum_reg [17] <-> \sum_reg [17]
+
+3.1.9. Executing RTLIL backend.
+Output filename: partitions/mac_unit.sum_reg.il
+<suppressed ~140 debug messages>
+
+3.1.10. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.sum_reg...
+Checking module gold.mac_unit.sum_reg...
+Found and reported 0 problems.
+
+Writing partition 3 as mac_unit.sum23.
+  partition pi bit 0: \prod3 [15] <-> \prod3 [15]
+  partition pi bit 1: \prod3 [14] <-> \prod3 [14]
+  partition pi bit 2: \prod3 [13] <-> \prod3 [13]
+  partition pi bit 3: \prod3 [12] <-> \prod3 [12]
+  partition pi bit 4: \prod3 [11] <-> \prod3 [11]
+  partition pi bit 5: \prod3 [10] <-> \prod3 [10]
+  partition pi bit 6: \prod3 [9] <-> \prod3 [9]
+  partition pi bit 7: \prod3 [8] <-> \prod3 [8]
+  partition pi bit 8: \prod3 [7] <-> \prod3 [7]
+  partition pi bit 9: \prod3 [6] <-> \prod3 [6]
+  partition pi bit 10: \prod3 [5] <-> \prod3 [5]
+  partition pi bit 11: \prod3 [4] <-> \prod3 [4]
+  partition pi bit 12: \prod3 [3] <-> \prod3 [3]
+  partition pi bit 13: \prod3 [2] <-> \prod3 [2]
+  partition pi bit 14: \prod3 [1] <-> \prod3 [1]
+  partition pi bit 15: \prod3 [0] <-> \prod3 [0]
+  partition pi bit 16: \prod2 [15] <-> \prod2 [15]
+  partition pi bit 17: \prod2 [14] <-> \prod2 [14]
+  partition pi bit 18: \prod2 [13] <-> \prod2 [13]
+  partition pi bit 19: \prod2 [12] <-> \prod2 [12]
+  partition pi bit 20: \prod2 [11] <-> \prod2 [11]
+  partition pi bit 21: \prod2 [10] <-> \prod2 [10]
+  partition pi bit 22: \prod2 [9] <-> \prod2 [9]
+  partition pi bit 23: \prod2 [8] <-> \prod2 [8]
+  partition pi bit 24: \prod2 [7] <-> \prod2 [7]
+  partition pi bit 25: \prod2 [6] <-> \prod2 [6]
+  partition pi bit 26: \prod2 [5] <-> \prod2 [5]
+  partition pi bit 27: \prod2 [4] <-> \prod2 [4]
+  partition pi bit 28: \prod2 [3] <-> \prod2 [3]
+  partition pi bit 29: \prod2 [2] <-> \prod2 [2]
+  partition pi bit 30: \prod2 [1] <-> \prod2 [1]
+  partition pi bit 31: \prod2 [0] <-> \prod2 [0]
+  partition po bit 0: \sum23 [0] <-> \sum23 [0]
+  partition po bit 1: \sum23 [1] <-> \sum23 [1]
+  partition po bit 2: \sum23 [2] <-> \sum23 [2]
+  partition po bit 3: \sum23 [3] <-> \sum23 [3]
+  partition po bit 4: \sum23 [4] <-> \sum23 [4]
+  partition po bit 5: \sum23 [5] <-> \sum23 [5]
+  partition po bit 6: \sum23 [6] <-> \sum23 [6]
+  partition po bit 7: \sum23 [7] <-> \sum23 [7]
+  partition po bit 8: \sum23 [8] <-> \sum23 [8]
+  partition po bit 9: \sum23 [9] <-> \sum23 [9]
+  partition po bit 10: \sum23 [10] <-> \sum23 [10]
+  partition po bit 11: \sum23 [11] <-> \sum23 [11]
+  partition po bit 12: \sum23 [12] <-> \sum23 [12]
+  partition po bit 13: \sum23 [13] <-> \sum23 [13]
+  partition po bit 14: \sum23 [14] <-> \sum23 [14]
+  partition po bit 15: \sum23 [15] <-> \sum23 [15]
+  partition po bit 16: \sum23 [16] <-> \sum23 [16]
+
+3.1.11. Executing RTLIL backend.
+Output filename: partitions/mac_unit.sum23.il
+<suppressed ~112 debug messages>
+
+3.1.12. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.sum23...
+Checking module gold.mac_unit.sum23...
+Found and reported 0 problems.
+
+Writing partition 4 as mac_unit.sum01.
+  partition pi bit 0: \prod1 [15] <-> \prod1 [15]
+  partition pi bit 1: \prod1 [14] <-> \prod1 [14]
+  partition pi bit 2: \prod1 [13] <-> \prod1 [13]
+  partition pi bit 3: \prod1 [12] <-> \prod1 [12]
+  partition pi bit 4: \prod1 [11] <-> \prod1 [11]
+  partition pi bit 5: \prod1 [10] <-> \prod1 [10]
+  partition pi bit 6: \prod1 [9] <-> \prod1 [9]
+  partition pi bit 7: \prod1 [8] <-> \prod1 [8]
+  partition pi bit 8: \prod1 [7] <-> \prod1 [7]
+  partition pi bit 9: \prod1 [6] <-> \prod1 [6]
+  partition pi bit 10: \prod1 [5] <-> \prod1 [5]
+  partition pi bit 11: \prod1 [4] <-> \prod1 [4]
+  partition pi bit 12: \prod1 [3] <-> \prod1 [3]
+  partition pi bit 13: \prod1 [2] <-> \prod1 [2]
+  partition pi bit 14: \prod1 [1] <-> \prod1 [1]
+  partition pi bit 15: \prod1 [0] <-> \prod1 [0]
+  partition pi bit 16: \prod0 [15] <-> \prod0 [15]
+  partition pi bit 17: \prod0 [14] <-> \prod0 [14]
+  partition pi bit 18: \prod0 [13] <-> \prod0 [13]
+  partition pi bit 19: \prod0 [12] <-> \prod0 [12]
+  partition pi bit 20: \prod0 [11] <-> \prod0 [11]
+  partition pi bit 21: \prod0 [10] <-> \prod0 [10]
+  partition pi bit 22: \prod0 [9] <-> \prod0 [9]
+  partition pi bit 23: \prod0 [8] <-> \prod0 [8]
+  partition pi bit 24: \prod0 [7] <-> \prod0 [7]
+  partition pi bit 25: \prod0 [6] <-> \prod0 [6]
+  partition pi bit 26: \prod0 [5] <-> \prod0 [5]
+  partition pi bit 27: \prod0 [4] <-> \prod0 [4]
+  partition pi bit 28: \prod0 [3] <-> \prod0 [3]
+  partition pi bit 29: \prod0 [2] <-> \prod0 [2]
+  partition pi bit 30: \prod0 [1] <-> \prod0 [1]
+  partition pi bit 31: \prod0 [0] <-> \prod0 [0]
+  partition po bit 0: \sum01 [0] <-> \sum01 [0]
+  partition po bit 1: \sum01 [1] <-> \sum01 [1]
+  partition po bit 2: \sum01 [2] <-> \sum01 [2]
+  partition po bit 3: \sum01 [3] <-> \sum01 [3]
+  partition po bit 4: \sum01 [4] <-> \sum01 [4]
+  partition po bit 5: \sum01 [5] <-> \sum01 [5]
+  partition po bit 6: \sum01 [6] <-> \sum01 [6]
+  partition po bit 7: \sum01 [7] <-> \sum01 [7]
+  partition po bit 8: \sum01 [8] <-> \sum01 [8]
+  partition po bit 9: \sum01 [9] <-> \sum01 [9]
+  partition po bit 10: \sum01 [10] <-> \sum01 [10]
+  partition po bit 11: \sum01 [11] <-> \sum01 [11]
+  partition po bit 12: \sum01 [12] <-> \sum01 [12]
+  partition po bit 13: \sum01 [13] <-> \sum01 [13]
+  partition po bit 14: \sum01 [14] <-> \sum01 [14]
+  partition po bit 15: \sum01 [15] <-> \sum01 [15]
+  partition po bit 16: \sum01 [16] <-> \sum01 [16]
+
+3.1.13. Executing RTLIL backend.
+Output filename: partitions/mac_unit.sum01.il
+<suppressed ~112 debug messages>
+
+3.1.14. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.sum01...
+Checking module gold.mac_unit.sum01...
+Found and reported 0 problems.
+
+Writing partition 5 as mac_unit.sum.
+  partition pi bit 0: \sum23 [16] <-> \sum23 [16]
+  partition pi bit 1: \sum23 [15] <-> \sum23 [15]
+  partition pi bit 2: \sum23 [14] <-> \sum23 [14]
+  partition pi bit 3: \sum23 [13] <-> \sum23 [13]
+  partition pi bit 4: \sum23 [12] <-> \sum23 [12]
+  partition pi bit 5: \sum23 [11] <-> \sum23 [11]
+  partition pi bit 6: \sum23 [10] <-> \sum23 [10]
+  partition pi bit 7: \sum23 [9] <-> \sum23 [9]
+  partition pi bit 8: \sum23 [8] <-> \sum23 [8]
+  partition pi bit 9: \sum23 [7] <-> \sum23 [7]
+  partition pi bit 10: \sum23 [6] <-> \sum23 [6]
+  partition pi bit 11: \sum23 [5] <-> \sum23 [5]
+  partition pi bit 12: \sum23 [4] <-> \sum23 [4]
+  partition pi bit 13: \sum23 [3] <-> \sum23 [3]
+  partition pi bit 14: \sum23 [2] <-> \sum23 [2]
+  partition pi bit 15: \sum23 [1] <-> \sum23 [1]
+  partition pi bit 16: \sum23 [0] <-> \sum23 [0]
+  partition pi bit 17: \sum01 [16] <-> \sum01 [16]
+  partition pi bit 18: \sum01 [15] <-> \sum01 [15]
+  partition pi bit 19: \sum01 [14] <-> \sum01 [14]
+  partition pi bit 20: \sum01 [13] <-> \sum01 [13]
+  partition pi bit 21: \sum01 [12] <-> \sum01 [12]
+  partition pi bit 22: \sum01 [11] <-> \sum01 [11]
+  partition pi bit 23: \sum01 [10] <-> \sum01 [10]
+  partition pi bit 24: \sum01 [9] <-> \sum01 [9]
+  partition pi bit 25: \sum01 [8] <-> \sum01 [8]
+  partition pi bit 26: \sum01 [7] <-> \sum01 [7]
+  partition pi bit 27: \sum01 [6] <-> \sum01 [6]
+  partition pi bit 28: \sum01 [5] <-> \sum01 [5]
+  partition pi bit 29: \sum01 [4] <-> \sum01 [4]
+  partition pi bit 30: \sum01 [3] <-> \sum01 [3]
+  partition pi bit 31: \sum01 [2] <-> \sum01 [2]
+  partition pi bit 32: \sum01 [1] <-> \sum01 [1]
+  partition pi bit 33: \sum01 [0] <-> \sum01 [0]
+  partition po bit 0: \sum [0] <-> \sum [0]
+  partition po bit 1: \sum [1] <-> \sum [1]
+  partition po bit 2: \sum [2] <-> \sum [2]
+  partition po bit 3: \sum [3] <-> \sum [3]
+  partition po bit 4: \sum [4] <-> \sum [4]
+  partition po bit 5: \sum [5] <-> \sum [5]
+  partition po bit 6: \sum [6] <-> \sum [6]
+  partition po bit 7: \sum [7] <-> \sum [7]
+  partition po bit 8: \sum [8] <-> \sum [8]
+  partition po bit 9: \sum [9] <-> \sum [9]
+  partition po bit 10: \sum [10] <-> \sum [10]
+  partition po bit 11: \sum [11] <-> \sum [11]
+  partition po bit 12: \sum [12] <-> \sum [12]
+  partition po bit 13: \sum [13] <-> \sum [13]
+  partition po bit 14: \sum [14] <-> \sum [14]
+  partition po bit 15: \sum [15] <-> \sum [15]
+  partition po bit 16: \sum [16] <-> \sum [16]
+  partition po bit 17: \sum [17] <-> \sum [17]
+
+3.1.15. Executing RTLIL backend.
+Output filename: partitions/mac_unit.sum.il
+<suppressed ~118 debug messages>
+
+3.1.16. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.sum...
+Checking module gold.mac_unit.sum...
+Found and reported 0 problems.
+
+Writing partition 6 as mac_unit.prod3.
+  partition pi bit 0: \b_reg [31] <-> \b_reg [31]
+  partition pi bit 1: \b_reg [30] <-> \b_reg [30]
+  partition pi bit 2: \b_reg [29] <-> \b_reg [29]
+  partition pi bit 3: \b_reg [28] <-> \b_reg [28]
+  partition pi bit 4: \b_reg [27] <-> \b_reg [27]
+  partition pi bit 5: \b_reg [26] <-> \b_reg [26]
+  partition pi bit 6: \b_reg [25] <-> \b_reg [25]
+  partition pi bit 7: \b_reg [24] <-> \b_reg [24]
+  partition pi bit 8: \a_reg [31] <-> \a_reg [31]
+  partition pi bit 9: \a_reg [30] <-> \a_reg [30]
+  partition pi bit 10: \a_reg [29] <-> \a_reg [29]
+  partition pi bit 11: \a_reg [28] <-> \a_reg [28]
+  partition pi bit 12: \a_reg [27] <-> \a_reg [27]
+  partition pi bit 13: \a_reg [26] <-> \a_reg [26]
+  partition pi bit 14: \a_reg [25] <-> \a_reg [25]
+  partition pi bit 15: \a_reg [24] <-> \a_reg [24]
+  partition po bit 0: \prod3 [0] <-> \prod3 [0]
+  partition po bit 1: \prod3 [1] <-> \prod3 [1]
+  partition po bit 2: \prod3 [2] <-> \prod3 [2]
+  partition po bit 3: \prod3 [3] <-> \prod3 [3]
+  partition po bit 4: \prod3 [4] <-> \prod3 [4]
+  partition po bit 5: \prod3 [5] <-> \prod3 [5]
+  partition po bit 6: \prod3 [6] <-> \prod3 [6]
+  partition po bit 7: \prod3 [7] <-> \prod3 [7]
+  partition po bit 8: \prod3 [8] <-> \prod3 [8]
+  partition po bit 9: \prod3 [9] <-> \prod3 [9]
+  partition po bit 10: \prod3 [10] <-> \prod3 [10]
+  partition po bit 11: \prod3 [11] <-> \prod3 [11]
+  partition po bit 12: \prod3 [12] <-> \prod3 [12]
+  partition po bit 13: \prod3 [13] <-> \prod3 [13]
+  partition po bit 14: \prod3 [14] <-> \prod3 [14]
+  partition po bit 15: \prod3 [15] <-> \prod3 [15]
+
+3.1.17. Executing RTLIL backend.
+Output filename: partitions/mac_unit.prod3.il
+<suppressed ~78 debug messages>
+
+3.1.18. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.prod3...
+Checking module gold.mac_unit.prod3...
+Found and reported 0 problems.
+
+Writing partition 7 as mac_unit.prod2.
+  partition pi bit 0: \b_reg [23] <-> \b_reg [23]
+  partition pi bit 1: \b_reg [22] <-> \b_reg [22]
+  partition pi bit 2: \b_reg [21] <-> \b_reg [21]
+  partition pi bit 3: \b_reg [20] <-> \b_reg [20]
+  partition pi bit 4: \b_reg [19] <-> \b_reg [19]
+  partition pi bit 5: \b_reg [18] <-> \b_reg [18]
+  partition pi bit 6: \b_reg [17] <-> \b_reg [17]
+  partition pi bit 7: \b_reg [16] <-> \b_reg [16]
+  partition pi bit 8: \a_reg [23] <-> \a_reg [23]
+  partition pi bit 9: \a_reg [22] <-> \a_reg [22]
+  partition pi bit 10: \a_reg [21] <-> \a_reg [21]
+  partition pi bit 11: \a_reg [20] <-> \a_reg [20]
+  partition pi bit 12: \a_reg [19] <-> \a_reg [19]
+  partition pi bit 13: \a_reg [18] <-> \a_reg [18]
+  partition pi bit 14: \a_reg [17] <-> \a_reg [17]
+  partition pi bit 15: \a_reg [16] <-> \a_reg [16]
+  partition po bit 0: \prod2 [0] <-> \prod2 [0]
+  partition po bit 1: \prod2 [1] <-> \prod2 [1]
+  partition po bit 2: \prod2 [2] <-> \prod2 [2]
+  partition po bit 3: \prod2 [3] <-> \prod2 [3]
+  partition po bit 4: \prod2 [4] <-> \prod2 [4]
+  partition po bit 5: \prod2 [5] <-> \prod2 [5]
+  partition po bit 6: \prod2 [6] <-> \prod2 [6]
+  partition po bit 7: \prod2 [7] <-> \prod2 [7]
+  partition po bit 8: \prod2 [8] <-> \prod2 [8]
+  partition po bit 9: \prod2 [9] <-> \prod2 [9]
+  partition po bit 10: \prod2 [10] <-> \prod2 [10]
+  partition po bit 11: \prod2 [11] <-> \prod2 [11]
+  partition po bit 12: \prod2 [12] <-> \prod2 [12]
+  partition po bit 13: \prod2 [13] <-> \prod2 [13]
+  partition po bit 14: \prod2 [14] <-> \prod2 [14]
+  partition po bit 15: \prod2 [15] <-> \prod2 [15]
+
+3.1.19. Executing RTLIL backend.
+Output filename: partitions/mac_unit.prod2.il
+<suppressed ~78 debug messages>
+
+3.1.20. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.prod2...
+Checking module gold.mac_unit.prod2...
+Found and reported 0 problems.
+
+Writing partition 8 as mac_unit.prod1.
+  partition pi bit 0: \b_reg [15] <-> \b_reg [15]
+  partition pi bit 1: \b_reg [14] <-> \b_reg [14]
+  partition pi bit 2: \b_reg [13] <-> \b_reg [13]
+  partition pi bit 3: \b_reg [12] <-> \b_reg [12]
+  partition pi bit 4: \b_reg [11] <-> \b_reg [11]
+  partition pi bit 5: \b_reg [10] <-> \b_reg [10]
+  partition pi bit 6: \b_reg [9] <-> \b_reg [9]
+  partition pi bit 7: \b_reg [8] <-> \b_reg [8]
+  partition pi bit 8: \a_reg [15] <-> \a_reg [15]
+  partition pi bit 9: \a_reg [14] <-> \a_reg [14]
+  partition pi bit 10: \a_reg [13] <-> \a_reg [13]
+  partition pi bit 11: \a_reg [12] <-> \a_reg [12]
+  partition pi bit 12: \a_reg [11] <-> \a_reg [11]
+  partition pi bit 13: \a_reg [10] <-> \a_reg [10]
+  partition pi bit 14: \a_reg [9] <-> \a_reg [9]
+  partition pi bit 15: \a_reg [8] <-> \a_reg [8]
+  partition po bit 0: \prod1 [0] <-> \prod1 [0]
+  partition po bit 1: \prod1 [1] <-> \prod1 [1]
+  partition po bit 2: \prod1 [2] <-> \prod1 [2]
+  partition po bit 3: \prod1 [3] <-> \prod1 [3]
+  partition po bit 4: \prod1 [4] <-> \prod1 [4]
+  partition po bit 5: \prod1 [5] <-> \prod1 [5]
+  partition po bit 6: \prod1 [6] <-> \prod1 [6]
+  partition po bit 7: \prod1 [7] <-> \prod1 [7]
+  partition po bit 8: \prod1 [8] <-> \prod1 [8]
+  partition po bit 9: \prod1 [9] <-> \prod1 [9]
+  partition po bit 10: \prod1 [10] <-> \prod1 [10]
+  partition po bit 11: \prod1 [11] <-> \prod1 [11]
+  partition po bit 12: \prod1 [12] <-> \prod1 [12]
+  partition po bit 13: \prod1 [13] <-> \prod1 [13]
+  partition po bit 14: \prod1 [14] <-> \prod1 [14]
+  partition po bit 15: \prod1 [15] <-> \prod1 [15]
+
+3.1.21. Executing RTLIL backend.
+Output filename: partitions/mac_unit.prod1.il
+<suppressed ~78 debug messages>
+
+3.1.22. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.prod1...
+Checking module gold.mac_unit.prod1...
+Found and reported 0 problems.
+
+Writing partition 9 as mac_unit.prod0.
+  partition pi bit 0: \b_reg [7] <-> \b_reg [7]
+  partition pi bit 1: \b_reg [6] <-> \b_reg [6]
+  partition pi bit 2: \b_reg [5] <-> \b_reg [5]
+  partition pi bit 3: \b_reg [4] <-> \b_reg [4]
+  partition pi bit 4: \b_reg [3] <-> \b_reg [3]
+  partition pi bit 5: \b_reg [2] <-> \b_reg [2]
+  partition pi bit 6: \b_reg [1] <-> \b_reg [1]
+  partition pi bit 7: \b_reg [0] <-> \b_reg [0]
+  partition pi bit 8: \a_reg [7] <-> \a_reg [7]
+  partition pi bit 9: \a_reg [6] <-> \a_reg [6]
+  partition pi bit 10: \a_reg [5] <-> \a_reg [5]
+  partition pi bit 11: \a_reg [4] <-> \a_reg [4]
+  partition pi bit 12: \a_reg [3] <-> \a_reg [3]
+  partition pi bit 13: \a_reg [2] <-> \a_reg [2]
+  partition pi bit 14: \a_reg [1] <-> \a_reg [1]
+  partition pi bit 15: \a_reg [0] <-> \a_reg [0]
+  partition po bit 0: \prod0 [0] <-> \prod0 [0]
+  partition po bit 1: \prod0 [1] <-> \prod0 [1]
+  partition po bit 2: \prod0 [2] <-> \prod0 [2]
+  partition po bit 3: \prod0 [3] <-> \prod0 [3]
+  partition po bit 4: \prod0 [4] <-> \prod0 [4]
+  partition po bit 5: \prod0 [5] <-> \prod0 [5]
+  partition po bit 6: \prod0 [6] <-> \prod0 [6]
+  partition po bit 7: \prod0 [7] <-> \prod0 [7]
+  partition po bit 8: \prod0 [8] <-> \prod0 [8]
+  partition po bit 9: \prod0 [9] <-> \prod0 [9]
+  partition po bit 10: \prod0 [10] <-> \prod0 [10]
+  partition po bit 11: \prod0 [11] <-> \prod0 [11]
+  partition po bit 12: \prod0 [12] <-> \prod0 [12]
+  partition po bit 13: \prod0 [13] <-> \prod0 [13]
+  partition po bit 14: \prod0 [14] <-> \prod0 [14]
+  partition po bit 15: \prod0 [15] <-> \prod0 [15]
+
+3.1.23. Executing RTLIL backend.
+Output filename: partitions/mac_unit.prod0.il
+<suppressed ~78 debug messages>
+
+3.1.24. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.prod0...
+Checking module gold.mac_unit.prod0...
+Found and reported 0 problems.
+
+Writing partition 10 as mac_unit.b_reg.
+  partition pi bit 0: \rst <-> \rst
+  partition pi bit 1: \b_vec [31] <-> \b_vec [31]
+  partition pi bit 2: \b_vec [30] <-> \b_vec [30]
+  partition pi bit 3: \b_vec [29] <-> \b_vec [29]
+  partition pi bit 4: \b_vec [28] <-> \b_vec [28]
+  partition pi bit 5: \b_vec [27] <-> \b_vec [27]
+  partition pi bit 6: \b_vec [26] <-> \b_vec [26]
+  partition pi bit 7: \b_vec [25] <-> \b_vec [25]
+  partition pi bit 8: \b_vec [24] <-> \b_vec [24]
+  partition pi bit 9: \b_vec [23] <-> \b_vec [23]
+  partition pi bit 10: \b_vec [22] <-> \b_vec [22]
+  partition pi bit 11: \b_vec [21] <-> \b_vec [21]
+  partition pi bit 12: \b_vec [20] <-> \b_vec [20]
+  partition pi bit 13: \b_vec [19] <-> \b_vec [19]
+  partition pi bit 14: \b_vec [18] <-> \b_vec [18]
+  partition pi bit 15: \b_vec [17] <-> \b_vec [17]
+  partition pi bit 16: \b_vec [16] <-> \b_vec [16]
+  partition pi bit 17: \b_vec [15] <-> \b_vec [15]
+  partition pi bit 18: \b_vec [14] <-> \b_vec [14]
+  partition pi bit 19: \b_vec [13] <-> \b_vec [13]
+  partition pi bit 20: \b_vec [12] <-> \b_vec [12]
+  partition pi bit 21: \b_vec [11] <-> \b_vec [11]
+  partition pi bit 22: \b_vec [10] <-> \b_vec [10]
+  partition pi bit 23: \b_vec [9] <-> \b_vec [9]
+  partition pi bit 24: \b_vec [8] <-> \b_vec [8]
+  partition pi bit 25: \b_vec [7] <-> \b_vec [7]
+  partition pi bit 26: \b_vec [6] <-> \b_vec [6]
+  partition pi bit 27: \b_vec [5] <-> \b_vec [5]
+  partition pi bit 28: \b_vec [4] <-> \b_vec [4]
+  partition pi bit 29: \b_vec [3] <-> \b_vec [3]
+  partition pi bit 30: \b_vec [2] <-> \b_vec [2]
+  partition pi bit 31: \b_vec [1] <-> \b_vec [1]
+  partition pi bit 32: \b_vec [0] <-> \b_vec [0]
+  partition pi bit 33: \clk <-> \clk
+  partition po bit 0: \b_reg [0] <-> \b_reg [0]
+  partition po bit 1: \b_reg [1] <-> \b_reg [1]
+  partition po bit 2: \b_reg [2] <-> \b_reg [2]
+  partition po bit 3: \b_reg [3] <-> \b_reg [3]
+  partition po bit 4: \b_reg [4] <-> \b_reg [4]
+  partition po bit 5: \b_reg [5] <-> \b_reg [5]
+  partition po bit 6: \b_reg [6] <-> \b_reg [6]
+  partition po bit 7: \b_reg [7] <-> \b_reg [7]
+  partition po bit 8: \b_reg [8] <-> \b_reg [8]
+  partition po bit 9: \b_reg [9] <-> \b_reg [9]
+  partition po bit 10: \b_reg [10] <-> \b_reg [10]
+  partition po bit 11: \b_reg [11] <-> \b_reg [11]
+  partition po bit 12: \b_reg [12] <-> \b_reg [12]
+  partition po bit 13: \b_reg [13] <-> \b_reg [13]
+  partition po bit 14: \b_reg [14] <-> \b_reg [14]
+  partition po bit 15: \b_reg [15] <-> \b_reg [15]
+  partition po bit 16: \b_reg [16] <-> \b_reg [16]
+  partition po bit 17: \b_reg [17] <-> \b_reg [17]
+  partition po bit 18: \b_reg [18] <-> \b_reg [18]
+  partition po bit 19: \b_reg [19] <-> \b_reg [19]
+  partition po bit 20: \b_reg [20] <-> \b_reg [20]
+  partition po bit 21: \b_reg [21] <-> \b_reg [21]
+  partition po bit 22: \b_reg [22] <-> \b_reg [22]
+  partition po bit 23: \b_reg [23] <-> \b_reg [23]
+  partition po bit 24: \b_reg [24] <-> \b_reg [24]
+  partition po bit 25: \b_reg [25] <-> \b_reg [25]
+  partition po bit 26: \b_reg [26] <-> \b_reg [26]
+  partition po bit 27: \b_reg [27] <-> \b_reg [27]
+  partition po bit 28: \b_reg [28] <-> \b_reg [28]
+  partition po bit 29: \b_reg [29] <-> \b_reg [29]
+  partition po bit 30: \b_reg [30] <-> \b_reg [30]
+  partition po bit 31: \b_reg [31] <-> \b_reg [31]
+
+3.1.25. Executing RTLIL backend.
+Output filename: partitions/mac_unit.b_reg.il
+<suppressed ~224 debug messages>
+
+3.1.26. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.b_reg...
+Checking module gold.mac_unit.b_reg...
+Found and reported 0 problems.
+
+Writing partition 11 as mac_unit.acc_valid.
+  partition pi bit 0: \rst <-> \rst
+  partition pi bit 1: \valid_reg2 <-> \valid_reg2
+  partition pi bit 2: \clk <-> \clk
+  partition po bit 0: \acc_valid <-> \acc_valid
+
+3.1.27. Executing RTLIL backend.
+Output filename: partitions/mac_unit.acc_valid.il
+<suppressed ~52 debug messages>
+
+3.1.28. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.acc_valid...
+Checking module gold.mac_unit.acc_valid...
+Found and reported 0 problems.
+
+Writing partition 12 as mac_unit.acc.
+  partition pi bit 0: \sum_reg [16] <-> \sum_reg [16]
+  partition pi bit 1: \sum_reg [15] <-> \sum_reg [15]
+  partition pi bit 2: \sum_reg [14] <-> \sum_reg [14]
+  partition pi bit 3: \sum_reg [13] <-> \sum_reg [13]
+  partition pi bit 4: \sum_reg [12] <-> \sum_reg [12]
+  partition pi bit 5: \sum_reg [11] <-> \sum_reg [11]
+  partition pi bit 6: \sum_reg [10] <-> \sum_reg [10]
+  partition pi bit 7: \sum_reg [9] <-> \sum_reg [9]
+  partition pi bit 8: \sum_reg [8] <-> \sum_reg [8]
+  partition pi bit 9: \sum_reg [7] <-> \sum_reg [7]
+  partition pi bit 10: \sum_reg [6] <-> \sum_reg [6]
+  partition pi bit 11: \sum_reg [5] <-> \sum_reg [5]
+  partition pi bit 12: \sum_reg [4] <-> \sum_reg [4]
+  partition pi bit 13: \sum_reg [3] <-> \sum_reg [3]
+  partition pi bit 14: \sum_reg [2] <-> \sum_reg [2]
+  partition pi bit 15: \sum_reg [1] <-> \sum_reg [1]
+  partition pi bit 16: \sum_reg [0] <-> \sum_reg [0]
+  partition pi bit 17: \rst <-> \rst
+  partition pi bit 18: \valid_reg2 <-> \valid_reg2
+  partition pi bit 19: \sum_reg [17] <-> \sum_reg [17]
+  partition pi bit 20: \clk <-> \clk
+  partition po bit 0: \acc [0] <-> \acc [0]
+  partition po bit 1: \acc [1] <-> \acc [1]
+  partition po bit 2: \acc [2] <-> \acc [2]
+  partition po bit 3: \acc [3] <-> \acc [3]
+  partition po bit 4: \acc [4] <-> \acc [4]
+  partition po bit 5: \acc [5] <-> \acc [5]
+  partition po bit 6: \acc [6] <-> \acc [6]
+  partition po bit 7: \acc [7] <-> \acc [7]
+  partition po bit 8: \acc [8] <-> \acc [8]
+  partition po bit 9: \acc [9] <-> \acc [9]
+  partition po bit 10: \acc [10] <-> \acc [10]
+  partition po bit 11: \acc [11] <-> \acc [11]
+  partition po bit 12: \acc [12] <-> \acc [12]
+  partition po bit 13: \acc [13] <-> \acc [13]
+  partition po bit 14: \acc [14] <-> \acc [14]
+  partition po bit 15: \acc [15] <-> \acc [15]
+  partition po bit 16: \acc [16] <-> \acc [16]
+  partition po bit 17: \acc [17] <-> \acc [17]
+  partition po bit 18: \acc [18] <-> \acc [18]
+  partition po bit 19: \acc [19] <-> \acc [19]
+  partition po bit 20: \acc [20] <-> \acc [20]
+  partition po bit 21: \acc [21] <-> \acc [21]
+  partition po bit 22: \acc [22] <-> \acc [22]
+  partition po bit 23: \acc [23] <-> \acc [23]
+
+3.1.29. Executing RTLIL backend.
+Output filename: partitions/mac_unit.acc.il
+<suppressed ~649 debug messages>
+
+3.1.30. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.acc...
+Checking module gold.mac_unit.acc...
+Found and reported 0 problems.
+
+Writing partition 13 as mac_unit.a_reg.
+  partition pi bit 0: \rst <-> \rst
+  partition pi bit 1: \a_vec [31] <-> \a_vec [31]
+  partition pi bit 2: \a_vec [30] <-> \a_vec [30]
+  partition pi bit 3: \a_vec [29] <-> \a_vec [29]
+  partition pi bit 4: \a_vec [28] <-> \a_vec [28]
+  partition pi bit 5: \a_vec [27] <-> \a_vec [27]
+  partition pi bit 6: \a_vec [26] <-> \a_vec [26]
+  partition pi bit 7: \a_vec [25] <-> \a_vec [25]
+  partition pi bit 8: \a_vec [24] <-> \a_vec [24]
+  partition pi bit 9: \a_vec [23] <-> \a_vec [23]
+  partition pi bit 10: \a_vec [22] <-> \a_vec [22]
+  partition pi bit 11: \a_vec [21] <-> \a_vec [21]
+  partition pi bit 12: \a_vec [20] <-> \a_vec [20]
+  partition pi bit 13: \a_vec [19] <-> \a_vec [19]
+  partition pi bit 14: \a_vec [18] <-> \a_vec [18]
+  partition pi bit 15: \a_vec [17] <-> \a_vec [17]
+  partition pi bit 16: \a_vec [16] <-> \a_vec [16]
+  partition pi bit 17: \a_vec [15] <-> \a_vec [15]
+  partition pi bit 18: \a_vec [14] <-> \a_vec [14]
+  partition pi bit 19: \a_vec [13] <-> \a_vec [13]
+  partition pi bit 20: \a_vec [12] <-> \a_vec [12]
+  partition pi bit 21: \a_vec [11] <-> \a_vec [11]
+  partition pi bit 22: \a_vec [10] <-> \a_vec [10]
+  partition pi bit 23: \a_vec [9] <-> \a_vec [9]
+  partition pi bit 24: \a_vec [8] <-> \a_vec [8]
+  partition pi bit 25: \a_vec [7] <-> \a_vec [7]
+  partition pi bit 26: \a_vec [6] <-> \a_vec [6]
+  partition pi bit 27: \a_vec [5] <-> \a_vec [5]
+  partition pi bit 28: \a_vec [4] <-> \a_vec [4]
+  partition pi bit 29: \a_vec [3] <-> \a_vec [3]
+  partition pi bit 30: \a_vec [2] <-> \a_vec [2]
+  partition pi bit 31: \a_vec [1] <-> \a_vec [1]
+  partition pi bit 32: \a_vec [0] <-> \a_vec [0]
+  partition pi bit 33: \clk <-> \clk
+  partition po bit 0: \a_reg [0] <-> \a_reg [0]
+  partition po bit 1: \a_reg [1] <-> \a_reg [1]
+  partition po bit 2: \a_reg [2] <-> \a_reg [2]
+  partition po bit 3: \a_reg [3] <-> \a_reg [3]
+  partition po bit 4: \a_reg [4] <-> \a_reg [4]
+  partition po bit 5: \a_reg [5] <-> \a_reg [5]
+  partition po bit 6: \a_reg [6] <-> \a_reg [6]
+  partition po bit 7: \a_reg [7] <-> \a_reg [7]
+  partition po bit 8: \a_reg [8] <-> \a_reg [8]
+  partition po bit 9: \a_reg [9] <-> \a_reg [9]
+  partition po bit 10: \a_reg [10] <-> \a_reg [10]
+  partition po bit 11: \a_reg [11] <-> \a_reg [11]
+  partition po bit 12: \a_reg [12] <-> \a_reg [12]
+  partition po bit 13: \a_reg [13] <-> \a_reg [13]
+  partition po bit 14: \a_reg [14] <-> \a_reg [14]
+  partition po bit 15: \a_reg [15] <-> \a_reg [15]
+  partition po bit 16: \a_reg [16] <-> \a_reg [16]
+  partition po bit 17: \a_reg [17] <-> \a_reg [17]
+  partition po bit 18: \a_reg [18] <-> \a_reg [18]
+  partition po bit 19: \a_reg [19] <-> \a_reg [19]
+  partition po bit 20: \a_reg [20] <-> \a_reg [20]
+  partition po bit 21: \a_reg [21] <-> \a_reg [21]
+  partition po bit 22: \a_reg [22] <-> \a_reg [22]
+  partition po bit 23: \a_reg [23] <-> \a_reg [23]
+  partition po bit 24: \a_reg [24] <-> \a_reg [24]
+  partition po bit 25: \a_reg [25] <-> \a_reg [25]
+  partition po bit 26: \a_reg [26] <-> \a_reg [26]
+  partition po bit 27: \a_reg [27] <-> \a_reg [27]
+  partition po bit 28: \a_reg [28] <-> \a_reg [28]
+  partition po bit 29: \a_reg [29] <-> \a_reg [29]
+  partition po bit 30: \a_reg [30] <-> \a_reg [30]
+  partition po bit 31: \a_reg [31] <-> \a_reg [31]
+
+3.1.31. Executing RTLIL backend.
+Output filename: partitions/mac_unit.a_reg.il
+<suppressed ~224 debug messages>
+
+3.1.32. Executing CHECK pass (checking for obvious problems).
+Checking module gate.mac_unit.a_reg...
+Checking module gold.mac_unit.a_reg...
+Found and reported 0 problems.
+
+Writing partition 14 as mac_unit.
+  partition pi bit 0: \b_vec [31] <-> \b_vec [31]
+  partition pi bit 1: \b_vec [30] <-> \b_vec [30]
+  partition pi bit 2: \b_vec [29] <-> \b_vec [29]
+  partition pi bit 3: \b_vec [28] <-> \b_vec [28]
+  partition pi bit 4: \b_vec [27] <-> \b_vec [27]
+  partition pi bit 5: \b_vec [26] <-> \b_vec [26]
+  partition pi bit 6: \b_vec [25] <-> \b_vec [25]
+  partition pi bit 7: \b_vec [24] <-> \b_vec [24]
+  partition pi bit 8: \b_vec [23] <-> \b_vec [23]
+  partition pi bit 9: \b_vec [22] <-> \b_vec [22]
+  partition pi bit 10: \b_vec [21] <-> \b_vec [21]
+  partition pi bit 11: \b_vec [20] <-> \b_vec [20]
+  partition pi bit 12: \b_vec [19] <-> \b_vec [19]
+  partition pi bit 13: \b_vec [18] <-> \b_vec [18]
+  partition pi bit 14: \b_vec [17] <-> \b_vec [17]
+  partition pi bit 15: \b_vec [16] <-> \b_vec [16]
+  partition pi bit 16: \b_vec [15] <-> \b_vec [15]
+  partition pi bit 17: \b_vec [14] <-> \b_vec [14]
+  partition pi bit 18: \b_vec [13] <-> \b_vec [13]
+  partition pi bit 19: \b_vec [12] <-> \b_vec [12]
+  partition pi bit 20: \b_vec [11] <-> \b_vec [11]
+  partition pi bit 21: \b_vec [10] <-> \b_vec [10]
+  partition pi bit 22: \b_vec [9] <-> \b_vec [9]
+  partition pi bit 23: \b_vec [8] <-> \b_vec [8]
+  partition pi bit 24: \b_vec [7] <-> \b_vec [7]
+  partition pi bit 25: \b_vec [6] <-> \b_vec [6]
+  partition pi bit 26: \b_vec [5] <-> \b_vec [5]
+  partition pi bit 27: \b_vec [4] <-> \b_vec [4]
+  partition pi bit 28: \b_vec [3] <-> \b_vec [3]
+  partition pi bit 29: \b_vec [2] <-> \b_vec [2]
+  partition pi bit 30: \b_vec [1] <-> \b_vec [1]
+  partition pi bit 31: \b_vec [0] <-> \b_vec [0]
+  partition pi bit 32: \a_vec [31] <-> \a_vec [31]
+  partition pi bit 33: \a_vec [30] <-> \a_vec [30]
+  partition pi bit 34: \a_vec [29] <-> \a_vec [29]
+  partition pi bit 35: \a_vec [28] <-> \a_vec [28]
+  partition pi bit 36: \a_vec [27] <-> \a_vec [27]
+  partition pi bit 37: \a_vec [26] <-> \a_vec [26]
+  partition pi bit 38: \a_vec [25] <-> \a_vec [25]
+  partition pi bit 39: \a_vec [24] <-> \a_vec [24]
+  partition pi bit 40: \a_vec [23] <-> \a_vec [23]
+  partition pi bit 41: \a_vec [22] <-> \a_vec [22]
+  partition pi bit 42: \a_vec [21] <-> \a_vec [21]
+  partition pi bit 43: \a_vec [20] <-> \a_vec [20]
+  partition pi bit 44: \a_vec [19] <-> \a_vec [19]
+  partition pi bit 45: \a_vec [18] <-> \a_vec [18]
+  partition pi bit 46: \a_vec [17] <-> \a_vec [17]
+  partition pi bit 47: \a_vec [16] <-> \a_vec [16]
+  partition pi bit 48: \a_vec [15] <-> \a_vec [15]
+  partition pi bit 49: \a_vec [14] <-> \a_vec [14]
+  partition pi bit 50: \a_vec [13] <-> \a_vec [13]
+  partition pi bit 51: \a_vec [12] <-> \a_vec [12]
+  partition pi bit 52: \a_vec [11] <-> \a_vec [11]
+  partition pi bit 53: \a_vec [10] <-> \a_vec [10]
+  partition pi bit 54: \a_vec [9] <-> \a_vec [9]
+  partition pi bit 55: \a_vec [8] <-> \a_vec [8]
+  partition pi bit 56: \a_vec [7] <-> \a_vec [7]
+  partition pi bit 57: \a_vec [6] <-> \a_vec [6]
+  partition pi bit 58: \a_vec [5] <-> \a_vec [5]
+  partition pi bit 59: \a_vec [4] <-> \a_vec [4]
+  partition pi bit 60: \a_vec [3] <-> \a_vec [3]
+  partition pi bit 61: \a_vec [2] <-> \a_vec [2]
+  partition pi bit 62: \a_vec [1] <-> \a_vec [1]
+  partition pi bit 63: \a_vec [0] <-> \a_vec [0]
+  partition pi bit 64: \rst <-> \rst
+  partition pi bit 65: \valid <-> \valid
+  partition pi bit 66: \clk <-> \clk
+  partition mp bit 0: \sum_reg [0] <-> \sum_reg [0]
+  partition mp bit 1: \sum_reg [1] <-> \sum_reg [1]
+  partition mp bit 2: \sum_reg [2] <-> \sum_reg [2]
+  partition mp bit 3: \sum_reg [3] <-> \sum_reg [3]
+  partition mp bit 4: \sum_reg [4] <-> \sum_reg [4]
+  partition mp bit 5: \sum_reg [5] <-> \sum_reg [5]
+  partition mp bit 6: \sum_reg [6] <-> \sum_reg [6]
+  partition mp bit 7: \sum_reg [7] <-> \sum_reg [7]
+  partition mp bit 8: \sum_reg [8] <-> \sum_reg [8]
+  partition mp bit 9: \sum_reg [9] <-> \sum_reg [9]
+  partition mp bit 10: \sum_reg [10] <-> \sum_reg [10]
+  partition mp bit 11: \sum_reg [11] <-> \sum_reg [11]
+  partition mp bit 12: \sum_reg [12] <-> \sum_reg [12]
+  partition mp bit 13: \sum_reg [13] <-> \sum_reg [13]
+  partition mp bit 14: \sum_reg [14] <-> \sum_reg [14]
+  partition mp bit 15: \sum_reg [15] <-> \sum_reg [15]
+  partition mp bit 16: \sum_reg [16] <-> \sum_reg [16]
+  partition mp bit 17: \sum [17] <-> \sum [17]
+  partition mp bit 18: \sum [16] <-> \sum [16]
+  partition mp bit 19: \sum [15] <-> \sum [15]
+  partition mp bit 20: \sum [14] <-> \sum [14]
+  partition mp bit 21: \sum [13] <-> \sum [13]
+  partition mp bit 22: \sum [12] <-> \sum [12]
+  partition mp bit 23: \sum [11] <-> \sum [11]
+  partition mp bit 24: \sum [10] <-> \sum [10]
+  partition mp bit 25: \sum [9] <-> \sum [9]
+  partition mp bit 26: \sum [8] <-> \sum [8]
+  partition mp bit 27: \sum [7] <-> \sum [7]
+  partition mp bit 28: \sum [6] <-> \sum [6]
+  partition mp bit 29: \sum [5] <-> \sum [5]
+  partition mp bit 30: \sum [4] <-> \sum [4]
+  partition mp bit 31: \sum [3] <-> \sum [3]
+  partition mp bit 32: \sum [2] <-> \sum [2]
+  partition mp bit 33: \sum [1] <-> \sum [1]
+  partition mp bit 34: \sum23 [16] <-> \sum23 [16]
+  partition mp bit 35: \sum23 [15] <-> \sum23 [15]
+  partition mp bit 36: \sum23 [14] <-> \sum23 [14]
+  partition mp bit 37: \sum23 [13] <-> \sum23 [13]
+  partition mp bit 38: \sum23 [12] <-> \sum23 [12]
+  partition mp bit 39: \sum23 [11] <-> \sum23 [11]
+  partition mp bit 40: \sum23 [10] <-> \sum23 [10]
+  partition mp bit 41: \sum23 [9] <-> \sum23 [9]
+  partition mp bit 42: \sum23 [8] <-> \sum23 [8]
+  partition mp bit 43: \sum23 [7] <-> \sum23 [7]
+  partition mp bit 44: \sum23 [6] <-> \sum23 [6]
+  partition mp bit 45: \sum23 [5] <-> \sum23 [5]
+  partition mp bit 46: \sum23 [4] <-> \sum23 [4]
+  partition mp bit 47: \sum23 [3] <-> \sum23 [3]
+  partition mp bit 48: \sum23 [2] <-> \sum23 [2]
+  partition mp bit 49: \sum23 [1] <-> \sum23 [1]
+  partition mp bit 50: \prod3 [15] <-> \prod3 [15]
+  partition mp bit 51: \prod3 [14] <-> \prod3 [14]
+  partition mp bit 52: \prod3 [13] <-> \prod3 [13]
+  partition mp bit 53: \prod3 [12] <-> \prod3 [12]
+  partition mp bit 54: \prod3 [11] <-> \prod3 [11]
+  partition mp bit 55: \prod3 [10] <-> \prod3 [10]
+  partition mp bit 56: \prod3 [9] <-> \prod3 [9]
+  partition mp bit 57: \prod3 [8] <-> \prod3 [8]
+  partition mp bit 58: \prod3 [7] <-> \prod3 [7]
+  partition mp bit 59: \prod3 [6] <-> \prod3 [6]
+  partition mp bit 60: \prod3 [5] <-> \prod3 [5]
+  partition mp bit 61: \prod3 [4] <-> \prod3 [4]
+  partition mp bit 62: \prod3 [3] <-> \prod3 [3]
+  partition mp bit 63: \prod3 [2] <-> \prod3 [2]
+  partition mp bit 64: \prod3 [1] <-> \prod3 [1]
+  partition mp bit 65: \b_reg [31] <-> \b_reg [31]
+  partition mp bit 66: \b_reg [30] <-> \b_reg [30]
+  partition mp bit 67: \b_reg [29] <-> \b_reg [29]
+  partition mp bit 68: \b_reg [28] <-> \b_reg [28]
+  partition mp bit 69: \b_reg [27] <-> \b_reg [27]
+  partition mp bit 70: \b_reg [26] <-> \b_reg [26]
+  partition mp bit 71: \b_reg [25] <-> \b_reg [25]
+  partition mp bit 72: \b_reg [24] <-> \b_reg [24]
+  partition mp bit 73: \a_reg [31] <-> \a_reg [31]
+  partition mp bit 74: \a_reg [30] <-> \a_reg [30]
+  partition mp bit 75: \a_reg [29] <-> \a_reg [29]
+  partition mp bit 76: \a_reg [28] <-> \a_reg [28]
+  partition mp bit 77: \a_reg [27] <-> \a_reg [27]
+  partition mp bit 78: \a_reg [26] <-> \a_reg [26]
+  partition mp bit 79: \a_reg [25] <-> \a_reg [25]
+  partition mp bit 80: \a_reg [24] <-> \a_reg [24]
+  partition mp bit 81: \prod3 [0] <-> \prod3 [0]
+  partition mp bit 82: \prod2 [15] <-> \prod2 [15]
+  partition mp bit 83: \prod2 [14] <-> \prod2 [14]
+  partition mp bit 84: \prod2 [13] <-> \prod2 [13]
+  partition mp bit 85: \prod2 [12] <-> \prod2 [12]
+  partition mp bit 86: \prod2 [11] <-> \prod2 [11]
+  partition mp bit 87: \prod2 [10] <-> \prod2 [10]
+  partition mp bit 88: \prod2 [9] <-> \prod2 [9]
+  partition mp bit 89: \prod2 [8] <-> \prod2 [8]
+  partition mp bit 90: \prod2 [7] <-> \prod2 [7]
+  partition mp bit 91: \prod2 [6] <-> \prod2 [6]
+  partition mp bit 92: \prod2 [5] <-> \prod2 [5]
+  partition mp bit 93: \prod2 [4] <-> \prod2 [4]
+  partition mp bit 94: \prod2 [3] <-> \prod2 [3]
+  partition mp bit 95: \prod2 [2] <-> \prod2 [2]
+  partition mp bit 96: \prod2 [1] <-> \prod2 [1]
+  partition mp bit 97: \b_reg [23] <-> \b_reg [23]
+  partition mp bit 98: \b_reg [22] <-> \b_reg [22]
+  partition mp bit 99: \b_reg [21] <-> \b_reg [21]
+  partition mp bit 100: \b_reg [20] <-> \b_reg [20]
+  partition mp bit 101: \b_reg [19] <-> \b_reg [19]
+  partition mp bit 102: \b_reg [18] <-> \b_reg [18]
+  partition mp bit 103: \b_reg [17] <-> \b_reg [17]
+  partition mp bit 104: \b_reg [16] <-> \b_reg [16]
+  partition mp bit 105: \a_reg [23] <-> \a_reg [23]
+  partition mp bit 106: \a_reg [22] <-> \a_reg [22]
+  partition mp bit 107: \a_reg [21] <-> \a_reg [21]
+  partition mp bit 108: \a_reg [20] <-> \a_reg [20]
+  partition mp bit 109: \a_reg [19] <-> \a_reg [19]
+  partition mp bit 110: \a_reg [18] <-> \a_reg [18]
+  partition mp bit 111: \a_reg [17] <-> \a_reg [17]
+  partition mp bit 112: \a_reg [16] <-> \a_reg [16]
+  partition mp bit 113: \prod2 [0] <-> \prod2 [0]
+  partition mp bit 114: \sum23 [0] <-> \sum23 [0]
+  partition mp bit 115: \sum01 [16] <-> \sum01 [16]
+  partition mp bit 116: \sum01 [15] <-> \sum01 [15]
+  partition mp bit 117: \sum01 [14] <-> \sum01 [14]
+  partition mp bit 118: \sum01 [13] <-> \sum01 [13]
+  partition mp bit 119: \sum01 [12] <-> \sum01 [12]
+  partition mp bit 120: \sum01 [11] <-> \sum01 [11]
+  partition mp bit 121: \sum01 [10] <-> \sum01 [10]
+  partition mp bit 122: \sum01 [9] <-> \sum01 [9]
+  partition mp bit 123: \sum01 [8] <-> \sum01 [8]
+  partition mp bit 124: \sum01 [7] <-> \sum01 [7]
+  partition mp bit 125: \sum01 [6] <-> \sum01 [6]
+  partition mp bit 126: \sum01 [5] <-> \sum01 [5]
+  partition mp bit 127: \sum01 [4] <-> \sum01 [4]
+  partition mp bit 128: \sum01 [3] <-> \sum01 [3]
+  partition mp bit 129: \sum01 [2] <-> \sum01 [2]
+  partition mp bit 130: \sum01 [1] <-> \sum01 [1]
+  partition mp bit 131: \prod1 [15] <-> \prod1 [15]
+  partition mp bit 132: \prod1 [14] <-> \prod1 [14]
+  partition mp bit 133: \prod1 [13] <-> \prod1 [13]
+  partition mp bit 134: \prod1 [12] <-> \prod1 [12]
+  partition mp bit 135: \prod1 [11] <-> \prod1 [11]
+  partition mp bit 136: \prod1 [10] <-> \prod1 [10]
+  partition mp bit 137: \prod1 [9] <-> \prod1 [9]
+  partition mp bit 138: \prod1 [8] <-> \prod1 [8]
+  partition mp bit 139: \prod1 [7] <-> \prod1 [7]
+  partition mp bit 140: \prod1 [6] <-> \prod1 [6]
+  partition mp bit 141: \prod1 [5] <-> \prod1 [5]
+  partition mp bit 142: \prod1 [4] <-> \prod1 [4]
+  partition mp bit 143: \prod1 [3] <-> \prod1 [3]
+  partition mp bit 144: \prod1 [2] <-> \prod1 [2]
+  partition mp bit 145: \prod1 [1] <-> \prod1 [1]
+  partition mp bit 146: \b_reg [15] <-> \b_reg [15]
+  partition mp bit 147: \b_reg [14] <-> \b_reg [14]
+  partition mp bit 148: \b_reg [13] <-> \b_reg [13]
+  partition mp bit 149: \b_reg [12] <-> \b_reg [12]
+  partition mp bit 150: \b_reg [11] <-> \b_reg [11]
+  partition mp bit 151: \b_reg [10] <-> \b_reg [10]
+  partition mp bit 152: \b_reg [9] <-> \b_reg [9]
+  partition mp bit 153: \b_reg [8] <-> \b_reg [8]
+  partition mp bit 154: \a_reg [15] <-> \a_reg [15]
+  partition mp bit 155: \a_reg [14] <-> \a_reg [14]
+  partition mp bit 156: \a_reg [13] <-> \a_reg [13]
+  partition mp bit 157: \a_reg [12] <-> \a_reg [12]
+  partition mp bit 158: \a_reg [11] <-> \a_reg [11]
+  partition mp bit 159: \a_reg [10] <-> \a_reg [10]
+  partition mp bit 160: \a_reg [9] <-> \a_reg [9]
+  partition mp bit 161: \a_reg [8] <-> \a_reg [8]
+  partition mp bit 162: \prod1 [0] <-> \prod1 [0]
+  partition mp bit 163: \prod0 [15] <-> \prod0 [15]
+  partition mp bit 164: \prod0 [14] <-> \prod0 [14]
+  partition mp bit 165: \prod0 [13] <-> \prod0 [13]
+  partition mp bit 166: \prod0 [12] <-> \prod0 [12]
+  partition mp bit 167: \prod0 [11] <-> \prod0 [11]
+  partition mp bit 168: \prod0 [10] <-> \prod0 [10]
+  partition mp bit 169: \prod0 [9] <-> \prod0 [9]
+  partition mp bit 170: \prod0 [8] <-> \prod0 [8]
+  partition mp bit 171: \prod0 [7] <-> \prod0 [7]
+  partition mp bit 172: \prod0 [6] <-> \prod0 [6]
+  partition mp bit 173: \prod0 [5] <-> \prod0 [5]
+  partition mp bit 174: \prod0 [4] <-> \prod0 [4]
+  partition mp bit 175: \prod0 [3] <-> \prod0 [3]
+  partition mp bit 176: \prod0 [2] <-> \prod0 [2]
+  partition mp bit 177: \prod0 [1] <-> \prod0 [1]
+  partition mp bit 178: \b_reg [7] <-> \b_reg [7]
+  partition mp bit 179: \b_reg [6] <-> \b_reg [6]
+  partition mp bit 180: \b_reg [5] <-> \b_reg [5]
+  partition mp bit 181: \b_reg [4] <-> \b_reg [4]
+  partition mp bit 182: \b_reg [3] <-> \b_reg [3]
+  partition mp bit 183: \b_reg [2] <-> \b_reg [2]
+  partition mp bit 184: \b_reg [1] <-> \b_reg [1]
+  partition mp bit 185: \b_reg [0] <-> \b_reg [0]
+  partition mp bit 186: \a_reg [7] <-> \a_reg [7]
+  partition mp bit 187: \a_reg [6] <-> \a_reg [6]
+  partition mp bit 188: \a_reg [5] <-> \a_reg [5]
+  partition mp bit 189: \a_reg [4] <-> \a_reg [4]
+  partition mp bit 190: \a_reg [3] <-> \a_reg [3]
+  partition mp bit 191: \a_reg [2] <-> \a_reg [2]
+  partition mp bit 192: \a_reg [1] <-> \a_reg [1]
+  partition mp bit 193: \a_reg [0] <-> \a_reg [0]
+  partition mp bit 194: \prod0 [0] <-> \prod0 [0]
+  partition mp bit 195: \sum01 [0] <-> \sum01 [0]
+  partition mp bit 196: \sum [0] <-> \sum [0]
+  partition mp bit 197: \sum_reg [17] <-> \sum_reg [17]
+  partition mp bit 198: \valid_reg <-> \valid_reg
+  partition mp bit 199: \valid_reg2 <-> \valid_reg2
+  partition po bit 0: \acc [0] <-> \acc [0]
+  partition po bit 1: \acc [1] <-> \acc [1]
+  partition po bit 2: \acc [2] <-> \acc [2]
+  partition po bit 3: \acc [3] <-> \acc [3]
+  partition po bit 4: \acc [4] <-> \acc [4]
+  partition po bit 5: \acc [5] <-> \acc [5]
+  partition po bit 6: \acc [6] <-> \acc [6]
+  partition po bit 7: \acc [7] <-> \acc [7]
+  partition po bit 8: \acc [8] <-> \acc [8]
+  partition po bit 9: \acc [9] <-> \acc [9]
+  partition po bit 10: \acc [10] <-> \acc [10]
+  partition po bit 11: \acc [11] <-> \acc [11]
+  partition po bit 12: \acc [12] <-> \acc [12]
+  partition po bit 13: \acc [13] <-> \acc [13]
+  partition po bit 14: \acc [14] <-> \acc [14]
+  partition po bit 15: \acc [15] <-> \acc [15]
+  partition po bit 16: \acc [16] <-> \acc [16]
+  partition po bit 17: \acc [17] <-> \acc [17]
+  partition po bit 18: \acc [18] <-> \acc [18]
+  partition po bit 19: \acc [19] <-> \acc [19]
+  partition po bit 20: \acc [20] <-> \acc [20]
+  partition po bit 21: \acc [21] <-> \acc [21]
+  partition po bit 22: \acc [22] <-> \acc [22]
+  partition po bit 23: \acc [23] <-> \acc [23]
+  partition po bit 24: \acc_valid <-> \acc_valid
+
+3.1.33. Executing RTLIL backend.
+Output filename: modules/mac_unit.il
+<suppressed ~1531 debug messages>
+
+End of script. Logfile hash: 316b74aff9, time: 0.25s, user: 0.01s, system: 0.02s, MEM: 18.25 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 73% 1x eqy_partition (0 sec), 11% 15x write_rtlil (0 sec), ...

@@ -1,0 +1,63 @@
+EQY 23:22:24 [equiv] read_gold: starting process "yosys -ql equiv/gold.log equiv/gold.ys"
+EQY 23:22:24 [equiv] read_gold: finished (returncode=0)
+EQY 23:22:24 [equiv] read_gate: starting process "yosys -ql equiv/gate.log equiv/gate.ys"
+EQY 23:22:24 [equiv] read_gate: finished (returncode=0)
+EQY 23:22:24 [equiv] combine: starting process "yosys -ql equiv/combine.log equiv/combine.ys"
+EQY 23:22:24 [equiv] combine: finished (returncode=0)
+EQY 23:22:25 [equiv] partition: starting process "cd equiv; yosys -ql partition.log partition.ys"
+EQY 23:22:25 [equiv] partition: finished (returncode=0)
+EQY 23:22:25 [equiv] run: starting process "make -C equiv -f strategies.mk"
+EQY 23:22:25 [equiv] run: make: Entering directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_3/formal_eqy/equiv'
+EQY 23:22:25 [equiv] run: make: Warning: File 'strategies.mk' has modification time 0.087 s in the future
+EQY 23:22:25 [equiv] run: Running strategy 'sat' on 'mac_unit.a_reg'..
+EQY 23:22:25 [equiv] run: Proved equivalence of partition 'mac_unit.a_reg' using strategy 'sat'
+EQY 23:22:25 [equiv] run: Running strategy 'sat' on 'mac_unit.acc'..
+EQY 23:22:25 [equiv] run: Proved equivalence of partition 'mac_unit.acc' using strategy 'sat'
+EQY 23:22:25 [equiv] run: Running strategy 'sat' on 'mac_unit.acc_valid'..
+EQY 23:22:26 [equiv] run: Proved equivalence of partition 'mac_unit.acc_valid' using strategy 'sat'
+EQY 23:22:26 [equiv] run: Running strategy 'sat' on 'mac_unit.b_reg'..
+EQY 23:22:26 [equiv] run: Proved equivalence of partition 'mac_unit.b_reg' using strategy 'sat'
+EQY 23:22:26 [equiv] run: Running strategy 'sat' on 'mac_unit.prod0'..
+EQY 23:22:26 [equiv] run: Proved equivalence of partition 'mac_unit.prod0' using strategy 'sat'
+EQY 23:22:26 [equiv] run: Running strategy 'sat' on 'mac_unit.prod1'..
+EQY 23:22:26 [equiv] run: Proved equivalence of partition 'mac_unit.prod1' using strategy 'sat'
+EQY 23:22:26 [equiv] run: Running strategy 'sat' on 'mac_unit.prod2'..
+EQY 23:22:26 [equiv] run: Proved equivalence of partition 'mac_unit.prod2' using strategy 'sat'
+EQY 23:22:26 [equiv] run: Running strategy 'sat' on 'mac_unit.prod3'..
+EQY 23:22:26 [equiv] run: Proved equivalence of partition 'mac_unit.prod3' using strategy 'sat'
+EQY 23:22:26 [equiv] run: Running strategy 'sat' on 'mac_unit.sum'..
+EQY 23:22:27 [equiv] run: Proved equivalence of partition 'mac_unit.sum' using strategy 'sat'
+EQY 23:22:27 [equiv] run: Running strategy 'sat' on 'mac_unit.sum01'..
+EQY 23:22:27 [equiv] run: Proved equivalence of partition 'mac_unit.sum01' using strategy 'sat'
+EQY 23:22:27 [equiv] run: Running strategy 'sat' on 'mac_unit.sum23'..
+EQY 23:22:27 [equiv] run: Proved equivalence of partition 'mac_unit.sum23' using strategy 'sat'
+EQY 23:22:27 [equiv] run: Running strategy 'sat' on 'mac_unit.sum_reg'..
+EQY 23:22:27 [equiv] run: Proved equivalence of partition 'mac_unit.sum_reg' using strategy 'sat'
+EQY 23:22:27 [equiv] run: Running strategy 'sat' on 'mac_unit.valid_reg'..
+EQY 23:22:27 [equiv] run: Proved equivalence of partition 'mac_unit.valid_reg' using strategy 'sat'
+EQY 23:22:27 [equiv] run: Running strategy 'sat' on 'mac_unit.valid_reg2'..
+EQY 23:22:27 [equiv] run: Proved equivalence of partition 'mac_unit.valid_reg2' using strategy 'sat'
+EQY 23:22:27 [equiv] run: make -f strategies.mk summary
+EQY 23:22:27 [equiv] run: make[1]: Entering directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_3/formal_eqy/equiv'
+EQY 23:22:27 [equiv] run: make[1]: Leaving directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_3/formal_eqy/equiv'
+EQY 23:22:27 [equiv] run: make: warning:  Clock skew detected.  Your build may be incomplete.
+EQY 23:22:27 [equiv] run: make: Leaving directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_cc7e7528a946_optimize_20260913T231930Z/round_2/attempt_1/candidate_3/formal_eqy/equiv'
+EQY 23:22:27 [equiv] run: finished (returncode=0)
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.valid_reg2
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.valid_reg
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.sum_reg
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.sum23
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.sum01
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.sum
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.prod3
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.prod2
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.prod1
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.prod0
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.b_reg
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.acc_valid
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.acc
+EQY 23:22:27 [equiv] Successfully proved equivalence of partition mac_unit.a_reg
+EQY 23:22:27 [equiv] Successfully proved designs equivalent
+EQY 23:22:27 [equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+EQY 23:22:27 [equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 23:22:27 [equiv] DONE (PASS, rc=0)

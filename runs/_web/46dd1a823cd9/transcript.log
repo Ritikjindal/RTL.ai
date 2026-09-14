@@ -1,0 +1,83 @@
+[baseline] Synthesizing + measuring baseline 'web_46dd1a823cd9'...
+           top module: mac_unit   sources: 1 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_46dd1a823cd9_optimize_20260914T001725Z/baseline/result.json
+
+======================================================================
+[round 1/1] Critical path on clock 'clk'.
+           Responsible module: 'mac_unit' (mac_unit.v, 49 lines)
+           Current worst slack: -0.22 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+**Target metric: Timing.** The design fails its constraint with worst slack -0.22 ns (data arrival 1.63 ns vs required 1.42 ns), a real violation, so closing timing is the only goal. The critical path (_3440_ → _3471_) runs through 34 levels of logic: from a_reg/b_reg, through the four 8x8 multipliers, through the two-level adder tree (sum01, sum23, sum), and then through the final accumulator addition (acc <= acc + sum) feeding back into acc's own D input — all in a single combinational cycle. This is a classic case of two multiply-accumulate stages (multiply-tree, then accumulate-add) being merged into one unbroken combinational path.
+
+**Change: Pipeline by inserting a register between the multiply/adder-tree output and the accumulate-add input.**
+
+Specifically:
+1. Add a new 18-bit register `sum_reg` and a 1-bit register `valid_reg2`.
+2. On every clock edge (respecting `rst`), capture `sum_reg <= sum;` and `valid_reg2 <= valid_reg;` — this registers the output of the multiply/tree logic (`prod0..prod3` → `sum01`/`sum23` → `sum`), one full clock cycle after `a_reg`/`b_reg` are loaded.
+3. Change the accumulate always-block to consume `sum_reg` and `valid_reg2` instead of `sum` and `valid_reg` directly:
+   - `if (rst) { acc <= 0; acc_valid <= 0; }`
+   - `else if (valid_reg2) { acc <= acc + {6'd0, sum_reg}; acc_valid <= 1; }`
+   - `else { acc_valid <= 0; }`
+
+This splits the former 34-level path into two shorter paths: (a) a_reg/b_reg → multipliers → adder tree → sum_reg (roughly the multiply+tree portion, ~half the depth), and (b) sum_reg → accumulate-adder → acc (the remaining portion). Neither sub-path contains both the multiply tree and the feedback accumulate-add, so the critical path delay per stage drops well below the previous 1.63 ns, restoring positive slack at the same clock period.
+
+Since output `acc`/`acc_valid` now reflect an input `valid`/`a_vec`/`b_vec` pair one additional clock cycle later than before (one extra pipeline stage between input registration and the final accumulate step), this is declared as LATENCY_OFFSET: 1.
+[attempt 1] Plan declares +1 cycle(s) of added latency.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+  [attempt 1.1] PASS — mac_unit.v and mac_unit.v are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.1] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.1] Accepted [timing-closure]: net weighted improvement +121.0% (area -4.6%, timing +150.0%, power +14.8%).
+  [attempt 1.2] Asking coder to implement the plan...
+  [attempt 1.2] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+  [attempt 1.2] PASS — mac_unit.v and mac_unit.v are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.2] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.2] Accepted [timing-closure]: net weighted improvement +121.0% (area -4.6%, timing +150.0%, power +14.8%).
+  [attempt 1.3] Asking coder to implement the plan...
+  [attempt 1.3] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+  [attempt 1.3] PASS — mac_unit.v and mac_unit.v are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.3] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.3] Accepted [timing-closure]: net weighted improvement +121.0% (area -4.6%, timing +150.0%, power +14.8%).
+
+[attempt 1] 3/3 sample(s) accepted; winner is [attempt 1.1] at +121.0%.
+           * [attempt 1.1] accepted        +121.0%
+             [attempt 1.2] accepted        +121.0%
+             [attempt 1.3] accepted        +121.0%
+
+[round 1] Accepted: Accepted [timing-closure]: net weighted improvement +121.0% (area -4.6%, timing +150.0%, power +14.8%).
+[round 1] Design now at /mnt/d/tushar/Downloads/RTL.ai/runs/web_46dd1a823cd9_optimize_20260914T001725Z/round_1/optimized
+
+======================================================================
+OPTIMIZATION COMPLETE
+======================================================================
+
+1 round(s) accepted:
+
+  Rnd  Clock     Module            Offset        Net
+  1    clk       mac_unit          +1        +121.0%
+
+======================================================================
+Comparison: web_46dd1a823cd9  vs.  web_46dd1a823cd9_candidate
+======================================================================
+Formal equivalence: PASS — mac_unit.v and mac_unit.v are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+
+Metric                     Baseline      Candidate       Delta
+--------------------------------------------------------------
+Cell area (um2)             2312.87           2419       +4.6%
+Total cells                    1736           1777       +2.4%
+Flip-flops                       90            109      +21.1%
+Worst slack (ns)              -0.22           0.11   +0.33 abs
+Max freq (MHz)              581.395        719.424      +23.7%
+Total power (uW)               1280           1090      -14.8%
+PPA overall score           3.92766         4.1876       +6.6%
+
+Optimized design : /mnt/d/tushar/Downloads/RTL.ai/runs/web_46dd1a823cd9_optimize_20260914T001725Z/optimized
+
+NOTE: cumulative added latency, relative to the ORIGINAL design:
+  mac_unit: +1 cycle(s)
+  Each round's proof is against that round's own baseline, which is valid, but the totals above are what the surrounding logic must tolerate.

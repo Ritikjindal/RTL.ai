@@ -1,0 +1,231 @@
+[baseline] Synthesizing + measuring baseline 'web_48e595bdeba8'...
+           top module: benchmark_top   sources: 10 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/baseline/result.json
+
+======================================================================
+[round 1/3] Critical path on clock 'clk_a'.
+           Responsible module: 'mac_unit' (mac_unit.v, 49 lines)
+           Current worst slack: -1.41 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+**Metric targeted: Timing (worst slack -1.41 ns, critical path 47 logic levels from a_reg/b_reg through the multiply-add tree into the accumulator, achieving only 343.6 MHz).**
+
+The critical path runs from the registered inputs (a_reg/b_reg), through four 8x8 multipliers, a two-level adder tree (sum01, sum23, sum), and then directly into the accumulator's combinational adder (`acc + {6'd0, sum}`) before hitting the acc register. This entire multiply-tree-plus-accumulate chain is done in a single cycle with no intermediate register, producing 47 levels of logic - far too deep for the clock period, causing the 1.41ns overrun.
+
+**Structural change:** Insert a pipeline register stage that captures the product-sum tree output (`sum`) before it reaches the accumulator's adder, splitting the path into two shorter combinational segments:
+
+1. Add a new register stage: `sum_reg <= sum;` (18 bits, or `{6'd0, sum}` widened to 24 bits) and `valid_reg2 <= valid_reg;`, clocked on `clk`, with synchronous reset clearing both to 0.
+2. Change the accumulator's always block to consume `sum_reg` instead of `sum`, and gate on `valid_reg2` instead of `valid_reg`:
+   - `acc <= acc + {6'd0, sum_reg};` when `valid_reg2` is asserted, else hold/clear `acc_valid` as before.
+3. This breaks the original single monolithic path (a_reg/b_reg → multiply → adder tree → accumulate → acc) into two pipeline stages: Stage 1 (multiply + adder tree → sum_reg) and Stage 2 (sum_reg + acc → acc), each with roughly half the logic depth (~23-24 levels instead of 47).
+
+Because this adds one new register stage between the multiply/adder tree and the final accumulation, the `acc`/`acc_valid` outputs now appear one clock cycle later than in the original design, hence LATENCY_OFFSET: 1. The multiplication and tree-summation logic itself is unchanged (no re-design of the arithmetic), so functional correctness is preserved - only the pipeline depth changes.
+[attempt 1] Plan declares +1 cycle(s) of added latency.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+  [attempt 1.1] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.1] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.1] Accepted [timing-closure]: net weighted improvement +5.0% (area -1.2%, timing +6.4%, power +0.0%).
+  [attempt 1.2] Asking coder to implement the plan...
+  [attempt 1.2] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+  [attempt 1.2] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.2] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.2] Accepted [timing-closure]: net weighted improvement +5.0% (area -1.2%, timing +6.4%, power +0.0%).
+  [attempt 1.3] Asking coder to implement the plan...
+  [attempt 1.3] Checking formal equivalence of 'mac_unit' with SymbiYosys...
+  [attempt 1.3] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.3] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.3] Accepted [timing-closure]: net weighted improvement +5.0% (area -1.2%, timing +6.4%, power +0.0%).
+
+[attempt 1] 3/3 sample(s) accepted; winner is [attempt 1.1] at +5.0%.
+           * [attempt 1.1] accepted        +5.0%
+             [attempt 1.2] accepted        +5.0%
+             [attempt 1.3] accepted        +5.0%
+
+[round 1] Accepted: Accepted [timing-closure]: net weighted improvement +5.0% (area -1.2%, timing +6.4%, power +0.0%).
+[round 1] Design now at /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized
+
+======================================================================
+[round 2/3] Critical path on clock 'clk_c'.
+           Responsible module: 'bm_dot4' (bm_dot4.v, 59 lines)
+           Current worst slack: -1.32 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+**Metric targeted: timing (critical path violation).**
+The reported critical path (startpoint _94707_ → endpoint _94652_, 45 logic levels, arrival 2.95 ns vs required 1.63 ns, slack ‑1.32 ns) runs from the a_reg/b_reg registers, through all four DW×DW multipliers, through the h0/h1 add tree and the final `sum` computation, all the way into the `acc <= acc + sum` accumulator adder in the same cycle. That is effectively multiply + 3-way add + wide accumulate feedback in one unbroken combinational chain, which is far too deep for the clock period implied by the 325 MHz achieved vs. whatever the real target is.
+
+**Structural change:** Insert a pipeline register stage between the multiplier outputs (m0, m1, m2, m3) and the adder tree that forms h0/h1/sum, splitting the current single combinational stage into two roughly balanced stages.
+
+Concretely:
+1. Add four new registers `m0_r, m1_r, m2_r, m3_r` (width PW, signed), clocked on `clk`, that capture `m0, m1, m2, m3` every cycle (reset to 0 like the other regs).
+2. Change the combinational definitions of `h0`, `h1`, and `sum` to consume `m0_r..m3_r` instead of `m0..m3` directly, so the adder tree and the final accumulation (`acc <= acc + {...,sum}`) now operate one cycle later, on the registered products.
+3. Add a second valid-tracking register `vld2` that delays `vld` by one more cycle (i.e., `vld2 <= vld` in the same always block that produces `m*_r`), and use `vld2` instead of `vld` as the enable condition for `acc <= acc + ...` and for computing `out_valid <= vld2` in the final always block.
+
+This splits the 45-level path into two shorter stages: (a) a_reg/b_reg → multiplier → m*_r register, and (b) m*_r → h0/h1/sum adder tree → acc accumulate → out_valid. Each stage now has roughly half the logic depth of the original monolithic path, which should bring arrival time well under the 1.63 ns required time budget seen in the report, closing the -1.32 ns violation. The added `m*_r`/`vld2` register stage introduces exactly one extra pipeline cycle of latency from input to `acc`/`out_valid`, hence LATENCY_OFFSET: 1.
+[attempt 1] Plan declares +1 cycle(s) of added latency.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 1.1] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.1] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.1] Rejected [timing-closure]: baseline violates timing and this candidate does not improve worst slack (area -1.4%, timing -0.8%, power +9.9%).
+  [attempt 1.2] Asking coder to implement the plan...
+  [attempt 1.2] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 1.2] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 1.2] Equivalent! Re-synthesizing the whole design...
+  [attempt 1.2] Rejected [timing-closure]: baseline violates timing and this candidate does not improve worst slack (area -1.4%, timing -0.8%, power +9.9%).
+  [attempt 1.3] Asking coder to implement the plan...
+  [attempt 1.3] Byte-identical to an earlier sample - skipping re-verification.
+[attempt 1] No sample accepted (rejected, rejected, duplicate).
+
+[attempt 2/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+**Metric targeted:** Timing (critical path / max frequency). The design currently violates timing badly: worst slack -1.32 ns, required 1.63 ns vs arrival 2.95 ns, with 45 levels of combinational logic on the path from the multiplier startpoint (_94707_) through the four 8x8 multiplies, the h0/h1/sum adder tree, and directly into the accumulator register (_94652_). This is a single unbroken combinational chain of MUL → ADD-TREE → ACCUMULATE, which is why the logic depth is so extreme relative to other structures in the design (48238 cells, only 62.5k um² of which are legitimately needed for 4 multiplies + a small adder).
+
+**Change:** Insert a pipeline register stage between the multiplier outputs and the addition/accumulation logic, splitting the 45-level path roughly at the multiply/add boundary.
+
+Specifically:
+1. Add four new registers `m0_r, m1_r, m2_r, m3_r` (width PW, signed), clocked on `clk`, reset by `rst` to 0, that capture `m0, m1, m2, m3` every cycle (no gating needed, since they're pure combinational products of already-registered `a_reg/b_reg`).
+2. Add a second-stage valid register `vld2`, clocked on `clk`, reset to 0, that captures `vld` each cycle (`vld2 <= rst ? 0 : vld;`), moving the valid pipeline one stage deeper to match the new registered multiplier stage.
+3. Change the downstream combinational logic so that `h0 = m0_r + m1_r`, `h1 = m2_r + m3_r`, `sum = h0 + h1` — i.e., the adder tree now consumes the registered multiplier outputs instead of the raw combinational products.
+4. In the final always block, gate the accumulate/out_valid logic with `vld2` instead of `vld`: `if (vld2) acc <= acc + {{...}, sum}; out_valid <= vld2;`
+
+This breaks the single 45-level path into two shorter paths: (a) a_reg/b_reg → multiply → m*_r register (roughly the multiplier's own depth), and (b) m*_r → adder tree → accumulate → acc register (roughly the adder/accumulator depth). Each half should be well under half the original 2.95 ns arrival time, since the multiplier logic dominates the depth count. This adds exactly one pipeline cycle of latency between input capture and the corresponding `acc`/`out_valid` update, which is why LATENCY_OFFSET is 1 — the functional value produced is identical, just delayed by one additional clock cycle relative to the original startpoint-to-output timing.
+[attempt 2] Plan declares +1 cycle(s) of added latency.
+[attempt 2] Sampling 3 implementation(s) of this plan.
+  [attempt 2.1] Asking coder to implement the plan...
+  [attempt 2.1] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 2.1] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 2.1] Equivalent! Re-synthesizing the whole design...
+  [attempt 2.1] Rejected [timing-closure]: baseline violates timing and this candidate does not improve worst slack (area -1.4%, timing -0.8%, power +9.9%).
+  [attempt 2.2] Asking coder to implement the plan...
+  [attempt 2.2] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 2.2] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 2.2] Equivalent! Re-synthesizing the whole design...
+  [attempt 2.2] Rejected [timing-closure]: baseline violates timing and this candidate does not improve worst slack (area -1.4%, timing -0.8%, power +9.9%).
+  [attempt 2.3] Asking coder to implement the plan...
+  [attempt 2.3] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 2.3] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 2.3] Equivalent! Re-synthesizing the whole design...
+  [attempt 2.3] Rejected [timing-closure]: baseline violates timing and this candidate does not improve worst slack (area -1.4%, timing -0.8%, power +9.9%).
+[attempt 2] No sample accepted (rejected, rejected, rejected).
+
+[attempt 3/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+TARGET METRIC: Timing closure (critical path). The design violates timing badly: worst slack -1.32 ns, data arrival 2.95 ns vs required 1.63 ns, with 45 levels of combinational logic on the path from the registered a_reg/b_reg inputs through the four multipliers, the two-level adder tree (h0, h1, sum), and finally into the accumulator's add-and-register (`acc <= acc + sum`). This entire multiply→add-tree→accumulate chain currently executes in a single cycle, which is the actual bottleneck (startpoint/endpoint both sit on this loop, since `acc` feeds back into itself every cycle it is valid).
+
+STRUCTURAL CHANGE: Insert one pipeline register stage that captures the adder-tree output `sum` before it is added into the accumulator, splitting the 45-level path roughly in half.
+
+Specifically:
+1. Add a new register `sum_reg` (width matching `sum`, i.e. `[PW+1:0]`) and a new valid register `vld2`.
+2. In the existing clocked always block (the one currently containing `a_reg`, `b_reg`, `vld`), also register: `sum_reg <= sum;` and `vld2 <= vld;` (with the same `rst` reset-to-zero behavior).
+3. Change the accumulator always block to use the registered value instead of the combinational one:
+   - Replace `if (vld) acc <= acc + {...sum...};` with `if (vld2) acc <= acc + {{(ACCW-PW-2){sum_reg[PW+1]}}, sum_reg};`
+   - Replace `out_valid <= vld;` with `out_valid <= vld2;`
+
+This breaks the critical path into two shorter combinational segments: (a) a_reg/b_reg → 4 multipliers → h0/h1 → sum → sum_reg (register boundary), and (b) sum_reg → final add → acc (register boundary). Each segment should have roughly half the logic depth of the original 45-level path, eliminating the negative slack. The extra register stage adds exactly one clock cycle of latency between input arrival and the corresponding `acc`/`out_valid` update, which is declared via LATENCY_OFFSET: 1.
+[attempt 3] Plan declares +1 cycle(s) of added latency.
+[attempt 3] Sampling 3 implementation(s) of this plan.
+  [attempt 3.1] Asking coder to implement the plan...
+  [attempt 3.1] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 3.1] FAIL — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are NOT equivalent. See /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/formal/equiv/engine_0/ for the counterexample trace.
+  [attempt 3.2] Asking coder to implement the plan...
+  [attempt 3.2] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 3.2] FAIL — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are NOT equivalent. See /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_2/formal/equiv/engine_0/ for the counterexample trace.
+  [attempt 3.3] Asking coder to implement the plan...
+  [attempt 3.3] Checking formal equivalence of 'bm_dot4' with SymbiYosys...
+  [attempt 3.3] PASS — benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.
+  [attempt 3.3] Equivalent! Re-synthesizing the whole design...
+  [attempt 3.3] Accepted [timing-closure]: net weighted improvement +1.9% (area -0.6%, timing +1.5%, power +7.7%).
+
+[attempt 3] 1/3 sample(s) accepted; winner is [attempt 3.3] at +1.9%.
+           * [attempt 3.3] accepted        +1.9%
+             [attempt 3.1] not_equivalent  n/a
+             [attempt 3.2] not_equivalent  n/a
+
+[round 2] Accepted: Accepted [timing-closure]: net weighted improvement +1.9% (area -0.6%, timing +1.5%, power +7.7%).
+[round 2] Design now at /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/optimized
+
+======================================================================
+[round 3/3] Critical path on clock 'clk_e'.
+           Responsible module: 'bm_fsm_ctrl' (bm_fsm_ctrl.v, 131 lines)
+           Current worst slack: -1.3 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 0
+
+**Target metric:** Timing (hard violation). Worst slack is -1.3 ns on clk_e (max frequency only 289.9 MHz), and the critical path startpoint/endpoint sits squarely in the datapath decode chain `d0 → d1 → … → d9`, which the RTL comment itself flags as "an unbalanced chain of conditional adds." Logic depth is 44 levels for what is architecturally a single-cycle, single-operation update, because the synthesizer is forced to chain 9 sequential conditional adders/muxes even though `state` is one-hot and only one of `state[3]…state[11]` is ever true at a time.
+
+**Root cause:** Each stage `d_k` is written as `state[k] ? (d_{k-1} OP …) : d_{k-1}`, so RTL forces a strict data dependency d0→d1→d2→…→d9 even though, functionally, only one stage ever modifies the value per cycle (the rest are pure pass-throughs due to one-hot state). This turns a "pick one of 9 parallel operations" decode into a 9-deep ripple of muxed adders, which is exactly what shows up as the 44-level critical path from `_96031_` to `_94431_`.
+
+**Proposed change (logic restructuring):** Break the false serial dependency by computing all 9 candidate results independently and in parallel from the *same* base value `d0 = acc ^ ext`, then select the result with a single one-hot mux instead of chaining them:
+
+- Keep `d0 = acc ^ ext` unchanged.
+- Compute each candidate directly from `d0` (not from the previous candidate):
+  - `cand3 = d0 + ext`
+  - `cand4 = d0 + {ext[ACCW-2:0], 1'b0}`
+  - `cand5 = d0 + held`
+  - `cand6 = d0 + lenx`
+  - `cand7 = d0 + cntx`
+  - `cand8 = d0 + ext + cntx`
+  - `cand9 = d0 ^ {ext[ACCW-9:0], 8'h7D}`
+  - `cand10 = d0 + held + lenx`
+  - `cand11 = d0 ^ acc`
+- Replace the final `d9` assignment with a one-hot select:
+  ```
+  d9 = state[3]  ? cand3  :
+       state[4]  ? cand4  :
+       state[5]  ? cand5  :
+       state[6]  ? cand6  :
+       state[7]  ? cand7  :
+       state[8]  ? cand8  :
+       state[9]  ? cand9  :
+       state[10] ? cand10 :
+       state[11] ? cand11 :
+                    d0;
+  ```
+This is functionally identical to the original chain because `state` is one-hot (only one of bits 3–11 is ever asserted, so at most one candidate ever differs from `d0`, exactly matching the original ripple semantics), but it collapses the 9-deep sequential adder/mux chain into one level of parallel adders/XORs feeding a single flattened mux, cutting the critical path from 44 logic levels down to roughly the depth of one 24-bit adder plus one mux stage — well within the 1.99 ns required time.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...
+  [attempt 1.1] Checking equivalence of 'bm_fsm_ctrl' with eqy...
+  [attempt 1.1] eqy reports not equivalent — not conclusive (it also proves unreachable states), falling back to SymbiYosys.
+  [attempt 1.1] Checking formal equivalence of 'bm_fsm_ctrl' with SymbiYosys...
+      Unbounded proof timed out after 300s; retrying bounded (BMC, depth 64)...
+  [attempt 1.1] FormalError: Equivalence check TIMED OUT after 300s in both unbounded and bounded modes -- the candidate is neither proven equivalent nor proven different. This usually means the transformation restructures arithmetic in a way that is hard for a SAT solver (wide multipliers, or reordering a long adder chain). See /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_3/attempt_1/candidate_1/formal/equiv_sby_bmc.log
+  [attempt 1] Formal check timed out; skipping the remaining 2 sample(s) of this plan — they implement the same transform and would time out identically.
+[attempt 1] No sample accepted (formal_timeout).
+
+[attempt 2/3] Asking planner for a plan...
+[attempt 2] Planner failed: Model hit the 24000-token limit before finishing. Raise max_tokens for this call.
+[attempt 2] Abandoning 'bm_fsm_ctrl' and moving on.
+[round 3] 'bm_fsm_ctrl' could not be improved. Excluding it and trying the next module on the critical path.
+
+======================================================================
+OPTIMIZATION COMPLETE
+======================================================================
+
+2 round(s) accepted:
+
+  Rnd  Clock     Module            Offset        Net
+  1    clk_a     mac_unit          +1          +5.0%
+  2    clk_c     bm_dot4           +1          +1.9%
+Cannot compare: candidate was formally checked against a different baseline.
+  Candidate was checked against: /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/benchmark_top.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_dot4.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_fir6.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_fsm_ctrl.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_mac8.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/cdc_handshake.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/cdc_sync.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/clk_divider.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/mac_unit.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/reset_sync.v
+  Baseline provided here is:     /mnt/d/tushar/Downloads/RTL.ai/designs/benchmark_top.v; /mnt/d/tushar/Downloads/RTL.ai/designs/mac_unit.v; /mnt/d/tushar/Downloads/RTL.ai/designs/bm_fir6.v; /mnt/d/tushar/Downloads/RTL.ai/designs/bm_dot4.v; /mnt/d/tushar/Downloads/RTL.ai/designs/bm_mac8.v; /mnt/d/tushar/Downloads/RTL.ai/designs/bm_fsm_ctrl.v; /mnt/d/tushar/Downloads/RTL.ai/designs/clk_divider.v; /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_sync.v; /mnt/d/tushar/Downloads/RTL.ai/designs/cdc_handshake.v; /mnt/d/tushar/Downloads/RTL.ai/designs/reset_sync.v
+
+Optimized design : /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/optimized
+
+NOTE: cumulative added latency, relative to the ORIGINAL design:
+  mac_unit: +1 cycle(s)
+  bm_dot4: +1 cycle(s)
+  Each round's proof is against that round's own baseline, which is valid, but the totals above are what the surrounding logic must tolerate.

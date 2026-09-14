@@ -1,0 +1,41 @@
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_dot4.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_fir6.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_fsm_ctrl.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/bm_mac8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/mac_unit.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_1/optimized/reset_sync.v
+hierarchy -check -top bm_dot4
+proc
+flatten
+opt_clean
+rename bm_dot4 gold
+design -stash gold_design
+
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/benchmark_top.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/bm_dot4.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/bm_fir6.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/bm_fsm_ctrl.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/bm_mac8.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/cdc_handshake.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/cdc_sync.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/clk_divider.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/mac_unit.v
+read_verilog -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/design/reset_sync.v
+hierarchy -check -top bm_dot4
+proc
+flatten
+opt_clean
+rename bm_dot4 gate
+design -stash gate_design
+
+design -copy-from gold_design -as gold gold
+design -copy-from gate_design -as gate gate
+
+setattr -mod -unset top gold gate
+
+write_verilog -noattr /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/formal/gold_gate.v
+write_json /mnt/d/tushar/Downloads/RTL.ai/runs/web_48e595bdeba8_optimize_20260914T003745Z/round_2/attempt_3/candidate_1/formal/ports.json

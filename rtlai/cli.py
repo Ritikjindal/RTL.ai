@@ -6,6 +6,7 @@
 # Top module, design name and run folders are all derived.
 
 import argparse
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
@@ -13,6 +14,16 @@ from typing import List, Optional
 from rtlai.synth import detect_top_module
 
 DEFAULT_LIB = Path("lib") / "NangateOpenCellLibrary_typical.lib"
+
+_CREATE_CLOCK_RE = re.compile(r"^\s*create_clock\b", re.MULTILINE)
+
+
+def count_clock_domains(sdc_file: Path) -> int:
+    """Number of `create_clock` statements in the SDC -- the number of independent
+    clock domains the design has to close timing on. At least 1: every design that
+    got this far has a clock, even if the SDC is unusual enough that the regex
+    finds nothing."""
+    return len(_CREATE_CLOCK_RE.findall(Path(sdc_file).read_text())) or 1
 
 
 @dataclass
@@ -55,6 +66,14 @@ def resolve_config(args, project_root: Path) -> DesignConfig:
     """Turns parsed arguments into a DesignConfig, detecting the top module when
     it wasn't given."""
     rtl_files = _resolve_files(args.rtl, "RTL file")
+
+    # Catch duplicate module definitions before Yosys does -- the error names both
+    # files, which Yosys' "Re-definition of module" message does not.
+    from rtlai.modules import list_modules, ModuleError
+    try:
+        list_modules(rtl_files)
+    except ModuleError as e:
+        raise SystemExit(f"RTL problem: {e}")
 
     sdc_file = Path(args.sdc).resolve()
     if not sdc_file.exists():

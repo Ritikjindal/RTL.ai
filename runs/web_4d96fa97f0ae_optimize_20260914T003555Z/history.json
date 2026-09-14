@@ -1,0 +1,14 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "clock": "clk",
+      "module": "bm_mac8",
+      "latency_offset": 0,
+      "score": 128.9285669092638,
+      "reason": "Accepted [timing-closure]: net weighted improvement +128.9% (area +0.3%, timing +153.3%, power +62.3%).",
+      "bounded": false
+    }
+  ],
+  "latency_changed": {}
+}

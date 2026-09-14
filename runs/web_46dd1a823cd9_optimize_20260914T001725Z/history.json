@@ -1,0 +1,16 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "clock": "clk",
+      "module": "mac_unit",
+      "latency_offset": 1,
+      "score": 121.02549058366877,
+      "reason": "Accepted [timing-closure]: net weighted improvement +121.0% (area -4.6%, timing +150.0%, power +14.8%).",
+      "bounded": false
+    }
+  ],
+  "latency_changed": {
+    "mac_unit": 1
+  }
+}

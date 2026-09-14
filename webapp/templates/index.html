@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTL.ai — GenAI Timing Closure</title>
+<style>
+  :root{
+    --bg:#07090d; --panel:#0e1219; --panel-2:#131924; --line:#1e2836;
+    --txt:#e6edf6; --dim:#8394ab; --faint:#5a6b81;
+    --accent:#35e0d0; --accent-2:#7c6cff; --ok:#34d399; --bad:#f87171; --warn:#fbbf24;
+    --mono:'SF Mono',ui-monospace,'JetBrains Mono',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+       font:15px/1.6 ui-sans-serif,-apple-system,'Segoe UI',Inter,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+
+  .glow{position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(60rem 30rem at 12% -10%, rgba(53,224,208,.10), transparent 60%),
+      radial-gradient(50rem 26rem at 88% 0%, rgba(124,108,255,.12), transparent 60%);}
+  .wrap{position:relative;z-index:1;max-width:1220px;margin:0 auto;padding:0 20px 80px}
+
+  header{padding:56px 0 32px;border-bottom:1px solid var(--line);margin-bottom:32px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 var(--mono);
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+    border:1px solid rgba(53,224,208,.28);background:rgba(53,224,208,.06);
+    padding:7px 12px;border-radius:100px}
+  h1{margin:20px 0 10px;font-size:clamp(32px,5vw,52px);line-height:1.05;
+     letter-spacing:-.03em;font-weight:700}
+  h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent-2));
+        -webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--dim);max-width:70ch;font-size:17px}
+  .stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:26px}
+  .stat b{display:block;font:700 22px/1.2 var(--mono);color:var(--txt)}
+  .stat span{font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+
+  .grid{display:grid;grid-template-columns:380px 1fr;gap:22px;align-items:start}
+  @media(max-width:940px){.grid{grid-template-columns:1fr}}
+
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));
+        border:1px solid var(--line);border-radius:14px;padding:22px}
+  .card h2{margin:0 0 4px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+           color:var(--dim);font-weight:600}
+  .card p.hint{margin:0 0 18px;font-size:13px;color:var(--faint)}
+
+  label{display:block;font-size:12px;color:var(--dim);margin:16px 0 6px;
+        text-transform:uppercase;letter-spacing:.08em}
+  select,input[type=file]{width:100%;background:#0a0e14;border:1px solid var(--line);
+    color:var(--txt);border-radius:9px;padding:11px 12px;font:13px var(--mono)}
+  select:focus,input:focus{outline:none;border-color:var(--accent)}
+  .seg{display:flex;gap:8px;margin-top:6px}
+  .seg button{flex:1;background:#0a0e14;border:1px solid var(--line);color:var(--dim);
+    padding:10px;border-radius:9px;font:600 12px var(--mono);cursor:pointer;
+    transition:.15s}
+  .seg button.on{border-color:var(--accent);color:var(--accent);
+    background:rgba(53,224,208,.08)}
+  .divider{display:flex;align-items:center;gap:12px;margin:22px 0 4px;
+    color:var(--faint);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--line)}
+
+  .go{width:100%;margin-top:22px;padding:14px;border:0;border-radius:10px;cursor:pointer;
+    font:700 14px/1 ui-sans-serif,sans-serif;letter-spacing:.02em;color:#04120f;
+    background:linear-gradient(100deg,var(--accent),#6ee7de);transition:.15s}
+  .go:hover{filter:brightness(1.08)}
+  .go:disabled{opacity:.4;cursor:not-allowed;filter:none}
+  .go.stop{background:transparent;border:1px solid var(--bad);color:var(--bad);
+    background-image:none}
+  .go.stop:hover{background:rgba(248,113,113,.1)}
+
+  /* pipeline tracker */
+  .pipe{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+  .step{flex:1;min-width:104px;background:#0a0e14;border:1px solid var(--line);
+    border-radius:10px;padding:11px 12px;position:relative;overflow:hidden;transition:.25s}
+  .step .n{font:700 10px var(--mono);color:var(--faint);letter-spacing:.1em}
+  .step .t{font-size:12.5px;color:var(--dim);margin-top:3px;font-weight:600}
+  .step.active{border-color:var(--accent);background:rgba(53,224,208,.07)}
+  .step.active .t{color:var(--accent)}
+  .step.active::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent);
+    animation:sweep 1.4s linear infinite}
+  @keyframes sweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  .step.done{border-color:rgba(52,211,153,.4)}
+  .step.done .t{color:var(--ok)}
+  .step.done .n::after{content:' ✓';color:var(--ok)}
+
+  /* live target readout */
+  .target{display:none;gap:26px;flex-wrap:wrap;background:#0a0e14;border:1px solid var(--line);
+    border-left:2px solid var(--accent-2);border-radius:10px;padding:14px 18px;margin-bottom:16px}
+  .target.show{display:flex}
+  .target div span{display:block;font-size:10.5px;color:var(--faint);
+    letter-spacing:.1em;text-transform:uppercase}
+  .target div b{font:600 15px var(--mono);color:var(--txt)}
+
+  /* terminal */
+  .term{background:#05070a;border:1px solid var(--line);border-radius:12px;
+    height:420px;overflow-y:auto;padding:16px 18px;font:12.5px/1.75 var(--mono);
+    white-space:pre-wrap;word-break:break-word;color:#a9bacd}
+  .term::-webkit-scrollbar{width:9px}
+  .term::-webkit-scrollbar-thumb{background:#1e2836;border-radius:9px}
+  .l-round{color:var(--accent-2);font-weight:700}
+  .l-pass{color:var(--ok)}
+  .l-fail{color:var(--bad)}
+  .l-warn{color:var(--warn)}
+  .l-acc{color:var(--ok);font-weight:700}
+  .l-dim{color:var(--faint)}
+  .l-key{color:var(--accent)}
+
+  details.plan{margin-top:14px;background:#0a0e14;border:1px solid var(--line);
+    border-radius:10px;padding:0 16px}
+  details.plan summary{cursor:pointer;padding:13px 0;font:600 12px var(--mono);
+    color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  details.plan .body{padding:0 0 16px;font-size:13.5px;color:var(--dim);
+    white-space:pre-wrap;border-top:1px solid var(--line);padding-top:14px}
+
+  /* round-by-round outcome feed, above the raw terminal */
+  .roundlog{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+  .round-row{display:flex;align-items:center;gap:12px;background:#0a0e14;
+    border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px}
+  .round-row .rr-n{font:700 11px var(--mono);color:var(--faint);min-width:30px}
+  .round-row .rr-mod{font:600 13px var(--mono);color:var(--txt)}
+  .round-row .rr-detail{color:var(--dim);flex:1}
+  .round-row .rr-badge{font:700 10.5px var(--mono);letter-spacing:.06em;
+    padding:3px 9px;border-radius:6px;white-space:nowrap}
+  .round-row.running .rr-badge{background:rgba(124,108,255,.13);color:var(--accent-2)}
+  .round-row.accepted .rr-badge{background:rgba(52,211,153,.13);color:var(--ok)}
+  .round-row.none .rr-badge{background:rgba(90,107,129,.15);color:var(--faint)}
+
+  details.raw{margin-bottom:14px;background:#05070a;border:1px solid var(--line);
+    border-radius:12px;overflow:hidden}
+  details.raw summary{cursor:pointer;padding:12px 16px;font:600 11.5px var(--mono);
+    color:var(--dim);letter-spacing:.06em;text-transform:uppercase;
+    border-bottom:1px solid var(--line)}
+  details.raw .term{border:0;border-radius:0}
+
+  /* results */
+  #results{display:none;margin-top:22px}
+  #results.show{display:block;animation:rise .45s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
+  .m{background:#0a0e14;border:1px solid var(--line);border-radius:12px;padding:16px}
+  .m .k{font-size:10.5px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase}
+  .m .v{font:700 21px/1.3 var(--mono);margin-top:7px}
+  .m .prev{font:500 11.5px var(--mono);color:var(--faint);margin-top:4px}
+  .m .d{font:600 12px var(--mono);margin-top:5px}
+  .up{color:var(--ok)} .down{color:var(--bad)} .flat{color:var(--faint)}
+
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+  th{text-align:left;font:600 10.5px var(--mono);color:var(--faint);
+     letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;
+     border-bottom:1px solid var(--line)}
+  td{padding:11px 12px;border-bottom:1px solid rgba(30,40,54,.6);font-family:var(--mono);
+     font-size:13px}
+  tr:last-child td{border-bottom:0}
+  .verdict{display:inline-block;padding:3px 9px;border-radius:6px;
+    font:700 10.5px var(--mono);letter-spacing:.06em}
+  .v-ok{background:rgba(52,211,153,.13);color:var(--ok)}
+  .v-bd{background:rgba(251,191,36,.13);color:var(--warn)}
+  .v-no{background:rgba(248,113,113,.13);color:var(--bad)}
+
+  .dl-all{display:inline-flex;align-items:center;gap:7px;
+    background:rgba(53,224,208,.08);border:1px solid rgba(53,224,208,.28);
+    border-radius:8px;padding:8px 13px;font:600 12px var(--mono);color:var(--accent)}
+  .dl-all:hover{border-color:var(--accent)}
+  .file{background:#0a0e14;border:1px solid var(--line);border-radius:8px;
+    margin:8px 0 0;overflow:hidden}
+  .file-row{display:flex;align-items:center;justify-content:space-between;
+    padding:9px 13px;gap:12px}
+  .file-row .fname{font:600 12px var(--mono);color:var(--txt)}
+  .file-actions{display:flex;gap:8px}
+  .file-actions button, .file-actions a{background:transparent;border:1px solid var(--line);
+    color:var(--accent);border-radius:6px;padding:6px 11px;font:600 11.5px var(--mono);
+    cursor:pointer}
+  .file-actions button:hover, .file-actions a:hover{border-color:var(--accent)}
+  .file pre{margin:0;padding:14px 16px;border-top:1px solid var(--line);
+    background:#05070a;color:#a9bacd;font:12px/1.6 var(--mono);
+    white-space:pre;overflow:auto;max-height:420px}
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
+    color:var(--faint);font-size:12.5px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+
+<header>
+  <div class="badge"><span>●</span> Nebula Hackathon · Digital</div>
+  <h1>Constraint optimization through<br>RTL enhancement using <em>generative AI</em></h1>
+  <p class="sub">Give it RTL and timing constraints. It synthesizes, finds the critical path,
+  identifies the module responsible, rewrites that module, <strong>formally proves the rewrite
+  equivalent</strong>, reintegrates it and re-measures the whole design — then does it again on
+  whatever the next bottleneck turns out to be.</p>
+  <div class="stats">
+    <div class="stat"><b>48,070</b><span>cells in benchmark</span></div>
+    <div class="stat"><b>5</b><span>async clock domains</span></div>
+    <div class="stat"><b>−0.30 → +0.16 ns</b><span>best timing closure</span></div>
+    <div class="stat"><b>100%</b><span>changes formally checked</span></div>
+  </div>
+</header>
+
+<div class="grid">
+  <!-- ─────────── input ─────────── -->
+  <div class="card">
+    <h2>Design under test</h2>
+    <p class="hint">Pick a bundled design, or upload your own RTL and SDC.</p>
+
+    <form id="f">
+      <label>Preset</label>
+      <select id="preset"><option value="">— upload my own —</option></select>
+
+      <div id="upload" style="display:none">
+        <div class="divider">or upload</div>
+        <label>RTL sources (.v)</label>
+        <input type="file" name="rtl" id="rtl" multiple accept=".v,.sv">
+
+        <div id="topwrap" style="display:none">
+          <label>Top module</label>
+          <select id="top"><option value="">Auto-detect</option></select>
+        </div>
+
+        <label>Constraints (.sdc)</label>
+        <input type="file" name="sdc" id="sdc" accept=".sdc">
+      </div>
+
+      <label>Mode</label>
+      <div class="seg">
+        <button type="button" class="on" data-mode="optimize">Optimize</button>
+        <button type="button" data-mode="analyze">Analyze only</button>
+      </div>
+
+      <button class="go" id="go">Run pipeline</button>
+      <button type="button" class="go stop" id="stop" style="display:none">Stop</button>
+    </form>
+  </div>
+
+  <!-- ─────────── run ─────────── -->
+  <div class="card">
+    <h2>Pipeline</h2>
+    <p class="hint">Live output from the same script the command line runs.</p>
+
+    <div class="pipe" id="pipe">
+      <div class="step" data-s="analyze"><div class="n">01</div><div class="t">Synthesize &amp; time</div></div>
+      <div class="step" data-s="attribute"><div class="n">02</div><div class="t">Locate module</div></div>
+      <div class="step" data-s="plan"><div class="n">03</div><div class="t">Plan</div></div>
+      <div class="step" data-s="code"><div class="n">04</div><div class="t">Rewrite RTL</div></div>
+      <div class="step" data-s="verify"><div class="n">05</div><div class="t">Prove equivalent</div></div>
+      <div class="step" data-s="measure"><div class="n">06</div><div class="t">Re-measure</div></div>
+    </div>
+
+    <div class="target" id="target">
+      <div><span>Critical clock</span><b id="t-clk">—</b></div>
+      <div><span>Responsible module</span><b id="t-mod">—</b></div>
+      <div><span>Worst slack</span><b id="t-slk">—</b></div>
+      <div><span>Round</span><b id="t-rnd">—</b></div>
+    </div>
+
+    <div class="roundlog" id="roundlog" style="display:none"></div>
+
+    <details class="raw" id="rawbox" open>
+      <summary>Raw pipeline output</summary>
+      <div class="term" id="term">Idle. Choose a design and press Run.</div>
+    </details>
+    <details class="plan" id="planbox" style="display:none">
+      <summary>Model's optimization plan</summary>
+      <div class="body" id="plantext"></div>
+    </details>
+  </div>
+</div>
+
+<!-- ─────────── results ─────────── -->
+<div id="results">
+  <div class="card" style="margin-top:22px">
+    <h2>Result</h2>
+    <p class="hint">Baseline versus optimized, measured by the same Yosys + OpenSTA flow.</p>
+    <div class="metrics" id="metrics"></div>
+
+    <div class="optimize-only">
+      <h2 style="margin-top:28px">Formal equivalence</h2>
+      <p class="hint">Every accepted change is proven behaviourally identical before it counts.</p>
+      <table id="formal"><thead><tr><th>Candidate</th><th>Verdict</th><th>Method</th></tr></thead><tbody></tbody></table>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:28px">
+        <h2 style="margin:0">Optimized RTL</h2>
+        <a id="download-all" href="#" style="display:none" class="dl-all">↓ Download all (.zip)</a>
+      </div>
+      <div id="files"></div>
+
+      <div id="roundsummary" style="display:none">
+        <h2 style="margin-top:28px">Optimization rounds</h2>
+        <p class="hint">How the design got from baseline to final, one accepted change at a time.</p>
+        <table id="rounds"><thead><tr><th>Round</th><th>Clock</th><th>Module</th>
+          <th>Added latency</th><th>Net change</th></tr></thead><tbody></tbody></table>
+      </div>
+
+      <h2 style="margin-top:28px">Full comparison</h2>
+      <p class="hint">Every metric, baseline versus optimized, with the raw numbers behind each delta.</p>
+      <table id="compare"><thead><tr><th>Metric</th><th>Baseline</th><th>Optimized</th><th>Delta</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Yosys · OpenSTA · SymbiYosys · EQY · Claude</div>
+  <div>Ritik Jindal · Tushar · Brind</div>
+</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+let mode = 'optimize', presets = [];
+
+fetch('/presets').then(r=>r.json()).then(d=>{
+  presets = d;
+  d.forEach((p,i)=>{
+    const o = document.createElement('option');
+    o.value = i; o.textContent = p.name;
+    $('#preset').appendChild(o);
+  });
+  $('#preset').value = 0;
+});
+
+$('#preset').addEventListener('change', e=>{
+  $('#upload').style.display = e.target.value === '' ? 'block' : 'none';
+});
+
+$('#rtl').addEventListener('change', async e=>{
+  const files = [...e.target.files];
+  const topSel = $('#top');
+  topSel.innerHTML = '<option value="">Auto-detect</option>';
+  if (!files.length){ $('#topwrap').style.display = 'none'; return; }
+
+  const seen = new Set();
+  for (const f of files){
+    const text = await f.text();
+    for (const m of text.matchAll(/^\s*module\s+([A-Za-z_]\w*)/gm)){
+      if (seen.has(m[1])) continue;
+      seen.add(m[1]);
+      const o = document.createElement('option');
+      o.value = m[1]; o.textContent = `${m[1]}  (${f.name})`;
+      topSel.appendChild(o);
+    }
+  }
+  $('#topwrap').style.display = seen.size > 1 ? 'block' : 'none';
+});
+
+document.querySelectorAll('.seg button').forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); mode = b.dataset.mode;
+  };
+});
+
+function setStep(name){
+  const steps = [...document.querySelectorAll('.step')];
+  const idx = steps.findIndex(s=>s.dataset.s===name);
+  steps.forEach((s,i)=>{
+    s.classList.toggle('active', i===idx);
+    s.classList.toggle('done', i<idx);
+  });
+}
+function allDone(){
+  // Analyze-only runs never go past step 1 (synthesize & time) -- only mark
+  // the steps this mode actually executes, so the tracker doesn't lie.
+  const steps = [...document.querySelectorAll('.step')];
+  const lastIdx = mode === 'optimize' ? steps.length - 1 : 0;
+  steps.forEach((s,i)=>{
+    s.classList.remove('active');
+    s.classList.toggle('done', i<=lastIdx);
+  });
+}
+
+const term = $('#term');
+function log(line){
+  const d = document.createElement('div');
+  let cls = '';
+  if (/^={10,}/.test(line))                cls='l-dim';
+  else if (/^\[round /.test(line))         cls='l-round';
+  else if (/PASS/.test(line))              cls='l-pass';
+  else if (/FAIL|not equivalent/i.test(line)) cls='l-fail';
+  else if (/TIMED OUT|timed out|Rejected/.test(line)) cls='l-warn';
+  else if (/Accepted|accepted/.test(line)) cls='l-acc';
+  else if (/^LATENCY_OFFSET/.test(line))   cls='l-key';
+  if (cls) d.className = cls;
+  d.textContent = line;
+  term.appendChild(d);
+  term.scrollTop = term.scrollHeight;
+}
+
+let inPlan = false, planLines = [];
+
+// Round-by-round outcome feed -- a plain-English summary of what's happening,
+// shown above the raw terminal instead of making that scrolling dump the only view.
+const roundRows = new Map();   // round number -> row element
+function roundRow(n){
+  if (roundRows.has(n)) return roundRows.get(n);
+  const el = document.createElement('div');
+  el.className = 'round-row running';
+  el.innerHTML = `<span class="rr-n">R${n}</span><span class="rr-mod">—</span>
+    <span class="rr-detail">Working…</span><span class="rr-badge">RUNNING</span>`;
+  $('#roundlog').style.display = 'flex';
+  $('#roundlog').appendChild(el);
+  roundRows.set(n, el);
+  return el;
+}
+function finishRound(n, cls, badge, detail){
+  const el = roundRow(n);
+  el.className = 'round-row ' + cls;
+  el.querySelector('.rr-badge').textContent = badge;
+  el.querySelector('.rr-detail').textContent = detail;
+}
+
+function consume(line){
+  if (/^\[baseline\]/.test(line))            setStep('analyze');
+  if (/Critical path on clock/.test(line)){
+    setStep('attribute');
+    const m = line.match(/clock '([^']+)'/); if(m) $('#t-clk').textContent = m[1];
+    const r = line.match(/\[round (\d+)\/(\d+)\]/); if(r) $('#t-rnd').textContent = r[1]+' / '+r[2];
+    $('#target').classList.add('show');
+    if (r) roundRow(r[1]);
+  }
+  const mm = line.match(/Responsible module: '([^']+)'/);
+  if (mm){
+    $('#t-mod').textContent = mm[1];
+    const row = [...roundRows.values()].pop();
+    if (row) row.querySelector('.rr-mod').textContent = mm[1];
+  }
+  const sm = line.match(/Current worst slack: ([-\d.]+) ns/);
+  if (sm) $('#t-slk').textContent = sm[1] + ' ns';
+
+  const acc = line.match(/^\[round (\d+)\] Accepted: (.+)/);
+  if (acc) finishRound(acc[1], 'accepted', 'ACCEPTED', acc[2]);
+
+  const noImprove = line.match(/^\[round (\d+)\] '([^']+)' could not be improved/);
+  if (noImprove) finishRound(noImprove[1], 'none', 'NO CHANGE', `'${noImprove[2]}' could not be improved further`);
+
+  const noTarget = line.match(/^\[round (\d+)\] No further optimizable module/);
+  if (noTarget) finishRound(noTarget[1], 'none', 'STOPPED', 'No further optimizable module on the critical path');
+
+  if (/Asking planner/.test(line)){ setStep('plan'); inPlan = true; planLines = []; }
+  else if (inPlan && /^\[attempt \d+\]/.test(line)){
+    inPlan = false;
+    $('#planbox').style.display = 'block';
+    $('#plantext').textContent = planLines.join('\n').trim();
+  } else if (inPlan){ planLines.push(line); }
+
+  if (/Asking coder/.test(line))              setStep('code');
+  if (/Checking .*equivalence|eqy/.test(line))setStep('verify');
+  if (/Re-synthesizing|Synthesizing \+ measuring/.test(line) && !/baseline/.test(line))
+                                              setStep('measure');
+}
+
+const fmt = (v,d=1)=> v==null ? '—' : Number(v).toFixed(d);
+
+// Mirrors rtlai/compare.py's pct_delta: a percentage across a sign change (e.g.
+// slack -0.22 -> +0.11) is meaningless, so report the absolute movement instead.
+function delta(base, cand, lowerBetter){
+  if (base==null||cand==null) return ['n/a','flat'];
+  if (base===0) return ['n/a','flat'];
+  let s, magnitude;
+  if ((base<0) !== (cand<0)){
+    const d = cand-base;
+    s = (d>=0?'+':'') + d.toFixed(2) + ' abs';
+    magnitude = d;
+  } else {
+    const pct = (cand-base)/Math.abs(base)*100;
+    s = (pct>=0?'+':'') + pct.toFixed(1) + '%';
+    magnitude = pct;
+  }
+  const good = lowerBetter ? magnitude<0 : magnitude>0;
+  return [s, Math.abs(magnitude)<0.05 ? 'flat' : (good?'up':'down')];
+}
+
+function render(res){
+  const b = res.baseline, c = res.candidate;
+  if (!b){ return; }
+  const rows = [
+    ['Worst slack', b.timing?.worst_slack_ns, c?.timing?.worst_slack_ns, 'ns', false, 2],
+    ['Max frequency', b.timing?.max_frequency_mhz, c?.timing?.max_frequency_mhz, 'MHz', false, 1],
+    ['Cell area', b.area?.cell_area_um2, c?.area?.cell_area_um2, 'µm²', true, 0],
+    ['Total cells', b.area?.total_cells, c?.area?.total_cells, '', true, 0],
+    ['Total power', b.power?.total_uw, c?.power?.total_uw, 'µW', true, 0],
+  ];
+  $('#metrics').innerHTML = rows.map(([k,bv,cv,u,lb,dp])=>{
+    const [ds,cls] = delta(bv,cv,lb);
+    const shown = cv!=null ? cv : bv;
+    return `<div class="m"><div class="k">${k}</div>
+      <div class="v">${fmt(shown,dp)}<span style="font-size:12px;color:var(--faint)"> ${u}</span></div>
+      <div class="prev">${cv!=null ? 'was '+fmt(bv,dp)+' '+u : 'baseline'}</div>
+      <div class="d ${cls}">${cv!=null? ds+' vs baseline' : ''}</div></div>`;
+  }).join('');
+
+  // Analyze-only runs never produce candidates or optimized RTL -- hide those
+  // sections instead of showing an always-empty table, which reads as a bug.
+  const optimizeOnly = [...document.querySelectorAll('.optimize-only')];
+  optimizeOnly.forEach(el => el.hidden = mode !== 'optimize');
+  if (mode !== 'optimize'){
+    $('#results').classList.add('show');
+    $('#results').scrollIntoView({behavior:'smooth', block:'start'});
+    return;
+  }
+
+  const tb = $('#formal tbody');
+  tb.innerHTML = (res.formal||[]).map(f=>{
+    const s = f.summary||'';
+    const bounded = /bounded/i.test(s);
+    const cls = !f.passed ? 'v-no' : (bounded ? 'v-bd' : 'v-ok');
+    const label = !f.passed ? 'NOT EQUIVALENT' : (bounded ? 'PASS (BOUNDED)' : 'PROVEN EQUIVALENT');
+    const method = /eqy/i.test(s) ? 'eqy · register-matched'
+                 : /depth=(\d+)/.test(s) ? 'SymbiYosys · depth '+s.match(/depth=(\d+)/)[1]
+                 : 'SymbiYosys';
+    return `<tr><td>${f.path}</td><td><span class="verdict ${cls}">${label}</span></td>
+            <td style="color:var(--dim)">${method}</td></tr>`;
+  }).join('') || '<tr><td colspan="3" style="color:var(--faint)">No candidate reached verification.</td></tr>';
+
+  $('#files').innerHTML = (res.files||[]).map(f=>`
+    <div class="file" data-file="${f}">
+      <div class="file-row">
+        <span class="fname">${f}</span>
+        <div class="file-actions">
+          <button type="button" class="view-btn">View</button>
+          <a href="/download/${JOB}/${f}" download>↓ Download</a>
+        </div>
+      </div>
+    </div>`).join('')
+    || '<span style="color:var(--faint);font-size:13px">No optimized design was produced.</span>';
+
+  const dlAll = $('#download-all');
+  if ((res.files||[]).length > 1){
+    dlAll.href = `/download-all/${JOB}`;
+    dlAll.style.display = 'inline-flex';
+  } else {
+    dlAll.style.display = 'none';
+  }
+
+  const rounds = res.history?.rounds || [];
+  $('#roundsummary').style.display = rounds.length ? 'block' : 'none';
+  $('#rounds tbody').innerHTML = rounds.map(r=>{
+    const net = r.score!=null ? `${r.score>=0?'+':''}${r.score.toFixed(1)}%` : '—';
+    const netCls = r.score>0 ? 'up' : (r.score<0 ? 'down' : 'flat');
+    const offset = r.latency_offset ? `+${r.latency_offset} cycle(s)` : 'none';
+    return `<tr><td>${r.round}</td><td>${r.clock}</td><td>${r.module}</td>
+      <td style="color:var(--dim)">${offset}</td>
+      <td class="${netCls}" style="font-weight:700">${net}${r.bounded?' <span style="color:var(--warn);font-weight:600">(bounded)</span>':''}</td></tr>`;
+  }).join('');
+
+  const compareRows = [
+    ['Cell area (µm²)', b.area?.cell_area_um2, c?.area?.cell_area_um2, 0, true],
+    ['Total cells', b.area?.total_cells, c?.area?.total_cells, 0, true],
+    ['Flip-flops', b.area?.flip_flops, c?.area?.flip_flops, 0, true],
+    ['Worst slack (ns)', b.timing?.worst_slack_ns, c?.timing?.worst_slack_ns, 2, false],
+    ['Max frequency (MHz)', b.timing?.max_frequency_mhz, c?.timing?.max_frequency_mhz, 1, false],
+    ['Total power (µW)', b.power?.total_uw, c?.power?.total_uw, 0, true],
+    ['PPA overall score', b.ppa?.overall_score, c?.ppa?.overall_score, 3, false],
+  ];
+  const clockMismatch = !!(b.timing?.clock && c?.timing?.clock && b.timing.clock !== c.timing.clock);
+  $('#compare tbody').innerHTML = compareRows.map(([k,bv,cv,dp,lb])=>{
+    if (k === 'Max frequency (MHz)' && clockMismatch){
+      return `<tr><td>${k}</td><td style="color:var(--dim)">${fmt(bv,dp)} <span style="color:var(--faint)">(${b.timing.clock})</span></td>
+        <td style="font-weight:700">${fmt(cv,dp)} <span style="color:var(--faint)">(${c.timing.clock})</span></td>
+        <td style="color:var(--faint);font-weight:400;font-style:italic">different critical clock — not directly comparable</td></tr>`;
+    }
+    const [ds,cls] = delta(bv,cv,lb);
+    return `<tr><td>${k}</td><td style="color:var(--dim)">${fmt(bv,dp)}</td>
+      <td style="font-weight:700">${fmt(cv,dp)}</td>
+      <td class="${cls}" style="font-weight:700">${cv!=null?ds:'—'}</td></tr>`;
+  }).join('');
+
+  $('#results').classList.add('show');
+  $('#results').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+$('#files').addEventListener('click', async e=>{
+  const btn = e.target.closest('.view-btn');
+  if (!btn) return;
+  const box = btn.closest('.file');
+  let pre = box.querySelector('pre');
+  if (pre){ pre.remove(); btn.textContent = 'View'; return; }
+
+  btn.textContent = 'Loading…';
+  try {
+    const r = await fetch(`/view/${JOB}/${box.dataset.file}`);
+    const text = await r.text();
+    pre = document.createElement('pre');
+    pre.textContent = text;
+    box.appendChild(pre);
+    btn.textContent = 'Hide';
+  } catch (err) {
+    btn.textContent = 'View';
+  }
+});
+
+let JOB = null;
+
+function setRunning(running){
+  $('#go').disabled = running;
+  $('#go').textContent = running ? 'Running…' : 'Run pipeline';
+  $('#stop').style.display = running ? 'block' : 'none';
+  $('#stop').disabled = false;
+  $('#stop').textContent = 'Stop';
+}
+
+$('#stop').addEventListener('click', async ()=>{
+  if (!JOB) return;
+  $('#stop').disabled = true; $('#stop').textContent = 'Stopping…';
+  try { await fetch('/stop/'+JOB, {method:'POST'}); }
+  catch(err){ /* stream's onerror/stopped handler still cleans up the UI */ }
+});
+
+$('#f').addEventListener('submit', async e=>{
+  e.preventDefault();
+  setRunning(true);
+  term.textContent = ''; $('#results').classList.remove('show');
+  $('#planbox').style.display='none';
+  roundRows.clear(); $('#roundlog').innerHTML = ''; $('#roundlog').style.display = 'none';
+
+  const fd = new FormData();
+  fd.append('mode', mode);
+  const pv = $('#preset').value;
+  if (pv !== '') fd.append('preset', JSON.stringify(presets[pv]));
+  else {
+    [...$('#rtl').files].forEach(f=>fd.append('rtl', f));
+    if ($('#sdc').files[0]) fd.append('sdc', $('#sdc').files[0]);
+    if ($('#top').value) fd.append('top', $('#top').value);
+  }
+
+  const r = await fetch('/run', {method:'POST', body:fd});
+  const j = await r.json();
+  if (j.error){ log('ERROR: '+j.error); setRunning(false); return; }
+  JOB = j.job;
+  log('$ ' + j.cmd); log('');
+
+  const es = new EventSource('/stream/'+JOB);
+  es.onmessage = ev => { const line = JSON.parse(ev.data); log(line); consume(line); };
+  es.addEventListener('done', ev => {
+    es.close(); allDone(); setRunning(false);
+    try { render(JSON.parse(ev.data)); } catch(err){ log('(no results parsed)'); }
+  });
+  es.addEventListener('stopped', ev => {
+    es.close(); setRunning(false);
+    log(''); log('■ Stopped by user.');
+    try { render(JSON.parse(ev.data)); } catch(err){ /* nothing measured yet */ }
+  });
+  es.onerror = () => { es.close(); setRunning(false); };
+});
+</script>
+</body>
+</html>
