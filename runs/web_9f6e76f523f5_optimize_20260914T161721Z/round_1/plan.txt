@@ -1,0 +1,18 @@
+LATENCY_OFFSET: 1
+
+**Metric targeted: timing (critical path violation).** The design fails to meet its clock constraint: worst slack is -0.22 ns, data arrival time 1.63 ns vs. required 1.42 ns, with the critical path (_3440_ → _3471_) running through 34 levels of logic. That path is the combinational chain: a_reg/b_reg → four 8x8 multipliers → adder tree (sum01, sum23, sum) → final accumulate add (acc + sum) → acc register. This is a single unbroken combinational block spanning multiply + tree-add + accumulate-add, which is too deep for the target period.
+
+**Change: insert a pipeline register between the multiply/adder-tree output (`sum`) and the final accumulate-add input, splitting the path into two roughly equal stages.**
+
+Specifically:
+- Add a new register `sum_reg [17:0]` clocked on `clk`, which latches the value of `sum` every cycle (reset to 0 on `rst`).
+- Add a new register `valid_reg2` that latches `valid_reg` in the same cycle as `sum_reg` (reset to 0 on `rst`), so the valid signal stays aligned with the data it describes.
+- Change the accumulate always-block to use `sum_reg` and `valid_reg2` instead of `sum` and `valid_reg`:
+  - `acc <= acc + {6'd0, sum_reg};` guarded by `if (valid_reg2)`
+  - `acc_valid <= valid_reg2;` (matching the existing structure with reset/else branches)
+
+This breaks the original single 34-level combinational path into two shorter paths:
+1. a_reg/b_reg → multipliers → adder tree → `sum_reg` (registered)
+2. `sum_reg` → final add → `acc` (registered)
+
+Each stage now has roughly half the logic depth of the original path, which should bring arrival time comfortably under the 1.42 ns required time and let the design clock at a higher frequency. Because the accumulate now happens one cycle later than before, the observable `acc`/`acc_valid` output for a given input `valid` pulse is delayed by exactly one additional clock cycle, hence LATENCY_OFFSET: 1.

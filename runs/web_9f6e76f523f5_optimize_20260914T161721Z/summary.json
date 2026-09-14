@@ -1,0 +1,16 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "clock": "clk",
+      "module": "mac_unit",
+      "latency_offset": 1,
+      "score": 121.02549058366877,
+      "bounded": false
+    }
+  ],
+  "final_result": "runs/web_9f6e76f523f5_optimize_20260914T161721Z/round_1/attempt_1/candidate_1/candidate/result.json",
+  "cumulative_latency": {
+    "mac_unit": 1
+  }
+}

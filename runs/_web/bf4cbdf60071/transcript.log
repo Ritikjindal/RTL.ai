@@ -1,0 +1,31 @@
+[baseline] Synthesizing + measuring baseline 'web_bf4cbdf60071'...
+           top module: benchmark_top   sources: 10 file(s)
+           Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_bf4cbdf60071_optimize_20260914T163416Z/baseline/result.json
+[eta] Estimated total run time: 25-111 min (5 rounds)
+           round budget: 5 (one per clock domain)
+
+======================================================================
+[round 1/5] Critical path on clock 'clk_a'.
+           Responsible module: 'mac_unit' (mac_unit.v, 49 lines)
+           Current worst slack: -1.41 ns
+======================================================================
+
+[attempt 1/3] Asking planner for a plan...
+LATENCY_OFFSET: 1
+
+TARGET METRIC: Timing closure (critical path). The design VIOLATES timing with worst slack -1.41 ns (required 1.41 ns vs arrival 2.82 ns), driven by a 47-level combinational path from a_reg/b_reg through the four 8x8 multipliers, the adder tree (sum01/sum23/sum), and then directly into the 24-bit accumulator adder (acc + sum) before hitting the acc register. This is a single unbroken combinational chain (multiply → tree-add → accumulate-add) with no register boundary, which is why the logic depth is so extreme for a 343 MHz target.
+
+STRUCTURAL CHANGE: Insert one pipeline register stage between the multiply/adder-tree output (`sum`) and the final accumulator addition, splitting the 47-level path roughly at its midpoint (right after the tree-sum, before the accumulate add).
+
+Specifically:
+1. Add a new register `reg [17:0] sum_reg;` and a companion `reg valid_reg2;`.
+2. In a new always @(posedge clk) block (with the same `rst` behavior as the other registers), capture: `sum_reg <= sum;` and `valid_reg2 <= valid_reg;` every cycle (reset both to 0 under `rst`).
+3. Change the existing accumulate always-block to use `sum_reg` and `valid_reg2` instead of `sum` and `valid_reg`:
+   - `if (rst) begin acc <= 24'd0; acc_valid <= 1'b0; end`
+   - `else if (valid_reg2) begin acc <= acc + {6'd0, sum_reg}; acc_valid <= 1'b1; end`
+   - `else begin acc_valid <= 1'b0; end`
+
+This breaks the combinational chain into two shorter segments: (a) a_reg/b_reg → multiplies → adder tree → sum_reg (registered), and (b) sum_reg → accumulate adder → acc (registered), each with roughly half the logic depth of the original 47-level path, which should bring arrival time well under the 1.41 ns budget at the target frequency. Because this inserts one new register stage in the datapath from input to `acc`/`acc_valid`, the output is delayed by exactly one additional clock cycle relative to the original, hence LATENCY_OFFSET: 1.
+[attempt 1] Plan declares +1 cycle(s) of added latency.
+[attempt 1] Sampling 3 implementation(s) of this plan.
+  [attempt 1.1] Asking coder to implement the plan...

@@ -1,0 +1,146 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `__eqcheck_top'. Setting top module to __eqcheck_top.
+
+2.1. Analyzing design hierarchy..
+Top module:  \__eqcheck_top
+Used module:     \gate
+Used module:     \gold
+
+2.2. Analyzing design hierarchy..
+Top module:  \__eqcheck_top
+Used module:     \gate
+Used module:     \gold
+Removed 0 unused modules.
+Module __eqcheck_top directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== __eqcheck_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       27 wires
+      174 wire bits
+       12 public wires
+      138 public wire bits
+        5 ports
+       67 port bits
+       21 cells
+        1   $add
+        2   $anyinit
+        1   $assert
+        2   $assume
+        2   $eq
+        3   $ff
+        1   $ge
+        1   $initstate
+        1   $logic_and
+        1   $lt
+        5   $mux
+        1   $not
+        2 submodules
+        1   gate
+        1   gold
+
+=== gate ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       37 wires
+      498 wire bits
+       36 public wires
+      497 public wire bits
+        7 ports
+       88 port bits
+       25 cells
+        4   $add
+        7   $anyinit
+        1   $assume
+        4   $mul
+        8   $mux
+        1   $not
+
+=== gold ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       33 wires
+      460 wire bits
+       32 public wires
+      459 public wire bits
+        7 ports
+       88 port bits
+       21 cells
+        4   $add
+        5   $anyinit
+        1   $assume
+        4   $mul
+        6   $mux
+        1   $not
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       67 __eqcheck_top
+       25 gate
+       21 gold
+
+        +----------Count including submodules.
+        | 
+       97 wires
+     1132 wire bits
+       80 public wires
+     1094 public wire bits
+       19 ports
+      243 port bits
+        - memories
+        - memory bits
+        - processes
+       67 cells
+        9   $add
+       14   $anyinit
+        1   $assert
+        4   $assume
+        2   $eq
+        3   $ff
+        1   $ge
+        1   $initstate
+        1   $logic_and
+        1   $lt
+        8   $mul
+       19   $mux
+        3   $not
+        2 submodules
+        1   gate
+        1   gold
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module gold.
+Creating SMT-LIBv2 representation of module gate.
+Creating SMT-LIBv2 representation of module __eqcheck_top.
+
+End of script. Logfile hash: d9979141e6, time: 0.02s, user: 0.01s, system: 0.00s, MEM: 16.12 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 57% 2x write_smt2 (0 sec), 25% 2x read_rtlil (0 sec), ...

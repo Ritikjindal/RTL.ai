@@ -15,7 +15,9 @@ create_clock -name clk_c -period 1.75 [get_ports clk_c]
 # D: bm_mac8 x5, measured arrival 1.91 ns  
 create_clock -name clk_d -period 1.70 [get_ports clk_d]
 # E: bm_fsm_ctrl x5, measured arrival 2.37 ns
-create_clock -name clk_e -period 2.15 [get_ports clk_e]
+# E: bm_fsm_ctrl x5, in-context arrival 3.46 ns -- the slowest payload in the design,
+# so it carries a proportionally longer period and violates least critically.
+create_clock -name clk_e -period 3.20 [get_ports clk_e]
 
 # ---------------- generated clocks ----------------
 create_generated_clock -name clk_a_div -source [get_ports clk_a] -divide_by 2 \

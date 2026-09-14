@@ -10,6 +10,7 @@
 # from one domain to the next the tool follows it. Stops when a round finds nothing.
 
 import re
+import time
 
 import json
 from pathlib import Path
@@ -27,6 +28,7 @@ from rtlai.optimizer.config import MAX_ATTEMPTS, CANDIDATES_PER_ATTEMPT, MAX_ROU
 from rtlai.optimizer.counterexample import extract_counterexample
 from rtlai.optimizer.decide import decide
 from rtlai.equiv_eqy import verify_equivalence_eqy, EqyError
+from rtlai.estimate import estimate_seconds, format_estimate
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
@@ -274,6 +276,9 @@ def _run_round(cfg, rtl_files, baseline_result, target_module, round_dir, timest
             best["latency_offset"] = latency_offset
             best["module"] = target_module
             best["clock"] = clock
+            # Persisted so a report generated later (report.py reads only run_dir
+            # artifacts, never stdout) can name the actual transform, not just its score.
+            (round_dir / "plan.txt").write_text(plan)
             return best
 
         with_cex = next((c for c in candidates if c["cex"]), None)
@@ -348,17 +353,24 @@ def optimize(cfg: DesignConfig):
 
     print(f"[baseline] Synthesizing + measuring baseline '{cfg.design_name}'...")
     print(f"           top module: {cfg.top_module}   sources: {len(cfg.rtl_files)} file(s)")
+    _baseline_t0 = time.time()
     original_result = analyze_design(
         cfg=cfg, rtl_files=cfg.rtl_files, design_name=cfg.design_name,
         run_dir=run_dir / "baseline", timestamp=timestamp,
     )
+    baseline_secs = time.time() - _baseline_t0
     print(f"           Done: {run_dir / 'baseline' / 'result.json'}")
+
+    low, high = estimate_seconds(cfg.sdc_file, cfg, baseline_seconds=baseline_secs)
+    print(f"[eta] Estimated total run time: {format_estimate(low, high)} "
+          f"({_round_budget(cfg)} rounds)")
 
     rtl_files = list(cfg.rtl_files)
     current_result = original_result
     history = []
     exhausted = set()          # modules this run has failed to improve
     offsets = {}               # module -> cumulative added latency, in cycles
+    round_times = []           # measured wall-clock seconds per completed round
 
     # One round per clock domain -- a single-clock design has exactly one critical
     # path to chase, so it gets one round; a 5-domain design still caps at MAX_ROUNDS
@@ -370,6 +382,7 @@ def optimize(cfg: DesignConfig):
     print(f"           round budget: {budget} (one per clock domain)")
 
     for rnd in range(1, budget + 1):
+        round_t0 = time.time()
         target = _select_target_module(rtl_files, cfg.top_module, current_result, exhausted)
         if target is None:
             print(f"\n[round {rnd}] No further optimizable module on the critical path. Stopping.")
@@ -401,6 +414,10 @@ def optimize(cfg: DesignConfig):
                 break
             print(f"[round {rnd}] '{target}' could not be improved. Timing is met, so "
                   "trying the next module for area/power.")
+            round_times.append(time.time() - round_t0)
+            low, high = estimate_seconds(cfg.sdc_file, cfg, baseline_seconds=baseline_secs,
+                                          round_seconds=round_times)
+            print(f"[eta] Revised estimate for remaining rounds: {format_estimate(low, high)}")
             continue
 
         # Adopt the winner as the new design and carry on from there.
@@ -414,6 +431,11 @@ def optimize(cfg: DesignConfig):
 
         print(f"\n[round {rnd}] Accepted: {best['reason']}")
         print(f"[round {rnd}] Design now at {optimized_dir}")
+
+        round_times.append(time.time() - round_t0)
+        low, high = estimate_seconds(cfg.sdc_file, cfg, baseline_seconds=baseline_secs,
+                                      round_seconds=round_times)
+        print(f"[eta] Revised estimate for remaining rounds: {format_estimate(low, high)}")
 
     # ---------------------------------------------------------------- summary
     print(f"\n{'=' * 70}")

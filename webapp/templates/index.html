@@ -94,6 +94,12 @@
     letter-spacing:.1em;text-transform:uppercase}
   .target div b{font:600 15px var(--mono);color:var(--txt)}
 
+  /* estimated runtime, revised as real rounds complete */
+  .eta{background:#0a0e14;border:1px solid var(--line);border-left:2px solid var(--accent);
+    border-radius:10px;padding:10px 16px;margin-bottom:16px;font:12.5px var(--mono);
+    color:var(--dim)}
+  .eta b{color:var(--accent)}
+
   /* terminal */
   .term{background:#05070a;border:1px solid var(--line);border-radius:12px;
     height:420px;overflow-y:auto;padding:16px 18px;font:12.5px/1.75 var(--mono);
@@ -186,18 +192,13 @@
 <div class="wrap">
 
 <header>
-  <div class="badge"><span>●</span> Nebula Hackathon · Digital</div>
-  <h1>Constraint optimization through<br>RTL enhancement using <em>generative AI</em></h1>
-  <p class="sub">Give it RTL and timing constraints. It synthesizes, finds the critical path,
-  identifies the module responsible, rewrites that module, <strong>formally proves the rewrite
-  equivalent</strong>, reintegrates it and re-measures the whole design — then does it again on
-  whatever the next bottleneck turns out to be.</p>
-  <div class="stats">
-    <div class="stat"><b>48,070</b><span>cells in benchmark</span></div>
-    <div class="stat"><b>5</b><span>async clock domains</span></div>
-    <div class="stat"><b>−0.30 → +0.16 ns</b><span>best timing closure</span></div>
-    <div class="stat"><b>100%</b><span>changes formally checked</span></div>
-  </div>
+  <h1>Closing timing on RTL<br>with <em>generative AI</em>, formally checked</h1>
+  <p class="sub">Point it at a design and its timing constraints. It synthesizes the design, locates
+  the module driving the critical path, and asks a model to rewrite just that module. Every rewrite
+  is <strong>formally proven equivalent</strong> to what it replaces before it's ever accepted —
+  never assumed, never approximated. The rewritten module is reintegrated, the whole design is
+  re-measured, and the loop repeats on whatever bottleneck emerges next, until nothing more can be
+  improved.</p>
 </header>
 
 <div class="grid">
@@ -249,6 +250,8 @@
       <div class="step" data-s="measure"><div class="n">06</div><div class="t">Re-measure</div></div>
     </div>
 
+    <div class="eta" id="eta" style="display:none"></div>
+
     <div class="target" id="target">
       <div><span>Critical clock</span><b id="t-clk">—</b></div>
       <div><span>Responsible module</span><b id="t-mod">—</b></div>
@@ -281,6 +284,16 @@
       <p class="hint">Every accepted change is proven behaviourally identical before it counts.</p>
       <table id="formal"><thead><tr><th>Candidate</th><th>Verdict</th><th>Method</th></tr></thead><tbody></tbody></table>
 
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:28px;flex-wrap:wrap;gap:10px">
+        <h2 style="margin:0">Reports</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a id="report-formal" href="#" target="_blank" class="dl-all">Formal equivalence report</a>
+          <a id="report-formal-pdf" href="#" class="dl-all">↓ PDF</a>
+          <a id="report-summary" href="#" target="_blank" class="dl-all">Change summary</a>
+          <a id="report-summary-pdf" href="#" class="dl-all">↓ PDF</a>
+        </div>
+      </div>
+
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:28px">
         <h2 style="margin:0">Optimized RTL</h2>
         <a id="download-all" href="#" style="display:none" class="dl-all">↓ Download all (.zip)</a>
@@ -302,8 +315,8 @@
 </div>
 
 <footer>
-  <div>Yosys · OpenSTA · SymbiYosys · EQY · Claude</div>
-  <div>Ritik Jindal · Tushar · Brind</div>
+  <div>Yosys · OpenSTA · SymbiYosys · EQY</div>
+  <div>Ritik Jindal · Tushar Bansal · Brind Akabari</div>
 </footer>
 </div>
 
@@ -526,6 +539,13 @@ function render(res){
     </div>`).join('')
     || '<span style="color:var(--faint);font-size:13px">No optimized design was produced.</span>';
 
+  if (res.run_name){
+    $('#report-formal').href = `/report/formal/${res.run_name}`;
+    $('#report-formal-pdf').href = `/report/formal/${res.run_name}?format=pdf`;
+    $('#report-summary').href = `/report/summary/${res.run_name}`;
+    $('#report-summary-pdf').href = `/report/summary/${res.run_name}?format=pdf`;
+  }
+
   const dlAll = $('#download-all');
   if ((res.files||[]).length > 1){
     dlAll.href = `/download-all/${JOB}`;
@@ -613,6 +633,7 @@ $('#f').addEventListener('submit', async e=>{
   setRunning(true);
   term.textContent = ''; $('#results').classList.remove('show');
   $('#planbox').style.display='none';
+  $('#eta').style.display = 'none'; $('#eta').innerHTML = '';
   roundRows.clear(); $('#roundlog').innerHTML = ''; $('#roundlog').style.display = 'none';
 
   const fd = new FormData();
@@ -632,7 +653,16 @@ $('#f').addEventListener('submit', async e=>{
   log('$ ' + j.cmd); log('');
 
   const es = new EventSource('/stream/'+JOB);
-  es.onmessage = ev => { const line = JSON.parse(ev.data); log(line); consume(line); };
+  es.onmessage = ev => {
+    const line = JSON.parse(ev.data);
+    if (line.startsWith('[eta]')){
+      const etaBox = $('#eta');
+      etaBox.style.display = 'block';
+      etaBox.innerHTML = '⏱ <b>' + line.slice(5).trim() + '</b>';
+      return;   // don't also append this to the terminal
+    }
+    log(line); consume(line);
+  };
   es.addEventListener('done', ev => {
     es.close(); allDone(); setRunning(false);
     try { render(JSON.parse(ev.data)); } catch(err){ log('(no results parsed)'); }

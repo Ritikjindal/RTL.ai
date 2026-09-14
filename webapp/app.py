@@ -18,6 +18,7 @@ import re
 import shutil
 import signal
 import subprocess
+import sys
 import threading
 import uuid
 import zipfile
@@ -27,6 +28,11 @@ from typing import List, Optional
 from flask import Flask, Response, jsonify, render_template, request, send_file
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))  # so `rtlai` resolves when this is launched as a script
+
+from rtlai.report import (
+    build_formal_report, build_change_summary, render_markdown_html, render_markdown_pdf,
+)
 
 # Load .env if present. The web app is often launched from an IDE terminal that never
 # sources ~/.bashrc, so relying on the shell's exported key makes the demo fragile.
@@ -163,6 +169,7 @@ def _collect_results(run_name: str, mode: str) -> dict:
 
     run = runs[0]
     out["run_dir"] = str(run.relative_to(PROJECT_ROOT))
+    out["run_name"] = run.name
 
     base = run / "baseline" / "result.json"
     if base.exists():
@@ -261,11 +268,11 @@ def health():
 def presets():
     """Designs shipped with the repo, so a visitor can run something immediately."""
     return jsonify([
-        {"name": "mac_unit — 4-lane MAC, fails timing (~2 min)",
+        {"name": "mac_unit — 4-lane MAC",
          "rtl": ["designs/mac_unit.v"], "sdc": "constraints/mac_unit.sdc"},
-        {"name": "bm_mac8 — 8-lane MAC, serial add chain (~2 min)",
+        {"name": "bm_mac8 — 8-lane MAC, serial add chain",
          "rtl": ["designs/bm_mac8.v"], "sdc": "constraints/bm_mac8.sdc"},
-        {"name": "benchmark_top — 48K cells, 5 clock domains (~45 min)",
+        {"name": "benchmark_top — multi-module design, 5 clock domains",
          "rtl": ["designs/benchmark_top.v", "designs/mac_unit.v", "designs/bm_fir6.v",
                  "designs/bm_dot4.v", "designs/bm_mac8.v", "designs/bm_fsm_ctrl.v",
                  "designs/clk_divider.v", "designs/cdc_sync.v",
@@ -395,6 +402,53 @@ def download_all(job_id):
 
     return send_file(buf, as_attachment=True, mimetype="application/zip",
                      download_name=f"rtlai_optimized_{job_id}.zip")
+
+
+def _resolve_run_dir(run_name: str) -> Optional[Path]:
+    """
+    run_name is the run directory's own name (e.g. the value the frontend got back as
+    result.run_dir's basename) -- resolved and checked to stay inside runs/, same
+    reasoning as _optimized_file: it arrives from the URL.
+    """
+    base = (PROJECT_ROOT / "runs").resolve()
+    target = (base / run_name).resolve()
+    if not str(target).startswith(str(base) + os.sep) or not target.is_dir():
+        return None
+    return target
+
+
+@app.route("/report/formal/<run_name>")
+def report_formal(run_name):
+    run_dir = _resolve_run_dir(run_name)
+    if run_dir is None:
+        return jsonify({"error": "unknown run"}), 404
+
+    markdown_text = build_formal_report(run_dir)
+    fmt = request.args.get("format", "html")
+
+    if fmt == "pdf":
+        out = run_dir / "formal_report.pdf"
+        render_markdown_pdf(markdown_text, out)
+        return send_file(out, as_attachment=True, download_name=f"{run_name}_formal_report.pdf")
+
+    return Response(render_markdown_html(markdown_text), mimetype="text/html")
+
+
+@app.route("/report/summary/<run_name>")
+def report_summary(run_name):
+    run_dir = _resolve_run_dir(run_name)
+    if run_dir is None:
+        return jsonify({"error": "unknown run"}), 404
+
+    markdown_text = build_change_summary(run_dir)
+    fmt = request.args.get("format", "html")
+
+    if fmt == "pdf":
+        out = run_dir / "change_summary.pdf"
+        render_markdown_pdf(markdown_text, out)
+        return send_file(out, as_attachment=True, download_name=f"{run_name}_change_summary.pdf")
+
+    return Response(render_markdown_html(markdown_text), mimetype="text/html")
 
 
 if __name__ == "__main__":

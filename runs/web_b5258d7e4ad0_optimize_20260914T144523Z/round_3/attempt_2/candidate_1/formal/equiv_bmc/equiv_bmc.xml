@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-14T15:18:50" hostname="LAPTOP-QA0271O4" package="equiv_bmc" id="0" name="default" tests="1" errors="0" failures="1" time="0" skipped="1">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="TIMEOUT"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="TIMEOUT" message="Task returned status TIMEOUT." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in __eqcheck_top at eqcheck_wrapper.v:55.33-55.114" time="0" type="ASSERT" location="eqcheck_wrapper.v:55.33-55.114" id="_witness_.check_assert_eqcheck_wrapper_v_55_93">
+<skipped />
+</testcase>
+<system-out>SBY 15:13:23 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] Removing directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc'.
+SBY 15:13:23 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/gold_gate.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc/src/gold_gate.v'.
+SBY 15:13:23 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] Copy '/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/eqcheck_wrapper.v' to '/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc/src/eqcheck_wrapper.v'.
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: smtbmc
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] base: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] base: finished (returncode=0)
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] prep: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] prep: finished (returncode=0)
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] smt2: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] smt2: finished (returncode=0)
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: starting process &quot;cd /mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc; yosys-smtbmc --presat --unroll --noprogress -t 64  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Solver: yices
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 15:13:24 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 15:13:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 15:13:25 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 15:13:46 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:22  Checking assumptions in step 8..
+SBY 15:13:46 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:00:22  Checking assertions in step 8..
+SBY 15:14:49 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: ##   0:01:25  waiting for solver (1 minute)
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] Reached TIMEOUT (300 seconds). Terminating all subprocesses.
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] engine_0: terminating process
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] summary: Elapsed clock time [H:MM:SS (secs)]: 0:05:01 (301)
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] summary: engine_0 (smtbmc) did not return a status
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] summary: engine_0 did not produce any traces
+SBY 15:18:50 [/mnt/d/tushar/Downloads/RTL.ai/runs/web_b5258d7e4ad0_optimize_20260914T144523Z/round_3/attempt_2/candidate_1/formal/equiv_bmc] DONE (TIMEOUT, rc=8)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>
