@@ -22,6 +22,7 @@ import threading
 import uuid
 import zipfile
 from pathlib import Path
+from typing import List, Optional
 
 from flask import Flask, Response, jsonify, render_template, request, send_file
 
@@ -49,9 +50,15 @@ JOBS_DIR.mkdir(parents=True, exist_ok=True)
 
 app = Flask(__name__)
 
-# job_id -> {"queue": Queue, "proc": Popen, "dir": Path, "done": bool, "result": dict}
+# job_id -> {queue, proc, dir, done, result, cmd, mode, run_name, stopped}
 JOBS = {}
+
 REQUIRED_TOOLS = ["yosys", "sta", "sby"]
+
+_MODULE_RE = re.compile(r"^\s*module\s+([A-Za-z_]\w*)", re.MULTILINE)
+
+
+# ───────────────────────────────── process control ──────────────────────────
 
 def _stream_process(job_id: str, cmd: list, cwd: Path, env: dict):
     """Run the pipeline, pushing each output line onto the job's queue."""
@@ -59,8 +66,8 @@ def _stream_process(job_id: str, cmd: list, cwd: Path, env: dict):
     q = job["queue"]
 
     # Its own process group, so /stop can kill the whole tree (optimize.py plus
-    # whichever yosys/opensta/symbiyosys child happens to be running under it) in
-    # one shot instead of leaving orphans behind.
+    # whichever yosys/opensta/symbiyosys child happens to be running under it) in one
+    # shot instead of leaving orphans chewing a core for five minutes.
     popen_kwargs = {}
     if os.name == "nt":
         popen_kwargs["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
@@ -87,14 +94,17 @@ def _stream_process(job_id: str, cmd: list, cwd: Path, env: dict):
 
 
 def _stop_job(job: dict):
-    """Kill a running job's whole process tree. Best-effort: if the process has
-    already exited there is nothing to do. Only sends signals -- the background
-    thread already blocked on proc.wait() in _stream_process notices the exit and
-    finishes the job, so this never waits itself (that would race the other wait())."""
+    """
+    Kill a running job's whole process tree. Best-effort: if the process has already
+    exited there is nothing to do. Only sends signals -- the background thread is
+    already blocked on proc.wait(), notices the exit and finishes the job, so this
+    never waits itself (that would race the other wait()).
+    """
     proc = job.get("proc")
     if proc is None or proc.poll() is not None:
         return
     job["stopped"] = True
+
     try:
         if os.name == "nt":
             proc.send_signal(signal.CTRL_BREAK_EVENT)
@@ -116,68 +126,9 @@ def _stop_job(job: dict):
     threading.Timer(5.0, _force_kill_if_still_alive).start()
 
 
-def _collect_results(run_name: str, mode: str) -> dict:
-    """
-    Gather what the run left on disk: the baseline and best-candidate measurements,
-    the formal verdicts, and the optimized RTL. Read from result.json rather than
-    scraped from stdout, so the numbers shown are the same ones the tool recorded.
+# ───────────────────────────────── results ──────────────────────────────────
 
-    run_name is the unique --name this job passed to analyze.py/optimize.py, so the
-    glob below can only ever match the run directory this specific job produced --
-    never a leftover directory from a previous or concurrent job.
-    """
-    out = {"baseline": None, "candidate": None, "formal": [], "files": [], "history": None}
-
-    pattern = f"{run_name}_optimize_*" if mode == "optimize" else f"{run_name}_*"
-    runs = sorted((PROJECT_ROOT / "runs").glob(pattern),
-                  key=lambda p: p.stat().st_mtime, reverse=True)
-    if not runs:
-        return out
-    run = runs[0]
-    out["run_dir"] = str(run.relative_to(PROJECT_ROOT))
-
-    base = run / "baseline" / "result.json"
-    if base.exists():
-        out["baseline"] = json.loads(base.read_text())
-
-    # Every candidate that got as far as being measured -- the full audit trail,
-    # including ones formally proven but not accepted (didn't improve enough).
-    last_candidate_path = None
-    for res in sorted(run.glob("**/candidate/result.json")):
-        data = json.loads(res.read_text())
-        out["formal"].append({
-            "path": str(res.parent.parent.relative_to(run)),
-            "summary": data.get("formal_summary"),
-            "passed": data.get("formal_passed"),
-        })
-        last_candidate_path = res
-
-    optimized = run / "optimized"
-
-    # The definitive final result lives at optimized/result.json (written once,
-    # unambiguously, by optimize.py). Falling back to the last candidate seen above
-    # only covers analyze.py's --candidate A/B mode, which has no round structure.
-    final_result = optimized / "result.json"
-    if final_result.exists():
-        out["candidate"] = json.loads(final_result.read_text())
-    elif last_candidate_path is not None:
-        out["candidate"] = json.loads(last_candidate_path.read_text())
-
-    history_file = run / "history.json"
-    if history_file.exists():
-        out["history"] = json.loads(history_file.read_text())
-
-    if optimized.exists():
-        top_module = (out["baseline"] or {}).get("top_module")
-        out["files"] = _files_top_first(optimized, top_module)
-
-    return out
-
-
-_MODULE_RE = re.compile(r"^\s*module\s+([A-Za-z_]\w*)", re.MULTILINE)
-
-
-def _files_top_first(optimized_dir: Path, top_module: str | None) -> list:
+def _files_top_first(optimized_dir: Path, top_module: Optional[str]) -> List[str]:
     """File names for the UI, with whichever file defines the top module first."""
     files = sorted(f.name for f in optimized_dir.glob("*.v"))
     if not top_module:
@@ -190,12 +141,113 @@ def _files_top_first(optimized_dir: Path, top_module: str | None) -> list:
     return sorted(files, key=lambda name: 0 if defines_top(name) else 1)
 
 
+def _collect_results(run_name: str, mode: str) -> dict:
+    """
+    Gather what the run left on disk: the baseline and final measurements, the formal
+    verdicts, the per-round history, and the optimized RTL. Everything is read from
+    result.json / summary.json rather than scraped from stdout, so the numbers shown
+    are the same ones the tool recorded.
+
+    run_name is the unique --name this job passed to the script, so the glob can only
+    match this job's run directory -- never a leftover from a previous or concurrent
+    job.
+    """
+    out = {"baseline": None, "candidate": None, "formal": [], "files": [],
+           "history": None, "partial": False}
+
+    pattern = f"{run_name}_optimize_*" if mode == "optimize" else f"{run_name}_*"
+    runs = sorted((PROJECT_ROOT / "runs").glob(pattern),
+                  key=lambda p: p.stat().st_mtime, reverse=True)
+    if not runs:
+        return out
+
+    run = runs[0]
+    out["run_dir"] = str(run.relative_to(PROJECT_ROOT))
+
+    base = run / "baseline" / "result.json"
+    if base.exists():
+        out["baseline"] = json.loads(base.read_text())
+
+    # Every candidate that got as far as being measured -- the full audit trail,
+    # including ones formally proven but rejected for not improving enough. Sorted by
+    # modification time so "last" means chronologically last, not alphabetically.
+    measured = sorted(run.glob("**/candidate/result.json"),
+                      key=lambda p: p.stat().st_mtime)
+    for res in measured:
+        data = json.loads(res.read_text())
+        out["formal"].append({
+            "path": str(res.parent.parent.relative_to(run)),
+            "summary": data.get("formal_summary"),
+            "passed": data.get("formal_passed"),
+        })
+
+    # summary.json is written by optimize.py at the end of a completed run and carries
+    # the authoritative final measurement plus the round history. Without it (a stopped
+    # run), fall back to the most recent measured candidate, which is the design as it
+    # stood when the run was interrupted.
+    summary = run / "summary.json"
+    if summary.exists():
+        data = json.loads(summary.read_text())
+        out["history"] = {"rounds": data.get("rounds", [])}
+        final = data.get("final_result")
+        if final and (PROJECT_ROOT / final).exists():
+            out["candidate"] = json.loads((PROJECT_ROOT / final).read_text())
+    if out["candidate"] is None and measured:
+        out["candidate"] = json.loads(measured[-1].read_text())
+
+    # A stopped or crashed run never writes run_dir/optimized -- that happens after the
+    # loop. Each round's own optimized/ directory is written as it completes, so fall
+    # back to the highest-numbered one: the accepted work is not lost, only unfinished.
+    optimized = run / "optimized"
+    if not optimized.exists():
+        round_dirs = sorted(run.glob("round_*/optimized"),
+                            key=lambda p: int(p.parent.name.split("_")[1]))
+        if round_dirs:
+            optimized = round_dirs[-1]
+            out["partial"] = True
+
+    if optimized.exists():
+        top = (out["baseline"] or {}).get("top_module")
+        out["files"] = _files_top_first(optimized, top)
+        out["optimized_dir"] = str(optimized.relative_to(PROJECT_ROOT))
+
+    return out
+
+
+def _optimized_file(job_id: str, name: str) -> Optional[Path]:
+    """
+    Resolve one optimized RTL file for a job, or None.
+
+    `name` arrives from the URL, so the resolved path is checked to be genuinely inside
+    the job's optimized directory -- otherwise ../../etc/passwd is a valid filename.
+    Uses optimized_dir rather than run_dir/optimized so a stopped run still serves the
+    files its completed rounds produced.
+    """
+    job = JOBS.get(job_id)
+    if job is None or not job.get("result"):
+        return None
+
+    rel = job["result"].get("optimized_dir")
+    if not rel:
+        return None
+
+    base = (PROJECT_ROOT / rel).resolve()
+    target = (base / name).resolve()
+    if not str(target).startswith(str(base) + os.sep) or not target.is_file():
+        return None
+    return target
+
+
+# ───────────────────────────────── routes ───────────────────────────────────
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 @app.route("/health")
 def health():
+    """Surfaced as a banner on the page: a missing tool should say so before a run."""
     missing = [t for t in REQUIRED_TOOLS if shutil.which(t) is None]
     return jsonify({
         "ok": not missing and bool(os.environ.get("ANTHROPIC_API_KEY")),
@@ -204,15 +256,16 @@ def health():
         "eqy": shutil.which("eqy") is not None,
     })
 
+
 @app.route("/presets")
 def presets():
     """Designs shipped with the repo, so a visitor can run something immediately."""
     return jsonify([
-        {"name": "mac_unit — 4-lane MAC, fails timing at -0.22 ns (~2 min)",
+        {"name": "mac_unit — 4-lane MAC, fails timing (~2 min)",
          "rtl": ["designs/mac_unit.v"], "sdc": "constraints/mac_unit.sdc"},
         {"name": "bm_mac8 — 8-lane MAC, serial add chain (~2 min)",
          "rtl": ["designs/bm_mac8.v"], "sdc": "constraints/bm_mac8.sdc"},
-        {"name": "benchmark_top — 48K cells, 5 clock domains (~40 min)",
+        {"name": "benchmark_top — 48K cells, 5 clock domains (~45 min)",
          "rtl": ["designs/benchmark_top.v", "designs/mac_unit.v", "designs/bm_fir6.v",
                  "designs/bm_dot4.v", "designs/bm_mac8.v", "designs/bm_fsm_ctrl.v",
                  "designs/clk_divider.v", "designs/cdc_sync.v",
@@ -242,18 +295,20 @@ def run():
             dest = job_dir / Path(f.filename).name
             f.save(dest)
             rtl.append(str(dest))
+
         sdc_file = request.files.get("sdc")
         if sdc_file is None or not rtl:
             return jsonify({"error": "Provide at least one RTL file and one SDC file."}), 400
+
         sdc_dest = job_dir / Path(sdc_file.filename).name
         sdc_file.save(sdc_dest)
         sdc = str(sdc_dest)
         targets = None
 
     top = request.form.get("top")
-
     script = "optimize.py" if mode == "optimize" else "analyze.py"
     run_name = f"web_{job_id}"
+
     cmd = ["python3", "-u", script, "--rtl", *rtl, "--sdc", sdc, "--name", run_name]
     if top:
         cmd += ["--top", top]
@@ -264,7 +319,7 @@ def run():
 
     JOBS[job_id] = {"queue": queue.Queue(), "proc": None, "dir": job_dir,
                     "done": False, "result": None, "cmd": " ".join(cmd),
-                    "mode": mode, "run_name": run_name}
+                    "mode": mode, "run_name": run_name, "stopped": False}
 
     threading.Thread(target=_stream_process,
                      args=(job_id, cmd, PROJECT_ROOT, env), daemon=True).start()
@@ -302,14 +357,6 @@ def stop(job_id):
     return jsonify({"ok": True})
 
 
-def _optimized_file(job_id: str, name: str) -> Path:
-    job = JOBS.get(job_id)
-    if job is None or not job.get("result"):
-        return None
-    target = PROJECT_ROOT / job["result"]["run_dir"] / "optimized" / Path(name).name
-    return target if target.exists() else None
-
-
 @app.route("/view/<job_id>/<path:name>")
 def view(job_id, name):
     """Raw source of one optimized file, for the in-page preview."""
@@ -331,10 +378,12 @@ def download(job_id, name):
 def download_all(job_id):
     """Every optimized .v file as one zip, for designs with more than one file."""
     job = JOBS.get(job_id)
-    if job is None or not job.get("result"):
+    rel = (job or {}).get("result", {}).get("optimized_dir")
+    if not rel:
         return jsonify({"error": "no result"}), 404
-    optimized = PROJECT_ROOT / job["result"]["run_dir"] / "optimized"
-    files = sorted(optimized.glob("*.v")) if optimized.exists() else []
+
+    src = (PROJECT_ROOT / rel).resolve()
+    files = sorted(src.glob("*.v"))
     if not files:
         return jsonify({"error": "no files"}), 404
 
@@ -343,9 +392,13 @@ def download_all(job_id):
         for f in files:
             zf.write(f, arcname=f.name)
     buf.seek(0)
-    return send_file(buf, as_attachment=True, download_name=f"{job_id}_optimized.zip",
-                      mimetype="application/zip")
+
+    return send_file(buf, as_attachment=True, mimetype="application/zip",
+                     download_name=f"rtlai_optimized_{job_id}.zip")
 
 
 if __name__ == "__main__":
-    app.run(debug=True, threaded=True, port=5000)
+    # debug=False deliberately: the reloader restarts the server whenever a file
+    # changes, which would kill a running optimization mid-flight. host=0.0.0.0 so
+    # others on the same network can drive it -- no auth, so only on trusted wifi.
+    app.run(debug=False, threaded=True, host="0.0.0.0", port=5000)

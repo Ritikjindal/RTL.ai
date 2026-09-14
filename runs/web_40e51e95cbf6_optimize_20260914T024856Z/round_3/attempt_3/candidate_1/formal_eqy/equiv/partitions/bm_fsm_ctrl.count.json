@@ -1,0 +1,59 @@
+{
+  "partition": {
+    "index": 81,
+    "name": "bm_fsm_ctrl.count",
+    "inbits": {
+      "clk": [
+        0
+      ],
+      "cntx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "in_valid": [
+        0
+      ],
+      "rst": [
+        0
+      ],
+      "state": [
+        0,
+        8,
+        15
+      ]
+    },
+    "outbits": {
+      "count": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.count",
+    "internal": {},
+    "unused": {},
+    "cellcount": 7,
+    "bitcount": 56
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.count",
+    "internal": {},
+    "unused": {},
+    "cellcount": 7,
+    "bitcount": 56
+  }
+}

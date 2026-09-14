@@ -1,0 +1,371 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `equiv/gate.ys' --
+
+1. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/benchmark_top.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/benchmark_top.v' to AST representation.
+Storing AST representation for module `$abstract\benchmark_top'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_dot4.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_dot4.v' to AST representation.
+Storing AST representation for module `$abstract\bm_dot4'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fir6.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fir6.v' to AST representation.
+Storing AST representation for module `$abstract\bm_fir6'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v' to AST representation.
+Storing AST representation for module `$abstract\bm_fsm_ctrl'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_mac8.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_mac8.v' to AST representation.
+Storing AST representation for module `$abstract\bm_mac8'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/cdc_handshake.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/cdc_handshake.v' to AST representation.
+Storing AST representation for module `$abstract\cdc_handshake'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/cdc_sync.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/cdc_sync.v' to AST representation.
+Storing AST representation for module `$abstract\cdc_sync'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/clk_divider.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/clk_divider.v' to AST representation.
+Storing AST representation for module `$abstract\clk_divider'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/mac_unit.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/mac_unit.v' to AST representation.
+Storing AST representation for module `$abstract\mac_unit'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/reset_sync.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/reset_sync.v' to AST representation.
+Storing AST representation for module `$abstract\reset_sync'.
+Successfully finished Verilog frontend.
+
+11. Executing PREP pass.
+
+11.1. Executing HIERARCHY pass (managing design hierarchy).
+
+11.2. Executing AST frontend in derive mode using pre-parsed AST for module `\bm_fsm_ctrl'.
+Generating RTLIL representation for module `\bm_fsm_ctrl'.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:104.9-104.16.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:106.24-106.37.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:107.24-107.55.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:108.24-108.38.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:109.24-109.38.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:110.24-110.38.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:111.24-111.44.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:112.24-112.56.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:113.24-113.45.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:114.24-114.37.
+Warning: wire '\d9' is assigned in a block at /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:115.24-115.31.
+
+11.2.1. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+
+11.2.2. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+Removing unused module `$abstract\reset_sync'.
+Removing unused module `$abstract\mac_unit'.
+Removing unused module `$abstract\clk_divider'.
+Removing unused module `$abstract\cdc_sync'.
+Removing unused module `$abstract\cdc_handshake'.
+Removing unused module `$abstract\bm_mac8'.
+Removing unused module `$abstract\bm_fsm_ctrl'.
+Removing unused module `$abstract\bm_fir6'.
+Removing unused module `$abstract\bm_dot4'.
+Removing unused module `$abstract\benchmark_top'.
+Removed 10 unused modules.
+
+11.3. Executing PROC pass (convert processes to netlists).
+
+11.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53 in module bm_fsm_ctrl.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:103$41 in module bm_fsm_ctrl.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:64$6 in module bm_fsm_ctrl.
+Removed a total of 0 dead cases.
+
+11.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 2 assignments to connections.
+
+11.3.4. Executing PROC_INIT pass (extract init attributes).
+
+11.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~10 debug messages>
+
+11.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+     1/8: $0\status[3:0]
+     2/8: $0\out_valid[0:0]
+     3/8: $0\state[15:0]
+     4/8: $0\length[15:0]
+     5/8: $0\count[7:0]
+     6/8: $0\hold[15:0]
+     7/8: $0\acc[23:0]
+     8/8: $0\out_data[23:0]
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:103$41'.
+     1/1: $1\d9[23:0]
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:64$6'.
+     1/1: $1\next[15:0]
+
+11.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\bm_fsm_ctrl.\d9' from process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:103$41'.
+No latch inferred for signal `\bm_fsm_ctrl.\next' from process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:64$6'.
+
+11.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\bm_fsm_ctrl.\out_valid' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$149' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\out_data' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$150' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\status' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$151' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$152' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\acc' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$153' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\hold' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$154' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\count' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$155' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\length' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+  created $dff cell `$procdff$156' with positive edge clock.
+
+11.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:120$53'.
+Found and cleaned up 1 empty switch in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:103$41'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:103$41'.
+Found and cleaned up 1 empty switch in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:64$6'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:64$6'.
+Cleaned up 10 empty switches.
+
+11.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+<suppressed ~30 debug messages>
+
+11.4. Executing FUTURE pass.
+
+11.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+
+11.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+Removed 4 unused cells and 58 unused wires.
+<suppressed ~5 debug messages>
+
+11.7. Executing CHECK pass (checking for obvious problems).
+Checking module bm_fsm_ctrl...
+Found and reported 0 problems.
+
+11.8. Executing OPT pass (performing simple optimizations).
+
+11.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+
+11.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bm_fsm_ctrl'.
+Computing hashes of 92 cells of `\bm_fsm_ctrl'.
+Finding duplicate cells in `\bm_fsm_ctrl'.
+Computing hashes of 89 cells of `\bm_fsm_ctrl'.
+Finding duplicate cells in `\bm_fsm_ctrl'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+11.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \bm_fsm_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+11.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \bm_fsm_ctrl.
+Performed a total of 0 changes.
+
+11.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bm_fsm_ctrl'.
+Computing hashes of 89 cells of `\bm_fsm_ctrl'.
+Finding duplicate cells in `\bm_fsm_ctrl'.
+Removed a total of 0 cells.
+
+11.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+11.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+
+11.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \bm_fsm_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+11.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \bm_fsm_ctrl.
+Performed a total of 0 changes.
+
+11.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bm_fsm_ctrl'.
+Computing hashes of 89 cells of `\bm_fsm_ctrl'.
+Finding duplicate cells in `\bm_fsm_ctrl'.
+Removed a total of 0 cells.
+
+11.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+
+11.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+
+11.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+11.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 16) from port B of cell bm_fsm_ctrl.$eq$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:67$7 ($eq).
+Removed top 14 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:67$9 ($mux).
+Removed top 13 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:69$12 ($mux).
+Removed top 13 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:68$13 ($mux).
+Removed top 12 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:70$14 ($mux).
+Removed top 11 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:71$15 ($mux).
+Removed top 10 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:72$16 ($mux).
+Removed top 9 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:73$17 ($mux).
+Removed top 8 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:74$18 ($mux).
+Removed top 1 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:76$21 ($mux).
+Removed top 1 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:75$22 ($mux).
+Removed top 1 bits (of 16) from port B of cell bm_fsm_ctrl.$eq$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:78$24 ($eq).
+Removed top 5 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:79$27 ($mux).
+Removed top 5 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:78$28 ($mux).
+Removed top 5 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:77$29 ($mux).
+Removed top 6 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:80$30 ($mux).
+Removed top 4 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:81$31 ($mux).
+Removed top 1 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:83$34 ($mux).
+Removed top 1 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:82$35 ($mux).
+Removed top 1 bits (of 16) from mux cell bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:86$39 ($mux).
+Removed top 8 bits (of 24) from port B of cell bm_fsm_ctrl.$xor$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:100$40 ($xor).
+Removed top 7 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:107$43 ($add).
+Removed top 8 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:109$45 ($add).
+Removed top 16 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:110$46 ($add).
+Removed top 8 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:111$47 ($add).
+Removed top 16 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:111$48 ($add).
+Removed top 8 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:113$50 ($add).
+Removed top 8 bits (of 24) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:113$51 ($add).
+Removed top 7 bits (of 8) from port B of cell bm_fsm_ctrl.$add$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:140$56 ($add).
+Removed top 1 bits (of 16) from mux cell bm_fsm_ctrl.$procmux$119 ($mux).
+Removed top 1 bits (of 16) from wire bm_fsm_ctrl.$procmux$119_Y.
+Removed top 1 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:86$39_Y.
+Removed top 1 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:82$35_Y.
+Removed top 1 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:83$34_Y.
+Removed top 4 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:81$31_Y.
+Removed top 6 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:80$30_Y.
+Removed top 5 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:77$29_Y.
+Removed top 5 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:78$28_Y.
+Removed top 5 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:79$27_Y.
+Removed top 1 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:75$22_Y.
+Removed top 1 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:76$21_Y.
+Removed top 8 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:74$18_Y.
+Removed top 9 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:73$17_Y.
+Removed top 10 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:72$16_Y.
+Removed top 11 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:71$15_Y.
+Removed top 12 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:70$14_Y.
+Removed top 13 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:68$13_Y.
+Removed top 13 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:69$12_Y.
+Removed top 14 bits (of 16) from wire bm_fsm_ctrl.$ternary$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:67$9_Y.
+
+11.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~1 debug messages>
+
+11.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.12. Executing OPT pass (performing simple optimizations).
+
+11.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+
+11.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\bm_fsm_ctrl'.
+Computing hashes of 89 cells of `\bm_fsm_ctrl'.
+Finding duplicate cells in `\bm_fsm_ctrl'.
+Removed a total of 0 cells.
+
+11.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+
+11.12.4. Finished fast OPT passes.
+
+11.13. Executing SORT pass.
+
+11.14. Printing statistics.
+
+=== bm_fsm_ctrl ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       98 wires
+     1477 wire bits
+       20 public wires
+      292 public wire bits
+        8 ports
+       52 port bits
+       89 cells
+        8   $add
+        8   $dff
+        5   $eq
+        1   $ge
+        3   $logic_and
+        2   $logic_not
+        1   $logic_or
+       58   $mux
+        3   $xor
+
+11.15. Executing CHECK pass (checking for obvious problems).
+Checking module bm_fsm_ctrl...
+Found and reported 0 problems.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+
+13. Executing CHECK pass (checking for obvious problems).
+Checking module bm_fsm_ctrl...
+Found and reported 0 problems.
+
+14. Executing SETUNDEF pass (replace undef values with defined constants).
+
+15. Executing RTLIL backend.
+Output filename: equiv/gate.il
+
+Warnings: 11 unique messages, 11 total
+End of script. Logfile hash: fcc05d492c, time: 0.14s, user: 0.02s, system: 0.01s, MEM: 19.75 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 29% 11x read_verilog (0 sec), 15% 3x check (0 sec), ...

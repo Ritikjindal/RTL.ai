@@ -1,0 +1,376 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/formal/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/benchmark_top.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/benchmark_top.v' to AST representation.
+Generating RTLIL representation for module `\benchmark_top'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_dot4.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_dot4.v' to AST representation.
+Generating RTLIL representation for module `\bm_dot4'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fir6.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fir6.v' to AST representation.
+Generating RTLIL representation for module `\bm_fir6'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v' to AST representation.
+Generating RTLIL representation for module `\bm_fsm_ctrl'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_mac8.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_mac8.v' to AST representation.
+Generating RTLIL representation for module `\bm_mac8'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/cdc_handshake.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/cdc_handshake.v' to AST representation.
+Generating RTLIL representation for module `\cdc_handshake'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/cdc_sync.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/cdc_sync.v' to AST representation.
+Generating RTLIL representation for module `\cdc_sync'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/clk_divider.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/clk_divider.v' to AST representation.
+Generating RTLIL representation for module `\clk_divider'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/mac_unit.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/mac_unit.v' to AST representation.
+Generating RTLIL representation for module `\mac_unit'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/reset_sync.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/reset_sync.v' to AST representation.
+Generating RTLIL representation for module `\reset_sync'.
+Successfully finished Verilog frontend.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+
+11.2. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+Removing unused module `\reset_sync'.
+Removing unused module `\mac_unit'.
+Removing unused module `\clk_divider'.
+Removing unused module `\cdc_sync'.
+Removing unused module `\cdc_handshake'.
+Removing unused module `\bm_mac8'.
+Removing unused module `\bm_fir6'.
+Removing unused module `\bm_dot4'.
+Removing unused module `\benchmark_top'.
+Removed 9 unused modules.
+
+12. Executing PROC pass (convert processes to netlists).
+
+12.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250 in module bm_fsm_ctrl.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:63$195 in module bm_fsm_ctrl.
+Removed a total of 0 dead cases.
+
+12.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 1 assignment to connection.
+
+12.4. Executing PROC_INIT pass (extract init attributes).
+
+12.5. Executing PROC_ARST pass (detect async resets in processes).
+
+12.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~9 debug messages>
+
+12.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+     1/8: $0\status[3:0]
+     2/8: $0\out_valid[0:0]
+     3/8: $0\state[15:0]
+     4/8: $0\length[15:0]
+     5/8: $0\count[7:0]
+     6/8: $0\hold[15:0]
+     7/8: $0\out_data[23:0]
+     8/8: $0\acc[23:0]
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:63$195'.
+     1/1: $1\next[15:0]
+
+12.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\bm_fsm_ctrl.\next' from process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:63$195'.
+
+12.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\bm_fsm_ctrl.\acc' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$367' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\out_valid' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$368' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\out_data' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$369' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\status' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$370' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$371' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\hold' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$372' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\count' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$373' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\length' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+  created $dff cell `$procdff$374' with positive edge clock.
+
+12.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+12.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:111$250'.
+Found and cleaned up 1 empty switch in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:63$195'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v:63$195'.
+Cleaned up 9 empty switches.
+
+12.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+<suppressed ~21 debug messages>
+
+13. Executing FLATTEN pass (flatten design).
+
+14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+Removed 4 unused cells and 55 unused wires.
+<suppressed ~5 debug messages>
+Renaming module \bm_fsm_ctrl to \gold.
+
+15. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/benchmark_top.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/benchmark_top.v' to AST representation.
+Generating RTLIL representation for module `\benchmark_top'.
+Successfully finished Verilog frontend.
+
+16. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_dot4.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_dot4.v' to AST representation.
+Generating RTLIL representation for module `\bm_dot4'.
+Successfully finished Verilog frontend.
+
+17. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fir6.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fir6.v' to AST representation.
+Generating RTLIL representation for module `\bm_fir6'.
+Successfully finished Verilog frontend.
+
+18. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v' to AST representation.
+Generating RTLIL representation for module `\bm_fsm_ctrl'.
+Successfully finished Verilog frontend.
+
+19. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_mac8.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_mac8.v' to AST representation.
+Generating RTLIL representation for module `\bm_mac8'.
+Successfully finished Verilog frontend.
+
+20. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/cdc_handshake.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/cdc_handshake.v' to AST representation.
+Generating RTLIL representation for module `\cdc_handshake'.
+Successfully finished Verilog frontend.
+
+21. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/cdc_sync.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/cdc_sync.v' to AST representation.
+Generating RTLIL representation for module `\cdc_sync'.
+Successfully finished Verilog frontend.
+
+22. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/clk_divider.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/clk_divider.v' to AST representation.
+Generating RTLIL representation for module `\clk_divider'.
+Successfully finished Verilog frontend.
+
+23. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/mac_unit.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/mac_unit.v' to AST representation.
+Generating RTLIL representation for module `\mac_unit'.
+Successfully finished Verilog frontend.
+
+24. Executing Verilog-2005 frontend: /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/reset_sync.v
+Parsing SystemVerilog input from `/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/reset_sync.v' to AST representation.
+Generating RTLIL representation for module `\reset_sync'.
+Successfully finished Verilog frontend.
+
+25. Executing HIERARCHY pass (managing design hierarchy).
+
+25.1. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+
+25.2. Analyzing design hierarchy..
+Top module:  \bm_fsm_ctrl
+Removing unused module `\reset_sync'.
+Removing unused module `\mac_unit'.
+Removing unused module `\clk_divider'.
+Removing unused module `\cdc_sync'.
+Removing unused module `\cdc_handshake'.
+Removing unused module `\bm_mac8'.
+Removing unused module `\bm_fir6'.
+Removing unused module `\bm_dot4'.
+Removing unused module `\benchmark_top'.
+Removed 9 unused modules.
+
+26. Executing PROC pass (convert processes to netlists).
+
+26.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+26.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624 in module bm_fsm_ctrl.
+Marked 1 switch rules as full_case in process $proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:76$569 in module bm_fsm_ctrl.
+Removed a total of 0 dead cases.
+
+26.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 24 redundant assignments.
+Promoted 1 assignment to connection.
+
+26.4. Executing PROC_INIT pass (extract init attributes).
+
+26.5. Executing PROC_ARST pass (detect async resets in processes).
+
+26.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~9 debug messages>
+
+26.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+     1/29: $0\in_valid_r_stage2[0:0]
+     2/29: $0\acc_r[23:0]
+     3/29: $0\hold_r[15:0]
+     4/29: $0\length_r[15:0]
+     5/29: $0\count_r[7:0]
+     6/29: $0\state0_r[0:0]
+     7/29: $0\state15_r[0:0]
+     8/29: $0\state14_r[0:0]
+     9/29: $0\state12_r2[0:0]
+    10/29: $0\state12_r[0:0]
+    11/29: $0\in_valid_r[0:0]
+    12/29: $0\state11_r[0:0]
+    13/29: $0\state10_r[0:0]
+    14/29: $0\state9_r[0:0]
+    15/29: $0\state8_r[0:0]
+    16/29: $0\state5_r[0:0]
+    17/29: $0\ext_r[23:0]
+    18/29: $0\cntx_r[23:0]
+    19/29: $0\lenx_r[23:0]
+    20/29: $0\held_r[23:0]
+    21/29: $0\d4_r[23:0]
+    22/29: $0\status[3:0]
+    23/29: $0\out_valid[0:0]
+    24/29: $0\state[15:0]
+    25/29: $0\length[15:0]
+    26/29: $0\count[7:0]
+    27/29: $0\hold[15:0]
+    28/29: $0\out_data[23:0]
+    29/29: $0\acc[23:0]
+Creating decoders for process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:76$569'.
+     1/1: $1\next[15:0]
+
+26.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\bm_fsm_ctrl.\next' from process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:76$569'.
+
+26.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\bm_fsm_ctrl.\in_valid_r_stage2' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$804' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\acc_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$805' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\hold_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$806' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\length_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$807' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\count_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$808' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state0_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$809' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state15_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$810' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state14_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$811' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state12_r2' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$812' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state12_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$813' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state5_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$814' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\in_valid_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$815' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state11_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$816' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state10_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$817' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state9_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$818' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state8_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$819' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\ext_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$820' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\cntx_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$821' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\lenx_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$822' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\held_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$823' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\d4_r' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$824' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\acc' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$825' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\out_valid' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$826' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\out_data' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$827' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\status' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$828' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\state' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$829' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\hold' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$830' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\count' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$831' with positive edge clock.
+Creating register for signal `\bm_fsm_ctrl.\length' using process `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+  created $dff cell `$procdff$832' with positive edge clock.
+
+26.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+26.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:150$624'.
+Found and cleaned up 1 empty switch in `\bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:76$569'.
+Removing empty process `bm_fsm_ctrl.$proc$/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_2/candidate_1/design/bm_fsm_ctrl.v:76$569'.
+Cleaned up 9 empty switches.
+
+26.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module bm_fsm_ctrl.
+<suppressed ~21 debug messages>
+
+27. Executing FLATTEN pass (flatten design).
+
+28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \bm_fsm_ctrl..
+Removed 14 unused cells and 107 unused wires.
+<suppressed ~20 debug messages>
+Renaming module \bm_fsm_ctrl to \gate.
+
+29. Executing Verilog backend.
+
+29.1. Executing BMUXMAP pass.
+
+29.2. Executing DEMUXMAP pass.
+Dumping module `\gate'.
+Dumping module `\gold'.
+
+30. Executing JSON backend.
+
+End of script. Logfile hash: f64c55bc33, time: 0.31s, user: 0.05s, system: 0.02s, MEM: 182.75 MB peak
+Yosys 0.68+195 (git sha1 435977e97-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 79% 40x read_verilog (0 sec), 4% 2x write_json (0 sec), ...

@@ -75,6 +75,6 @@ def generate_code(rtl_code: str, plan: str) -> str:
         model=CODER_MODEL,
         system_prompt=CODER_SYSTEM_PROMPT,
         user_prompt=prompt,
-        max_tokens=16384,
+        max_tokens=24000,
     )
     return extract_verilog(reply)

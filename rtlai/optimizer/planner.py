@@ -133,7 +133,7 @@ def generate_plan(rtl_code: str, baseline_result: RunResult, previous_feedback: 
         model=PLANNER_MODEL,
         system_prompt=PLANNER_SYSTEM_PROMPT,
         user_prompt=prompt,
-        max_tokens=24000,
+        max_tokens=48000,
     )
     if not plan.strip():
         raise RuntimeError("Planner returned an empty plan (likely hit the token limit during thinking).")

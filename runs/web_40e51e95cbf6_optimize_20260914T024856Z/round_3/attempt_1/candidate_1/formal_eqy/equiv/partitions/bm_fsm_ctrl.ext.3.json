@@ -1,0 +1,31 @@
+{
+  "partition": {
+    "index": 75,
+    "name": "bm_fsm_ctrl.ext.3",
+    "inbits": {
+      "in_data": [
+        3
+      ]
+    },
+    "outbits": {
+      "ext": [
+        3
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.ext.3",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.ext.3",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  }
+}

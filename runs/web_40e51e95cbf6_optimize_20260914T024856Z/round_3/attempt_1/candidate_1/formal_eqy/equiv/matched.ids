@@ -1,0 +1,21 @@
+# [*] gold-match *
+bm_fsm_ctrl acc acc
+bm_fsm_ctrl clk clk
+bm_fsm_ctrl cmd cmd
+bm_fsm_ctrl cntx cntx
+bm_fsm_ctrl count count
+bm_fsm_ctrl d0 d0
+bm_fsm_ctrl d9 d9
+bm_fsm_ctrl ext ext
+bm_fsm_ctrl held held
+bm_fsm_ctrl hold hold
+bm_fsm_ctrl in_data in_data
+bm_fsm_ctrl in_valid in_valid
+bm_fsm_ctrl length length
+bm_fsm_ctrl lenx lenx
+bm_fsm_ctrl next next
+bm_fsm_ctrl out_data out_data
+bm_fsm_ctrl out_valid out_valid
+bm_fsm_ctrl rst rst
+bm_fsm_ctrl state state
+bm_fsm_ctrl status status

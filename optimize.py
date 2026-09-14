@@ -9,6 +9,8 @@
 # whole design. The next round starts from that result, so as the bottleneck migrates
 # from one domain to the next the tool follows it. Stops when a round finds nothing.
 
+import re
+
 import json
 from pathlib import Path
 from datetime import datetime, timezone
@@ -29,6 +31,26 @@ from rtlai.equiv_eqy import verify_equivalence_eqy, EqyError
 PROJECT_ROOT = Path(__file__).resolve().parent
 
 MAX_CEX_CHARS = 6000
+
+CREATE_CLOCK_RE = re.compile(r"^\s*create_clock\b", re.MULTILINE)
+
+
+def _round_budget(cfg) -> int:
+    """
+    One round per clock domain.
+
+    Each round fixes the module owning the current critical path, after which the
+    bottleneck moves to a different domain -- so a design with five asynchronous clocks
+    needs five rounds before every domain has been visited once. Counted from
+    create_clock statements in the SDC (master clocks only; generated clocks share a
+    domain with their source). MAX_ROUNDS is an upper bound so a pathological SDC
+    cannot run the loop forever.
+    """
+    try:
+        n_clocks = len(CREATE_CLOCK_RE.findall(Path(cfg.sdc_file).read_text()))
+    except OSError:
+        return MAX_ROUNDS
+    return min(n_clocks, MAX_ROUNDS) if n_clocks else MAX_ROUNDS
 
 
 def _trim_cex(cex: str, limit: int = MAX_CEX_CHARS) -> str:
@@ -184,6 +206,7 @@ def _evaluate_candidate(cfg, rtl_files, target_module, rtl_code, plan, latency_o
     print(f"  [{label}] {reason}")
     return {"status": "accepted" if accepted else "rejected", "label": label,
             "path": module_path, "design": patched_files, "result": candidate_result,
+            "result_json": str(candidate_dir / "candidate" / "result.json"),
             "score": score, "reason": reason, "cex": None}
 
 
@@ -343,7 +366,10 @@ def optimize(cfg: DesignConfig):
     num_clocks = count_clock_domains(cfg.sdc_file)
     max_rounds = min(num_clocks, MAX_ROUNDS)
 
-    for rnd in range(1, max_rounds + 1):
+    budget = _round_budget(cfg)
+    print(f"           round budget: {budget} (one per clock domain)")
+
+    for rnd in range(1, budget + 1):
         target = _select_target_module(rtl_files, cfg.top_module, current_result, exhausted)
         if target is None:
             print(f"\n[round {rnd}] No further optimizable module on the critical path. Stopping.")
@@ -362,9 +388,19 @@ def optimize(cfg: DesignConfig):
         best = _run_round(cfg, rtl_files, current_result, target, round_dir, timestamp)
 
         if best is None:
-            print(f"[round {rnd}] '{target}' could not be improved. Excluding it and trying "
-                  "the next module on the critical path.")
             exhausted.add(target)
+            # Whole-design worst slack is set by the worst domain. If that domain cannot
+            # be improved, no other module can move the number -- decide() would reject
+            # them all for not improving slack -- so stop rather than burn rounds
+            # proving it. Once timing is met the loop is chasing area and power, where
+            # another module genuinely can help, so there we keep going.
+            if current_result.timing_passed is False:
+                print(f"[round {rnd}] '{target}' could not be improved, and it owns the "
+                      "binding constraint. No other module can improve worst slack while "
+                      "that holds — stopping.")
+                break
+            print(f"[round {rnd}] '{target}' could not be improved. Timing is met, so "
+                  "trying the next module for area/power.")
             continue
 
         # Adopt the winner as the new design and carry on from there.
@@ -440,20 +476,18 @@ def optimize(cfg: DesignConfig):
 
     # Machine-readable round-by-round summary, so a UI can render the "N round(s)
     # accepted" table above without scraping it back out of the terminal transcript.
-    (run_dir / "history.json").write_text(json.dumps({
+    
+
+    (run_dir / "summary.json").write_text(json.dumps({
         "rounds": [
-            {
-                "round": i,
-                "clock": h["clock"],
-                "module": h["module"],
-                "latency_offset": h["latency_offset"],
-                "score": h["score"],
-                "reason": h["reason"],
-                "bounded": "bounded" in (h["result"].formal_summary or "").lower(),
-            }
+            {"round": i, "clock": h["clock"], "module": h["module"],
+             "latency_offset": h["latency_offset"], "score": h["score"],
+             "bounded": "bounded" in (h["result"].formal_summary or "").lower()}
             for i, h in enumerate(history, 1)
         ],
-        "latency_changed": latency_changed,
+        "final_result": (str(Path(history[-1]["result_json"]).relative_to(PROJECT_ROOT))
+                         if history else None),
+        "cumulative_latency": offsets,
     }, indent=2))
 
     return original_result, current_result

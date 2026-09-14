@@ -1,0 +1,31 @@
+{
+  "partition": {
+    "index": 15,
+    "name": "bm_fsm_ctrl.lenx.13",
+    "inbits": {
+      "length": [
+        13
+      ]
+    },
+    "outbits": {
+      "lenx": [
+        13
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.lenx.13",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.lenx.13",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  }
+}

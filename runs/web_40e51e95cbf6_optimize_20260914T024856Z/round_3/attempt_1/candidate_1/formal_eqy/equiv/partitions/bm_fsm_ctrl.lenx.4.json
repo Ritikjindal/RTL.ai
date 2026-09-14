@@ -1,0 +1,31 @@
+{
+  "partition": {
+    "index": 24,
+    "name": "bm_fsm_ctrl.lenx.4",
+    "inbits": {
+      "length": [
+        4
+      ]
+    },
+    "outbits": {
+      "lenx": [
+        4
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.lenx.4",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.lenx.4",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  }
+}

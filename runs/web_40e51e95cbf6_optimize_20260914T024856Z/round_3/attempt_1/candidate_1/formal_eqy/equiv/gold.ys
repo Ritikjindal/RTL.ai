@@ -1,0 +1,6 @@
+read -sv /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/benchmark_top.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_dot4.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fir6.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_fsm_ctrl.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/bm_mac8.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/cdc_handshake.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/cdc_sync.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/clk_divider.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/mac_unit.v /mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_2/optimized/reset_sync.v
+prep -top bm_fsm_ctrl
+opt_clean
+check -initdrv
+setundef -undriven -undef
+write_rtlil equiv/gold.il

@@ -1,0 +1,31 @@
+{
+  "partition": {
+    "index": 105,
+    "name": "bm_fsm_ctrl.cntx.0",
+    "inbits": {
+      "count": [
+        0
+      ]
+    },
+    "outbits": {
+      "cntx": [
+        0
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.cntx.0",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.cntx.0",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "partition": {
+    "index": 64,
+    "name": "bm_fsm_ctrl.ext.14",
+    "inbits": {
+      "in_data": [
+        14
+      ]
+    },
+    "outbits": {
+      "ext": [
+        14
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.ext.14",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.ext.14",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  }
+}

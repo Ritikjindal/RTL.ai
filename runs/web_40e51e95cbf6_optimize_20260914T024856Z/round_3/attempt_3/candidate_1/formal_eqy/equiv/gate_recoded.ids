@@ -1,0 +1,21 @@
+bm_fsm_ctrl . A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:19.1-157.10" A:top=1 A:dynports=1
+bm_fsm_ctrl status w=3:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:30.28-30.34" P=O
+bm_fsm_ctrl state w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:55.19-55.24"
+bm_fsm_ctrl rst w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:24.28-24.31" P=I
+bm_fsm_ctrl out_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:28.28-28.37" P=O
+bm_fsm_ctrl out_data w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:29.28-29.36" P=O
+bm_fsm_ctrl next w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:62.16-62.20"
+bm_fsm_ctrl lenx w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:97.21-97.25"
+bm_fsm_ctrl length w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:59.19-59.25"
+bm_fsm_ctrl in_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:25.28-25.36" P=I
+bm_fsm_ctrl in_data w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:26.28-26.35" P=I
+bm_fsm_ctrl hold w=15:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:57.19-57.23"
+bm_fsm_ctrl held w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:96.21-96.25"
+bm_fsm_ctrl ext w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:95.21-95.24"
+bm_fsm_ctrl d9 w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:101.21-101.23"
+bm_fsm_ctrl d0 w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:100.21-100.23"
+bm_fsm_ctrl count w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:58.19-58.24"
+bm_fsm_ctrl cntx w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:98.21-98.25"
+bm_fsm_ctrl cmd w=3:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:27.28-27.31" P=I
+bm_fsm_ctrl clk w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:23.28-23.31" P=I
+bm_fsm_ctrl acc w=23:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_40e51e95cbf6_optimize_20260914T024856Z/round_3/attempt_3/candidate_1/design/bm_fsm_ctrl.v:56.20-56.23"

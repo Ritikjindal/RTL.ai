@@ -1,0 +1,27 @@
+{
+  "partition": {
+    "index": 38,
+    "name": "bm_fsm_ctrl.held.16",
+    "inbits": {},
+    "outbits": {
+      "held": [
+        16
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fsm_ctrl.held.16",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 1
+  },
+  "gate_module": {
+    "name": "gold.bm_fsm_ctrl.held.16",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 1
+  }
+}
