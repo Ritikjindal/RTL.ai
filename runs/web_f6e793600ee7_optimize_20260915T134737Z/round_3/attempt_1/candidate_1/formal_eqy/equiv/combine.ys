@@ -1,0 +1,11 @@
+plugin -i /home/tushar/oss-cad-suite/libexec/../share/yosys/plugins/eqy_combine.so
+read_rtlil equiv/gold.il
+uniquify
+hierarchy
+design -stash gold
+read_rtlil equiv/gate_recoded.il
+uniquify
+hierarchy
+design -stash gate
+eqy_combine -gold_ids equiv/gold.ids -gate_ids equiv/gate_recoded.ids
+write_rtlil equiv/combined.il

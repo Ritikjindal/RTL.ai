@@ -15,12 +15,16 @@
 # decide() used at run time -- never re-implemented, so the report can't drift from what
 # the run actually decided.
 
+import json
 import re
 from pathlib import Path
 from typing import Dict, List, Optional
 
 from rtlai.schema import RunResult
 from rtlai.optimizer.decide import decide
+from rtlai.estimate import (
+    manual_equivalent_hours, format_hours, format_duration, MANUAL_HOURS_PER_TRANSFORM,
+)
 
 SCOPE_PROVEN = (
     "- Functional equivalence between each round's baseline RTL and its accepted "
@@ -231,6 +235,19 @@ def _walk_run(run_dir: Path):
 def _run_meta(run_dir: Path, baseline: Optional[RunResult]):
     design_name = baseline.design_name if baseline else run_dir.name
     return design_name, run_dir.name
+
+
+def _load_wall_clock_seconds(run_dir: Path) -> Optional[float]:
+    """The run's own measured wall-clock, from summary.json's effort field -- only
+    optimize.py itself knows this; it can't be re-derived from disk artifacts."""
+    summary_path = run_dir / "summary.json"
+    if not summary_path.exists():
+        return None
+    try:
+        data = json.loads(summary_path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    return (data.get("effort") or {}).get("wall_clock_seconds")
 
 
 # ───────────────────────────────────────────────────────────── formal report ──
@@ -474,6 +491,25 @@ def build_change_summary(run_dir: Path) -> str:
                       "optimizable module remained on the critical path.")
     else:
         lines.append("No round was attempted.")
+    lines.append("")
+
+    # Two separate figures, never combined into one "hours saved" headline: one is
+    # measured (this run's actual wall-clock), the other a rough, constant-per-transform
+    # comparison point -- conflating them would dress up a guess as a fact.
+    lines += ["## Effort Comparison", ""]
+    wall_clock_seconds = _load_wall_clock_seconds(run_dir)
+    manual_low, manual_high = manual_equivalent_hours(len(accepted_rounds))
+    lines.append(
+        f"- **Agent wall-clock (measured):** {format_duration(wall_clock_seconds)}"
+        if wall_clock_seconds is not None else
+        "- **Agent wall-clock (measured):** not recorded for this run."
+    )
+    lines.append(
+        f"- **Manual equivalent (estimated):** {format_hours(manual_low, manual_high)} "
+        f"— {len(accepted_rounds)} accepted transform(s) × "
+        f"{MANUAL_HOURS_PER_TRANSFORM[0]:g}-{MANUAL_HOURS_PER_TRANSFORM[1]:g} h/transform "
+        "(a human engineer manually rewriting and re-verifying one module)."
+    )
     lines.append("")
 
     return "\n".join(lines)

@@ -33,6 +33,9 @@ sys.path.insert(0, str(PROJECT_ROOT))  # so `rtlai` resolves when this is launch
 from rtlai.report import (
     build_formal_report, build_change_summary, render_markdown_html, render_markdown_pdf,
 )
+from rtlai.modules import find_modules
+from rtlai.estimate import estimate_seconds, estimate_analyze_seconds, format_estimate
+from rtlai.optimizer import config as optimizer_config
 
 # Load .env if present. The web app is often launched from an IDE terminal that never
 # sources ~/.bashrc, so relying on the shell's exported key makes the demo fragile.
@@ -62,6 +65,23 @@ JOBS = {}
 REQUIRED_TOOLS = ["yosys", "sta", "sby"]
 
 _MODULE_RE = re.compile(r"^\s*module\s+([A-Za-z_]\w*)", re.MULTILINE)
+
+_CREATE_CLOCK_LINE_RE = re.compile(r"^\s*create_clock\b.*$", re.MULTILINE)
+_CLOCK_NAME_RE = re.compile(r"-name\s+(\S+)")
+
+PRESETS = [
+    {"name": "mac_unit — 4-lane MAC",
+     "rtl": ["designs/mac_unit.v"], "sdc": "constraints/mac_unit.sdc"},
+    {"name": "bm_mac8 — 8-lane MAC, serial add chain",
+     "rtl": ["designs/bm_mac8.v"], "sdc": "constraints/bm_mac8.sdc"},
+    {"name": "benchmark_top — multi-module design, 5 clock domains",
+     "rtl": ["designs/benchmark_top.v", "designs/mac_unit.v", "designs/bm_fir6.v",
+             "designs/bm_dot4.v", "designs/bm_mac8.v", "designs/bm_fsm_ctrl.v",
+             "designs/clk_divider.v", "designs/cdc_sync.v",
+             "designs/cdc_handshake.v", "designs/reset_sync.v"],
+     "sdc": "constraints/benchmark_top.sdc",
+     "targets": "config/targets_benchmark.json"},
+]
 
 
 # ───────────────────────────────── process control ──────────────────────────
@@ -159,7 +179,7 @@ def _collect_results(run_name: str, mode: str) -> dict:
     job.
     """
     out = {"baseline": None, "candidate": None, "formal": [], "files": [],
-           "history": None, "partial": False}
+           "history": None, "partial": False, "effort": None}
 
     pattern = f"{run_name}_optimize_*" if mode == "optimize" else f"{run_name}_*"
     runs = sorted((PROJECT_ROOT / "runs").glob(pattern),
@@ -196,6 +216,7 @@ def _collect_results(run_name: str, mode: str) -> dict:
     if summary.exists():
         data = json.loads(summary.read_text())
         out["history"] = {"rounds": data.get("rounds", [])}
+        out["effort"] = data.get("effort")
         final = data.get("final_result")
         if final and (PROJECT_ROOT / final).exists():
             out["candidate"] = json.loads((PROJECT_ROOT / final).read_text())
@@ -267,19 +288,95 @@ def health():
 @app.route("/presets")
 def presets():
     """Designs shipped with the repo, so a visitor can run something immediately."""
-    return jsonify([
-        {"name": "mac_unit — 4-lane MAC",
-         "rtl": ["designs/mac_unit.v"], "sdc": "constraints/mac_unit.sdc"},
-        {"name": "bm_mac8 — 8-lane MAC, serial add chain",
-         "rtl": ["designs/bm_mac8.v"], "sdc": "constraints/bm_mac8.sdc"},
-        {"name": "benchmark_top — multi-module design, 5 clock domains",
-         "rtl": ["designs/benchmark_top.v", "designs/mac_unit.v", "designs/bm_fir6.v",
-                 "designs/bm_dot4.v", "designs/bm_mac8.v", "designs/bm_fsm_ctrl.v",
-                 "designs/clk_divider.v", "designs/cdc_sync.v",
-                 "designs/cdc_handshake.v", "designs/reset_sync.v"],
-         "sdc": "constraints/benchmark_top.sdc",
-         "targets": "config/targets_benchmark.json"},
-    ])
+    return jsonify(PRESETS)
+
+
+def _inspect_design(rtl_paths: List[Path], sdc_path: Path, mode: str = "optimize") -> dict:
+    """
+    Everything the UI can tell a visitor about a design before pressing Run: the clock
+    domains, the modules the optimize loop may rewrite, and a rough (low, high)
+    wall-clock estimate. Nothing here runs the pipeline -- it only parses the SDC and
+    RTL sources already on disk, the same way optimize.py/analyze.py themselves will.
+
+    The estimate depends on mode: analyze is a single Yosys+OpenSTA pass with no
+    rounds, planner, coder or formal verification, so it gets analyze_seconds'
+    narrower range instead of the optimize loop's much wider one.
+    """
+    try:
+        sdc_text = sdc_path.read_text(errors="ignore")
+    except OSError:
+        sdc_text = ""
+
+    clocks = []
+    for line in _CREATE_CLOCK_LINE_RE.findall(sdc_text):
+        m = _CLOCK_NAME_RE.search(line)
+        clocks.append(m.group(1) if m else f"clk{len(clocks)}")
+
+    modules = []
+    for p in rtl_paths:
+        try:
+            text = p.read_text(errors="ignore")
+        except OSError:
+            continue
+        for loc in find_modules(text):
+            modules.append({"name": loc.name, "lines": len(loc.text.splitlines())})
+
+    if mode == "analyze":
+        rounds = 0
+        low, high = estimate_analyze_seconds()
+    else:
+        rounds = min(len(clocks), optimizer_config.MAX_ROUNDS) if clocks else 0
+        low, high = estimate_seconds(sdc_path, optimizer_config)
+
+    return {
+        "clocks": clocks,
+        "rounds": rounds,
+        "modules": modules,
+        "eta": format_estimate(low, high),
+    }
+
+
+@app.route("/inspect", methods=["GET", "POST"])
+def inspect():
+    """
+    Pre-run summary for the idle state: GET ?design=<preset index> for a bundled
+    design, POST with rtl/sdc files for an upload the visitor hasn't run yet. Runs no
+    tool -- just the same SDC/RTL parsing the UI would otherwise have to duplicate in
+    JavaScript.
+    """
+    if request.method == "POST":
+        rtl_files = request.files.getlist("rtl")
+        sdc_file = request.files.get("sdc")
+        mode = request.form.get("mode", "optimize")
+        if not rtl_files or sdc_file is None:
+            return jsonify({"error": "no files"}), 400
+
+        tmp = JOBS_DIR / f"inspect_{uuid.uuid4().hex[:8]}"
+        tmp.mkdir(parents=True, exist_ok=True)
+        try:
+            rtl_paths = []
+            for f in rtl_files:
+                dest = tmp / Path(f.filename).name
+                f.save(dest)
+                rtl_paths.append(dest)
+            sdc_dest = tmp / Path(sdc_file.filename).name
+            sdc_file.save(sdc_dest)
+            return jsonify(_inspect_design(rtl_paths, sdc_dest, mode))
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    design = request.args.get("design", "")
+    mode = request.args.get("mode", "optimize")
+    if not re.fullmatch(r"\d+", design):
+        return jsonify({"error": "unknown design"}), 404
+    idx = int(design)
+    if idx >= len(PRESETS):
+        return jsonify({"error": "unknown design"}), 404
+
+    spec = PRESETS[idx]
+    rtl_paths = [PROJECT_ROOT / p for p in spec["rtl"]]
+    sdc_path = PROJECT_ROOT / spec["sdc"]
+    return jsonify(_inspect_design(rtl_paths, sdc_path, mode))
 
 
 @app.route("/run", methods=["POST"])

@@ -1,0 +1,25 @@
+# [*] gold-match *
+bm_fir6 clk clk
+bm_fir6 in_data in_data
+bm_fir6 in_valid in_valid
+bm_fir6 out_data out_data
+bm_fir6 out_valid out_valid
+bm_fir6 p0 p0
+bm_fir6 p1 p1
+bm_fir6 p2 p2
+bm_fir6 p3 p3
+bm_fir6 p4 p4
+bm_fir6 p5 p5
+bm_fir6 rst rst
+bm_fir6 s1 s1
+bm_fir6 s2 s2
+bm_fir6 s3 s3
+bm_fir6 s4 s4
+bm_fir6 s5 s5
+bm_fir6 t0 t0
+bm_fir6 t1 t1
+bm_fir6 t2 t2
+bm_fir6 t3 t3
+bm_fir6 t4 t4
+bm_fir6 t5 t5
+bm_fir6 vld vld

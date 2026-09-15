@@ -1,0 +1,41 @@
+{
+  "design_name": "web_f6e793600ee7_candidate",
+  "rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/benchmark_top.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/bm_dot4.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/bm_fir6.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/bm_fsm_ctrl.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/bm_mac8.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/cdc_handshake.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/cdc_sync.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/clk_divider.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/mac_unit.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/design/reset_sync.v",
+  "sdc_path": "/mnt/d/tushar/Downloads/RTL.ai/constraints/benchmark_top.sdc",
+  "timestamp": "20260915T134737Z",
+  "top_module": "benchmark_top",
+  "timing": {
+    "worst_slack_ns": -0.71,
+    "data_arrival_time_ns": 2.07,
+    "data_required_time_ns": 1.35,
+    "startpoint": "_94833_",
+    "endpoint": "_94831_",
+    "clock": "clk_b",
+    "path_type": "max",
+    "logic_depth": 40,
+    "max_frequency_mhz": 462.96296296296293
+  },
+  "power": {
+    "internal_uw": 98500.0,
+    "switching_uw": 66800.0,
+    "leakage_uw": 1410.0,
+    "total_uw": 167000.0
+  },
+  "area": {
+    "cell_area_um2": 62801.536,
+    "total_cells": 48230,
+    "flip_flops": 2214
+  },
+  "ppa": {
+    "area_score": 100.0,
+    "timing_score": 65.21739130434784,
+    "power_score": 100.0,
+    "overall_score": 89.56521739130434
+  },
+  "timing_passed": false,
+  "notes": [],
+  "formal_checked": true,
+  "formal_passed": true,
+  "formal_summary": "PASS \u2014 benchmark_top.v (+9 more) and benchmark_top.v (+9 more) are formally equivalent (proved by SymbiYosys, depth=20). Candidate latency is +1 cycle(s) versus the baseline.",
+  "formal_baseline_rtl_path": "/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/benchmark_top.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/bm_dot4.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/bm_fir6.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/bm_fsm_ctrl.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/bm_mac8.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/cdc_handshake.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/cdc_sync.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/clk_divider.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/mac_unit.v; /mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_1/optimized/reset_sync.v"
+}

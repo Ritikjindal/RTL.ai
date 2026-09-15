@@ -1,0 +1,177 @@
+EQY 13:57:38 [equiv] read_gold: starting process "yosys -ql equiv/gold.log equiv/gold.ys"
+EQY 13:57:39 [equiv] read_gold: finished (returncode=0)
+EQY 13:57:39 [equiv] read_gate: starting process "yosys -ql equiv/gate.log equiv/gate.ys"
+EQY 13:57:39 [equiv] read_gate: finished (returncode=0)
+EQY 13:57:39 [equiv] combine: starting process "yosys -ql equiv/combine.log equiv/combine.ys"
+EQY 13:57:39 [equiv] combine: finished (returncode=0)
+EQY 13:57:39 [equiv] partition: starting process "cd equiv; yosys -ql partition.log partition.ys"
+EQY 13:57:41 [equiv] partition: finished (returncode=0)
+EQY 13:57:41 [equiv] Warning: Partition bm_fir6.s5 contains 1 unused gold inputs.
+EQY 13:57:41 [equiv] Warning: Partition bm_fir6.s5 contains 2 unused gate inputs.
+EQY 13:57:42 [equiv] Warning: Partition bm_fir6.s4 contains 2 unused gold inputs.
+EQY 13:57:42 [equiv] Warning: Partition bm_fir6.s4 contains 2 unused gate inputs.
+EQY 13:57:42 [equiv] Warning: Partition bm_fir6.s3 contains 2 unused gold inputs.
+EQY 13:57:42 [equiv] Warning: Partition bm_fir6.s3 contains 2 unused gate inputs.
+EQY 13:57:42 [equiv] Warning: Partition bm_fir6.s2 contains 1 unused gold inputs.
+EQY 13:57:42 [equiv] Warning: Partition bm_fir6.s2 contains 1 unused gate inputs.
+EQY 13:57:42 [equiv] run: starting process "make -C equiv -f strategies.mk"
+EQY 13:57:42 [equiv] run: make: Entering directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY 13:57:42 [equiv] run: Running strategy 'sat' on 'bm_fir6.out_data'..
+EQY 13:57:42 [equiv] run: Proved equivalence of partition 'bm_fir6.out_data' using strategy 'sat'
+EQY 13:57:42 [equiv] run: Running strategy 'sat' on 'bm_fir6.out_valid'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.out_valid' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p0.14'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p0.14' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p0.15'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p0.15' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p0.16'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p0.16' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p0.17'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p0.17' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p0.18'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p0.18' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p0'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p0' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p1.15'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p1.15' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p1.16'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p1.16' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p1.17'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p1.17' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p1.18'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p1.18' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p1'..
+EQY 13:57:43 [equiv] run: Proved equivalence of partition 'bm_fir6.p1' using strategy 'sat'
+EQY 13:57:43 [equiv] run: Running strategy 'sat' on 'bm_fir6.p2.16'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p2.16' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p2.17'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p2.17' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p2.18'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p2.18' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p2'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p2' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p3.16'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p3.16' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p3.17'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p3.17' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p3.18'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p3.18' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p3'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p3' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p4.15'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p4.15' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p4.16'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p4.16' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p4.17'..
+EQY 13:57:44 [equiv] run: Proved equivalence of partition 'bm_fir6.p4.17' using strategy 'sat'
+EQY 13:57:44 [equiv] run: Running strategy 'sat' on 'bm_fir6.p4.18'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p4.18' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p4'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p4' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p5.14'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p5.14' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p5.15'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p5.15' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p5.16'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p5.16' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p5.17'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p5.17' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p5.18'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p5.18' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.p5'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.p5' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.s1.16'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.s1.16' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.s1.17'..
+EQY 13:57:45 [equiv] run: Proved equivalence of partition 'bm_fir6.s1.17' using strategy 'sat'
+EQY 13:57:45 [equiv] run: Running strategy 'sat' on 'bm_fir6.s1.18'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.s1.18' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s1'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.s1' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s2.17'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.s2.17' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s2.18'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.s2.18' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s2'..
+EQY 13:57:46 [equiv] run: Could not prove equivalence of partition 'bm_fir6.s2' using strategy 'sat': partitions not equivalent
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s3.18'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.s3.18' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s3'..
+EQY 13:57:46 [equiv] run: Could not prove equivalence of partition 'bm_fir6.s3' using strategy 'sat': partitions not equivalent
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s4'..
+EQY 13:57:46 [equiv] run: Could not prove equivalence of partition 'bm_fir6.s4' using strategy 'sat': partitions not equivalent
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.s5'..
+EQY 13:57:46 [equiv] run: Could not prove equivalence of partition 'bm_fir6.s5' using strategy 'sat': partitions not equivalent
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.t0'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.t0' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.t1'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.t1' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.t2'..
+EQY 13:57:46 [equiv] run: Proved equivalence of partition 'bm_fir6.t2' using strategy 'sat'
+EQY 13:57:46 [equiv] run: Running strategy 'sat' on 'bm_fir6.t3'..
+EQY 13:57:47 [equiv] run: Proved equivalence of partition 'bm_fir6.t3' using strategy 'sat'
+EQY 13:57:47 [equiv] run: Running strategy 'sat' on 'bm_fir6.t4'..
+EQY 13:57:47 [equiv] run: Proved equivalence of partition 'bm_fir6.t4' using strategy 'sat'
+EQY 13:57:47 [equiv] run: Running strategy 'sat' on 'bm_fir6.t5'..
+EQY 13:57:47 [equiv] run: Proved equivalence of partition 'bm_fir6.t5' using strategy 'sat'
+EQY 13:57:47 [equiv] run: Running strategy 'sat' on 'bm_fir6.vld'..
+EQY 13:57:47 [equiv] run: Proved equivalence of partition 'bm_fir6.vld' using strategy 'sat'
+EQY 13:57:47 [equiv] run: make -f strategies.mk summary
+EQY 13:57:47 [equiv] run: make[1]: Entering directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY 13:57:47 [equiv] run: make[1]: Leaving directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY 13:57:47 [equiv] run: make: Leaving directory '/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_3/attempt_1/candidate_1/formal_eqy/equiv'
+EQY 13:57:47 [equiv] run: finished (returncode=0)
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.vld
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.t5
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.t4
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.t3
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.t2
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.t1
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.t0
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s3.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s2.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s2.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s1.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s1.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s1.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.s1
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p5.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p5.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p5.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p5.15
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p5.14
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p5
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p4.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p4.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p4.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p4.15
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p4
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p3.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p3.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p3.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p3
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p2.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p2.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p2.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p2
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p1.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p1.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p1.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p1.15
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p1
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p0.18
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p0.17
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p0.16
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p0.15
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p0.14
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.p0
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.out_valid
+EQY 13:57:47 [equiv] Successfully proved equivalence of partition bm_fir6.out_data
+EQY 13:57:47 [equiv] Warning: Failed to prove equivalence for 4/50 partitions:
+EQY 13:57:47 [equiv] Failed to prove equivalence of partition bm_fir6.s5
+EQY 13:57:47 [equiv] Failed to prove equivalence of partition bm_fir6.s4
+EQY 13:57:47 [equiv] Failed to prove equivalence of partition bm_fir6.s3
+EQY 13:57:47 [equiv] Failed to prove equivalence of partition bm_fir6.s2
+EQY 13:57:47 [equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:08 (8)
+EQY 13:57:47 [equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 13:57:47 [equiv] DONE (FAIL, rc=2)

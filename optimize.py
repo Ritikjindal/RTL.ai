@@ -28,7 +28,10 @@ from rtlai.optimizer.config import MAX_ATTEMPTS, CANDIDATES_PER_ATTEMPT, MAX_ROU
 from rtlai.optimizer.counterexample import extract_counterexample
 from rtlai.optimizer.decide import decide
 from rtlai.equiv_eqy import verify_equivalence_eqy, EqyError
-from rtlai.estimate import estimate_seconds, format_estimate
+from rtlai.estimate import (
+    estimate_seconds, format_estimate, manual_equivalent_hours, format_hours,
+    format_duration, MANUAL_HOURS_PER_TRANSFORM,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
@@ -347,7 +350,31 @@ def _run_round(cfg, rtl_files, baseline_result, target_module, round_dir, timest
     return None
 
 
+def _effort_summary(accepted_rounds: int, wall_clock_seconds: float) -> dict:
+    """
+    The two effort figures for the results panel and the change-summary report: the
+    agent's actual measured wall-clock, and a constant-per-transform manual-equivalent
+    range. Kept separate on purpose -- never combined into one "hours saved" number,
+    since one is measured and the other is a rough comparison point.
+    """
+    manual_low, manual_high = manual_equivalent_hours(accepted_rounds)
+    return {
+        "wall_clock_seconds": wall_clock_seconds,
+        "wall_clock_label": format_duration(wall_clock_seconds),
+        "accepted_rounds": accepted_rounds,
+        "manual_hours_low": manual_low,
+        "manual_hours_high": manual_high,
+        "manual_label": format_hours(manual_low, manual_high),
+        "manual_basis": (
+            f"{accepted_rounds} accepted transform(s) × "
+            f"{MANUAL_HOURS_PER_TRANSFORM[0]:g}-{MANUAL_HOURS_PER_TRANSFORM[1]:g} h/transform "
+            "(manual RTL rewrite + re-verification per transform)"
+        ),
+    }
+
+
 def optimize(cfg: DesignConfig):
+    run_t0 = time.time()
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     run_dir = RUNS_DIR / f"{cfg.design_name}_optimize_{timestamp}"
 
@@ -444,6 +471,13 @@ def optimize(cfg: DesignConfig):
 
     if not history:
         print("No round produced an accepted candidate. The original design stands.")
+        wall_clock_seconds = time.time() - run_t0
+        effort = _effort_summary(0, wall_clock_seconds)
+        print(f"[effort] Agent wall-clock (measured): {effort['wall_clock_label']}  |  "
+              f"Manual equivalent (estimated): {effort['manual_label']}")
+        (run_dir / "summary.json").write_text(json.dumps({
+            "rounds": [], "final_result": None, "cumulative_latency": {}, "effort": effort,
+        }, indent=2))
         return original_result, None
 
     print(f"\n{len(history)} round(s) accepted:\n")
@@ -496,10 +530,13 @@ def optimize(cfg: DesignConfig):
         print("\nNOTE: verified by BOUNDED model checking only (not an unbounded proof): "
               + ", ".join(h["module"] for h in bounded))
 
+    wall_clock_seconds = time.time() - run_t0
+    effort = _effort_summary(len(history), wall_clock_seconds)
+    print(f"\n[effort] Agent wall-clock (measured): {effort['wall_clock_label']}  |  "
+          f"Manual equivalent (estimated): {effort['manual_label']}")
+
     # Machine-readable round-by-round summary, so a UI can render the "N round(s)
     # accepted" table above without scraping it back out of the terminal transcript.
-    
-
     (run_dir / "summary.json").write_text(json.dumps({
         "rounds": [
             {"round": i, "clock": h["clock"], "module": h["module"],
@@ -510,6 +547,7 @@ def optimize(cfg: DesignConfig):
         "final_result": (str(Path(history[-1]["result_json"]).relative_to(PROJECT_ROOT))
                          if history else None),
         "cumulative_latency": offsets,
+        "effort": effort,
     }, indent=2))
 
     return original_result, current_result

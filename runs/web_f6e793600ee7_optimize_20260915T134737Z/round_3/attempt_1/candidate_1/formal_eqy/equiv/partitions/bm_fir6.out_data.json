@@ -1,0 +1,73 @@
+{
+  "partition": {
+    "index": 49,
+    "name": "bm_fir6.out_data",
+    "inbits": {
+      "clk": [
+        0
+      ],
+      "rst": [
+        0
+      ],
+      "s5": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    "outbits": {
+      "out_data": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fir6.out_data",
+    "internal": {},
+    "unused": {},
+    "cellcount": 2,
+    "bitcount": 59
+  },
+  "gate_module": {
+    "name": "gold.bm_fir6.out_data",
+    "internal": {},
+    "unused": {},
+    "cellcount": 2,
+    "bitcount": 59
+  }
+}

@@ -1,0 +1,15 @@
+LATENCY_OFFSET: 1
+
+**Metric targeted:** Timing (critical-path violation). Worst slack is -1.41 ns with 47 levels of logic between the multiply/adder-tree/accumulate chain (startpoint `_95162_` in the a_reg/b_reg → prod → sum tree logic, endpoint `_95032_` at the `acc` register). All of {4×8x8 multiply, 17-bit adder tree, 24-bit accumulate add} happen in a single combinational block feeding straight into `acc`'s register, which is far too much logic for one cycle at the required clock period (data arrival 2.82 ns vs required 1.41 ns — almost 2x over budget).
+
+**Structural change:** Break the combinational chain by inserting a pipeline register between the adder-tree output (`sum`) and the final accumulator addition (`acc <= acc + sum`).
+
+Specifically:
+1. Add a new register stage, e.g. `sum_reg` (18 bits) and `valid_reg2` (1 bit), clocked on `clk`.
+2. On each clock edge, when not in reset: `sum_reg <= sum;` and `valid_reg2 <= valid_reg;` (this captures the multiply+adder-tree result one cycle after `a_reg/b_reg` are latched).
+3. Change the existing accumulate always-block so it consumes `sum_reg` and `valid_reg2` instead of the combinational `sum` and `valid_reg`:
+   - `if (valid_reg2) acc <= acc + {6'd0, sum_reg}; acc_valid <= 1'b1;`
+   - `else acc_valid <= 1'b0;`
+4. Reset logic extends to clear `sum_reg` and `valid_reg2` to 0 alongside the existing resets.
+
+This splits the 47-level path into two roughly balanced stages: Stage A = `a_reg/b_reg` → 4 multiplies → 17-bit adder tree → `sum_reg` (register boundary at the widest point of the datapath, before the final 24-bit accumulate add), and Stage B = `sum_reg` → 24-bit add → `acc`. Each stage now has roughly half the logic depth, which should bring the data arrival time well under the 1.41 ns/2.82 ns budget and close the timing violation, at the cost of one additional pipeline cycle of latency on `acc`/`acc_valid` (hence LATENCY_OFFSET: 1).

@@ -1,0 +1,34 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "clock": "clk_a",
+      "module": "mac_unit",
+      "latency_offset": 1,
+      "score": 4.990563331992687,
+      "bounded": false
+    },
+    {
+      "round": 2,
+      "clock": "clk_c",
+      "module": "bm_dot4",
+      "latency_offset": 1,
+      "score": 37.69803541981849,
+      "bounded": false
+    }
+  ],
+  "final_result": "runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/attempt_1/candidate_1/candidate/result.json",
+  "cumulative_latency": {
+    "mac_unit": 1,
+    "bm_dot4": 1
+  },
+  "effort": {
+    "wall_clock_seconds": 1853.9382717609406,
+    "wall_clock_label": "31 min",
+    "accepted_rounds": 2,
+    "manual_hours_low": 6.0,
+    "manual_hours_high": 8.0,
+    "manual_label": "6-8 h",
+    "manual_basis": "2 accepted transform(s) \u00d7 3-4 h/transform (manual RTL rewrite + re-verification per transform)"
+  }
+}

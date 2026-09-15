@@ -1,0 +1,25 @@
+bm_fir6 . A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:4.1-64.10" A:top=1 A:dynports=1
+bm_fir6 vld w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:26.25-26.28"
+bm_fir6 t5 w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:25.45-25.47"
+bm_fir6 t4 w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:25.41-25.43"
+bm_fir6 t3 w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:25.37-25.39"
+bm_fir6 t2 w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:25.33-25.35"
+bm_fir6 t1 w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:25.29-25.31"
+bm_fir6 t0 w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:25.25-25.27"
+bm_fir6 s5 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:52.28-52.30"
+bm_fir6 s4 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:51.28-51.30"
+bm_fir6 s3 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:50.28-50.30"
+bm_fir6 s2 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:49.28-49.30"
+bm_fir6 s1 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:48.28-48.30"
+bm_fir6 rst w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:10.35-10.38" P=I
+bm_fir6 p5 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:46.28-46.30"
+bm_fir6 p4 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:45.28-45.30"
+bm_fir6 p3 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:44.28-44.30"
+bm_fir6 p2 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:43.28-43.30"
+bm_fir6 p1 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:42.28-42.30"
+bm_fir6 p0 w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:41.28-41.30"
+bm_fir6 out_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:13.35-13.44" P=O
+bm_fir6 out_data w=18:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:14.35-14.43" P=O
+bm_fir6 in_valid w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:11.35-11.43" P=I
+bm_fir6 in_data w=7:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:12.35-12.42" P=I
+bm_fir6 clk w=0:0 A:src="/mnt/d/tushar/Downloads/RTL.ai/runs/web_f6e793600ee7_optimize_20260915T134737Z/round_2/optimized/bm_fir6.v:9.35-9.38" P=I

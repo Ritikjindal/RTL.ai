@@ -1,0 +1,12 @@
+LATENCY_OFFSET: 1
+
+**Metric targeted:** Timing (critical path violation). Worst slack is -1.32 ns with data arrival time 2.95 ns against a 1.63 ns required time, and the critical path shows 45 levels of logic from `_94707_` to `_94652_`. This path runs from `a_reg`/`b_reg` through the four multipliers (`m0..m3`), the two-level adder tree (`h0`, `h1`, `sum`), and then straight into the accumulator addition `acc <= acc + {...,sum}` — all in one combinational block ending at the `acc` register. That's multiply + tree + wide accumulate all in a single cycle, which is far too deep.
+
+**Change:** Insert a pipeline register between the multiply/adder-tree output (`sum`) and the accumulator's addition stage, splitting the path roughly in half.
+
+Specifically:
+1. Add new registers `reg signed [PW+1:0] sum_reg;` and `reg vld_d;`.
+2. In the first always block (or a new one clocked on `posedge clk`), on each cycle (subject to `rst`), latch `sum_reg <= sum;` and `vld_d <= vld;`.
+3. In the accumulator always block, replace the current combinational use of `sum` and `vld` with the registered versions: `if (vld_d) acc <= acc + {{(ACCW-PW-2){sum_reg[PW+1]}}, sum_reg};` and `out_valid <= vld_d;`.
+
+This breaks the single 45-level combinational path into two shorter stages: (a) multiply + adder-tree → `sum_reg`, and (b) `sum_reg` → sign-extend/add → `acc`. Each stage now has roughly half the logic depth, which should bring arrival time well under the 1.63 ns/3.07 ns period requirement. Since a new register stage is added between input capture and `acc`/`out_valid` update, the output now appears one clock cycle later than before, hence LATENCY_OFFSET: 1.

@@ -1,0 +1,38 @@
+[1/4] Running Yosys synthesis + OpenSTA on baseline 'web_acf677060dce'...
+      top module: mac_unit   sources: 1 file(s)
+      Done: /mnt/d/tushar/Downloads/RTL.ai/runs/web_acf677060dce_20260915T132442Z/baseline/result.json
+[2/4] No candidate given — skipping equivalence check.
+[4/4] All run artifacts under: /mnt/d/tushar/Downloads/RTL.ai/runs/web_acf677060dce_20260915T132442Z
+
+============================================================
+RTL.ai — web_acf677060dce
+============================================================
+
+Area
+  Cell area   : 2312.87
+  Total cells : 1736
+  Flip-flops  : 90
+
+Timing
+  Startpoint     : _3440_
+  Endpoint       : _3471_
+  Clock          : clk
+  Logic depth    : 34
+  Arrival time   : 1.63 ns
+  Required time  : 1.42 ns
+  Worst slack    : -0.22 ns
+  Max frequency  : 581.3953488372093 MHz
+  Timing passed  : False
+
+Power
+  Internal   : 831.0 uW
+  Switching  : 398.0 uW
+  Leakage    : 50.1 uW
+  Total      : 1280.0 uW
+
+PPA Score
+  Area score     : 8.647265086234851
+  Timing score   : 0.0
+  Power score    : 1.5625
+  Overall score  : 3.927656034493941
+  Assessment     : TIMING VIOLATED — PPA optimization recommended. (area/power only; the design does not meet its constraint)

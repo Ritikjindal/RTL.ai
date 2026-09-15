@@ -37,7 +37,11 @@
   .stat b{display:block;font:700 22px/1.2 var(--mono);color:var(--txt)}
   .stat span{font-size:12px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
 
-  .grid{display:grid;grid-template-columns:380px 1fr;gap:22px;align-items:start}
+  .wordmark{font:800 26px/1 var(--mono);letter-spacing:-.01em;color:var(--txt);
+    display:inline-flex;align-items:baseline;gap:2px;margin-bottom:20px}
+  .wordmark span{color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start}
   @media(max-width:940px){.grid{grid-template-columns:1fr}}
 
   .card{background:linear-gradient(180deg,var(--panel),var(--panel-2));
@@ -70,21 +74,40 @@
     background-image:none}
   .go.stop:hover{background:rgba(248,113,113,.1)}
 
-  /* pipeline tracker */
+  /* pipeline tracker -- the main visual signal during a run, so it has to read
+     clearly even on a compressed screen-share or from across a room */
   .pipe{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
-  .step{flex:1;min-width:104px;background:#0a0e14;border:1px solid var(--line);
-    border-radius:10px;padding:11px 12px;position:relative;overflow:hidden;transition:.25s}
-  .step .n{font:700 10px var(--mono);color:var(--faint);letter-spacing:.1em}
-  .step .t{font-size:12.5px;color:var(--dim);margin-top:3px;font-weight:600}
-  .step.active{border-color:var(--accent);background:rgba(53,224,208,.07)}
-  .step.active .t{color:var(--accent)}
-  .step.active::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;
-    background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  .step{flex:1;min-width:0;background:#0a0e14;border:2px solid var(--line);
+    border-radius:12px;padding:14px 10px;position:relative;overflow:hidden;transition:.25s}
+  .step .n{font:700 10.5px var(--mono);color:var(--faint);letter-spacing:.1em}
+  .step .t{font-size:13.5px;color:var(--dim);margin-top:6px;font-weight:700;line-height:1.25}
+  .step.active{border-color:var(--accent);background:var(--accent)}
+  .step.active .n{color:rgba(4,18,15,.65)}
+  .step.active .t{color:#04120f}
+  .step.active::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:100%;
+    background:linear-gradient(90deg,transparent,rgba(4,18,15,.55),transparent);
     animation:sweep 1.4s linear infinite}
   @keyframes sweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-  .step.done{border-color:rgba(52,211,153,.4)}
-  .step.done .t{color:var(--ok)}
+  .step.done{border-color:var(--line);opacity:.5}
+  .step.done .t{color:var(--dim)}
   .step.done .n::after{content:' ✓';color:var(--ok)}
+  .step.failed{border-color:var(--bad);background:rgba(248,113,113,.06);opacity:1}
+  .step.failed .t{color:var(--bad)}
+  .step.failed .n::after{content:' ✕';color:var(--bad)}
+
+  /* pre-run design summary -- its own panel, not the raw log, shown between
+     picking a design and pressing Run */
+  .presummary{background:#0a0e14;border:1px solid var(--line);border-left:2px solid var(--accent);
+    border-radius:10px;padding:16px 18px;margin-bottom:18px;display:flex;flex-direction:column;gap:13px}
+  .presummary .ps-row{display:flex;align-items:flex-start;gap:16px}
+  .presummary .ps-k{flex:0 0 118px;font:700 10.5px var(--mono);color:var(--faint);
+    text-transform:uppercase;letter-spacing:.09em;padding-top:3px}
+  .presummary .ps-v{font:600 13.5px var(--mono);color:var(--txt);padding-top:1px}
+  .presummary .ps-v.accent{color:var(--accent);font-weight:700}
+  .presummary .ps-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .presummary .chip{background:#131924;border:1px solid var(--line);border-radius:7px;
+    padding:5px 10px;font:600 11.5px var(--mono);color:var(--txt);white-space:nowrap}
+  .presummary .chip small{color:var(--faint);font-weight:500;margin-left:6px}
 
   /* live target readout */
   .target{display:none;gap:26px;flex-wrap:wrap;background:#0a0e14;border:1px solid var(--line);
@@ -153,6 +176,20 @@
   .m .d{font:600 12px var(--mono);margin-top:5px}
   .up{color:var(--ok)} .down{color:var(--bad)} .flat{color:var(--faint)}
 
+  /* effort comparison -- two separate figures, deliberately never combined into a
+     single "hours saved" number: one measured, one a rough manual-equivalent guess */
+  .effort-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:12px;margin-top:4px}
+  .ecard{background:#0a0e14;border:1px solid var(--line);border-radius:12px;padding:16px}
+  .ecard .ek{font-size:10.5px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;
+    display:flex;align-items:center;gap:8px}
+  .ecard .ev{font:700 22px/1.3 var(--mono);margin-top:8px;color:var(--txt)}
+  .ecard .ebasis{font-size:11.5px;color:var(--faint);margin-top:8px;line-height:1.5}
+  .etag{font:700 9px var(--mono);letter-spacing:.05em;padding:2px 8px;border-radius:100px;
+    text-transform:uppercase}
+  .etag.measured{background:rgba(53,224,208,.12);color:var(--accent)}
+  .etag.estimated{background:rgba(124,108,255,.15);color:var(--accent-2)}
+
   table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
   th{text-align:left;font:600 10.5px var(--mono);color:var(--faint);
      letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;
@@ -192,13 +229,11 @@
 <div class="wrap">
 
 <header>
+  <div class="wordmark">RTL<span>.ai</span></div>
   <h1>Closing timing on RTL<br>with <em>generative AI</em>, formally checked</h1>
-  <p class="sub">Point it at a design and its timing constraints. It synthesizes the design, locates
-  the module driving the critical path, and asks a model to rewrite just that module. Every rewrite
-  is <strong>formally proven equivalent</strong> to what it replaces before it's ever accepted —
-  never assumed, never approximated. The rewritten module is reintegrated, the whole design is
-  re-measured, and the loop repeats on whatever bottleneck emerges next, until nothing more can be
-  improved.</p>
+  <p class="sub">It finds the module driving your critical path, rewrites it, and re-measures the
+  whole design — repeating until nothing more can be improved. Every rewrite is
+  <strong>formally proven equivalent</strong> before it's ever accepted.</p>
 </header>
 
 <div class="grid">
@@ -241,6 +276,12 @@
     <h2>Pipeline</h2>
     <p class="hint">Live output from the same script the command line runs.</p>
 
+    <div class="presummary" id="presummary" style="display:none">
+      <div class="ps-row"><span class="ps-k">Clock domains</span><span class="ps-v" id="ps-clocks">—</span></div>
+      <div class="ps-row"><span class="ps-k">Modules</span><div class="ps-chips" id="ps-modules"></div></div>
+      <div class="ps-row"><span class="ps-k">Est. run time</span><span class="ps-v accent" id="ps-eta">—</span></div>
+    </div>
+
     <div class="pipe" id="pipe">
       <div class="step" data-s="analyze"><div class="n">01</div><div class="t">Synthesize &amp; time</div></div>
       <div class="step" data-s="attribute"><div class="n">02</div><div class="t">Locate module</div></div>
@@ -261,7 +302,7 @@
 
     <div class="roundlog" id="roundlog" style="display:none"></div>
 
-    <details class="raw" id="rawbox" open>
+    <details class="raw" id="rawbox">
       <summary>Raw pipeline output</summary>
       <div class="term" id="term">Idle. Choose a design and press Run.</div>
     </details>
@@ -280,6 +321,21 @@
     <div class="metrics" id="metrics"></div>
 
     <div class="optimize-only">
+      <div id="effort" style="display:none">
+        <h2 style="margin-top:28px">Effort Comparison</h2>
+        <div class="effort-grid">
+          <div class="ecard">
+            <div class="ek">Agent wall-clock <span class="etag measured">measured</span></div>
+            <div class="ev" id="ef-wall">—</div>
+          </div>
+          <div class="ecard">
+            <div class="ek">Manual equivalent <span class="etag estimated">estimated</span></div>
+            <div class="ev" id="ef-manual">—</div>
+            <div class="ebasis" id="ef-basis"></div>
+          </div>
+        </div>
+      </div>
+
       <h2 style="margin-top:28px">Formal equivalence</h2>
       <p class="hint">Every accepted change is proven behaviourally identical before it counts.</p>
       <table id="formal"><thead><tr><th>Candidate</th><th>Verdict</th><th>Method</th></tr></thead><tbody></tbody></table>
@@ -332,17 +388,19 @@ fetch('/presets').then(r=>r.json()).then(d=>{
     $('#preset').appendChild(o);
   });
   $('#preset').value = 0;
+  showInspect();
 });
 
 $('#preset').addEventListener('change', e=>{
   $('#upload').style.display = e.target.value === '' ? 'block' : 'none';
+  showInspect();
 });
 
 $('#rtl').addEventListener('change', async e=>{
   const files = [...e.target.files];
   const topSel = $('#top');
   topSel.innerHTML = '<option value="">Auto-detect</option>';
-  if (!files.length){ $('#topwrap').style.display = 'none'; return; }
+  if (!files.length){ $('#topwrap').style.display = 'none'; showInspect(); return; }
 
   const seen = new Set();
   for (const f of files){
@@ -356,12 +414,63 @@ $('#rtl').addEventListener('change', async e=>{
     }
   }
   $('#topwrap').style.display = seen.size > 1 ? 'block' : 'none';
+  showInspect();
 });
+
+$('#sdc').addEventListener('change', showInspect);
+
+// Pre-run summary: as soon as a design is selected or uploaded, show what it's made
+// of -- clock domains, modules, an ETA -- without running anything. Its own panel
+// above the pipeline tracker, not the raw log. Server-computed (/inspect parses the
+// SDC and RTL the same way optimize.py itself does) so an upload gets the same real
+// numbers a preset does, not a guess.
+function renderInspect(d){
+  const panel = $('#presummary');
+  if (!d || d.error || (!d.clocks.length && !d.modules.length)){
+    panel.style.display = 'none';
+    return;
+  }
+  const clockWord = d.clocks.length === 1 ? 'domain' : 'domains';
+  const clockNames = `(${d.clocks.join(', ') || '—'})`;
+  $('#ps-clocks').textContent = mode === 'analyze'
+    ? `${d.clocks.length} ${clockWord} ${clockNames} → single synth + STA pass`
+    : `${d.clocks.length} ${clockWord} ${clockNames} → ${d.rounds} ${d.rounds === 1 ? 'round' : 'rounds'}`;
+  $('#ps-modules').innerHTML = d.modules.length
+    ? d.modules.map(m=>`<span class="chip">${m.name}<small>${m.lines}L</small></span>`).join('')
+    : '<span class="chip" style="color:var(--faint)">none found</span>';
+  $('#ps-eta').textContent = d.eta;
+  panel.style.display = 'flex';
+}
+
+let inspectSeq = 0;
+async function showInspect(){
+  const seq = ++inspectSeq;
+  const pv = $('#preset').value;
+  try {
+    let d;
+    if (pv !== ''){
+      d = await (await fetch('/inspect?design=' + encodeURIComponent(pv) + '&mode=' + mode)).json();
+    } else {
+      const rtlFiles = [...$('#rtl').files];
+      const sdcFile = $('#sdc').files[0];
+      if (!rtlFiles.length || !sdcFile){ renderInspect(null); return; }
+      const fd = new FormData();
+      rtlFiles.forEach(f => fd.append('rtl', f));
+      fd.append('sdc', sdcFile);
+      fd.append('mode', mode);
+      d = await (await fetch('/inspect', {method:'POST', body:fd})).json();
+    }
+    if (seq === inspectSeq) renderInspect(d);
+  } catch (err) {
+    if (seq === inspectSeq) renderInspect(null);
+  }
+}
 
 document.querySelectorAll('.seg button').forEach(b=>{
   b.onclick = ()=>{
     document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));
     b.classList.add('on'); mode = b.dataset.mode;
+    showInspect();
   };
 });
 
@@ -369,9 +478,17 @@ function setStep(name){
   const steps = [...document.querySelectorAll('.step')];
   const idx = steps.findIndex(s=>s.dataset.s===name);
   steps.forEach((s,i)=>{
+    s.classList.remove('failed');
     s.classList.toggle('active', i===idx);
     s.classList.toggle('done', i<idx);
   });
+}
+// Marks whichever stage is mid-flight as abandoned -- called when the run is stopped
+// or the stream drops, so the tracker doesn't just freeze on a stage that never
+// finished and never explicitly failed either.
+function failStep(){
+  const active = document.querySelector('.step.active');
+  if (active){ active.classList.remove('active'); active.classList.add('failed'); }
 }
 function allDone(){
   // Analyze-only runs never go past step 1 (synthesize & time) -- only mark
@@ -504,6 +621,19 @@ function render(res){
       <div class="d ${cls}">${cv!=null? ds+' vs baseline' : ''}</div></div>`;
   }).join('');
 
+  // Two separate figures, never combined into one "hours saved" headline -- one is
+  // measured (this run's actual wall-clock), the other a rough manual-equivalent
+  // comparison point computed from a constant per-transform range.
+  const effortBox = $('#effort');
+  if (res.effort){
+    effortBox.style.display = 'block';
+    $('#ef-wall').textContent = res.effort.wall_clock_label || '—';
+    $('#ef-manual').textContent = res.effort.manual_label || '—';
+    $('#ef-basis').textContent = res.effort.manual_basis || '';
+  } else {
+    effortBox.style.display = 'none';
+  }
+
   // Analyze-only runs never produce candidates or optimized RTL -- hide those
   // sections instead of showing an always-empty table, which reads as a bug.
   const optimizeOnly = [...document.querySelectorAll('.optimize-only')];
@@ -634,6 +764,8 @@ $('#f').addEventListener('submit', async e=>{
   term.textContent = ''; $('#results').classList.remove('show');
   $('#planbox').style.display='none';
   $('#eta').style.display = 'none'; $('#eta').innerHTML = '';
+  $('#presummary').style.display = 'none';
+  $('#rawbox').open = true;
   roundRows.clear(); $('#roundlog').innerHTML = ''; $('#roundlog').style.display = 'none';
 
   const fd = new FormData();
@@ -668,11 +800,11 @@ $('#f').addEventListener('submit', async e=>{
     try { render(JSON.parse(ev.data)); } catch(err){ log('(no results parsed)'); }
   });
   es.addEventListener('stopped', ev => {
-    es.close(); setRunning(false);
+    es.close(); setRunning(false); failStep();
     log(''); log('■ Stopped by user.');
     try { render(JSON.parse(ev.data)); } catch(err){ /* nothing measured yet */ }
   });
-  es.onerror = () => { es.close(); setRunning(false); };
+  es.onerror = () => { es.close(); setRunning(false); failStep(); };
 });
 </script>
 </body>

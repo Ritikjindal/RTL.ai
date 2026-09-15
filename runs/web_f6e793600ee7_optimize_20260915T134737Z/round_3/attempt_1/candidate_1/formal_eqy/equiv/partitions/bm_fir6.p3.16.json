@@ -1,0 +1,31 @@
+{
+  "partition": {
+    "index": 31,
+    "name": "bm_fir6.p3.16",
+    "inbits": {
+      "p3": [
+        15
+      ]
+    },
+    "outbits": {
+      "p3": [
+        16
+      ]
+    },
+    "crossbits": {}
+  },
+  "gold_module": {
+    "name": "gold.bm_fir6.p3.16",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  },
+  "gate_module": {
+    "name": "gold.bm_fir6.p3.16",
+    "internal": {},
+    "unused": {},
+    "cellcount": 1,
+    "bitcount": 2
+  }
+}
