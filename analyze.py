@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # analyze.py — synthesize, time and score an RTL design; optionally A/B a candidate.
-#
-#   python3 analyze.py --rtl designs/foo/*.v --sdc constraints/foo.sdc
-#   python3 analyze.py --rtl designs/foo/*.v --sdc constraints/foo.sdc --candidate designs/bar/*.v
-#
-# Nothing in this file needs editing to analyze a new design.
 
 import sys
 from pathlib import Path

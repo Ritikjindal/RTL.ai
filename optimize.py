@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # optimize.py — the GenAI optimization loop.
 #
-#   python3 optimize.py --rtl designs/*.v --sdc constraints/foo.sdc
-#
-# Give it a design and it will keep optimizing until it runs out of improvements:
+# Give it a design and it will keep optimizing until number of rounds which are equal to number of clocks in the file:
 # each ROUND analyses the current design, identifies the module owning the critical
 # path, rewrites and proves just that module, reintegrates it, and re-measures the
 # whole design. The next round starts from that result, so as the bottleneck migrates

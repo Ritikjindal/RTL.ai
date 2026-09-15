@@ -2,11 +2,6 @@
 #
 # Formal equivalence checking via SymbiYosys, per the hackathon brief.
 #
-# We build the gold-vs-gate comparison ourselves as an explicit SystemVerilog
-# assertion (rather than relying on Yosys's `miter -make_assert`, which was
-# found to emit a hardwired always-true stub for this sequential design --
-# see run history). The generated wrapper file is plain, readable Verilog:
-# open it yourself to see exactly what's being checked.
 
 import json
 import re
