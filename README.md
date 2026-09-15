@@ -48,9 +48,8 @@ cp .env.example .env        # then edit .env
 `.env`:
 
 ```
-ANTHROPIC_API_KEY=sk-ant-...
+ANTHROPIC_API_KEY=.......
 OSS_CAD_SUITE=/path/to/oss-cad-suite
-LIBERTY_FILE=/path/to/NangateOpenCellLibrary_typical.lib
 ```
 
 Check the toolchain is visible:
